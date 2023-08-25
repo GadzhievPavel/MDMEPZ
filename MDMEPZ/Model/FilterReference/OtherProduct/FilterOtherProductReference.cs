@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.FilterOtherProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class FilterOtherProductReference : SpecialReference<FilterOtherProductReferenceObject>	{				public partial class Factory		{		}	}}

@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.FilterStandartProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class FilterStandartProductTypes : SpecialClassTree<FilterStandartProductType>	{	}}

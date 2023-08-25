@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6022681-2B70-498D-A0E9-8F719B92578F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MDMEPZ</RootNamespace>
+    <AssemblyName>MDMEPZ</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TFlex.DOCs.Model">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.DOCs.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="TFlex.DOCs.Resources">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.DOCs.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="TFlex.PdmFramework.Resolve">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\UnitOfMeasurement.cs" />
+    <Compile Include="LibraryPlugin.cs" />
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.cs" />
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.designer.cs">
+      <DependentUpon>FilterDetaliAssemblingReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReferenceObject.designer.cs">
+      <DependentUpon>FilterDetaliAssemblingReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingType.cs" />
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingType.designer.cs">
+      <DependentUpon>FilterDetaliAssemblingType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingTypes.cs" />
+    <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingTypes.designer.cs">
+      <DependentUpon>FilterDetaliAssemblingTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentReference.cs" />
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentReference.designer.cs">
+      <DependentUpon>FilterElectronicComponentReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentReferenceObject.designer.cs">
+      <DependentUpon>FilterElectronicComponentReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentType.cs" />
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentType.designer.cs">
+      <DependentUpon>FilterElectronicComponentType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentTypes.cs" />
+    <Compile Include="Model\FilterReference\ElectronicComponent\FilterElectronicComponentTypes.designer.cs">
+      <DependentUpon>FilterElectronicComponentTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\IFilterNSI.cs" />
+    <Compile Include="Model\FilterReference\Material\FilterMaterialReference.cs" />
+    <Compile Include="Model\FilterReference\Material\FilterMaterialReference.designer.cs">
+      <DependentUpon>FilterMaterialReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Material\FilterMaterialReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\Material\FilterMaterialReferenceObject.designer.cs">
+      <DependentUpon>FilterMaterialReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Material\FilterMaterialType.cs" />
+    <Compile Include="Model\FilterReference\Material\FilterMaterialType.designer.cs">
+      <DependentUpon>FilterMaterialType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Material\FilterMaterialTypes.cs" />
+    <Compile Include="Model\FilterReference\Material\FilterMaterialTypes.designer.cs">
+      <DependentUpon>FilterMaterialTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketReference.cs" />
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketReference.designer.cs">
+      <DependentUpon>FilterOriginalMaketReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketReferenceObject.Designer.cs">
+      <DependentUpon>FilterOriginalMaketReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketType.cs" />
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketType.designer.cs">
+      <DependentUpon>FilterOriginalMaketType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketTypes.cs" />
+    <Compile Include="Model\FilterReference\OriginalMaket\FilterOriginalMaketTypes.designer.cs">
+      <DependentUpon>FilterOriginalMaketTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductReference.cs" />
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductReference.Designer.cs">
+      <DependentUpon>FilterOtherProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductReferenceObject.designer.cs">
+      <DependentUpon>FilterOtherProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductType.cs" />
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductType.designer.cs">
+      <DependentUpon>FilterOtherProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductTypes.cs" />
+    <Compile Include="Model\FilterReference\OtherProduct\FilterOtherProductTypes.designer.cs">
+      <DependentUpon>FilterOtherProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Product\FilterProductReference.cs" />
+    <Compile Include="Model\FilterReference\Product\FilterProductReference.designer.cs">
+      <DependentUpon>FilterProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Product\FilterProductReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\Product\FilterProductReferenceObject.designer.cs">
+      <DependentUpon>FilterProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Product\FilterProductType.cs" />
+    <Compile Include="Model\FilterReference\Product\FilterProductType.designer.cs">
+      <DependentUpon>FilterProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Product\FilterProductTypes.cs" />
+    <Compile Include="Model\FilterReference\Product\FilterProductTypes.designer.cs">
+      <DependentUpon>FilterProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductReference.cs" />
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductReference.designer.cs">
+      <DependentUpon>FilterStandartProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductReferenceObject.designer.cs">
+      <DependentUpon>FilterStandartProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductType.cs" />
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductType.designer.cs">
+      <DependentUpon>FilterStandartProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductTypes.cs" />
+    <Compile Include="Model\FilterReference\StandartProduct\FilterStandartProductTypes.designer.cs">
+      <DependentUpon>FilterStandartProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\ValueNSI.cs" />
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceReference.cs" />
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceReference.designer.cs">
+      <DependentUpon>FilterWorkpieceReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceReferenceObject.Designer.cs">
+      <DependentUpon>FilterWorkpieceReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceType.cs" />
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceType.designer.cs">
+      <DependentUpon>FilterWorkpieceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceTypes.cs" />
+    <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceTypes.designer.cs">
+      <DependentUpon>FilterWorkpieceTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureERPReference.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureERPReference.designer.cs">
+      <DependentUpon>NomenclatureERPReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureERPReferenceObject.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureERPReferenceObject.designer.cs">
+      <DependentUpon>NomenclatureERPReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureERPType.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureERPType.designer.cs">
+      <DependentUpon>NomenclatureERPType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureERPTypes.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureERPTypes.designer.cs">
+      <DependentUpon>NomenclatureERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">
+      <DependentUpon>ApplicabiltyMaterialsReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReferenceObject.cs" />
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReferenceObject.Designer.cs">
+      <DependentUpon>ApplicabiltyMaterialsReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsType.cs" />
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsType.designer.cs">
+      <DependentUpon>ApplicabiltyMaterialsType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsTypes.cs" />
+    <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsTypes.designer.cs">
+      <DependentUpon>ApplicabiltyMaterialsTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductReference.cs" />
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductReference.designer.cs">
+      <DependentUpon>CategoryProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductReferenceObject.cs" />
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductReferenceObject.Designer.cs">
+      <DependentUpon>CategoryProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductType.cs" />
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductType.designer.cs">
+      <DependentUpon>CategoryProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.cs" />
+    <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.designer.cs">
+      <DependentUpon>CategoryProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReference.cs" />
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReference.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReferenceObject.cs" />
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReferenceObject.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesType.cs" />
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesType.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesTypes.cs" />
+    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesTypes.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupList\GroupListReference.cs" />
+    <Compile Include="Model\References1C\GroupList\GroupListReference.designer.cs">
+      <DependentUpon>GroupListReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupList\GroupListReferenceObject.cs" />
+    <Compile Include="Model\References1C\GroupList\GroupListReferenceObject.designer.cs">
+      <DependentUpon>GroupListReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupList\GroupListType.cs" />
+    <Compile Include="Model\References1C\GroupList\GroupListType.designer.cs">
+      <DependentUpon>GroupListType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupList\GroupListTypes.cs" />
+    <Compile Include="Model\References1C\GroupList\GroupListTypes.designer.cs">
+      <DependentUpon>GroupListTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.cs" />
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.designer.cs">
+      <DependentUpon>ReplacementERPReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReferenceObject.cs" />
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReferenceObject.designer.cs">
+      <DependentUpon>ReplacementERPReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPType.cs" />
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPType.designer.cs">
+      <DependentUpon>ReplacementERPType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPTypes.cs" />
+    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPTypes.designer.cs">
+      <DependentUpon>ReplacementERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Specification\SpecificationERPReference.cs" />
+    <Compile Include="Model\References1C\Specification\SpecificationERPReference.designer.cs">
+      <DependentUpon>SpecificationERPReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Specification\SpecificationERPReferenceObject.cs" />
+    <Compile Include="Model\References1C\Specification\SpecificationERPReferenceObject.Designer.cs">
+      <DependentUpon>SpecificationERPReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Specification\SpecificationERPType.cs" />
+    <Compile Include="Model\References1C\Specification\SpecificationERPType.designer.cs">
+      <DependentUpon>SpecificationERPType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Specification\SpecificationERPTypes.cs" />
+    <Compile Include="Model\References1C\Specification\SpecificationERPTypes.designer.cs">
+      <DependentUpon>SpecificationERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.cs" />
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.designer.cs">
+      <DependentUpon>TypeNomenclatureERPReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReferenceObject.cs" />
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReferenceObject.designer.cs">
+      <DependentUpon>TypeNomenclatureERPReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPType.cs" />
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPType.designer.cs">
+      <DependentUpon>TypeNomenclatureERPType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPTypes.cs" />
+    <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPTypes.designer.cs">
+      <DependentUpon>TypeNomenclatureERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.cs" />
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.designer.cs">
+      <DependentUpon>TypeReproductionERPReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReferenceObject.cs" />
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReferenceObject.designer.cs">
+      <DependentUpon>TypeReproductionERPReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPType.cs" />
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPType.designer.cs">
+      <DependentUpon>TypeReproductionERPType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPTypes.cs" />
+    <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPTypes.designer.cs">
+      <DependentUpon>TypeReproductionERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementReference.cs" />
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementReference.designer.cs">
+      <DependentUpon>UnitOfMeasurementReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementReferenceObject.cs" />
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementReferenceObject.designer.cs">
+      <DependentUpon>UnitOfMeasurementReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementType.cs" />
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementType.designer.cs">
+      <DependentUpon>UnitOfMeasurementType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.cs" />
+    <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
+      <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\NomenclatureHandler.cs" />
+    <Compile Include="Service\NomenclaturePDMHandler.cs" />
+    <Compile Include="Util\ReferenceObjectExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

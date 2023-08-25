@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.TypeReproductionERP{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class TypeReproductionERPReference : SpecialReference<TypeReproductionERPReferenceObject>	{				public partial class Factory		{		}	}}

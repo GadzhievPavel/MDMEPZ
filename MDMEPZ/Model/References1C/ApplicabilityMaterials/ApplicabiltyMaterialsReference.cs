@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.ApplicabiltyMaterials{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class ApplicabiltyMaterialsReference : SpecialReference<ApplicabiltyMaterialsReferenceObject>	{				public partial class Factory		{		}	}}

@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class TypeNomenclatureERPReference : SpecialReference<TypeNomenclatureERPReferenceObject>	{				public partial class Factory		{		}	}}

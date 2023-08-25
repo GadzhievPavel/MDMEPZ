@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class CategoryProductTypes : SpecialClassTree<CategoryProductType>	{	}}

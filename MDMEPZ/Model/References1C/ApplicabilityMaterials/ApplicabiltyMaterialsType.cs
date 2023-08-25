@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.ApplicabiltyMaterials{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class ApplicabiltyMaterialsType : ClassObject	{	}}

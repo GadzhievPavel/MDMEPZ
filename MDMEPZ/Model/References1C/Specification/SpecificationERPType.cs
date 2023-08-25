@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.SpecificationERP{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class SpecificationERPType : ClassObject	{	}}

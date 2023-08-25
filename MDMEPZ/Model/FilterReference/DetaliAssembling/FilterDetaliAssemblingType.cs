@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.FilterDetaliAssembling{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class FilterDetaliAssemblingType : ClassObject	{	}}

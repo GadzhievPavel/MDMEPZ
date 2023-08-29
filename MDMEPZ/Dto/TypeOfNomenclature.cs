@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 namespace MDMEPZ.Dto
 {
     /// <summary>
-    ///     Справочник "Единицы измерения"
+    ///     Справочник "Тип номенклатуры"
     /// </summary>
-    public class UnitOfMeasurement
+    public class TypeOfNomenclature
     {
         // Наименование
         public string Name { get; set; }
         
         // GUID (1C)
         public string Guid1C { get; set; }
-        
-        // GUID (T-Flex)
-        public string GuidTFlex { get; set; }
     }
 }

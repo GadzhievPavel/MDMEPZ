@@ -2,11 +2,11 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 	using MDMEPZ.Dto;
 	using MDMEPZ.Util;
 
-	public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>	{		public ReferenceObject CreateReferenceObject(UnitOfMeasurement unitOfMeasurement)
+	public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>	{		public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(UnitOfMeasurement unitOfMeasurement)
 		{
 			var obj = this.CreateReferenceObject() as UnitOfMeasurementReferenceObject;
 			obj.StartUpdate();
-			obj.GUID_1C.Value = new Guid(unitOfMeasurement.guid1C);
-			obj.Name.Value = unitOfMeasurement.name;
+			obj.GUID_1C.Value = new Guid(unitOfMeasurement.Guid1C);
+			obj.Name.Value = unitOfMeasurement.Name;
 			return obj;
-		}		public partial class Factory		{		}	}}
+		}	}}

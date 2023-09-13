@@ -9,13 +9,13 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
         {
         }
 
-        public ReferenceObject CreateReferenceObject(TypeOfNomenclature typeOfNomenclature)
-        {
-            var o = CreateReferenceObject() as TypeNomenclatureERPReferenceObject;
-            o.StartUpdate();
-            o.Name.Value = typeOfNomenclature.Name;
-            o.GUID_1C.Value = new Guid(typeOfNomenclature.Guid1C);
-            o.EndChanges();
-            return o;
-        }
+        //public ReferenceObject CreateReferenceObject(TypeOfNomenclature typeOfNomenclature)
+        //{
+        //    var o = CreateReferenceObject() as TypeNomenclatureERPReferenceObject;
+        //    o.StartUpdate();
+        //    o.Name.Value = typeOfNomenclature.Name;
+        //    o.GUID_1C.Value = new Guid(typeOfNomenclature.Guid1C);
+        //    o.EndChanges();
+        //    return o;
+        //}
     }}

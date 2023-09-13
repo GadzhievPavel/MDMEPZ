@@ -7,13 +7,13 @@ namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DO
 
     public partial class CategoryProductReference : SpecialReference<CategoryProductReferenceObject>	{				public partial class Factory		{		}
         
-        public ReferenceObject CreateReferenceObject(ProductCategory productCategory)
-        {
-            var o = CreateReferenceObject() as CategoryProductReferenceObject;
-            o.StartUpdate();
-            o.Name.Value = productCategory.Name;
-            o.GUID_1C.Value = new Guid(productCategory.Guid1C);
-            o.EndChanges();
-            return o;
-        }
+        //public ReferenceObject CreateReferenceObject(ProductCategory productCategory)
+        //{
+        //    var o = CreateReferenceObject() as CategoryProductReferenceObject;
+        //    o.StartUpdate();
+        //    o.Name.Value = productCategory.Name;
+        //    o.GUID_1C.Value = new Guid(productCategory.Guid1C);
+        //    o.EndChanges();
+        //    return o;
+        //}
     }}

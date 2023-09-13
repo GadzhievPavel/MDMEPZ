@@ -9,5 +9,5 @@ namespace TFlex.DOCs.References.TypeReproductionERP{	using System;	using TFle
         {
         }
 
-        public ReferenceObject CreateReferenceObject(TypeOfReproduction typeOfReproduction)        {            var o = CreateReferenceObject() as TypeReproductionERPReferenceObject;            o.StartUpdate();            o.Name.Value = typeOfReproduction.Name;            o.GUID_1C.Value = new Guid(typeOfReproduction.Guid1C);            o.EndChanges();            return o;        }
+        //public ReferenceObject CreateReferenceObject(TypeOfReproduction typeOfReproduction)        //{        //    var o = CreateReferenceObject() as TypeReproductionERPReferenceObject;        //    o.StartUpdate();        //    o.Name.Value = typeOfReproduction.Name;        //    o.GUID_1C.Value = new Guid(typeOfReproduction.Guid1C);        //    o.EndChanges();        //    return o;        //}
     }}

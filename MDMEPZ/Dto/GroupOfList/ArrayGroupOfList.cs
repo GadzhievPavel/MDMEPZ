@@ -8,6 +8,6 @@ namespace MDMEPZ.Dto
 {
     public class ArrayGroupOfList
     {
-        public List<GroupOfList> groupOfLists { get; set; }
+        public GroupOfList[] groupOfList { get; set; }
     }
 }

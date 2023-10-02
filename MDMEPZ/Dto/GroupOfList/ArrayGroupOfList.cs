@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMEPZ.Dto
+namespace MDMEPZ.Dto.GroupOfList
 {
     public class ArrayGroupOfList
     {

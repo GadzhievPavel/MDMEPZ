@@ -2,6 +2,7 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
     using TFlex.DOCs.Model;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
+    using MDMEPZ.Dto.TypeNomenclature;
 
     public partial class TypeNomenclatureERPReference : SpecialReference<TypeNomenclatureERPReferenceObject>
     {
@@ -9,13 +10,12 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
         {
         }
 
-        //public ReferenceObject CreateReferenceObject(TypeOfNomenclature typeOfNomenclature)
-        //{
-        //    var o = CreateReferenceObject() as TypeNomenclatureERPReferenceObject;
-        //    o.StartUpdate();
-        //    o.Name.Value = typeOfNomenclature.Name;
-        //    o.GUID_1C.Value = new Guid(typeOfNomenclature.Guid1C);
-        //    o.EndChanges();
-        //    return o;
-        //}
+        public ReferenceObject CreateReferenceObject(TypeOfNomenclature typeOfNomenclature)
+        {
+            var o = CreateReferenceObject() as TypeNomenclatureERPReferenceObject;
+            o.StartUpdate();
+            o.Name.Value = typeOfNomenclature.name;
+            o.GUID_1C.Value = new Guid(typeOfNomenclature.guid1C);
+            return o;
+        }
     }}

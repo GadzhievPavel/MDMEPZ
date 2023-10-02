@@ -9,6 +9,7 @@ namespace TFlex.DOCs.References.GroupList
     using MDMEPZ.Util;
     using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.Model.Desktop;
+    using MDMEPZ.Dto.GroupOfList;
 
     public partial class GroupListReference : SpecialReference<GroupListReferenceObject>
     {

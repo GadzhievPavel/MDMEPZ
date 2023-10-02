@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMEPZ.Dto.GroupOfList
+namespace MDMEPZ.Dto.TypeNomenclature
 {
-    public class GroupOfList
+    public class TypeOfNomenclature
     {
         public string name { get; set; }
-        public string guid1C { get;set; }
+        public string guid1C { get; set; }
     }
 }

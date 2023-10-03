@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto
 {
-    public class GroupOfList
+    public class Products
     {
-        public string name { get; set; }
-        public string guid1C { get;set; }
+        public Product nomenclatures {  get; set; }
     }
 }

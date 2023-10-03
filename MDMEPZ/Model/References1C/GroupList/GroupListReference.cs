@@ -9,9 +9,11 @@ namespace TFlex.DOCs.References.GroupList
     using MDMEPZ.Util;
     using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.Model.Desktop;
-    using MDMEPZ.Dto.GroupOfList;
+    using TFlex.DOCs.Model.Search;
+    using System.Linq;
+    using MDMEPZ.Model;
 
-    public partial class GroupListReference : SpecialReference<GroupListReferenceObject>
+    public partial class GroupListReference : SpecialReference<GroupListReferenceObject>, IFindService
     {
 
         public partial class Factory
@@ -24,8 +26,12 @@ namespace TFlex.DOCs.References.GroupList
             o.StartUpdate();
             o.Name.Value = groupOfList.name;
             o.GUID_1C.Value = new Guid(groupOfList.guid1C);
-            o.EndChanges();
             return o;
+        }
+
+        public ReferenceObject FindByGuid1C(Guid guid)
+        {
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).First();
         }
     }
 }

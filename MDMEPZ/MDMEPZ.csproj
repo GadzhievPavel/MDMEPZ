@@ -50,10 +50,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
+    <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
+    <Compile Include="Dto\Product\Product.cs" />
+    <Compile Include="Dto\Product\Products.cs" />
+    <Compile Include="Dto\ProductsCategories\ProductCategory.cs" />
+    <Compile Include="Dto\ProductsCategories\ProductsCategories.cs" />
     <Compile Include="Dto\TypeNomenclature\TypeOfNomenclature.cs" />
     <Compile Include="Dto\TypeNomenclature\TypesOfNomenclatures.cs" />
+    <Compile Include="Dto\TypeOfReproduction\TypeOfReproduction.cs" />
+    <Compile Include="Dto\TypeOfReproduction\TypesOfReproductions.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurement.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitsOfMeasurement.cs" />
     <Compile Include="LibraryPlugin.cs" />
@@ -187,6 +195,7 @@
     <Compile Include="Model\FilterReference\Workpiece\FilterWorkpieceTypes.designer.cs">
       <DependentUpon>FilterWorkpieceTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\IReferenceService.cs" />
     <Compile Include="Model\Nomenclature\NomenclatureERPReference.cs" />
     <Compile Include="Model\Nomenclature\NomenclatureERPReference.designer.cs">
       <DependentUpon>NomenclatureERPReference.cs</DependentUpon>

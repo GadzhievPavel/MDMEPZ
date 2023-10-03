@@ -1,8 +1,8 @@
 namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
-	using MDMEPZ.Dto.UnitOfMeasurement;
 	using MDMEPZ.Util;
+    using MDMEPZ.Dto;
 
-	public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>	{		public partial class Factory		{		}		/// <summary>
+    public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>	{		public partial class Factory		{		}		/// <summary>
 		/// Создание объекта на основе DTO
 		/// </summary>
 		/// <param name="unitOfMeasurement"></param>

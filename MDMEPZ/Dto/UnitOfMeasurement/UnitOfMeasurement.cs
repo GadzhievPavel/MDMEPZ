@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMEPZ.Dto.UnitOfMeasurement
+namespace MDMEPZ.Dto
 {
     public class UnitOfMeasurement
     {

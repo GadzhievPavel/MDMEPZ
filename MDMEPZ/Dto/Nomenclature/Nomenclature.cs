@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto
 {
-    public class GroupOfList
+    public class Nomenclature
     {
-        public string name { get; set; }
-        public string guid1C { get;set; }
     }
 }

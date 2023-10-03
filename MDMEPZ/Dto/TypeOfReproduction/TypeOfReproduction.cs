@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto
 {
-    public class GroupOfList
+    public class TypeOfReproduction
     {
         public string name { get; set; }
-        public string guid1C { get;set; }
+        public string guid1C { get; set; }
     }
 }

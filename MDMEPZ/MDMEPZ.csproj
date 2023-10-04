@@ -63,6 +63,7 @@
     <Compile Include="Dto\TypeOfReproduction\TypeOfReproduction.cs" />
     <Compile Include="Dto\TypeOfReproduction\TypesOfReproductions.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurement.cs" />
+    <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurementFull.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitsOfMeasurement.cs" />
     <Compile Include="LibraryPlugin.cs" />
     <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.cs" />

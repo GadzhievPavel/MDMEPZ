@@ -15,7 +15,7 @@ namespace MDMEPZ.Dto
         public string guidTFlex { get; set; }
 
         public ApplicationMaterials applicationMaterials { get; set; }
-        public UnitsOfMeasurement UnitOfMeasurement { get; set; }
+        public UnitOfMeasurementFull unitOfMeasurement { get; set; }
         public TypeOfNomenclature typeNomenclature { get; set; }
         public GroupOfList groupOfList { get; set; }
         public TypeOfReproduction typeOfReproduction { get; set; }

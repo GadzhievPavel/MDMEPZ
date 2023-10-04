@@ -8,6 +8,6 @@ namespace MDMEPZ.Dto
 {
     public class Products
     {
-        public Product nomenclatures {  get; set; }
+        public Product[] products {  get; set; }
     }
 }

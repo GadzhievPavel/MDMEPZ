@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto
 {
-    public class Product
+    public class Product: Nomenclature
     {
-        public string name { get; set; }
-        public string denotation { get; set; }
-        public string guid1C { get; set; }
-        public string guidTFlex { get; set; }
+        //public string name { get; set; }
+        //public string denotation { get; set; }
+        //public string guid1C { get; set; }
+        //public string guidTFlex { get; set; }
 
-        public ApplicationMaterials applicationMaterials { get; set; }
-        public UnitOfMeasurementFull unitOfMeasurement { get; set; }
-        public TypeOfNomenclature typeNomenclature { get; set; }
-        public GroupOfList groupOfList { get; set; }
-        public TypeOfReproduction typeOfReproduction { get; set; }
-        public ProductCategory category { get; set; }
-        public double weight { get; set; }
+        //public ApplicationMaterials applicationMaterials { get; set; }
+        //public UnitOfMeasurementFull unitOfMeasurement { get; set; }
+        //public TypeOfNomenclature typeNomenclature { get; set; }
+        //public GroupOfList groupOfList { get; set; }
+        //public TypeOfReproduction typeOfReproduction { get; set; }
+        //public ProductCategory category { get; set; }
+        //public double weight { get; set; }
     }
 }

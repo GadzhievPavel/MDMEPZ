@@ -17,24 +17,68 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
 
+        private CategoryProductReference categoryProductReference;
+        private GroupListReference groupListReference;
+        private TypeReproductionERPReference typeReproductionERPReference;
+        private TypeNomenclatureERPReference typeNomenclatureERPReference;
+        private UnitOfMeasurementReference unitOfMeasurementReference;
+
         public partial class Factory
         {
         }
 
-        public ReferenceObject CreateReferenceObject(Product product)
+        private void loadSupportReference()
         {
+            categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
+            groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
+            typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
+            typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
+            unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+        }
+
+        public ReferenceObject CreateReferenceObject(Nomenclature product)
+        {
+
             var o = CreateReferenceObject() as NomenclatureERPReferenceObject;
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
-            o.Denotation.Value = product.denotation;
+            if(product.denotation != null)
+            {
+                o.Denotation.Value = product.denotation;
+            }
             o.Weight.Value = product.weight;
 
-            o.ProductCategory = getProductCategoryByGuid1C(new Guid(product.category.guid1C));
-            o.GroupList = getGroupListByGuid1C(new Guid(product.groupOfList.guid1C));
-            o.TypeReproduction = getTypeReproductionByGuid1C(new Guid(product.typeOfReproduction.guid1C));
-            o.TypeNomenclature = getTypeNomenclatureByGuid1C(new Guid(product.typeNomenclature.guid1C));
-            o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
+            var productCategory = getProductCategoryByGuid1C(product);
+            if(productCategory!= null)
+            {
+                o.ProductCategory = productCategory;
+            }
+            //o.ProductCategory = getProductCategoryByGuid1C(new Guid(product.category.guid1C));
+            var groupList = getGroupListByGuid1C(product);
+            if (groupList != null)
+            {
+                o.GroupList = groupList;
+            }
+            //o.GroupList = getGroupListByGuid1C(new Guid(product.groupOfList.guid1C));
+            var typeReproduction = getTypeReproductionByGuid1C(product);
+            if (typeReproduction != null)
+            {
+                o.TypeReproduction = typeReproduction;
+            }
+            //o.TypeReproduction = getTypeReproductionByGuid1C(new Guid(product.typeOfReproduction.guid1C));
+            var typeNomenclature = getTypeNomenclatureByGuid1C(product);
+            if(typeNomenclature != null)
+            {
+                o.TypeNomenclature = typeNomenclature;
+            }
+            //o.TypeNomenclature = getTypeNomenclatureByGuid1C(new Guid(product.typeNomenclature.guid1C));
+            var unitsOfMeasurement = getUnitsOfMeasurementByGuid1C(product);
+            if(unitsOfMeasurement != null)
+            {
+                o.UnitsOfMeasurement = unitsOfMeasurement;
+            }
+            //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }
 
@@ -69,35 +113,77 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return filter;
         }
 
-        private ReferenceObject getProductCategoryByGuid1C(Guid guid)
+        private ReferenceObject getProductCategoryByGuid1C(Nomenclature product)
         {
-            var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
-            return categoryProductReference.FindByGuid1C(guid);
+            if(product.category is null)
+            {
+                return null;
+            }
+            if(product.category.guid1C is null)
+            {
+                return null;
+            }
+
+            //var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
+            return categoryProductReference.FindByGuid1C(new Guid(product.category.guid1C));
         }
 
-        private ReferenceObject getGroupListByGuid1C(Guid guid)
+        private ReferenceObject getGroupListByGuid1C(Nomenclature product)
         {
-            var groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
-            return groupListReference.FindByGuid1C(guid);
+            if (product.groupOfList is null)
+            {
+                return null;
+            }
+            if (product.groupOfList.guid1C is null)
+            {
+                return null;
+            }
+
+            //var groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
+            return groupListReference.FindByGuid1C(new Guid(product.groupOfList.guid1C));
         }
 
-        private ReferenceObject getTypeReproductionByGuid1C(Guid guid)
+        private ReferenceObject getTypeReproductionByGuid1C(Nomenclature product)
         {
-            var typeOfReproductionReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
-            return typeOfReproductionReference.FindByGuid1C(guid);
+            if (product.typeOfReproduction is null)
+            {
+                return null;
+            }
+            if (product.typeOfReproduction.guid1C is null)
+            {
+                return null;
+            }
+            //var typeOfReproductionReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
+            return typeReproductionERPReference.FindByGuid1C(new Guid(product.typeOfReproduction.guid1C));
 
         }
 
-        private ReferenceObject getTypeNomenclatureByGuid1C(Guid guid)
+        private ReferenceObject getTypeNomenclatureByGuid1C(Nomenclature product)
         {
-            var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
-            return typeNomenclatureReference.FindByGuid1C(guid);
+            if (product.typeNomenclature is null)
+            {
+                return null;
+            }
+            if (product.typeNomenclature.guid1C is null)
+            {
+                return null;
+            }
+            //var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
+            return typeNomenclatureERPReference.FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
         }
 
-        private ReferenceObject getUnitsOfMeasurementByGuid1C(Guid guid)
+        private ReferenceObject getUnitsOfMeasurementByGuid1C(Nomenclature product)
         {
-            var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
-            return unitOfMeasurementReference.FindByGuid1C(guid);
+            if (product.unitOfMeasurement is null)
+            {
+                return null;
+            }
+            if (product.unitOfMeasurement.guid1C is null)
+            {
+                return null;
+            }
+            //var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+            return unitOfMeasurementReference.FindByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
         }
 
         

@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
+    <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
+    <Compile Include="Dto\Product\FullProductWhitSpecification.cs" />
     <Compile Include="Dto\Product\Product.cs" />
     <Compile Include="Dto\Product\Products.cs" />
     <Compile Include="Dto\ProductsCategories\ProductCategory.cs" />

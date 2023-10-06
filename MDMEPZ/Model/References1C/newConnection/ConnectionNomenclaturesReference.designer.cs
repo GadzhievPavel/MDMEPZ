@@ -34,12 +34,14 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures
 		public ConnectionNomenclaturesReference(TFlex.DOCs.Model.ServerConnection connection) : 
 				base(connection, ConnectionNomenclaturesReference.ReferenceId)
 		{
-		}
+            loadReference();
+        }
 		
 		private ConnectionNomenclaturesReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
-		}
+            loadReference();
+        }
 		
 		/// <summary>
 		/// Возвращает типы объектов справочника "Подключение номенклатур"

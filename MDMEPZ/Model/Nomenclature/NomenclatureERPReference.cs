@@ -13,6 +13,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.TypeReproductionERP;
     using TFlex.DOCs.References.TypeNomenclatureERP;
     using TFlex.DOCs.References.UnitOfMeasurement;
+    using System.Linq;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -90,6 +91,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         public List<ReferenceObject> findObjectsByName(String name)
         {
             return Find(getFilterNomenclatureByName(name));
+        }
+
+        public ReferenceObject findObjectByGuid1C(String guidStr)
+        {
+            Guid guid = new Guid(guidStr);
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", ParameterGroup)).First();
         }
         private Filter getFilterNomenclatureByDenotation(String denotation)
         {

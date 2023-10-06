@@ -247,22 +247,6 @@
     <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.designer.cs">
       <DependentUpon>CategoryProductTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReference.cs" />
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReference.designer.cs">
-      <DependentUpon>ConnectionNomenclaturesReference.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReferenceObject.cs" />
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesReferenceObject.designer.cs">
-      <DependentUpon>ConnectionNomenclaturesReferenceObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesType.cs" />
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesType.designer.cs">
-      <DependentUpon>ConnectionNomenclaturesType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesTypes.cs" />
-    <Compile Include="Model\References1C\ConnectionNomenclatures\ConnectionNomenclaturesTypes.designer.cs">
-      <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\References1C\GroupList\GroupListReference.cs" />
     <Compile Include="Model\References1C\GroupList\GroupListReference.designer.cs">
       <DependentUpon>GroupListReference.cs</DependentUpon>
@@ -278,6 +262,22 @@
     <Compile Include="Model\References1C\GroupList\GroupListTypes.cs" />
     <Compile Include="Model\References1C\GroupList\GroupListTypes.designer.cs">
       <DependentUpon>GroupListTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReference.cs" />
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReference.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReferenceObject.cs" />
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReferenceObject.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesType.cs" />
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesType.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.cs" />
+    <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.designer.cs">
+      <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.cs" />
     <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.designer.cs">

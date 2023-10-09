@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonElectronicComponents" IsSelectedReference="true">
+  <SelectedObjectGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</SelectedObjectGUID>
+  <SelectedObjectName>Эталоны электронных компонентов</SelectedObjectName>
+  <Table>EtalonElectronicCompoents</Table>
+  <Namespace>TFlex.DOCs.References.EtalonElectronicCompoents</Namespace>
+  <ReferenceClass>EtalonElectronicCompoentsReference</ReferenceClass>
+  <ReferenceObject>EtalonElectronicCompoentsReferenceObject</ReferenceObject>
+  <ClassTree>EtalonElectronicCompoentsTypes</ClassTree>
+  <TClass>EtalonElectronicCompoentsType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+      <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталоны электронных компонентов</Name>
+      <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="11526cb6-5f2f-4866-b9ab-7e2e72444b86" Name="Наименование">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="0a087ab9-443b-4c62-a6fb-1dae9f8ac3ee" Name="Тип электронного компонента">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>TypeEleсtronicComponent</PropertyName>
+      <ValueTypeName>GuidParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="370c870a-018d-437f-bb3f-50d6ce987f05" Name="Обозначение">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="a8d3a880-af21-481c-9c9d-31700d618394" IsListOfObjects="false">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="82834efb-e576-4aa0-85d1-147aa80475ac" IsListOfObjects="false">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Эквиваленты электронных компонентов MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+    <Link GUID="bfe5cd1e-0955-4b72-ad8d-e0f79dc798bc" IsListOfObjects="false">
+      <Owner GUID="c350cff6-961b-4af3-a759-2581b8278d4c">
+        <OwnerReferenceGUID>aa0ef355-8b58-4fae-a9c9-5e2d56a7e166</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталоны электронных компонентов</Name>
+        <ClassName>EtalonElectronicCompoentsReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonElectronicCompoentsReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Электронная структура изделий</LinkedReferenceName>
+      <Name>Электронная структура изделия</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>ESI</ObjectGetPropertyName>
+    </Link>
+  </Links>
+</Settings>

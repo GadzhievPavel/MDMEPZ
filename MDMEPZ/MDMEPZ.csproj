@@ -68,6 +68,134 @@
     <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurementFull.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitsOfMeasurement.cs" />
     <Compile Include="LibraryPlugin.cs" />
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.cs" />
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.Designer.cs">
+      <DependentUpon>EtalonDetailAndAsseblingReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReferenceObject.Designer.cs">
+      <DependentUpon>EtalonDetailAndAsseblingReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingType.cs" />
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingType.Designer.cs">
+      <DependentUpon>EtalonDetailAndAsseblingType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingTypes.Designer.cs">
+      <DependentUpon>EtalonDetailAndAsseblingTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsReference.cs" />
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsReference.Designer.cs">
+      <DependentUpon>EtalonElectronicCompoentsReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsReferenceObject.Designer.cs">
+      <DependentUpon>EtalonElectronicCompoentsReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsType.cs" />
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsType.Designer.cs">
+      <DependentUpon>EtalonElectronicCompoentsType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.Designer.cs">
+      <DependentUpon>EtalonElectronicCompoentsTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.cs" />
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.Designer.cs">
+      <DependentUpon>EtalonMaterialReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReferenceObject.Designer.cs">
+      <DependentUpon>EtalonMaterialReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialType.cs" />
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialType.Designer.cs">
+      <DependentUpon>EtalonMaterialType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialTypes.Designer.cs">
+      <DependentUpon>EtalonMaterialTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketReference.cs" />
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketReference.Designer.cs">
+      <DependentUpon>EtalonOriginalMaketReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketReferenceObject.Designer.cs">
+      <DependentUpon>EtalonOriginalMaketReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketType.cs" />
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketType.Designer.cs">
+      <DependentUpon>EtalonOriginalMaketType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonOriginalMaket\EtalonOriginalMaketTypes.Designer.cs">
+      <DependentUpon>EtalonOriginalMaketTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherReference.cs" />
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherReference.Designer.cs">
+      <DependentUpon>EtalonProductOtherReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherReferenceObject.Designer.cs">
+      <DependentUpon>EtalonProductOtherReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherType.cs" />
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherType.Designer.cs">
+      <DependentUpon>EtalonProductOtherType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonOtherProduct\EtalonProductOtherTypes.Designer.cs">
+      <DependentUpon>EtalonProductOtherTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductReference.cs" />
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductReference.Designer.cs">
+      <DependentUpon>EtalonProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductReferenceObject.Designer.cs">
+      <DependentUpon>EtalonProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductType.cs" />
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductType.Designer.cs">
+      <DependentUpon>EtalonProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonProduct\EtalonProductTypes.Designer.cs">
+      <DependentUpon>EtalonProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReference.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReference.Designer.cs">
+      <DependentUpon>StandartProductReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReferenceObject.Designer.cs">
+      <DependentUpon>StandartProductReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductType.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductType.Designer.cs">
+      <DependentUpon>StandartProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductTypes.Designer.cs">
+      <DependentUpon>StandartProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReference.cs" />
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReference.Designer.cs">
+      <DependentUpon>EtalonWorkpieceReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReferenceObject.Designer.cs">
+      <DependentUpon>EtalonWorkpieceReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceType.cs" />
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceType.Designer.cs">
+      <DependentUpon>EtalonWorkpieceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceTypes.Designer.cs">
+      <DependentUpon>EtalonWorkpieceTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.cs" />
     <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.designer.cs">
       <DependentUpon>FilterDetaliAssemblingReference.cs</DependentUpon>
@@ -360,10 +488,21 @@
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\EtalonHandler.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="Model\Etalon\EtalonDetaliAndAssembling\settings.ssd" />
+    <None Include="Model\Etalon\EtalonElectronicComponents\settings.ssd" />
+    <None Include="Model\Etalon\EtalonMaterial\settings.ssd" />
+    <None Include="Model\Etalon\EtalonOriginalMaket\settings.ssd" />
+    <None Include="Model\Etalon\EtalonOtherProduct\settings.ssd" />
+    <None Include="Model\Etalon\EtalonProduct\settings.ssd" />
+    <None Include="Model\Etalon\EtalonStandartProduct\settings.ssd" />
+    <None Include="Model\Etalon\EtalonWorkpiece\settings.ssd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

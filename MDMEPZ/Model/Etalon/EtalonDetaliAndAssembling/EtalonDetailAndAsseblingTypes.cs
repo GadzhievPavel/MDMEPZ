@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.EtalonDetailAndAssebly{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class EtalonDetailAndAsseblingTypes : SpecialClassTree<EtalonDetailAndAsseblingType>	{	}}

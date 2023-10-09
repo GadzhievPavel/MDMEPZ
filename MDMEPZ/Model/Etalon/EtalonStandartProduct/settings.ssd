@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonStandartProduct" IsSelectedReference="true">
+  <SelectedObjectGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные стандартные изделия</SelectedObjectName>
+  <Table>StandartProduct</Table>
+  <Namespace>TFlex.DOCs.References.StandartProduct</Namespace>
+  <ReferenceClass>StandartProductReference</ReferenceClass>
+  <ReferenceObject>StandartProductReferenceObject</ReferenceObject>
+  <ClassTree>StandartProductTypes</ClassTree>
+  <TClass>StandartProductType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+      <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталонные стандартные изделия</Name>
+      <ClassName>StandartProductReferenceObject</ClassName>
+      <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="49d77e32-f101-4c9a-8250-7f1f6670fc6f" Name="Наименование">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="6f3d22ce-404b-4b5d-9889-053b3c7434ba" Name="Обозначение">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="132bbd08-ce5c-4de3-8885-d27f5bcae935" Name="Покупное">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsBuying</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="a4940d94-1d83-416c-92fb-2ff9421a18e1" Name="Тип стандартного изделия">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>TypeStandartProduct</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="10a660af-b256-4f64-8e10-d334b360d546" Name="Конечное изделие">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsFinalProduct</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="917c19a0-6267-4ade-a87c-a4980ec54542" IsListOfObjects="false">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP СИ</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="17dfef57-0b12-469a-9580-2e9049467f65" IsListOfObjects="false">
+      <Owner GUID="aa42487b-e492-4408-9f25-50eaab0d12cd">
+        <OwnerReferenceGUID>ea68ae3c-e71d-4352-84c2-553cbd2c7f2f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные стандартные изделия</Name>
+        <ClassName>StandartProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>StandartProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Экиваленты стандартных изделий MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+  </Links>
+</Settings>

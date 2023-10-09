@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.EtalonProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class EtalonProductReference : SpecialReference<EtalonProductReferenceObject>	{				public partial class Factory		{		}	}}

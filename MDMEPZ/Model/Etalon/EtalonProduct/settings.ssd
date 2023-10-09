@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonProduct" IsSelectedReference="true">
+  <SelectedObjectGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные изделия</SelectedObjectName>
+  <Table>EtalonProduct</Table>
+  <Namespace>TFlex.DOCs.References.EtalonProduct</Namespace>
+  <ReferenceClass>EtalonProductReference</ReferenceClass>
+  <ReferenceObject>EtalonProductReferenceObject</ReferenceObject>
+  <ClassTree>EtalonProductTypes</ClassTree>
+  <TClass>EtalonProductType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+      <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталонные изделия</Name>
+      <ClassName>EtalonProductReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="1f871942-83ee-4cb2-98cd-9f2695d6a440" Name="Наименование">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="6100355a-4110-43d2-accf-f85975209d8b" Name="Обозначение">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="cbe025e3-1f61-4c65-b11f-7349f567c98d" Name="Код ФНН">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>KodFnn</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="c8b5402d-bfa3-4f08-8681-14ce6a642022" Name="Покупное">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsBuying</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="7cef0023-94ff-4925-bbcf-ce2a0ab788e0" Name="Масса">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Weight</PropertyName>
+      <ValueTypeName>DoubleParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="b757c5df-bff5-4181-905f-b49a71b0d1ad" Name="Конечное изделие">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsFinalProduct</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="730906d9-055c-483e-824f-d9ad6856d1db" IsListOfObjects="false">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP И</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="2583e1ee-8e50-43c3-a975-5ffcf9482202" IsListOfObjects="false">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Эквивалент изделия MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+    <Link GUID="b26ad6ea-d381-48db-806e-8a8e0343c5ee" IsListOfObjects="false">
+      <Owner GUID="774fc226-2493-40aa-bbd5-9e828b282074">
+        <OwnerReferenceGUID>48188e26-6c77-4aa5-9edf-be718fe0ddd6</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные изделия</Name>
+        <ClassName>EtalonProductReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonProductReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Электронная структура изделий</LinkedReferenceName>
+      <Name>ЭСИ изделие</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Product</ObjectGetPropertyName>
+    </Link>
+  </Links>
+</Settings>

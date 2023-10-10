@@ -40,13 +40,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TFlex.DOCs.Model">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.DOCs.Model.dll</HintPath>
+      <HintPath>..\..\ProgramFiles\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.DOCs.Resources">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.DOCs.Resources.dll</HintPath>
+      <HintPath>..\..\ProgramFiles\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.PdmFramework.Resolve">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (33.26)\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
+      <HintPath>..\..\ProgramFiles\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

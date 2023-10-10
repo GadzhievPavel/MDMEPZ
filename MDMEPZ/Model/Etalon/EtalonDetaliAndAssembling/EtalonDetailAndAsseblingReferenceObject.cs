@@ -5,10 +5,10 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly{	using System;	using T
 	using TFlex.DOCs.Model.References.Nomenclature;
 	using TFlex.DOCs.Model.References.Documents;
 
-	public partial class EtalonDetailAndAsseblingReferenceObject : SpecialReferenceObject<EtalonDetailAndAsseblingReference>	{		public ReferenceObject CreateInPDM()
+	public partial class EtalonDetailAndAsseblingReferenceObject : SpecialReferenceObject<EtalonDetailAndAsseblingReference>	{		private Reference refDocument;		private NomenclatureReference refNomenclature;		public ReferenceObject CreateInPDM()
 		{
 			
-
+			var document = refDocument.CreateReferenceObject();
 
 
 

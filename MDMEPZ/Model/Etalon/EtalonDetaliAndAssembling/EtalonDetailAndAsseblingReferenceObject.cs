@@ -18,13 +18,13 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
 		private NomenclatureReference refNomenclature;
 		public ReferenceObject CreateInPDM()
 		{
-			
-			var document = refDocument.CreateReferenceObject();
-			//1
 
-
-
-            //to do
+            var nomenclatureERP = this.Nomenclature as NomenclatureERPReferenceObject;
+            var document = refDocument.CreateReferenceObject();
+            var objEsi = refNomenclature.CreateNomenclatureObject(document, null, null, null, false);
+            nomenclatureERP.StartUpdate();
+            nomenclatureERP.Nomenclature = objEsi;
+            nomenclatureERP.EndUpdate("");
         }
 	}
 }

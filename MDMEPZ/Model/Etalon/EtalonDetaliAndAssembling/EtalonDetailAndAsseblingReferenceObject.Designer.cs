@@ -16,17 +16,20 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
 	using TFlex.DOCs.Model.References.Links;
 	using TFlex.DOCs.Model.Classes;
 	using TFlex.DOCs.Model.Parameters;
-	
-	
-	/// <summary>
-	/// Представляет объект справочника "Эталонные детали и сборки"
-	/// </summary>
-	public partial class EtalonDetailAndAsseblingReferenceObject
+    using TFlex.DOCs.Model.References.Nomenclature;
+
+
+    /// <summary>
+    /// Представляет объект справочника "Эталонные детали и сборки"
+    /// </summary>
+    public partial class EtalonDetailAndAsseblingReferenceObject
 	{
 		
 		internal EtalonDetailAndAsseblingReferenceObject(EtalonDetailAndAsseblingReference reference) : 
 				base(reference)
 		{
+			this.refDocument = this.Reference.Connection.ReferenceCatalog.Find(SpecialReference.Documents).CreateReference();
+			this.refNomenclature = this.Reference.Connection.ReferenceCatalog.Find(SpecialReference.Nomenclature).CreateReference() as NomenclatureReference;
 		}
 		
 		/// <summary>

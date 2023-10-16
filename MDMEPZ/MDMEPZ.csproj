@@ -164,21 +164,21 @@
     <Compile Include="Model\Etalon\EtalonProduct\EtalonProductTypes.Designer.cs">
       <DependentUpon>EtalonProductTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReference.cs" />
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReference.Designer.cs">
-      <DependentUpon>StandartProductReference.cs</DependentUpon>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductReference.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductReference.Designer.cs">
+      <DependentUpon>EtalonStandartProductReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReferenceObject.cs" />
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductReferenceObject.Designer.cs">
-      <DependentUpon>StandartProductReferenceObject.cs</DependentUpon>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductReferenceObject.Designer.cs">
+      <DependentUpon>EtalonStandartProductReferenceObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductType.cs" />
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductType.Designer.cs">
-      <DependentUpon>StandartProductType.cs</DependentUpon>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductType.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductType.Designer.cs">
+      <DependentUpon>EtalonStandartProductType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductTypes.cs" />
-    <Compile Include="Model\Etalon\EtalonStandartProduct\StandartProductTypes.Designer.cs">
-      <DependentUpon>StandartProductTypes.cs</DependentUpon>
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonStandartProduct\EtalonStandartProductTypes.Designer.cs">
+      <DependentUpon>EtalonStandartProductTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReference.cs" />
     <Compile Include="Model\Etalon\EtalonWorkpiece\EtalonWorkpieceReference.Designer.cs">
@@ -489,6 +489,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EtalonHandler.cs" />
+    <Compile Include="Service\FilterHandler.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />

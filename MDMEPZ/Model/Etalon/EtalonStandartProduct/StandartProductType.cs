@@ -1,1 +1,0 @@
-namespace TFlex.DOCs.References.StandartProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class StandartProductType : ClassObject	{	}}

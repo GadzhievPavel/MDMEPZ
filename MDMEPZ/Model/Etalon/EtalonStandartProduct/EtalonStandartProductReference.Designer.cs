@@ -20,7 +20,7 @@ namespace TFlex.DOCs.References.StandartProduct
 	/// <summary>
 	/// Представляет описание справочника "Эталонные стандартные изделия"
 	/// </summary>
-	public partial class StandartProductReference
+	public partial class EtalonStandartProductReference
 	{
 		
 		/// <summary>
@@ -31,12 +31,12 @@ namespace TFlex.DOCs.References.StandartProduct
 		/// <summary>
 		/// Инициализирует новый экземпляр StandartProductReference для работы с объектами справочника "Эталонные стандартные изделия"
 		/// </summary>
-		public StandartProductReference(TFlex.DOCs.Model.ServerConnection connection) : 
-				base(connection, StandartProductReference.ReferenceId)
+		public EtalonStandartProductReference(TFlex.DOCs.Model.ServerConnection connection) : 
+				base(connection, EtalonStandartProductReference.ReferenceId)
 		{
 		}
 		
-		private StandartProductReference(ParameterGroup masterGroup) : 
+		private EtalonStandartProductReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
 		}
@@ -44,43 +44,43 @@ namespace TFlex.DOCs.References.StandartProduct
 		/// <summary>
 		/// Возвращает типы объектов справочника "Эталонные стандартные изделия"
 		/// </summary>
-		public new StandartProductTypes Classes
+		public new EtalonStandartProductTypes Classes
 		{
 			get
 			{
-				return ((StandartProductTypes)(base.Classes));
+				return ((EtalonStandartProductTypes)(base.Classes));
 			}
 		}
 		
-		protected override StandartProductReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
+		protected override EtalonStandartProductReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
 		{
-			StandartProductType type = classObject as StandartProductType;
+			EtalonStandartProductType type = classObject as EtalonStandartProductType;
 			if ((type == null))
 			{
 				return null;
 			}
 			if (type.IsStandartProductReferenceObject)
 			{
-				return new StandartProductReferenceObject(this);
+				return new EtalonStandartProductReferenceObject(this);
 			}
-			return new StandartProductReferenceObject(this);
+			return new EtalonStandartProductReferenceObject(this);
 		}
 		
-		public partial class Factory : SpecialReferenceFactory<StandartProductReference, StandartProductTypes>
+		public partial class Factory : SpecialReferenceFactory<EtalonStandartProductReference, EtalonStandartProductTypes>
 		{
 			
 			internal Factory()
 			{
 			}
 			
-			public override StandartProductReference CreateReference(ParameterGroup masterGroup)
+			public override EtalonStandartProductReference CreateReference(ParameterGroup masterGroup)
 			{
-				return new StandartProductReference(masterGroup);
+				return new EtalonStandartProductReference(masterGroup);
 			}
 			
-			public override StandartProductTypes CreateClassTree(ParameterGroup masterGroup)
+			public override EtalonStandartProductTypes CreateClassTree(ParameterGroup masterGroup)
 			{
-				return new StandartProductTypes(masterGroup);
+				return new EtalonStandartProductTypes(masterGroup);
 			}
 		}
 	}

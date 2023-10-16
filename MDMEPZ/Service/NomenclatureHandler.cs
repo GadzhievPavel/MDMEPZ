@@ -45,7 +45,7 @@ namespace MDMEPZ.Service
             this.nomenclatureERP = nomenclatureERP;
         }
 
-        public ReferenceObject CreateDetaliAndAssembling()
+        public ReferenceObject CreateFilterDetaliAndAssembling()
         {
             var filterDetaliAssembling = filterDetaliAssemblingReference.CreateReferenceObject() as FilterDetaliAssemblingReferenceObject;
             filterDetaliAssembling.StartUpdate();
@@ -54,7 +54,7 @@ namespace MDMEPZ.Service
             return filterDetaliAssembling;
         }
 
-        public ReferenceObject CreateWorkpiece()
+        public ReferenceObject CreateFilterWorkpiece()
         {
             var filterWorkpiece = workpieceReference.CreateReferenceObject() as FilterWorkpieceReferenceObject;
             filterWorkpiece.StartUpdate();
@@ -63,7 +63,7 @@ namespace MDMEPZ.Service
             return filterWorkpiece;
         }
 
-        public ReferenceObject CreateProduct()
+        public ReferenceObject CreateFilterProduct()
         {
             var filterProduct = productReference.CreateReferenceObject() as FilterProductReferenceObject;
             filterProduct.StartUpdate();
@@ -72,7 +72,7 @@ namespace MDMEPZ.Service
             return filterProduct;
         }
 
-        public ReferenceObject CreateMaterial()
+        public ReferenceObject CreateFilterMaterial()
         {
             var filterMaterial = filterMaterialReference.CreateReferenceObject() as FilterMaterialReferenceObject;
             filterMaterial.StartUpdate();
@@ -81,7 +81,7 @@ namespace MDMEPZ.Service
             return filterMaterial;
         }
 
-        public ReferenceObject CreateOriginalMaket()
+        public ReferenceObject CreateFilterOriginalMaket()
         {
             var filterOriginalMaket = originalMaketReference.CreateReferenceObject() as FilterOriginalMaketReferenceObject;
             filterOriginalMaket.StartUpdate();
@@ -90,7 +90,7 @@ namespace MDMEPZ.Service
             return filterOriginalMaket;
         }
 
-        public ReferenceObject CreateOtherProduct()
+        public ReferenceObject CreateFilterOtherProduct()
         {
             var filterOtherProduct = otherProductReference.CreateReferenceObject() as FilterOtherProductReferenceObject;
             filterOtherProduct.StartUpdate();
@@ -99,7 +99,7 @@ namespace MDMEPZ.Service
             return filterOtherProduct;
         }
 
-        public ReferenceObject CreateStandardProduct()
+        public ReferenceObject CreateFilterStandardProduct()
         {
             var filterStandartProduct = standartProductReference.CreateReferenceObject() as FilterStandartProductReferenceObject;
             filterStandartProduct.StartUpdate();
@@ -108,7 +108,7 @@ namespace MDMEPZ.Service
             return filterStandartProduct;
         }
 
-        public ReferenceObject CreateElectronicComponent()
+        public ReferenceObject CreateFilterElectronicComponent()
         {
             var filterElectronicComponent = filterElectronicComponentReference.CreateReferenceObject() as FilterElectronicComponentReferenceObject;
             filterElectronicComponent.StartUpdate();

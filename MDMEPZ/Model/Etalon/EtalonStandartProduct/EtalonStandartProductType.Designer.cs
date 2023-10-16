@@ -18,10 +18,10 @@ namespace TFlex.DOCs.References.StandartProduct
 	/// <summary>
 	/// Представляет описание типа объекта справочника "Эталонные стандартные изделия"
 	/// </summary>
-	public partial class StandartProductType
+	public partial class EtalonStandartProductType
 	{
 		
-		internal StandartProductType(StandartProductTypes owner) : 
+		internal EtalonStandartProductType(EtalonStandartProductTypes owner) : 
 				base(owner)
 		{
 		}
@@ -29,11 +29,11 @@ namespace TFlex.DOCs.References.StandartProduct
 		/// <summary>
 		/// Возвращает типы объектов справочника "Эталонные стандартные изделия"
 		/// </summary>
-		public new StandartProductTypes Classes
+		public new EtalonStandartProductTypes Classes
 		{
 			get
 			{
-				return ((StandartProductTypes)(base.Classes));
+				return ((EtalonStandartProductTypes)(base.Classes));
 			}
 		}
 		
@@ -44,7 +44,7 @@ namespace TFlex.DOCs.References.StandartProduct
 		{
 			get
 			{
-				return IsInherit(StandartProductTypes.Keys.StandartProductReferenceObject);
+				return IsInherit(EtalonStandartProductTypes.Keys.StandartProductReferenceObject);
 			}
 		}
 	}

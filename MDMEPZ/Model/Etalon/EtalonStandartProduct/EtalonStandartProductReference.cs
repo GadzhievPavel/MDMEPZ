@@ -2,9 +2,9 @@ namespace TFlex.DOCs.References.StandartProduct{	using System;	using TFlex.DO
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
 
-    public partial class StandartProductReference : SpecialReference<StandartProductReferenceObject>	{				public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
+    public partial class EtalonStandartProductReference : SpecialReference<EtalonStandartProductReferenceObject>	{				public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
 		{
-			var etalon = CreateReferenceObject() as StandartProductReferenceObject;
+			var etalon = CreateReferenceObject() as EtalonStandartProductReferenceObject;
 			etalon.StartUpdate();
 			etalon.Name.Value = nomenclature.Name.Value;
 			etalon.Nomenclature = nomenclature;

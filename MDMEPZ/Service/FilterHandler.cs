@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.EtalonDetailAndAssebly;
 using TFlex.DOCs.References.EtalonElectronicCompoents;
 using TFlex.DOCs.References.EtalonMaterial;
@@ -90,11 +91,12 @@ namespace MDMEPZ.Service
             return etalonOtherProduct;
         }
 
-        public EtalonProductReferenceObject CreateEtalonProduct(FilterProductReferenceObject obj)
+        public EtalonProductReferenceObject CreateEtalonProduct(FilterProductReferenceObject obj, NomenclatureObject nom)
         {
             var etalonProduct = etalonProductReference.CreateReferenceObject() as EtalonProductReferenceObject;
             etalonProduct.StartUpdate();
             etalonProduct.Nomenclature = obj.InputNomenclature;
+            etalonProduct.Product = nom;
             return etalonProduct;
         }
 

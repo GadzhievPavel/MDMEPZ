@@ -2,6 +2,9 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures{	using System;	using 
     using TFlex.DOCs.Model;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Dto;
+    using System.Collections.Generic;
+    using TFlex.DOCs.Model.Search;
+    using System.Linq;
 
     public partial class ConnectionNomenclaturesReference : SpecialReference<ConnectionNomenclaturesReferenceObject>	{
         private NomenclatureERPReference nomenclatureReference;
@@ -21,5 +24,11 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures{	using System;	using 
             connectionRefObj.Child = nomenclatureReference.findObjectByGuid1C(connection.child);
             connectionRefObj.Current = nomenclatureReference.findObjectByGuid1C(connection.parent);
             return connectionRefObj;
+        }
+
+        public List<ConnectionNomenclaturesReferenceObject> findConnectionByParentNomenclature(NomenclatureERPReferenceObject nomErp)
+        {
+            var filter = Filter.Parse($"[родительский объект] = '{nomErp.GUID1C}'", ParameterGroup);
+            return Find(filter).Cast<ConnectionNomenclaturesReferenceObject>().ToList();
         }
     }}

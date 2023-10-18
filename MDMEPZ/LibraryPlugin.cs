@@ -28,6 +28,7 @@ using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.ReplacementERP;
 using TFlex.DOCs.References.SpecificationERP;
 using TFlex.DOCs.References.StandartProduct;
+using TFlex.DOCs.References.StructNomenclature;
 using TFlex.DOCs.References.TypeNomenclatureERP;
 using TFlex.DOCs.References.TypeReproductionERP;
 using TFlex.DOCs.References.UnitOfMeasurement;
@@ -84,6 +85,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(EtalonWorkpieceReference.ReferenceId, new EtalonWorkpieceReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(EtalonStandartProductReference.ReferenceId, new EtalonStandartProductReference.Factory());
 
+            ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
         }
     }
 }

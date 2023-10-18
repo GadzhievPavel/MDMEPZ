@@ -487,6 +487,22 @@
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\StructNomenclature\StructNomenclatureReference.cs" />
+    <Compile Include="Model\StructNomenclature\StructNomenclatureReference.designer.cs">
+      <DependentUpon>StructNomenclatureReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StructNomenclature\StructNomenclatureReferenceObject.cs" />
+    <Compile Include="Model\StructNomenclature\StructNomenclatureReferenceObject.designer.cs">
+      <DependentUpon>StructNomenclatureReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StructNomenclature\StructNomenclatureType.cs" />
+    <Compile Include="Model\StructNomenclature\StructNomenclatureType.designer.cs">
+      <DependentUpon>StructNomenclatureType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StructNomenclature\StructNomenclatureTypes.cs" />
+    <Compile Include="Model\StructNomenclature\StructNomenclatureTypes.designer.cs">
+      <DependentUpon>StructNomenclatureTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EtalonHandler.cs" />
     <Compile Include="Service\FilterHandler.cs" />

@@ -5,7 +5,12 @@ namespace TFlex.DOCs.References.StructNomenclature{	using System;	using TFlex
     using TFlex.DOCs.References.ConnectionNomenclatures;
     using System.Linq;
 
-    public partial class StructNomenclatureReference : SpecialReference<StructNomenclatureReferenceObject>	{				public partial class Factory		{		}		public ReferenceObject findPairByConnection(ConnectionNomenclaturesReferenceObject conn)
+    public partial class StructNomenclatureReference : SpecialReference<StructNomenclatureReferenceObject>	{				public partial class Factory		{		}		public ReferenceObject findPairByNomenclatureERP(NomenclatureERPReferenceObject nomERP)
 		{
-			var filter = Filter.Parse($"[Номенклатура из ERP]->[GUID(1C)] = '{conn.CurrentParam}' И [Дочерние объекты].[Номенклатура из ERP]->[GUID(1C)] = '{conn.ChildParam}'", ParameterGroup);
-			return Find(filter).First();		}	}}
+			var filter = Filter.Parse($"[Номенклатура из ERP]->[GUID(1C)] = '{nomERP.GUID1C}'", ParameterGroup);
+			return Find(filter).FirstOrDefault();		}		public StructNomenclatureReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomERP)
+		{
+			var structObject = CreateReferenceObject() as StructNomenclatureReferenceObject;
+			structObject.NomenclatureERP = nomERP;
+			return structObject;
+		}	}}

@@ -86,6 +86,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(EtalonStandartProductReference.ReferenceId, new EtalonStandartProductReference.Factory());
 
             ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
+            
         }
     }
 }

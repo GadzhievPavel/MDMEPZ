@@ -60,6 +60,8 @@
     <Compile Include="Dto\Product\Products.cs" />
     <Compile Include="Dto\ProductsCategories\ProductCategory.cs" />
     <Compile Include="Dto\ProductsCategories\ProductsCategories.cs" />
+    <Compile Include="Dto\ReplacementErp\Replacement.cs" />
+    <Compile Include="Dto\ReplacementErp\Replacements.cs" />
     <Compile Include="Dto\TypeNomenclature\TypeOfNomenclature.cs" />
     <Compile Include="Dto\TypeNomenclature\TypesOfNomenclatures.cs" />
     <Compile Include="Dto\TypeOfReproduction\TypeOfReproduction.cs" />
@@ -407,20 +409,20 @@
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.designer.cs">
       <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.cs" />
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReference.designer.cs">
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.cs" />
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.designer.cs">
       <DependentUpon>ReplacementERPReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReferenceObject.cs" />
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPReferenceObject.designer.cs">
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReferenceObject.cs" />
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReferenceObject.Designer.cs">
       <DependentUpon>ReplacementERPReferenceObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPType.cs" />
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPType.designer.cs">
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPType.cs" />
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPType.designer.cs">
       <DependentUpon>ReplacementERPType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPTypes.cs" />
-    <Compile Include="Model\References1C\ReplacementERP\ReplacementERPTypes.designer.cs">
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPTypes.cs" />
+    <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPTypes.designer.cs">
       <DependentUpon>ReplacementERPTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\Specification\SpecificationERPReference.cs" />
@@ -487,6 +489,7 @@
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\StagesEnum.cs" />
     <Compile Include="Model\StructNomenclature\StructNomenclatureReference.cs" />
     <Compile Include="Model\StructNomenclature\StructNomenclatureReference.designer.cs">
       <DependentUpon>StructNomenclatureReference.cs</DependentUpon>

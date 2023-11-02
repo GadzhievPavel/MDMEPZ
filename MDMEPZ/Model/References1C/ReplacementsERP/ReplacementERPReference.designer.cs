@@ -34,11 +34,13 @@ namespace TFlex.DOCs.References.ReplacementERP
 		public ReplacementERPReference(TFlex.DOCs.Model.ServerConnection connection) : 
 				base(connection, ReplacementERPReference.ReferenceId)
 		{
+			loadSupportReference();
 		}
 		
 		private ReplacementERPReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
+			loadSupportReference();
 		}
 		
 		/// <summary>

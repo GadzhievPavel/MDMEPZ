@@ -96,7 +96,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         public ReferenceObject findObjectByGuid1C(String guidStr)
         {
             Guid guid = new Guid(guidStr);
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", ParameterGroup)).First();
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", ParameterGroup)).FirstOrDefault();
         }
         private Filter getFilterNomenclatureByDenotation(String denotation)
         {

@@ -20,5 +20,8 @@ namespace MDMEPZ.Dto
         public TypeOfReproduction typeOfReproduction { get; set; }
         public ProductCategory category { get; set; }
         public double weight { get; set; }
+        public bool isTypical { get; set; }
+        public string codeElamed { get; set; }
+        public UnitOfMeasurementFull weightUnitOfMeasurement {  get; set; }
     }
 }

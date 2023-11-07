@@ -44,6 +44,8 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
+            o.IsTypical.Value = product.isTypical;
+            o.CodeElamed.Value = Int32.Parse(product.codeElamed);
             if(product.denotation != null)
             {
                 o.Denotation.Value = product.denotation;
@@ -74,11 +76,18 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.TypeNomenclature = typeNomenclature;
             }
             //o.TypeNomenclature = getTypeNomenclatureByGuid1C(new Guid(product.typeNomenclature.guid1C));
-            var unitsOfMeasurement = getUnitsOfMeasurementByGuid1C(product);
+            var unitsOfMeasurement = getUnitsOfMeasurementByGuid1C(product.unitOfMeasurement);
             if(unitsOfMeasurement != null)
             {
                 o.UnitsOfMeasurement = unitsOfMeasurement;
             }
+
+            var unitOfMeasurementWeight = getUnitsOfMeasurementByGuid1C(product.weightUnitOfMeasurement);
+            if (unitOfMeasurementWeight != null)
+            {
+                o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
+            }
+
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }
@@ -179,18 +188,18 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return typeNomenclatureERPReference.FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
         }
 
-        private ReferenceObject getUnitsOfMeasurementByGuid1C(Nomenclature product)
+        private ReferenceObject getUnitsOfMeasurementByGuid1C(UnitOfMeasurementFull unit)
         {
-            if (product.unitOfMeasurement is null)
+            if (unit is null)
             {
                 return null;
             }
-            if (product.unitOfMeasurement.guid1C is null)
+            if (unit.guid1C is null)
             {
                 return null;
             }
             //var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
-            return unitOfMeasurementReference.FindByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
+            return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
         }
 
         

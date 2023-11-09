@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\Test.cs" />
     <Compile Include="Dto\UnitOfMeasurement.cs" />
     <Compile Include="LibraryPlugin.cs" />
     <Compile Include="Model\FilterReference\DetaliAssembling\FilterDetaliAssemblingReference.cs" />

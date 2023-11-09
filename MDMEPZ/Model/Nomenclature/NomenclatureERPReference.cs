@@ -46,10 +46,8 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
             o.IsTypical.Value = product.isTypical;
-            if (!product.codeElamed.Equals(""))
-            {
-                o.CodeElamed.Value = Int32.Parse(product.codeElamed);
-            }
+            o.CodeElamed.Value = product.codeElamed;
+            
             
             if (product.denotation != null)
             {

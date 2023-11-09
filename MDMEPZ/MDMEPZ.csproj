@@ -511,6 +511,7 @@
     <Compile Include="Service\FilterHandler.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
+    <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>
   <ItemGroup />

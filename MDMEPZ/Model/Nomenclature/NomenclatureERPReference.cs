@@ -14,6 +14,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.TypeNomenclatureERP;
     using TFlex.DOCs.References.UnitOfMeasurement;
     using System.Linq;
+    using TFlex.DOCs.Model.Parameters;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -45,8 +46,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
             o.IsTypical.Value = product.isTypical;
-            o.CodeElamed.Value = Int32.Parse(product.codeElamed);
-            if(product.denotation != null)
+            if (!product.codeElamed.Equals(""))
+            {
+                o.CodeElamed.Value = Int32.Parse(product.codeElamed);
+            }
+            
+            if (product.denotation != null)
             {
                 o.Denotation.Value = product.denotation;
             }

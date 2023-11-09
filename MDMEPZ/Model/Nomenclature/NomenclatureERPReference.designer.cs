@@ -34,11 +34,13 @@ namespace TFlex.DOCs.References.NomenclatureERP
 		public NomenclatureERPReference(TFlex.DOCs.Model.ServerConnection connection) : 
 				base(connection, NomenclatureERPReference.ReferenceId)
 		{
+			loadSupportReference();
 		}
 		
 		private NomenclatureERPReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
+			loadSupportReference();
 		}
 		
 		/// <summary>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonWorkpiece" IsSelectedReference="true">
+  <SelectedObjectGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные заготовки</SelectedObjectName>
+  <Table>EtalonWorkpiece</Table>
+  <Namespace>TFlex.DOCs.References.EtalonWorkpiece</Namespace>
+  <ReferenceClass>EtalonWorkpieceReference</ReferenceClass>
+  <ReferenceObject>EtalonWorkpieceReferenceObject</ReferenceObject>
+  <ClassTree>EtalonWorkpieceTypes</ClassTree>
+  <TClass>EtalonWorkpieceType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+      <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Заготовки</Name>
+      <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="f7de9f9a-fb94-414a-a87c-7d5797a1d986" Name="Наименование">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="634e1a57-3c98-4894-ac37-c717471c1eb5" Name="Обозначение">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="7ef31679-bd26-4641-878d-f90ecf8dde11" Name="Покупное">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsBuying</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="9d671dea-211b-4668-9ca6-1c80f0f2139e" Name="Конечное изделие">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsFinalProduct</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="cf53a185-a969-48a3-9b98-2f86d02bd1ae" Name="Литера">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Litera</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="eaf2aaa9-eda3-4665-a8ac-066458382ecb" Name="Формат">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Format</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="dd01bb29-ea25-407a-8975-7f9f0db26ad0" IsListOfObjects="false">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Материалы</LinkedReferenceName>
+      <Name>Материалы</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>Material</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="b83e8813-4bb8-4bab-b9e0-e22945c60bcf" IsListOfObjects="false">
+      <Owner GUID="694c8b09-a246-4807-abdd-5544c58969e0">
+        <OwnerReferenceGUID>812cd0ad-e8b8-44a5-a17e-d89530c1f7b3</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Заготовки</Name>
+        <ClassName>EtalonWorkpieceReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonWorkpieceReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP З</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+  </Links>
+</Settings>

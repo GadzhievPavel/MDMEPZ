@@ -9,6 +9,13 @@ using TFlex.DOCs.Model.References;
 using TFlex.DOCs.References.ApplicabiltyMaterials;
 using TFlex.DOCs.References.CategoryProduct;
 using TFlex.DOCs.References.ConnectionNomenclatures;
+using TFlex.DOCs.References.EtalonDetailAndAssebly;
+using TFlex.DOCs.References.EtalonElectronicCompoents;
+using TFlex.DOCs.References.EtalonMaterial;
+using TFlex.DOCs.References.EtalonOriginalMaket;
+using TFlex.DOCs.References.EtalonProduct;
+using TFlex.DOCs.References.EtalonProductOther;
+using TFlex.DOCs.References.EtalonWorkpiece;
 using TFlex.DOCs.References.FilterDetaliAssembling;
 using TFlex.DOCs.References.FilterElectronicComponent;
 using TFlex.DOCs.References.FilterMaterial;
@@ -20,6 +27,8 @@ using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.ReplacementERP;
 using TFlex.DOCs.References.SpecificationERP;
+using TFlex.DOCs.References.StandartProduct;
+using TFlex.DOCs.References.StructNomenclature;
 using TFlex.DOCs.References.TypeNomenclatureERP;
 using TFlex.DOCs.References.TypeReproductionERP;
 using TFlex.DOCs.References.UnitOfMeasurement;
@@ -65,6 +74,19 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(TypeNomenclatureERPReference.ReferenceId, new TypeNomenclatureERPReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(TypeReproductionERPReference.ReferenceId, new TypeReproductionERPReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(UnitOfMeasurementReference.ReferenceId, new UnitOfMeasurementReference.Factory());
+
+            //etalon
+            ReferenceCatalog.RegisterSpecialReference(EtalonDetailAndAsseblingReference.ReferenceId, new EtalonDetailAndAsseblingReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonElectronicCompoentsReference.ReferenceId, new EtalonElectronicCompoentsReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonMaterialReference.ReferenceId, new EtalonMaterialReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonOriginalMaketReference.ReferenceId, new EtalonOriginalMaketReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonProductOtherReference.ReferenceId, new EtalonProductOtherReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonProductReference.ReferenceId, new EtalonProductReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonWorkpieceReference.ReferenceId, new EtalonWorkpieceReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonStandartProductReference.ReferenceId, new EtalonStandartProductReference.Factory());
+
+            ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
+            
         }
     }
 }

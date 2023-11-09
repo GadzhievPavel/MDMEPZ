@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonDetalAndAssembl" IsSelectedReference="true">
+  <SelectedObjectGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные детали и сборки</SelectedObjectName>
+  <Table>EtalonDetailAndAssebly</Table>
+  <Namespace>TFlex.DOCs.References.EtalonDetailAndAssebly</Namespace>
+  <ReferenceClass>EtalonDetailAndAsseblyReference</ReferenceClass>
+  <ReferenceObject>EtalonDetailAndAsseblyReferenceObject</ReferenceObject>
+  <ClassTree>EtalonDetailAndAsseblyTypes</ClassTree>
+  <TClass>EtalonDetailAndAsseblyType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+      <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталонные детали и сборки</Name>
+      <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="b7eb593c-575e-4b78-8d7d-fe5be0af8996" Name="Наименование">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="ab578d46-dc1c-4045-bbee-b39be6dd230a" Name="Обозначение">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="b5f317cf-40da-421e-bedf-8f818ff8e553" Name="Покупное">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsBuying</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="91fc9c27-985c-4536-9335-3c8e46c66a1e" Name="Конечное изделие">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsFinalProduct</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="0740a359-baa6-4abc-8a58-702178ab77a9" Name="Литера">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Litera</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="d613e2a8-09ec-4437-9e29-0a631b7d20e6" Name="Формат">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Format</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="73dc09d9-558d-4ef2-8a4a-5aed283840e1" Name="Тип">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Type</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="8cd21dbf-aa91-48be-b338-8a2858ceebf1" IsListOfObjects="false">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Материалы</LinkedReferenceName>
+      <Name>Материалы</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>Material</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="8a3eafb2-2442-4556-82a8-58ea50ee690e" IsListOfObjects="false">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP ДиС</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="a964c39a-cb78-448b-b3f7-57440717a7a2" IsListOfObjects="false">
+      <Owner GUID="465614d0-0d52-4c11-bf6d-a05dec62876e">
+        <OwnerReferenceGUID>eb80bbc0-a57c-42cc-89ad-a970d2413a8f</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные детали и сборки</Name>
+        <ClassName>EtalonDetailAndAsseblyReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonDetailAndAsseblyReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Эквиваленты деталей и сборок MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+  </Links>
+</Settings>

@@ -1,4 +1,5 @@
-﻿using MDMEPZ.Util;
+﻿using MDMEPZ.Model.FilterReference;
+using MDMEPZ.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,74 +46,145 @@ namespace MDMEPZ.Service
             this.nomenclatureERP = nomenclatureERP;
         }
 
-        public ReferenceObject CreateDetaliAndAssembling()
+        public ReferenceObject CreateFilterDetaliAndAssembling()
         {
             var filterDetaliAssembling = filterDetaliAssemblingReference.CreateReferenceObject() as FilterDetaliAssemblingReferenceObject;
             filterDetaliAssembling.StartUpdate();
             filterDetaliAssembling.InputNomenclature = nomenclatureERP;
+            return filterDetaliAssembling;
+        }
+
+        public ReferenceObject CreateFilterDetaliAndAssemblingAsEtalon()
+        {
+            var filterDetaliAssembling = filterDetaliAssemblingReference.CreateReferenceObject() as FilterDetaliAssemblingReferenceObject;
+            filterDetaliAssembling.StartUpdate();
+            filterDetaliAssembling.InputNomenclature = nomenclatureERP;
+            filterDetaliAssembling.Classification.Value = ValueNSI.standard;
             //filterDetaliAssembling.Name.Value = filterDetaliAssembling.Id.ToString();
             return filterDetaliAssembling;
         }
 
-        public ReferenceObject CreateWorkpiece()
+        public ReferenceObject CreateFilterWorkpiece()
         {
             var filterWorkpiece = workpieceReference.CreateReferenceObject() as FilterWorkpieceReferenceObject;
             filterWorkpiece.StartUpdate();
             filterWorkpiece.InputNomenclature = nomenclatureERP;
+            return filterWorkpiece;
+        }
+
+        public ReferenceObject CreateFilterWorkpieceAsEtalon()
+        {
+            var filterWorkpiece = workpieceReference.CreateReferenceObject() as FilterWorkpieceReferenceObject;
+            filterWorkpiece.StartUpdate();
+            filterWorkpiece.InputNomenclature = nomenclatureERP;
+            filterWorkpiece.Classification.Value = ValueNSI.standard;
             //filterWorkpiece.Name.Value = filterWorkpiece.Id.ToString();
             return filterWorkpiece;
         }
 
-        public ReferenceObject CreateProduct()
+        public ReferenceObject CreateFilterProduct()
         {
             var filterProduct = productReference.CreateReferenceObject() as FilterProductReferenceObject;
             filterProduct.StartUpdate();
             filterProduct.InputNomenclature = nomenclatureERP;
+            return filterProduct;
+        }
+
+        public ReferenceObject CreateFilterProductAsEtalon()
+        {
+            var filterProduct = productReference.CreateReferenceObject() as FilterProductReferenceObject;
+            filterProduct.StartUpdate();
+            filterProduct.InputNomenclature = nomenclatureERP;
+            filterProduct.Classification.Value = ValueNSI.standard;
             //filterProduct.Name.Value = filterProduct.Id.ToString();
             return filterProduct;
         }
 
-        public ReferenceObject CreateMaterial()
+        public ReferenceObject CreateFilterMaterial()
         {
             var filterMaterial = filterMaterialReference.CreateReferenceObject() as FilterMaterialReferenceObject;
             filterMaterial.StartUpdate();
             filterMaterial.InputNomenclature = nomenclatureERP;
+            return filterMaterial;
+        }
+
+        public ReferenceObject CreateFilterMaterialAsEtalon()
+        {
+            var filterMaterial = filterMaterialReference.CreateReferenceObject() as FilterMaterialReferenceObject;
+            filterMaterial.StartUpdate();
+            filterMaterial.InputNomenclature = nomenclatureERP;
+            filterMaterial.Classification.Value = ValueNSI.standard;
             //filterMaterial.Name.Value = filterMaterial.Id.ToString();
             return filterMaterial;
         }
 
-        public ReferenceObject CreateOriginalMaket()
+        public ReferenceObject CreateFilterOriginalMaket()
         {
             var filterOriginalMaket = originalMaketReference.CreateReferenceObject() as FilterOriginalMaketReferenceObject;
             filterOriginalMaket.StartUpdate();
             filterOriginalMaket.InputNomenclature = nomenclatureERP;
+            return filterOriginalMaket;
+        }
+
+        public ReferenceObject CreateFilterOriginalMaketAsEtalon()
+        {
+            var filterOriginalMaket = originalMaketReference.CreateReferenceObject() as FilterOriginalMaketReferenceObject;
+            filterOriginalMaket.StartUpdate();
+            filterOriginalMaket.InputNomenclature = nomenclatureERP;
+            filterOriginalMaket.Classification.Value = ValueNSI.standard;
             //filterOriginalMaket.Name.Value = filterOriginalMaket?.Id.ToString();
             return filterOriginalMaket;
         }
 
-        public ReferenceObject CreateOtherProduct()
+        public ReferenceObject CreateFilterOtherProduct()
         {
             var filterOtherProduct = otherProductReference.CreateReferenceObject() as FilterOtherProductReferenceObject;
             filterOtherProduct.StartUpdate();
             filterOtherProduct.InputNomenclature = nomenclatureERP;
+            return filterOtherProduct;
+        }
+
+        public ReferenceObject CreateFilterOtherProductAsEtalon()
+        {
+            var filterOtherProduct = otherProductReference.CreateReferenceObject() as FilterOtherProductReferenceObject;
+            filterOtherProduct.StartUpdate();
+            filterOtherProduct.InputNomenclature = nomenclatureERP;
+            filterOtherProduct.Classification.Value = ValueNSI.standard;
             //filterOtherProduct.Name.Value = filterOtherProduct?.Id.ToString();
             return filterOtherProduct;
         }
 
-        public ReferenceObject CreateStandardProduct()
+        public ReferenceObject CreateFilterStandardProduct()
         {
             var filterStandartProduct = standartProductReference.CreateReferenceObject() as FilterStandartProductReferenceObject;
             filterStandartProduct.StartUpdate();
             filterStandartProduct.InputNomenclature = nomenclatureERP;
+            return filterStandartProduct;
+        }
+
+        public ReferenceObject CreateFilterStandardProductAsEtalon()
+        {
+            var filterStandartProduct = standartProductReference.CreateReferenceObject() as FilterStandartProductReferenceObject;
+            filterStandartProduct.StartUpdate();
+            filterStandartProduct.InputNomenclature = nomenclatureERP;
+            filterStandartProduct.Classification.Value = ValueNSI.standard;
             //filterStandartProduct.Name.Value = filterStandartProduct?.Id.ToString();
             return filterStandartProduct;
         }
 
-        public ReferenceObject CreateElectronicComponent()
+        public ReferenceObject CreateFilterElectronicComponent()
         {
             var filterElectronicComponent = filterElectronicComponentReference.CreateReferenceObject() as FilterElectronicComponentReferenceObject;
             filterElectronicComponent.StartUpdate();
             filterElectronicComponent.InputNomenclature = nomenclatureERP;
+            return filterElectronicComponent;
+        }
+        public ReferenceObject CreateFilterElectronicComponentAsEtalon()
+        {
+            var filterElectronicComponent = filterElectronicComponentReference.CreateReferenceObject() as FilterElectronicComponentReferenceObject;
+            filterElectronicComponent.StartUpdate();
+            filterElectronicComponent.InputNomenclature = nomenclatureERP;
+            filterElectronicComponent.Classification.Value = ValueNSI.standard;
             //filterElectronicComponent.Name.Value = filterElectronicComponent?.Id.ToString();
             return filterElectronicComponent;
         }

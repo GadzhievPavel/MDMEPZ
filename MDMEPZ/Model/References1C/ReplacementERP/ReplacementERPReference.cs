@@ -1,1 +1,0 @@
-namespace TFlex.DOCs.References.ReplacementERP{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;			public partial class ReplacementERPReference : SpecialReference<ReplacementERPReferenceObject>	{				public partial class Factory		{		}	}}

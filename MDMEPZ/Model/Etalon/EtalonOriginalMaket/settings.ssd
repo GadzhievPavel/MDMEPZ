@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonOriginalMaket" IsSelectedReference="true">
+  <SelectedObjectGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные оригинал-макеты</SelectedObjectName>
+  <Table>EtalonOriginalMaket</Table>
+  <Namespace>TFlex.DOCs.References.EtalonOriginalMaket</Namespace>
+  <ReferenceClass>EtalonOriginalMaketReference</ReferenceClass>
+  <ReferenceObject>EtalonOriginalMaketReferenceObject</ReferenceObject>
+  <ClassTree>EtalonOriginalMaketTypes</ClassTree>
+  <TClass>EtalonOriginalMaketType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+      <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталонные оригинал-макеты</Name>
+      <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="da10fb28-d2d0-477f-991f-0ad6483ecc27" Name="Наименование">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="84e44090-f2f1-4ff0-b22f-efba5fd8befe" Name="Обозначение">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="333b0d40-5f1e-4757-a76b-3c3d25cc8b62" Name="Тип оригинал макета">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>TypeOriginalMaket</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="3280b045-3ee0-45af-b5ae-f8d061ddd1b2" Name="Нетиповая продукция">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsNotTypicalProduct</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="1531fa73-d8a6-4347-83c3-cc8ac233eaa5" IsListOfObjects="false">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP ОМ</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="40d65d56-d5e2-4d7c-a0b8-c27618d933b6" IsListOfObjects="false">
+      <Owner GUID="a4313de1-3ed5-45cd-b379-43855258a67d">
+        <OwnerReferenceGUID>5c57a5a6-6614-43c7-b881-9b53ad982637</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные оригинал-макеты</Name>
+        <ClassName>EtalonOriginalMaketReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonOriginalMaketReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Эквиваленты оригинал макета MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+  </Links>
+</Settings>

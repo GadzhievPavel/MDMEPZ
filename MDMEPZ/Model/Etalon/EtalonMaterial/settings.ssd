@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PathToSaveCode="D:\Документы\Генератор API\mdm\EtalonMaterial" IsSelectedReference="true">
+  <SelectedObjectGUID>29037f67-dd93-4444-8095-158262980f3c</SelectedObjectGUID>
+  <SelectedObjectName>Эталонные материалы</SelectedObjectName>
+  <Table>EtalonMaterial</Table>
+  <Namespace>TFlex.DOCs.References.EtalonMaterial</Namespace>
+  <ReferenceClass>EtalonMaterialReference</ReferenceClass>
+  <ReferenceObject>EtalonMaterialReferenceObject</ReferenceObject>
+  <ClassTree>EtalonMaterialTypes</ClassTree>
+  <TClass>EtalonMaterialType</TClass>
+  <TClassTree>
+    <TClassTreeItem GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+      <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+      <ParentTReferenceObjectClass />
+      <Name>Эталонные материалы</Name>
+      <ClassName>EtalonMaterialReferenceObject</ClassName>
+      <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+    </TClassTreeItem>
+  </TClassTree>
+  <Parameters>
+    <Parameter GUID="fc3192cd-4af5-4c7d-ade8-af22e45c9857" Name="Сводное наименование">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Name</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="005c9200-992e-449a-b348-6c65e930a2c9" Name="Код/Обозначение">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Denotation</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="09f8998e-379c-462f-9c6e-0d3e9f176d8c" Name="Назначение/Описание">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>Description</PropertyName>
+      <ValueTypeName>StringParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="8b0cc24b-3b68-48af-a71c-f394c74bc2a4" Name="Вспомогательный материал">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsSupportMaterial</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+    <Parameter GUID="cce61225-2d69-432d-90be-9de3b0a5701c" Name="Покрытие">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <PropertyName>IsCovering</PropertyName>
+      <ValueTypeName>BooleanParameter</ValueTypeName>
+    </Parameter>
+  </Parameters>
+  <Links>
+    <Link GUID="45d0f929-2953-4849-be11-8f00556a499e" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Марки материалов</LinkedReferenceName>
+      <Name>Марки материалов</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>MarkMaterisl</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="ccbb15a7-1c22-48b6-820a-79f5e17d626d" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Cортамент материалов</LinkedReferenceName>
+      <Name>Сортамент</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>Sortament</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="23a86b63-6358-4262-a255-b9797718e420" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Рецептурный справочник</LinkedReferenceName>
+      <Name>Рецептура</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Recipe</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="c434b0ca-c9e2-49ac-a622-b4eade5336c5" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Технические условия на материалы</LinkedReferenceName>
+      <Name>ТУ</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>TY</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="3b9134e4-1064-4e00-8a87-b9e2a4975c09" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Технические требования к материалам</LinkedReferenceName>
+      <Name>Тех.требования</Name>
+      <LinkType>ManyToOne</LinkType>
+      <ObjectGetPropertyName>TechRequirement</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="b90e41e3-2160-4f7e-ae86-4c55345306fc" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Номенклатура ERP</LinkedReferenceName>
+      <Name>Номенклатура ERP М</Name>
+      <LinkType>OneToOne</LinkType>
+      <ObjectGetPropertyName>Nomenclature</ObjectGetPropertyName>
+    </Link>
+    <Link GUID="51f9d4cf-11a4-416a-a625-023497a7b097" IsListOfObjects="false">
+      <Owner GUID="6632f4cb-43c7-4e6d-b97e-0fd7e53fa14f">
+        <OwnerReferenceGUID>29037f67-dd93-4444-8095-158262980f3c</OwnerReferenceGUID>
+        <ParentTReferenceObjectClass />
+        <Name>Эталонные материалы</Name>
+        <ClassName>EtalonMaterialReferenceObject</ClassName>
+        <ReferenceObjectClassName>EtalonMaterialReferenceObject</ReferenceObjectClassName>
+      </Owner>
+      <LinkedReferenceName>Справочник эквивалентов MDM</LinkedReferenceName>
+      <Name>Эквиваленты материала MDM</Name>
+      <LinkType>OneToMany</LinkType>
+      <ObjectGetPropertyName>Equivalent</ObjectGetPropertyName>
+      <AddMethodName>AddEquivalent</AddMethodName>
+      <DisableMethodName>RemoveEquivalent</DisableMethodName>
+    </Link>
+  </Links>
+</Settings>

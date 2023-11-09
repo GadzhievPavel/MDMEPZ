@@ -6,12 +6,95 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.Model;
     using System.Collections.Generic;
     using TFlex.DOCs.Model.Search;
+    using MDMEPZ.Dto;
+    using TFlex.DOCs.References.GroupList;
+    using MDMEPZ.Util;
+    using TFlex.DOCs.References.CategoryProduct;
+    using TFlex.DOCs.References.TypeReproductionERP;
+    using TFlex.DOCs.References.TypeNomenclatureERP;
+    using TFlex.DOCs.References.UnitOfMeasurement;
+    using System.Linq;
+    using TFlex.DOCs.Model.Parameters;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
 
+        private CategoryProductReference categoryProductReference;
+        private GroupListReference groupListReference;
+        private TypeReproductionERPReference typeReproductionERPReference;
+        private TypeNomenclatureERPReference typeNomenclatureERPReference;
+        private UnitOfMeasurementReference unitOfMeasurementReference;
+
         public partial class Factory
         {
+        }
+
+        private void loadSupportReference()
+        {
+            categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
+            groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
+            typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
+            typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
+            unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+        }
+
+        public ReferenceObject CreateReferenceObject(Nomenclature product)
+        {
+
+            var o = CreateReferenceObject() as NomenclatureERPReferenceObject;
+            o.StartUpdate();
+            o.Name.Value = product.name;
+            o.GUID1C.Value = new Guid(product.guid1C);
+            o.IsTypical.Value = product.isTypical;
+            if (!product.codeElamed.Equals(""))
+            {
+                o.CodeElamed.Value = Int32.Parse(product.codeElamed);
+            }
+            
+            if (product.denotation != null)
+            {
+                o.Denotation.Value = product.denotation;
+            }
+            o.Weight.Value = product.weight;
+
+            var productCategory = getProductCategoryByGuid1C(product);
+            if(productCategory!= null)
+            {
+                o.ProductCategory = productCategory;
+            }
+            //o.ProductCategory = getProductCategoryByGuid1C(new Guid(product.category.guid1C));
+            var groupList = getGroupListByGuid1C(product);
+            if (groupList != null)
+            {
+                o.GroupList = groupList;
+            }
+            //o.GroupList = getGroupListByGuid1C(new Guid(product.groupOfList.guid1C));
+            var typeReproduction = getTypeReproductionByGuid1C(product);
+            if (typeReproduction != null)
+            {
+                o.TypeReproduction = typeReproduction;
+            }
+            //o.TypeReproduction = getTypeReproductionByGuid1C(new Guid(product.typeOfReproduction.guid1C));
+            var typeNomenclature = getTypeNomenclatureByGuid1C(product);
+            if(typeNomenclature != null)
+            {
+                o.TypeNomenclature = typeNomenclature;
+            }
+            //o.TypeNomenclature = getTypeNomenclatureByGuid1C(new Guid(product.typeNomenclature.guid1C));
+            var unitsOfMeasurement = getUnitsOfMeasurementByGuid1C(product.unitOfMeasurement);
+            if(unitsOfMeasurement != null)
+            {
+                o.UnitsOfMeasurement = unitsOfMeasurement;
+            }
+
+            var unitOfMeasurementWeight = getUnitsOfMeasurementByGuid1C(product.weightUnitOfMeasurement);
+            if (unitOfMeasurementWeight != null)
+            {
+                o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
+            }
+
+            //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
+            return o;
         }
 
         public List<ReferenceObject> findObjectsByDenotation(String denotation)
@@ -22,6 +105,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         public List<ReferenceObject> findObjectsByName(String name)
         {
             return Find(getFilterNomenclatureByName(name));
+        }
+
+        public ReferenceObject findObjectByGuid1C(String guidStr)
+        {
+            Guid guid = new Guid(guidStr);
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", ParameterGroup)).FirstOrDefault();
         }
         private Filter getFilterNomenclatureByDenotation(String denotation)
         {
@@ -44,4 +133,79 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             filter.Validate();
             return filter;
         }
+
+        private ReferenceObject getProductCategoryByGuid1C(Nomenclature product)
+        {
+            if(product.category is null)
+            {
+                return null;
+            }
+            if(product.category.guid1C is null)
+            {
+                return null;
+            }
+
+            //var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
+            return categoryProductReference.FindByGuid1C(new Guid(product.category.guid1C));
+        }
+
+        private ReferenceObject getGroupListByGuid1C(Nomenclature product)
+        {
+            if (product.groupOfList is null)
+            {
+                return null;
+            }
+            if (product.groupOfList.guid1C is null)
+            {
+                return null;
+            }
+
+            //var groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
+            return groupListReference.FindByGuid1C(new Guid(product.groupOfList.guid1C));
+        }
+
+        private ReferenceObject getTypeReproductionByGuid1C(Nomenclature product)
+        {
+            if (product.typeOfReproduction is null)
+            {
+                return null;
+            }
+            if (product.typeOfReproduction.guid1C is null)
+            {
+                return null;
+            }
+            //var typeOfReproductionReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
+            return typeReproductionERPReference.FindByGuid1C(new Guid(product.typeOfReproduction.guid1C));
+
+        }
+
+        private ReferenceObject getTypeNomenclatureByGuid1C(Nomenclature product)
+        {
+            if (product.typeNomenclature is null)
+            {
+                return null;
+            }
+            if (product.typeNomenclature.guid1C is null)
+            {
+                return null;
+            }
+            //var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
+            return typeNomenclatureERPReference.FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
+        }
+
+        private ReferenceObject getUnitsOfMeasurementByGuid1C(UnitOfMeasurementFull unit)
+        {
+            if (unit is null)
+            {
+                return null;
+            }
+            if (unit.guid1C is null)
+            {
+                return null;
+            }
+            //var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+            return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
+        }
+
+        
     }}

@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.EtalonWorkpiece{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class EtalonWorkpieceTypes : SpecialClassTree<EtalonWorkpieceType>	{	}}

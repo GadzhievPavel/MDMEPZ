@@ -54,11 +54,11 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP
 		/// <summary>
 		/// Возвращает параметр "GUID(1C)"
 		/// </summary>
-		public StringParameter GUID_1C
+		public GuidParameter GUID_1C
 		{
 			get
 			{
-				return ((StringParameter)(this[FieldKeys.GUID_1C]));
+				return ((GuidParameter)(this[FieldKeys.GUID_1C]));
 			}
 		}
 		
@@ -76,7 +76,7 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) параметра "GUID(1C)"
 			/// </summary>
-		   public static readonly Guid GUID_1C = new Guid("383dc56b-9b44-42d0-a913-c05d9a06344c");
+		   public static readonly Guid GUID_1C = new Guid("f2259197-f6a0-46e3-acdf-dfe4396b744b");
 
 		}
 	}

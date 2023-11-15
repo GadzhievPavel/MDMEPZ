@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.DOCs.References.ApplicabiltyMaterials;
+using TFlex.DOCs.References.CategoryProduct;
+using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
+using TFlex.DOCs.References.TypeNomenclatureERP;
+using TFlex.DOCs.References.TypeReproductionERP;
+using TFlex.DOCs.References.UnitOfMeasurement;
 
 namespace MDMEPZ.Dto
 {
@@ -11,15 +17,30 @@ namespace MDMEPZ.Dto
     {
         public static Nomenclature CreateInstance(NomenclatureERPReferenceObject nomenclatureERP)
         {
+            if (nomenclatureERP == null)
+            {
+                return null;
+            }
+
             var nom = new Nomenclature();
             nom.name = nomenclatureERP.Name;
             nom.denotation = nomenclatureERP.Denotation;
             nom.guid1C = nomenclatureERP.GUID1C.GetString();
             nom.guidTFlex = nomenclatureERP.GUIDTFLEX.GetString();
 
-            nom.applicationMaterials = nomenclatureERP.MaterialUsed;
+            nom.applicationMaterials = ApplicationMaterials.CreateInstance(nomenclatureERP.MaterialUsed as ApplicabiltyMaterialsReferenceObject);
+            nom.unitOfMeasurement = UnitOfMeasurementFull.CreateInstance(nomenclatureERP.UnitsOfMeasurement as UnitOfMeasurementReferenceObject);
+            nom.typeNomenclature = TypeOfNomenclature.CreateInstance(nomenclatureERP.TypeNomenclature as TypeNomenclatureERPReferenceObject);
+            nom.groupOfList = GroupOfList.CreateInstance(nomenclatureERP.GroupList as GroupListReferenceObject);
+            nom.typeOfReproduction = TypeOfReproduction.CreateInstance(nomenclatureERP.TypeReproduction as TypeReproductionERPReferenceObject);
+            nom.category = ProductCategory.CreateInstance(nomenclatureERP.ProductCategory as CategoryProductReferenceObject);
 
-            
+            nom.weight = nomenclatureERP.Weight;
+            nom.isTypical = nomenclatureERP.IsTypical;
+            nom.codeElamed = nomenclatureERP.CodeElamed;
+            nom.weightUnitOfMeasurement = UnitOfMeasurementFull.CreateInstance(nomenclatureERP.UnitOfMeasurementWeight as UnitOfMeasurementReferenceObject);
+
+            return nom;
         }
         public string name { get; set; }
         public string denotation { get; set; }
@@ -35,11 +56,11 @@ namespace MDMEPZ.Dto
         public double weight { get; set; }
         public bool isTypical { get; set; }
         public string codeElamed { get; set; }
-        public UnitOfMeasurementFull weightUnitOfMeasurement {  get; set; }
+        public UnitOfMeasurementFull weightUnitOfMeasurement { get; set; }
 
         public override string ToString()
         {
-            return name+" "+denotation+" "+ guid1C;
+            return name + " " + denotation + " " + guid1C;
         }
     }
 }

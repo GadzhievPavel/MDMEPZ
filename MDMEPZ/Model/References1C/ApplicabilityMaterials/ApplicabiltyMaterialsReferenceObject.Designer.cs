@@ -61,84 +61,93 @@ namespace TFlex.DOCs.References.ApplicabiltyMaterials
 				return ((DoubleParameter)(this[FieldKeys.Amount]));
 			}
 		}
-		
-		/// <summary>
-		/// Возвращает связанные объекты справочника "Единицы измерения" по связи "Единица измерения"
-		/// </summary>
-		public ReferenceObjectCollection UnitOfMeasurement
-		{
-			get
-			{
-				return Links.ToMany[RelationKeys.UnitOfMeasurement].Objects;
-			}
-		}
+
+        /// <summary>
+        /// Возвращает связанные объекты справочника "Единицы измерения" по связи "Единица измерения"
+        /// </summary>
+        public ReferenceObject UnitsOfMeasurement
+        {
+            get
+            {
+                return GetObject(RelationKeys.UnitOfMeasurement);
+            }
+            set
+            {
+                SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
+            }
+        }
+        
 		
 		/// <summary>
 		/// Возвращает связанные объекты справочника "Номенклатура ERP" по связи "Материал"
 		/// </summary>
-		public ReferenceObjectCollection Material
+		public ReferenceObject Material
 		{
 			get
 			{
-				return Links.ToMany[RelationKeys.Material].Objects;
+				return GetObject(RelationKeys.Material);
+			}
+			set
+			{
+				SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
 			}
 		}
 		
-		/// <summary>
-		/// Подключает объект справочника "Единицы измерения" по связи "Единица измерения"
-		/// </summary>
-		/// <param name="newLinkedObject">
-		/// Подключаемый объект
-		/// </param>
-		/// <returns>
-		/// Подключённый объект
-		/// </returns>
-		public ReferenceObject AddUnitOfMeasurement(ReferenceObject newLinkedObject)
-		{
-			return AddLinkedObject(RelationKeys.UnitOfMeasurement, newLinkedObject);
-		}
+		///// <summary>
+		///// Подключает объект справочника "Единицы измерения" по связи "Единица измерения"
+		///// </summary>
+		///// <param name="newLinkedObject">
+		///// Подключаемый объект
+		///// </param>
+		///// <returns>
+		///// Подключённый объект
+		///// </returns>
+		//public ReferenceObject AddUnitOfMeasurement(ReferenceObject newLinkedObject)
+		//{
+		//	return AddLinkedObject(RelationKeys.UnitOfMeasurement, newLinkedObject);
+		//}
 		
-		/// <summary>
-		/// Отключает объект справочника "Единицы измерения" по связи "Единица измерения"
-		/// </summary>
-		/// <param name="linkedObject">
-		/// Связанный объект
-		/// </param>
-		/// <returns>
-		/// true, если объект был отключен
-		/// </returns>
-		public Boolean RemoveUnitOfMeasurement(ReferenceObject linkedObject)
-		{
-			return RemoveLinkedObject(RelationKeys.UnitOfMeasurement, linkedObject);
-		}
+		///// <summary>
+		///// Отключает объект справочника "Единицы измерения" по связи "Единица измерения"
+		///// </summary>
+		///// <param name="linkedObject">
+		///// Связанный объект
+		///// </param>
+		///// <returns>
+		///// true, если объект был отключен
+		///// </returns>
+		//public Boolean RemoveUnitOfMeasurement(ReferenceObject linkedObject)
+		//{
+		//	return RemoveLinkedObject(RelationKeys.UnitOfMeasurement, linkedObject);
+		//}
 		
-		/// <summary>
-		/// Подключает объект справочника "Номенклатура ERP" по связи "Материал"
-		/// </summary>
-		/// <param name="newLinkedObject">
-		/// Подключаемый объект
-		/// </param>
-		/// <returns>
-		/// Подключённый объект
-		/// </returns>
-		public ReferenceObject AddMaterial(ReferenceObject newLinkedObject)
-		{
-			return AddLinkedObject(RelationKeys.Material, newLinkedObject);
-		}
+		///// <summary>
+		///// Подключает объект справочника "Номенклатура ERP" по связи "Материал"
+		///// </summary>
+		///// <param name="newLinkedObject">
+		///// Подключаемый объект
+		///// </param>
+		///// <returns>
+		///// Подключённый объект
+		///// </returns>
+		//public ReferenceObject AddMaterial(ReferenceObject newLinkedObject)
+		//{
+		//	return AddLinkedObject(RelationKeys.Material, newLinkedObject);
+		//}
 		
-		/// <summary>
-		/// Отключает объект справочника "Номенклатура ERP" по связи "Материал"
-		/// </summary>
-		/// <param name="linkedObject">
-		/// Связанный объект
-		/// </param>
-		/// <returns>
-		/// true, если объект был отключен
-		/// </returns>
-		public Boolean RemoveMaterial(ReferenceObject linkedObject)
-		{
-			return RemoveLinkedObject(RelationKeys.Material, linkedObject);
-		}
+		///// <summary>
+		///// Отключает объект справочника "Номенклатура ERP" по связи "Материал"
+		///// </summary>
+		///// <param name="linkedObject">
+		///// Связанный объект
+		///// </param>
+		///// <returns>
+		///// true, если объект был отключен
+		///// </returns>
+		//public Boolean RemoveMaterial(ReferenceObject linkedObject)
+		//{
+		//	return RemoveLinkedObject(RelationKeys.Material, linkedObject);
+		//}
 		
 		/// <summary>
 		/// Уникальные идентификаторы (GUID) параметров справочника "Применение материала"
@@ -167,12 +176,12 @@ namespace TFlex.DOCs.References.ApplicabiltyMaterials
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) связи "Единица измерения"
 			/// </summary>
-		   public static readonly Guid UnitOfMeasurement = new Guid("4b619b3f-c552-4a4d-9223-72b269e12e57");
+		   public static readonly Guid UnitOfMeasurement = new Guid("8c4b5bb2-b887-43b4-bde4-d0ee2e5262b0");
 
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) связи "Материал"
 			/// </summary>
-		   public static readonly Guid Material = new Guid("021ce6a8-5229-4b11-8d0a-e633b8a0a475");
+		   public static readonly Guid Material = new Guid("c3000bc7-35a3-4e6b-aec1-0e67eed6079b");
 
 		}
 	}

@@ -98,11 +98,11 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <summary>
         /// Возвращает параметр "КодЕламед"
         /// </summary>
-        public Int32Parameter CodeElamed
+        public StringParameter CodeElamed
         {
             get
             {
-                return (Int32Parameter)this[FieldKeys.CodeElamed];
+                return (StringParameter)this[FieldKeys.CodeElamed];
             }
         }
 
@@ -270,7 +270,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) параметра "КодЕламед"
             /// </summary>
-            public readonly static Guid CodeElamed = new Guid("54f0267f-773a-4e8f-b5e9-d41cbe5ddeed");
+            public readonly static Guid CodeElamed = new Guid("249171d8-0b8a-4623-9072-8cbbcbe00934");
 
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) параметра "Типовое"

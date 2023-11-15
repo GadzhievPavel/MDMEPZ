@@ -36,5 +36,10 @@ namespace MDMEPZ.Dto
         public bool isTypical { get; set; }
         public string codeElamed { get; set; }
         public UnitOfMeasurementFull weightUnitOfMeasurement {  get; set; }
+
+        public override string ToString()
+        {
+            return name+" "+denotation+" "+ guid1C;
+        }
     }
 }

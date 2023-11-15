@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.DOCs.References.NomenclatureERP;
 
 namespace MDMEPZ.Dto
 {
     public class Nomenclature
     {
+        public static Nomenclature CreateInstance(NomenclatureERPReferenceObject nomenclatureERP)
+        {
+            var nom = new Nomenclature();
+            nom.name = nomenclatureERP.Name;
+            nom.denotation = nomenclatureERP.Denotation;
+            nom.guid1C = nomenclatureERP.GUID1C.GetString();
+            nom.guidTFlex = nomenclatureERP.GUIDTFLEX.GetString();
+
+            nom.applicationMaterials = nomenclatureERP.MaterialUsed;
+
+            
+        }
         public string name { get; set; }
         public string denotation { get; set; }
         public string guid1C { get; set; }

@@ -16,7 +16,7 @@ namespace MDMEPZ.Dto
             var unit = new UnitOfMeasurementFull();
             unit.name = unitRefObj.Name;
             unit.guid1C = unitRefObj.GUID_1C.GetString();
-            unit.guidTFlex = unitRefObj.Guid.ToString();
+            unit.guidTFlex = unitRefObj.LinkUnitOfMeasurement.Guid.ToString();
             return unit;
         }
         public string name { get; set; }

@@ -58,6 +58,20 @@ namespace MDMEPZ.Dto
         public string codeElamed { get; set; }
         public UnitOfMeasurementFull weightUnitOfMeasurement { get; set; }
 
+        public bool EnableSync()
+        {
+            Guid guidTFlex = new Guid(this.guidTFlex);
+
+            if(guidTFlex != null && unitOfMeasurement != null && typeNomenclature != null && groupOfList != null && typeOfReproduction != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override string ToString()
         {
             return name + " " + denotation + " " + guid1C;

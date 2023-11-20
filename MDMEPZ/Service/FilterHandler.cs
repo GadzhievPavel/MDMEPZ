@@ -114,5 +114,41 @@ namespace MDMEPZ.Service
             return etalonWorkpiece;
         }
 
+        public static ReferenceObject CreateEtalon(ReferenceObject nsiObject, ReferenceObject nom, ServerConnection connection)
+        {
+            ReferenceObject etalon = null;
+            var filterHandler = new FilterHandler(connection);
+            if(nsiObject is FilterDetaliAssemblingReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonDetailAssembling(nsiObject as FilterDetaliAssemblingReferenceObject);
+            }
+            else if (nsiObject is FilterElectronicComponentReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonElectronicComponents(nsiObject as FilterElectronicComponentReferenceObject);
+            }else if(nsiObject is FilterMaterialReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonMaterial(nsiObject as FilterMaterialReferenceObject);
+            }else if(nsiObject is FilterOriginalMaketReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonOriginalMaket(nsiObject as FilterOriginalMaketReferenceObject);
+            }else if(nsiObject is FilterOtherProductReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonOtherProduct(nsiObject as FilterOtherProductReferenceObject);
+            }else if(nsiObject is FilterProductReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonProduct(nsiObject as FilterProductReferenceObject, nom as NomenclatureObject);
+            }else if(nsiObject is FilterStandartProductReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonStandartProduct(nsiObject as FilterStandartProductReferenceObject);
+            }else if(nsiObject is FilterWorkpieceReferenceObject)
+            {
+                etalon = filterHandler.CreateEtalonWorkpiece(nsiObject as FilterWorkpieceReferenceObject);
+            }
+            if(etalon != null)
+            {
+                etalon.EndUpdate("");
+            }
+            return etalon;
+        }
     }
 }

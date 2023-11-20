@@ -191,7 +191,7 @@ namespace MDMEPZ.Service
         }
 
 
-        public static void CreateObjectInNsiLayer(ServerConnection connection, NomenclatureObject nomenclature)
+        public static ReferenceObject CreateObjectInNsiLayer(ServerConnection connection, NomenclatureObject nomenclature)
         {
             if (nomenclature.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) == null)
             {
@@ -245,6 +245,8 @@ namespace MDMEPZ.Service
             if(nsiObject != null) {
                 nsiObject.EndUpdate("");
             }
+
+            return nsiObject;
         }
     }
 }

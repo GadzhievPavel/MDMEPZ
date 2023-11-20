@@ -24,5 +24,13 @@ namespace MDMEPZ.Model
         /// Стадия "Обработана"
         /// </summary>
         public static readonly Guid completed = new Guid("67eb4f1f-ea82-4c10-bfc9-924746a8908a");
+        /// <summary>
+        /// Стадия "Создан"
+        /// </summary>
+        public static readonly Guid create = new Guid("0a3baea2-2b43-448b-8351-61e1ca334abe");
+        /// <summary>
+        /// Стадия "Заполнен"
+        /// </summary>
+        public static readonly Guid fill = new Guid("4be2aa55-c477-4e37-87b0-c1ef72531e29");
     }
 }

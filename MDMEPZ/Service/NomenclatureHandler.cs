@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.FilterDetaliAssembling;
 using TFlex.DOCs.References.FilterElectronicComponent;
 using TFlex.DOCs.References.FilterMaterial;
@@ -189,5 +190,61 @@ namespace MDMEPZ.Service
             return filterElectronicComponent;
         }
 
+
+        public static void CreateObjectInNsiLayer(ServerConnection connection, NomenclatureObject nomenclature)
+        {
+            if (nomenclature.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) == null)
+            {
+                throw new NullReferenceException("у объекта ЭСИ отсутствует связанная номенклатура в Номенклатуре ERP");
+            }
+
+            var handler = new NomenclatureHandler(connection, nomenclature.
+                    GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject);
+            var referenceNomenclature = nomenclature.Reference;
+            ReferenceObject nsiObject = null;
+            if (nomenclature.Class.IsAssembly || nomenclature.Class.IsDetail)
+            {
+                nsiObject = handler.CreateFilterDetaliAndAssemblingAsEtalon();
+            }
+
+            else if (nomenclature.Class.IsPiece)
+            {
+                nsiObject = handler.CreateFilterWorkpieceAsEtalon();
+            }
+
+            else if (nomenclature.Class.IsProduct)
+            {
+                nsiObject = handler.CreateFilterProductAsEtalon();
+            }
+
+            else if (nomenclature.Class.IsBaseClassFor(referenceNomenclature.Classes.Find("Материал")))
+            {
+                nsiObject = handler.CreateFilterMaterialAsEtalon();
+            }
+
+            else if (nomenclature.Class.Name == "Оригинал макет")
+            {
+                nsiObject = handler.CreateFilterOriginalMaketAsEtalon();
+            }
+
+            else if (nomenclature.Class.IsStandardItem)
+            {
+                nsiObject = handler.CreateFilterStandardProductAsEtalon();
+            }
+
+            else if (nomenclature.Class.Name == "Прочее изделие")
+            {
+                nsiObject = handler.CreateFilterOtherProductAsEtalon();
+            }
+
+            else if (nomenclature.Class.IsBaseClassFor(referenceNomenclature.Classes.Find("Электронный компонент")))
+            {
+                nsiObject = handler.CreateFilterElectronicComponentAsEtalon();
+            }
+
+            if(nsiObject != null) {
+                nsiObject.EndUpdate("");
+            }
+        }
     }
 }

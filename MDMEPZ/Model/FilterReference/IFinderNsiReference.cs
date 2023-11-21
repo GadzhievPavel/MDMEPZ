@@ -7,11 +7,8 @@ using TFlex.DOCs.Model.References;
 
 namespace MDMEPZ.Model.FilterReference
 {
-    internal interface IFilterNSI
+    internal interface IFinderNsiReference
     {
-        void setStandard();
-        void setEquivalent();
-        void setEmptyClassification();
-
+        ReferenceObject findObjectByNomenclatureERP(ReferenceObject obj);
     }
 }

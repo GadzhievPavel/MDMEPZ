@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
+using TFlex.DOCs.Model.Search;
 using TFlex.DOCs.References.FilterDetaliAssembling;
 using TFlex.DOCs.References.FilterElectronicComponent;
 using TFlex.DOCs.References.FilterMaterial;
@@ -24,14 +25,14 @@ namespace MDMEPZ.Service
     {
         private ServerConnection ServerConnection;
         private NomenclatureERPReferenceObject nomenclatureERP;
-        private FilterDetaliAssemblingReference filterDetaliAssemblingReference;
-        private FilterElectronicComponentReference filterElectronicComponentReference;
-        private FilterMaterialReference filterMaterialReference;
-        private FilterOriginalMaketReference originalMaketReference;
-        private FilterOtherProductReference otherProductReference;
-        private FilterProductReference productReference;
-        private FilterStandartProductReference standartProductReference;
-        private FilterWorkpieceReference workpieceReference;
+        private FilterDetaliAssemblingReference filterDetaliAssemblingReference { get; set; }
+        private FilterElectronicComponentReference filterElectronicComponentReference { get; set; }
+        private FilterMaterialReference filterMaterialReference { get; set;}
+        private FilterOriginalMaketReference originalMaketReference { get; set; }
+        private FilterOtherProductReference otherProductReference { get; set; }
+        private FilterProductReference productReference { get; set; }
+        private FilterStandartProductReference standartProductReference { get; set; }
+        private FilterWorkpieceReference workpieceReference { get; set; }
 
         public NomenclatureHandler(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureERP)
         {
@@ -200,8 +201,10 @@ namespace MDMEPZ.Service
 
             var handler = new NomenclatureHandler(connection, nomenclature.
                     GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject);
+            
             var referenceNomenclature = nomenclature.Reference;
             ReferenceObject nsiObject = null;
+
             if (nomenclature.Class.IsAssembly || nomenclature.Class.IsDetail)
             {
                 nsiObject = handler.CreateFilterDetaliAndAssemblingAsEtalon();
@@ -247,6 +250,11 @@ namespace MDMEPZ.Service
             }
 
             return nsiObject;
+        }
+
+        private bool haveObjectInLayerNsi(Reference reference)
+        {
+            reference.Find(Filter.Parse(""))
         }
     }
 }

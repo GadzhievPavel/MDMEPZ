@@ -3,6 +3,10 @@ namespace TFlex.DOCs.References.FilterDetaliAssembling{	using System;	using T
 
     public partial class FilterDetaliAssemblingReferenceObject : SpecialReferenceObject<FilterDetaliAssemblingReference>, IFilterNSI
     {
+        public ReferenceObject findObjectByNomenclatureERP(ReferenceObject obj)
+        {
+        }
+
         public void setEmptyClassification()
         {
             Classification.Value = ValueNSI.empty;
@@ -17,4 +21,6 @@ namespace TFlex.DOCs.References.FilterDetaliAssembling{	using System;	using T
         {
             Classification.Value = ValueNSI.standard;
         }
+
+
     }}

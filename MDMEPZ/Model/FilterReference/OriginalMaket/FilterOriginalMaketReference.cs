@@ -6,7 +6,7 @@ namespace TFlex.DOCs.References.FilterOiginalMaket{	using System;	using TFlex
     public partial class FilterOriginalMaketReference : SpecialReference<FilterOriginalMaketReferenceObject>, IFinderNsiReference	{
         public ReferenceObject findObjectByNomenclatureERP(ReferenceObject obj)
         {
-			return this.Find(Filter.Parse($"[Входящая номенклатура] = NULL", ParameterGroup)).FirstOrDefault();
+			return this.Find(Filter.Parse($"[Входящая номенклатура] = '{obj}'", ParameterGroup)).FirstOrDefault();
         }
 
         public partial class Factory		{		}	}}

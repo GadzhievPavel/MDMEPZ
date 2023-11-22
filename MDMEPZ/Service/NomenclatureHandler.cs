@@ -25,14 +25,14 @@ namespace MDMEPZ.Service
     {
         private ServerConnection ServerConnection;
         private NomenclatureERPReferenceObject nomenclatureERP;
-        private FilterDetaliAssemblingReference filterDetaliAssemblingReference { get; set; }
-        private FilterElectronicComponentReference filterElectronicComponentReference { get; set; }
-        private FilterMaterialReference filterMaterialReference { get; set;}
-        private FilterOriginalMaketReference originalMaketReference { get; set; }
-        private FilterOtherProductReference otherProductReference { get; set; }
-        private FilterProductReference productReference { get; set; }
-        private FilterStandartProductReference standartProductReference { get; set; }
-        private FilterWorkpieceReference workpieceReference { get; set; }
+        private FilterDetaliAssemblingReference filterDetaliAssemblingReference;
+        private FilterElectronicComponentReference filterElectronicComponentReference;
+        private FilterMaterialReference filterMaterialReference;
+        private FilterOriginalMaketReference originalMaketReference;
+        private FilterOtherProductReference otherProductReference;
+        private FilterProductReference productReference;
+        private FilterStandartProductReference standartProductReference;
+        private FilterWorkpieceReference workpieceReference;
 
         public NomenclatureHandler(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureERP)
         {
@@ -201,60 +201,85 @@ namespace MDMEPZ.Service
 
             var handler = new NomenclatureHandler(connection, nomenclature.
                     GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject);
-            
+
             var referenceNomenclature = nomenclature.Reference;
             ReferenceObject nsiObject = null;
 
             if (nomenclature.Class.IsAssembly || nomenclature.Class.IsDetail)
             {
-                nsiObject = handler.CreateFilterDetaliAndAssemblingAsEtalon();
+                if (!handler.haveObjectInLayerNsi(handler.filterDetaliAssemblingReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterDetaliAndAssemblingAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.IsPiece)
             {
-                nsiObject = handler.CreateFilterWorkpieceAsEtalon();
+                if (!handler.haveObjectInLayerNsi(handler.workpieceReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterWorkpieceAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.IsProduct)
             {
-                nsiObject = handler.CreateFilterProductAsEtalon();
+                if (!handler.haveObjectInLayerNsi(handler.productReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterProductAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.IsBaseClassFor(referenceNomenclature.Classes.Find("Материал")))
             {
-                nsiObject = handler.CreateFilterMaterialAsEtalon();
+                if (!handler.haveObjectInLayerNsi(handler.filterMaterialReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterMaterialAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.Name == "Оригинал макет")
             {
-                nsiObject = handler.CreateFilterOriginalMaketAsEtalon();
+                if(!handler.haveObjectInLayerNsi(handler.originalMaketReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterOriginalMaketAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.IsStandardItem)
             {
-                nsiObject = handler.CreateFilterStandardProductAsEtalon();
+                if(!handler.haveObjectInLayerNsi(handler.standartProductReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterStandardProductAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.Name == "Прочее изделие")
             {
-                nsiObject = handler.CreateFilterOtherProductAsEtalon();
+                if(!handler.haveObjectInLayerNsi(handler.otherProductReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterOtherProductAsEtalon();
+                }
             }
 
             else if (nomenclature.Class.IsBaseClassFor(referenceNomenclature.Classes.Find("Электронный компонент")))
             {
-                nsiObject = handler.CreateFilterElectronicComponentAsEtalon();
+                if(!handler.haveObjectInLayerNsi(handler.filterElectronicComponentReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterElectronicComponentAsEtalon();
+                }
             }
 
-            if(nsiObject != null) {
+            if (nsiObject != null)
+            {
                 nsiObject.EndUpdate("");
             }
 
             return nsiObject;
         }
 
-        private bool haveObjectInLayerNsi(Reference reference)
+        private bool haveObjectInLayerNsi(IFinderNsiReference referece, ReferenceObject erpNom)
         {
-            reference.Find(Filter.Parse(""))
+            return referece.findObjectByNomenclatureERP(erpNom) != null ? true : false;
         }
     }
 }

@@ -224,16 +224,54 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <summary>
         /// Возвращает или задаёт связанный объект справочника "Применение материала" по связи "Используемые материалы"
         /// </summary>
-        public ReferenceObject MaterialUsed
+        //public ReferenceObject MaterialUsed
+        //{
+        //    get
+        //    {
+        //        return GetObject(RelationKeys.MaterialUsed);
+        //    }
+        //    set
+        //    {
+        //        SetLinkedObject(RelationKeys.MaterialUsed, value);
+        //    }
+        //}
+
+        /// <summary>
+        /// Возвращает или задаёт связанный объекты справочника "Применение материала" по связи "Используемые материалы"
+        /// </summary>
+        public ReferenceObjectCollection MaterialsUsed
         {
             get
             {
-                return GetObject(RelationKeys.MaterialUsed);
+                return Links.ToMany[RelationKeys.MaterialUsed].Objects;
             }
-            set
-            {
-                SetLinkedObject(RelationKeys.MaterialUsed, value);
-            }
+        }
+        /// <summary>
+		/// Подключает объект справочника "Применение материалов" по связи "Используемые материалы"
+		/// </summary>
+		/// <param name="addObject">
+		/// Подключаемый объект
+		/// </param>
+		/// <returns>
+		/// Подключённый объект
+		/// </returns>
+        public ReferenceObject AddMaterialUsed(ReferenceObject addObject)
+        {
+            return AddLinkedObject(RelationKeys.MaterialUsed, addObject);
+        }
+
+        /// <summary>
+		/// Отключает объект справочника "Номенклатура ERP" по связи "Набор подключений"
+		/// </summary>
+		/// <param name="linkedObject">
+		/// Связанный объект
+		/// </param>
+		/// <returns>
+		/// true, если объект был отключен
+		/// </returns>
+		public Boolean RemoveMaterialUsed(ReferenceObject linkedObject)
+        {
+            return RemoveLinkedObject(RelationKeys.MaterialUsed, linkedObject);
         }
 
         /// <summary>
@@ -318,7 +356,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) связи "Используемые материалы"
             /// </summary>
-            public static readonly Guid MaterialUsed = new Guid("00b1f74d-87e9-4c9a-8bce-6b753c671c0c");
+            public static readonly Guid MaterialUsed = new Guid("f4216316-ce4f-4017-8cab-9a701817ee9b");
 
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) связи "Единицы измерения веса"

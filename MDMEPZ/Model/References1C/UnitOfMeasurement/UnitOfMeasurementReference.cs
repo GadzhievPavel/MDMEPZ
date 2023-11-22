@@ -22,4 +22,9 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
         {
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
         }
+
+		public ReferenceObject FindByName(String name)
+		{
+			return Find(Filter.Parse($"[Наименование] = '{name}'", this.ParameterGroup)).First();
+		}
     }}

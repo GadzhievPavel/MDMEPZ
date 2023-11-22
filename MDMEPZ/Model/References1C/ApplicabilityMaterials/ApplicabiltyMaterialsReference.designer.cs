@@ -34,12 +34,14 @@ namespace TFlex.DOCs.References.ApplicabiltyMaterials
 		public ApplicabiltyMaterialsReference(TFlex.DOCs.Model.ServerConnection connection) : 
 				base(connection, ApplicabiltyMaterialsReference.ReferenceId)
 		{
-		}
+			loadSupportReference();
+        }
 		
 		private ApplicabiltyMaterialsReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
-		}
+			loadSupportReference();
+        }
 		
 		/// <summary>
 		/// Возвращает типы объектов справочника "Применение материала"

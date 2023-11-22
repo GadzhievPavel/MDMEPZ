@@ -15,6 +15,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.UnitOfMeasurement;
     using System.Linq;
     using TFlex.DOCs.Model.Parameters;
+    using TFlex.DOCs.References.ApplicabiltyMaterials;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -24,6 +25,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         private TypeReproductionERPReference typeReproductionERPReference;
         private TypeNomenclatureERPReference typeNomenclatureERPReference;
         private UnitOfMeasurementReference unitOfMeasurementReference;
+        private ApplicabiltyMaterialsReference applicabilityMaterialsReference;
 
         public partial class Factory
         {
@@ -36,6 +38,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+            applicabilityMaterialsReference = this.Connection.ReferenceCatalog.Find(ApplicabiltyMaterialsReference.ReferenceId).CreateReference() as ApplicabiltyMaterialsReference; 
         }
 
         public ReferenceObject CreateReferenceObject(Nomenclature product)
@@ -91,6 +94,13 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
             }
 
+            foreach(var material in product.applicationMaterials)
+            {
+                var materialReferenceObject = applicabilityMaterialsReference.CreateReferenceObject(material) as ApplicabiltyMaterialsReferenceObject;
+                o.AddMaterialUsed(materialReferenceObject);
+            }
+
+            
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }

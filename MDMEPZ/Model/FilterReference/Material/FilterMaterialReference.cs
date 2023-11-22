@@ -9,4 +9,6 @@ namespace TFlex.DOCs.References.FilterMaterial{	using System;	using TFlex.DOC
             return this.Find(Filter.Parse($"[Входящая номенклатура] = '{obj}'", ParameterGroup)).FirstOrDefault();
         }
 
+        
+
         public partial class Factory		{		}	}}

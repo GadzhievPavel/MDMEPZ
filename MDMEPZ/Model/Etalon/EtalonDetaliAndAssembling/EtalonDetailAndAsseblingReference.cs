@@ -7,11 +7,19 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
 	using TFlex.DOCs.Model;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
+    using MDMEPZ.Model.FilterReference;
+    using TFlex.DOCs.Model.Search;
+    using System.Linq;
 
-    public partial class EtalonDetailAndAsseblingReference : SpecialReference<EtalonDetailAndAsseblingReferenceObject>
+    public partial class EtalonDetailAndAsseblingReference : SpecialReference<EtalonDetailAndAsseblingReferenceObject>, IFinderEtalonReference
 	{
-		
-		public partial class Factory
+
+        public ReferenceObject findObjectEtalonByNomenclatureERP(ReferenceObject nomErp)
+        {
+            return this.Find(Filter.Parse($"[Номенклатура ERP ДиС] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
+        }
+
+        public partial class Factory
 		{
 		}
 

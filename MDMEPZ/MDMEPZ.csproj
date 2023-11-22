@@ -234,6 +234,7 @@
       <DependentUpon>FilterElectronicComponentTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FilterReference\IFilterNSI.cs" />
+    <Compile Include="Model\FilterReference\IFinderEtalonReference.cs" />
     <Compile Include="Model\FilterReference\IFinderNsiReference.cs" />
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.cs" />
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.designer.cs">

@@ -6,9 +6,16 @@ namespace TFlex.DOCs.References.EtalonWorkpiece{
     using TFlex.DOCs.Model;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
+    using TFlex.DOCs.Model.Search;
+    using MDMEPZ.Model.FilterReference;
+    using System.Linq;
 
-    public partial class EtalonWorkpieceReference : SpecialReference<EtalonWorkpieceReferenceObject>
+    public partial class EtalonWorkpieceReference : SpecialReference<EtalonWorkpieceReferenceObject>, IFinderEtalonReference
     {
+        public ReferenceObject findObjectEtalonByNomenclatureERP(ReferenceObject nomErp)
+        {
+            return this.Find(Filter.Parse($"[Номенклатура ERP З] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
+        }
         public partial class Factory
         {
         }

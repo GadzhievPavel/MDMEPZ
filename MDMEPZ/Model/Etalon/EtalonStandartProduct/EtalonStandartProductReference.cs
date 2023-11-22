@@ -7,11 +7,18 @@ namespace TFlex.DOCs.References.StandartProduct
 	using TFlex.DOCs.Model;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
+    using TFlex.DOCs.Model.Search;
+    using MDMEPZ.Model.FilterReference;
+    using System.Linq;
 
-    public partial class EtalonStandartProductReference : SpecialReference<EtalonStandartProductReferenceObject>
+    public partial class EtalonStandartProductReference : SpecialReference<EtalonStandartProductReferenceObject>, IFinderEtalonReference
 	{
-		
-		public partial class Factory
+        public ReferenceObject findObjectEtalonByNomenclatureERP(ReferenceObject nomErp)
+        {
+            return this.Find(Filter.Parse($"[Номенклатура ERP СИ] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
+        }
+
+        public partial class Factory
 		{
 		}
 

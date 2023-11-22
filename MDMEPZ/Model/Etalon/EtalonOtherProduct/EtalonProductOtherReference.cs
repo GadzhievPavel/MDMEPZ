@@ -6,8 +6,11 @@ namespace TFlex.DOCs.References.EtalonProductOther{
     using TFlex.DOCs.Model;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
+    using TFlex.DOCs.Model.Search;
+    using MDMEPZ.Model.FilterReference;
+    using System.Linq;
 
-    public partial class EtalonProductOtherReference : SpecialReference<EtalonProductOtherReferenceObject>
+    public partial class EtalonProductOtherReference : SpecialReference<EtalonProductOtherReferenceObject>, IFinderEtalonReference
     {
 
         public partial class Factory
@@ -21,5 +24,10 @@ namespace TFlex.DOCs.References.EtalonProductOther{
             etalon.Nomenclature = nomenclature;
             etalon.Name.Value = nomenclature.Name;
             return etalon;
+        }
+
+        public ReferenceObject findObjectEtalonByNomenclatureERP(ReferenceObject nomErp)
+        {
+            return this.Find(Filter.Parse($"[Номенклатура ERP ПИ] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
         }
     }}

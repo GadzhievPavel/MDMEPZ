@@ -1,4 +1,5 @@
-﻿using MDMEPZ.Util;
+﻿using MDMEPZ.Model.FilterReference;
+using MDMEPZ.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,14 +101,16 @@ namespace MDMEPZ.Service
             return etalonProduct;
         }
 
-        public EtalonStandartProductReferenceObject CreateEtalonStandartProduct(FilterStandartProductReferenceObject obj) {
-            var etalonStandartProduct = etalonStandartProductReference.CreateReferenceObject()as EtalonStandartProductReferenceObject;
+        public EtalonStandartProductReferenceObject CreateEtalonStandartProduct(FilterStandartProductReferenceObject obj)
+        {
+            var etalonStandartProduct = etalonStandartProductReference.CreateReferenceObject() as EtalonStandartProductReferenceObject;
             etalonStandartProduct.StartUpdate();
             etalonStandartProduct.Nomenclature = obj.InputNomenclature;
             return etalonStandartProduct;
         }
 
-        public EtalonWorkpieceReferenceObject CreateEtalonWorkpiece(FilterWorkpieceReferenceObject obj) {
+        public EtalonWorkpieceReferenceObject CreateEtalonWorkpiece(FilterWorkpieceReferenceObject obj)
+        {
             var etalonWorkpiece = etalonWorkpieceReference.CreateReferenceObject() as EtalonWorkpieceReferenceObject;
             etalonWorkpiece.StartUpdate();
             etalonWorkpiece.Nomenclature = obj.InputNomenclature;
@@ -118,37 +121,80 @@ namespace MDMEPZ.Service
         {
             ReferenceObject etalon = null;
             var filterHandler = new FilterHandler(connection);
-            if(nsiObject is FilterDetaliAssemblingReferenceObject)
+            if (nsiObject is FilterDetaliAssemblingReferenceObject)
             {
-                etalon = filterHandler.CreateEtalonDetailAssembling(nsiObject as FilterDetaliAssemblingReferenceObject);
+                var nsiDetaliAssembling = nsiObject as FilterDetaliAssemblingReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonDetailAndAsseblingReference, nsiDetaliAssembling.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonDetailAssembling(nsiObject as FilterDetaliAssemblingReferenceObject);
+                }
             }
             else if (nsiObject is FilterElectronicComponentReferenceObject)
             {
-                etalon = filterHandler.CreateEtalonElectronicComponents(nsiObject as FilterElectronicComponentReferenceObject);
-            }else if(nsiObject is FilterMaterialReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonMaterial(nsiObject as FilterMaterialReferenceObject);
-            }else if(nsiObject is FilterOriginalMaketReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonOriginalMaket(nsiObject as FilterOriginalMaketReferenceObject);
-            }else if(nsiObject is FilterOtherProductReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonOtherProduct(nsiObject as FilterOtherProductReferenceObject);
-            }else if(nsiObject is FilterProductReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonProduct(nsiObject as FilterProductReferenceObject, nom as NomenclatureObject);
-            }else if(nsiObject is FilterStandartProductReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonStandartProduct(nsiObject as FilterStandartProductReferenceObject);
-            }else if(nsiObject is FilterWorkpieceReferenceObject)
-            {
-                etalon = filterHandler.CreateEtalonWorkpiece(nsiObject as FilterWorkpieceReferenceObject);
+                var nsiElectronicComponent = nsiObject as FilterElectronicComponentReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonElectronicCompoentsReference, nsiElectronicComponent.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonElectronicComponents(nsiObject as FilterElectronicComponentReferenceObject);
+                }
             }
-            if(etalon != null)
+            else if (nsiObject is FilterMaterialReferenceObject)
+            {
+                var nsiMaterial = nsiObject as FilterMaterialReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonMaterialReference, nsiMaterial.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonMaterial(nsiObject as FilterMaterialReferenceObject);
+                }
+            }
+            else if (nsiObject is FilterOriginalMaketReferenceObject)
+            {
+                var nsiOM = nsiObject as FilterOriginalMaketReferenceObject;
+                if (filterHandler.haveObjectInEtalon(filterHandler.etalonOriginalMaketReference, nsiOM.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonOriginalMaket(nsiObject as FilterOriginalMaketReferenceObject);
+                }
+            }
+            else if (nsiObject is FilterOtherProductReferenceObject)
+            {
+                var nsiOtherProduct = nsiObject as FilterOtherProductReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonProductOtherReference, nsiOtherProduct.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonOtherProduct(nsiObject as FilterOtherProductReferenceObject);
+                }
+            }
+            else if (nsiObject is FilterProductReferenceObject)
+            {
+                var nsiProduct = nsiObject as FilterProductReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonProductReference, nsiProduct.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonProduct(nsiObject as FilterProductReferenceObject, nom as NomenclatureObject);
+                }
+            }
+            else if (nsiObject is FilterStandartProductReferenceObject)
+            {
+                var nsiStandartProduct = nsiObject as FilterStandartProductReferenceObject;
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonStandartProductReference, nsiStandartProduct.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonStandartProduct(nsiObject as FilterStandartProductReferenceObject);
+                }
+            }
+            else if (nsiObject is FilterWorkpieceReferenceObject)
+            {
+                var nsiWorkpiece = nsiObject as FilterWorkpieceReferenceObject;
+                if(!filterHandler.haveObjectInEtalon(filterHandler.etalonWorkpieceReference, nsiWorkpiece.InputNomenclature))
+                {
+                    etalon = filterHandler.CreateEtalonWorkpiece(nsiObject as FilterWorkpieceReferenceObject);
+                }
+            }
+            if (etalon != null)
             {
                 etalon.EndUpdate("");
             }
             return etalon;
+        }
+
+        private bool haveObjectInEtalon(IFinderEtalonReference reference, ReferenceObject nomErp)
+        {
+            return reference.findObjectEtalonByNomenclatureERP(nomErp) == null ? false : true;
         }
     }
 }

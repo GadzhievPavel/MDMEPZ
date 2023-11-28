@@ -239,13 +239,13 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <summary>
         /// Возвращает или задаёт связанный объекты справочника "Применение материала" по связи "Используемые материалы"
         /// </summary>
-        public ReferenceObjectCollection MaterialsUsed
-        {
-            get
-            {
-                return Links.ToMany[RelationKeys.MaterialUsed].Objects;
-            }
-        }
+        //public ReferenceObjectCollection MaterialsUsed
+        //{
+        //    get
+        //    {
+        //        return Links.ToMany[RelationKeys.MaterialUsed].Objects;
+        //    }
+        //}
         /// <summary>
 		/// Подключает объект справочника "Применение материалов" по связи "Используемые материалы"
 		/// </summary>
@@ -255,10 +255,10 @@ namespace TFlex.DOCs.References.NomenclatureERP
 		/// <returns>
 		/// Подключённый объект
 		/// </returns>
-        public ReferenceObject AddMaterialUsed(ReferenceObject addObject)
-        {
-            return AddLinkedObject(RelationKeys.MaterialUsed, addObject);
-        }
+        //public ReferenceObject AddMaterialUsed(ReferenceObject addObject)
+        //{
+        //    return AddLinkedObject(RelationKeys.MaterialUsed, addObject);
+        //}
 
         /// <summary>
 		/// Отключает объект справочника "Номенклатура ERP" по связи "Набор подключений"
@@ -269,10 +269,10 @@ namespace TFlex.DOCs.References.NomenclatureERP
 		/// <returns>
 		/// true, если объект был отключен
 		/// </returns>
-		public Boolean RemoveMaterialUsed(ReferenceObject linkedObject)
-        {
-            return RemoveLinkedObject(RelationKeys.MaterialUsed, linkedObject);
-        }
+		//public Boolean RemoveMaterialUsed(ReferenceObject linkedObject)
+  //      {
+  //          return RemoveLinkedObject(RelationKeys.MaterialUsed, linkedObject);
+  //      }
 
         /// <summary>
         /// Уникальные идентификаторы (GUID) параметров справочника "Номенклатура ERP"
@@ -356,7 +356,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) связи "Используемые материалы"
             /// </summary>
-            public static readonly Guid MaterialUsed = new Guid("f4216316-ce4f-4017-8cab-9a701817ee9b");
+            //public static readonly Guid MaterialUsed = new Guid("f4216316-ce4f-4017-8cab-9a701817ee9b");
 
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) связи "Единицы измерения веса"

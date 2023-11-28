@@ -28,9 +28,9 @@ namespace MDMEPZ.Dto
             nom.guid1C = nomenclatureERP.GUID1C.GetString();
             nom.guidTFlex = nomenclatureERP.GUIDTFLEX.GetString();
 
-            List<ApplicationMaterials> listMaterials = new List<ApplicationMaterials>();
-            nomenclatureERP.MaterialsUsed.ToList().ForEach(mat => { listMaterials.Add(ApplicationMaterials.CreateInstance(mat as ApplicabiltyMaterialsReferenceObject)); });
-            nom.applicationMaterials = listMaterials.ToArray();
+            //List<ApplicationMaterials> listMaterials = new List<ApplicationMaterials>();
+            //nomenclatureERP.MaterialsUsed.ToList().ForEach(mat => { listMaterials.Add(ApplicationMaterials.CreateInstance(mat as ApplicabiltyMaterialsReferenceObject)); });
+            //nom.applicationMaterials = listMaterials.ToArray();
             nom.unitOfMeasurement = UnitOfMeasurementFull.CreateInstance(nomenclatureERP.UnitsOfMeasurement as UnitOfMeasurementReferenceObject);
             nom.typeNomenclature = TypeOfNomenclature.CreateInstance(nomenclatureERP.TypeNomenclature as TypeNomenclatureERPReferenceObject);
             nom.groupOfList = GroupOfList.CreateInstance(nomenclatureERP.GroupList as GroupListReferenceObject);

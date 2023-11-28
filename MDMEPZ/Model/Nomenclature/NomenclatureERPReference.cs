@@ -94,11 +94,11 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
             }
 
-            foreach(var material in product.applicationMaterials)
-            {
-                var materialReferenceObject = applicabilityMaterialsReference.CreateReferenceObject(material) as ApplicabiltyMaterialsReferenceObject;
-                o.AddMaterialUsed(materialReferenceObject);
-            }
+            //foreach(var material in product.applicationMaterials)
+            //{
+            //    var materialReferenceObject = applicabilityMaterialsReference.CreateReferenceObject(material) as ApplicabiltyMaterialsReferenceObject;
+            //    o.AddMaterialUsed(materialReferenceObject);
+            //}
 
             
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));

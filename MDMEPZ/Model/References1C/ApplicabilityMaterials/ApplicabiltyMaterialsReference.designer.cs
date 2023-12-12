@@ -20,68 +20,68 @@ namespace TFlex.DOCs.References.ApplicabiltyMaterials
 	/// <summary>
 	/// Представляет описание справочника "Применение материала"
 	/// </summary>
-	public partial class ApplicabiltyMaterialsReference
-	{
+	//public partial class ApplicabiltyMaterialsReference
+	//{
 		
-		/// <summary>
-		/// Представляет уникальный идентификатор (GUID) справочника "Применение материала"
-		/// </summary>
-		public static readonly System.Guid ReferenceId = new Guid("6c71eb44-f4e2-4f14-afc9-28f30332f94b");
+	//	/// <summary>
+	//	/// Представляет уникальный идентификатор (GUID) справочника "Применение материала"
+	//	/// </summary>
+	//	public static readonly System.Guid ReferenceId = new Guid("6c71eb44-f4e2-4f14-afc9-28f30332f94b");
 		
-		/// <summary>
-		/// Инициализирует новый экземпляр ApplicabiltyMaterialsReference для работы с объектами справочника "Применение материала"
-		/// </summary>
-		public ApplicabiltyMaterialsReference(TFlex.DOCs.Model.ServerConnection connection) : 
-				base(connection, ApplicabiltyMaterialsReference.ReferenceId)
-		{
-		}
+	//	/// <summary>
+	//	/// Инициализирует новый экземпляр ApplicabiltyMaterialsReference для работы с объектами справочника "Применение материала"
+	//	/// </summary>
+	//	public ApplicabiltyMaterialsReference(TFlex.DOCs.Model.ServerConnection connection) : 
+	//			base(connection, ApplicabiltyMaterialsReference.ReferenceId)
+	//	{
+	//	}
 		
-		private ApplicabiltyMaterialsReference(ParameterGroup masterGroup) : 
-				base(masterGroup)
-		{
-		}
+	//	private ApplicabiltyMaterialsReference(ParameterGroup masterGroup) : 
+	//			base(masterGroup)
+	//	{
+	//	}
 		
-		/// <summary>
-		/// Возвращает типы объектов справочника "Применение материала"
-		/// </summary>
-		public new ApplicabiltyMaterialsTypes Classes
-		{
-			get
-			{
-				return ((ApplicabiltyMaterialsTypes)(base.Classes));
-			}
-		}
+	//	/// <summary>
+	//	/// Возвращает типы объектов справочника "Применение материала"
+	//	/// </summary>
+	//	public new ApplicabiltyMaterialsTypes Classes
+	//	{
+	//		get
+	//		{
+	//			return ((ApplicabiltyMaterialsTypes)(base.Classes));
+	//		}
+	//	}
 		
-		protected override ApplicabiltyMaterialsReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
-		{
-			ApplicabiltyMaterialsType type = classObject as ApplicabiltyMaterialsType;
-			if ((type == null))
-			{
-				return null;
-			}
-			if (type.IsApplicabiltyMaterialsReferenceObject)
-			{
-				return new ApplicabiltyMaterialsReferenceObject(this);
-			}
-			return new ApplicabiltyMaterialsReferenceObject(this);
-		}
+	//	protected override ApplicabiltyMaterialsReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
+	//	{
+	//		ApplicabiltyMaterialsType type = classObject as ApplicabiltyMaterialsType;
+	//		if ((type == null))
+	//		{
+	//			return null;
+	//		}
+	//		if (type.IsApplicabiltyMaterialsReferenceObject)
+	//		{
+	//			return new ApplicabiltyMaterialsReferenceObject(this);
+	//		}
+	//		return new ApplicabiltyMaterialsReferenceObject(this);
+	//	}
 		
-		public partial class Factory : SpecialReferenceFactory<ApplicabiltyMaterialsReference, ApplicabiltyMaterialsTypes>
-		{
+	//	public partial class Factory : SpecialReferenceFactory<ApplicabiltyMaterialsReference, ApplicabiltyMaterialsTypes>
+	//	{
 			
-			internal Factory()
-			{
-			}
+	//		internal Factory()
+	//		{
+	//		}
 			
-			public override ApplicabiltyMaterialsReference CreateReference(ParameterGroup masterGroup)
-			{
-				return new ApplicabiltyMaterialsReference(masterGroup);
-			}
+	//		public override ApplicabiltyMaterialsReference CreateReference(ParameterGroup masterGroup)
+	//		{
+	//			return new ApplicabiltyMaterialsReference(masterGroup);
+	//		}
 			
-			public override ApplicabiltyMaterialsTypes CreateClassTree(ParameterGroup masterGroup)
-			{
-				return new ApplicabiltyMaterialsTypes(masterGroup);
-			}
-		}
-	}
+	//		public override ApplicabiltyMaterialsTypes CreateClassTree(ParameterGroup masterGroup)
+	//		{
+	//			return new ApplicabiltyMaterialsTypes(masterGroup);
+	//		}
+	//	}
+	//}
 }

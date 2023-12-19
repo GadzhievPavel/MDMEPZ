@@ -147,6 +147,20 @@ namespace TFlex.DOCs.References.NomenclatureERP
         }
 
         /// <summary>
+        /// Возвращает или задает связанный объект справочника "Группа финансового учета номенклатуры"
+        /// </summary>
+        public ReferenceObject GroupFinanceNomenclature
+        {
+            get
+            {
+                return GetObject(RelationKeys.GroupFinanceNomenclature);
+            }
+            set
+            {
+                SetLinkedObject(RelationKeys.GroupFinanceNomenclature, value);
+            }
+        }
+        /// <summary>
         /// Возвращает или задаёт связанный объект справочника "Типы воспроизводства" по связи "Тип воспроизводства"
         /// </summary>
         public ReferenceObject TypeReproduction
@@ -324,6 +338,11 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// Представляет уникальный идентификатор (GUID) связи "Единицы измерения веса"
             /// </summary>
             public static readonly Guid UnitOfMeasurementWeight = new Guid("c90cdee4-2b83-4d9c-8010-ab245d265b21");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) связи "Группа финансового учета номенклатуры"
+            /// </summary>
+            public static readonly Guid GroupFinanceNomenclature = new Guid("4d8bbde9-bd7d-4565-a437-b2b21baf84df");
 
         }
     }

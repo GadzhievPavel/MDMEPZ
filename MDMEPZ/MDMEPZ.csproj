@@ -382,6 +382,22 @@
     <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.designer.cs">
       <DependentUpon>CategoryProductTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\GroupList\GroupListReference.cs" />
     <Compile Include="Model\References1C\GroupList\GroupListReference.designer.cs">
       <DependentUpon>GroupListReference.cs</DependentUpon>

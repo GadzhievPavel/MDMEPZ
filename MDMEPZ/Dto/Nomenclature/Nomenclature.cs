@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.References.ApplicabiltyMaterials;
 using TFlex.DOCs.References.CategoryProduct;
+using TFlex.DOCs.References.GroupFinanceNomenclature;
 using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.TypeNomenclatureERP;
@@ -34,6 +35,7 @@ namespace MDMEPZ.Dto
             nom.groupOfList = GroupOfList.CreateInstance(nomenclatureERP.GroupList as GroupListReferenceObject);
             nom.typeOfReproduction = TypeOfReproduction.CreateInstance(nomenclatureERP.TypeReproduction as TypeReproductionERPReferenceObject);
             nom.category = ProductCategory.CreateInstance(nomenclatureERP.ProductCategory as CategoryProductReferenceObject);
+            nom.groupFinance = GroupFinanceNomenclature.CreateInstance(nomenclatureERP.GroupFinanceNomenclature as GroupFinanceNomenclatureReferenceObject);
 
             nom.weight = nomenclatureERP.Weight;
             nom.isTypical = nomenclatureERP.IsTypical;
@@ -57,7 +59,7 @@ namespace MDMEPZ.Dto
         public bool isTypical { get; set; }
         public string codeElamed { get; set; }
         public UnitOfMeasurementFull weightUnitOfMeasurement { get; set; }
-
+        public GroupFinanceNomenclature groupFinance { get; set; }
         public bool EnableSync()
         {
             Guid guidTFlex = new Guid(this.guidTFlex);

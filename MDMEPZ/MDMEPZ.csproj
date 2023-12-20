@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />

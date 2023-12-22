@@ -15,6 +15,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.UnitOfMeasurement;
     using System.Linq;
     using TFlex.DOCs.Model.Parameters;
+    using TFlex.DOCs.References.GroupFinanceNomenclature;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -24,6 +25,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         private TypeReproductionERPReference typeReproductionERPReference;
         private TypeNomenclatureERPReference typeNomenclatureERPReference;
         private UnitOfMeasurementReference unitOfMeasurementReference;
+        private GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
 
         public partial class Factory
         {
@@ -36,6 +38,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+            groupFinanceNomenclatureReference = this.Connection.ReferenceCatalog.Find(GroupFinanceNomenclatureReference.ReferenceId).CreateReference() as GroupFinanceNomenclatureReference;
         }
 
         public ReferenceObject CreateReferenceObject(Nomenclature product)
@@ -89,6 +92,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             if (unitOfMeasurementWeight != null)
             {
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
+            }
+
+            var groupFinance = getGroupFinancialNomenclature(product);
+            if (groupFinance != null)
+            {
+                o.GroupFinanceNomenclature = groupFinance;
             }
 
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
@@ -205,5 +214,16 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
         }
 
-        
+        private ReferenceObject getGroupFinancialNomenclature(Nomenclature nomenclature)
+        {
+            if(nomenclature is null)
+            {
+                return null;
+            }
+            if(nomenclature.financialGroup.guid1C is null)
+            {
+                return null;
+            }
+            return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
+        }
     }}

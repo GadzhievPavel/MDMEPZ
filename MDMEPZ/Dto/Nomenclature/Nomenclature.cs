@@ -35,7 +35,7 @@ namespace MDMEPZ.Dto
             nom.groupOfList = GroupOfList.CreateInstance(nomenclatureERP.GroupList as GroupListReferenceObject);
             nom.typeOfReproduction = TypeOfReproduction.CreateInstance(nomenclatureERP.TypeReproduction as TypeReproductionERPReferenceObject);
             nom.category = ProductCategory.CreateInstance(nomenclatureERP.ProductCategory as CategoryProductReferenceObject);
-            nom.groupFinance = GroupFinanceNomenclature.CreateInstance(nomenclatureERP.GroupFinanceNomenclature as GroupFinanceNomenclatureReferenceObject);
+            nom.financialGroup = GroupFinanceNomenclature.CreateInstance(nomenclatureERP.GroupFinanceNomenclature as GroupFinanceNomenclatureReferenceObject);
 
             nom.weight = nomenclatureERP.Weight;
             nom.isTypical = nomenclatureERP.IsTypical;
@@ -59,12 +59,14 @@ namespace MDMEPZ.Dto
         public bool isTypical { get; set; }
         public string codeElamed { get; set; }
         public UnitOfMeasurementFull weightUnitOfMeasurement { get; set; }
-        public GroupFinanceNomenclature groupFinance { get; set; }
+        public GroupFinanceNomenclature financialGroup { get; set; }
         public bool EnableSync()
         {
             Guid guidTFlex = new Guid(this.guidTFlex);
 
-            if(guidTFlex != null && unitOfMeasurement != null && typeNomenclature != null && groupOfList != null && typeOfReproduction != null)
+            if(guidTFlex != null && unitOfMeasurement != null &&
+                typeNomenclature != null && groupOfList != null && 
+                typeOfReproduction != null && financialGroup != null)
             {
                 return true;
             }

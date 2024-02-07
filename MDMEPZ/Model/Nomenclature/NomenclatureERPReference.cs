@@ -220,6 +220,10 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             {
                 return null;
             }
+            if(nomenclature.financialGroup is null)
+            {
+                return null;
+            }
             if(nomenclature.financialGroup.guid1C is null)
             {
                 return null;

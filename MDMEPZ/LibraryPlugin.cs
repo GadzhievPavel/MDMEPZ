@@ -15,6 +15,7 @@ using TFlex.DOCs.References.EtalonMaterial;
 using TFlex.DOCs.References.EtalonOriginalMaket;
 using TFlex.DOCs.References.EtalonProduct;
 using TFlex.DOCs.References.EtalonProductOther;
+using TFlex.DOCs.References.EtalonUserManual;
 using TFlex.DOCs.References.EtalonWorkpiece;
 using TFlex.DOCs.References.FilterDetaliAssembling;
 using TFlex.DOCs.References.FilterElectronicComponent;
@@ -23,6 +24,7 @@ using TFlex.DOCs.References.FilterOiginalMaket;
 using TFlex.DOCs.References.FilterOtherProduct;
 using TFlex.DOCs.References.FilterProduct;
 using TFlex.DOCs.References.FilterStandartProduct;
+using TFlex.DOCs.References.FilterUserManual;
 using TFlex.DOCs.References.GroupFinanceNomenclature;
 using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
@@ -62,6 +64,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(FilterProductReference.ReferenceId, new FilterProductReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(FilterWorkpieceReference.ReferenceId, new FilterWorkpieceReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(FilterStandartProductReference.ReferenceId, new FilterStandartProductReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(FilterUserManualReference.ReferenceId, new FilterUserManualReference.Factory());
             
             ReferenceCatalog.RegisterSpecialReference(NomenclatureERPReference.ReferenceId, new NomenclatureERPReference.Factory());
 
@@ -77,6 +80,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(UnitOfMeasurementReference.ReferenceId, new UnitOfMeasurementReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(GroupFinanceNomenclatureReference.ReferenceId, new GroupFinanceNomenclatureReference.Factory());
             
+            
             //etalon
             ReferenceCatalog.RegisterSpecialReference(EtalonDetailAndAsseblingReference.ReferenceId, new EtalonDetailAndAsseblingReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(EtalonElectronicCompoentsReference.ReferenceId, new EtalonElectronicCompoentsReference.Factory());
@@ -86,6 +90,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(EtalonProductReference.ReferenceId, new EtalonProductReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(EtalonWorkpieceReference.ReferenceId, new EtalonWorkpieceReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(EtalonStandartProductReference.ReferenceId, new EtalonStandartProductReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(EtalonUserManualReference.ReferenceId, new EtalonUserManualReference.Factory());
 
             ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
             

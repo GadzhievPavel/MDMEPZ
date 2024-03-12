@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.EtalonUserManual{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class EtalonUserManualType : ClassObject	{	}}

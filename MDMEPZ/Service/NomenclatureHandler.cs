@@ -16,6 +16,7 @@ using TFlex.DOCs.References.FilterOiginalMaket;
 using TFlex.DOCs.References.FilterOtherProduct;
 using TFlex.DOCs.References.FilterProduct;
 using TFlex.DOCs.References.FilterStandartProduct;
+using TFlex.DOCs.References.FilterUserManual;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.Workpiece;
 
@@ -33,6 +34,7 @@ namespace MDMEPZ.Service
         private FilterProductReference productReference;
         private FilterStandartProductReference standartProductReference;
         private FilterWorkpieceReference workpieceReference;
+        private FilterUserManualReference filterUserManualReference;
 
         public NomenclatureHandler(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureERP)
         {
@@ -45,6 +47,7 @@ namespace MDMEPZ.Service
             productReference = connection.ReferenceCatalog.Find(FilterProductReference.ReferenceId).CreateReference() as FilterProductReference;
             standartProductReference = connection.ReferenceCatalog.Find(FilterStandartProductReference.ReferenceId).CreateReference() as FilterStandartProductReference;
             workpieceReference = connection.ReferenceCatalog.Find(FilterWorkpieceReference.ReferenceId).CreateReference() as FilterWorkpieceReference;
+            filterUserManualReference = connection.ReferenceCatalog.Find(FilterUserManualReference.ReferenceId).CreateReference() as FilterUserManualReference;
             this.nomenclatureERP = nomenclatureERP;
         }
 
@@ -191,6 +194,22 @@ namespace MDMEPZ.Service
             return filterElectronicComponent;
         }
 
+        public ReferenceObject CreateFilterUserManual()
+        {
+            var filterUserManual = filterUserManualReference.CreateReferenceObject() as FilterUserManualReferenceObject;
+            filterUserManual.StartUpdate();
+            filterUserManual.InputNomenclature = nomenclatureERP;
+            return filterUserManual;
+        }
+
+        public ReferenceObject CreateFilterUserManualAsEtalon()
+        {
+            var filterUserManual = filterUserManualReference.CreateReferenceObject() as FilterUserManualReferenceObject;
+            filterUserManual.StartUpdate();
+            filterUserManual.InputNomenclature = nomenclatureERP;
+            filterUserManual.Classification.Value = ValueNSI.standard;
+            return filterUserManual;
+        }
 
         public static ReferenceObject CreateObjectInNsiLayer(ServerConnection connection, NomenclatureObject nomenclature)
         {
@@ -266,6 +285,13 @@ namespace MDMEPZ.Service
                 if(!handler.haveObjectInLayerNsi(handler.filterElectronicComponentReference, handler.nomenclatureERP))
                 {
                     nsiObject = handler.CreateFilterElectronicComponentAsEtalon();
+                }
+            }
+            else if(nomenclature.Class.Name == "Руководство по эксплуатации")
+            {
+                if(!handler.haveObjectInLayerNsi(handler.filterElectronicComponentReference, handler.nomenclatureERP))
+                {
+                    nsiObject = handler.CreateFilterUserManualAsEtalon();
                 }
             }
 

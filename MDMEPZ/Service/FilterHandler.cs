@@ -14,6 +14,7 @@ using TFlex.DOCs.References.EtalonMaterial;
 using TFlex.DOCs.References.EtalonOriginalMaket;
 using TFlex.DOCs.References.EtalonProduct;
 using TFlex.DOCs.References.EtalonProductOther;
+using TFlex.DOCs.References.EtalonUserManual;
 using TFlex.DOCs.References.EtalonWorkpiece;
 using TFlex.DOCs.References.FilterDetaliAssembling;
 using TFlex.DOCs.References.FilterElectronicComponent;
@@ -22,6 +23,7 @@ using TFlex.DOCs.References.FilterOiginalMaket;
 using TFlex.DOCs.References.FilterOtherProduct;
 using TFlex.DOCs.References.FilterProduct;
 using TFlex.DOCs.References.FilterStandartProduct;
+using TFlex.DOCs.References.FilterUserManual;
 using TFlex.DOCs.References.StandartProduct;
 using TFlex.DOCs.References.Workpiece;
 
@@ -38,6 +40,7 @@ namespace MDMEPZ.Service
         private EtalonProductReference etalonProductReference;
         private EtalonStandartProductReference etalonStandartProductReference;
         private EtalonWorkpieceReference etalonWorkpieceReference;
+        private EtalonUserManualReference etalonUserManualReference;
 
         public FilterHandler(ServerConnection serverConnection)
         {
@@ -50,6 +53,7 @@ namespace MDMEPZ.Service
             etalonProductReference = connection.ReferenceCatalog.Find(EtalonProductReference.ReferenceId).CreateReference() as EtalonProductReference;
             etalonStandartProductReference = connection.ReferenceCatalog.Find(EtalonStandartProductReference.ReferenceId).CreateReference() as EtalonStandartProductReference;
             etalonWorkpieceReference = connection.ReferenceCatalog.Find(EtalonWorkpieceReference.ReferenceId).CreateReference() as EtalonWorkpieceReference;
+            etalonUserManualReference = connection.ReferenceCatalog.Find(EtalonUserManualReference.ReferenceId).CreateReference() as EtalonUserManualReference;
         }
 
         public EtalonDetailAndAsseblingReferenceObject CreateEtalonDetailAssembling(FilterDetaliAssemblingReferenceObject obj)
@@ -117,6 +121,14 @@ namespace MDMEPZ.Service
             return etalonWorkpiece;
         }
 
+        public EtalonUserManualReferenceObject CreateEtalonUserManual(FilterUserManualReferenceObject obj)
+        {
+            var etalon = etalonUserManualReference.CreateReferenceObject() as EtalonUserManualReferenceObject;
+            etalon.StartUpdate();
+            etalon.Nomenclature=obj.InputNomenclature;
+            return etalon;
+        }
+
         public static ReferenceObject CreateEtalon(ReferenceObject nsiObject, ReferenceObject nom, ServerConnection connection)
         {
             ReferenceObject etalon = null;
@@ -180,9 +192,17 @@ namespace MDMEPZ.Service
             else if (nsiObject is FilterWorkpieceReferenceObject)
             {
                 var nsiWorkpiece = nsiObject as FilterWorkpieceReferenceObject;
-                if(!filterHandler.haveObjectInEtalon(filterHandler.etalonWorkpieceReference, nsiWorkpiece.InputNomenclature))
+                if (!filterHandler.haveObjectInEtalon(filterHandler.etalonWorkpieceReference, nsiWorkpiece.InputNomenclature))
                 {
                     etalon = filterHandler.CreateEtalonWorkpiece(nsiObject as FilterWorkpieceReferenceObject);
+                }
+            }
+            else if(nsiObject is FilterUserManualReferenceObject)
+            {
+                var nsiUserManual = nsiObject as FilterUserManualReferenceObject;
+                if(!filterHandler.haveObjectInEtalon(filterHandler.etalonUserManualReference, nsiUserManual.InputNomenclature))
+                {
+                    etalon= filterHandler.CreateEtalonUserManual(nsiObject as FilterUserManualReferenceObject);
                 }
             }
             if (etalon != null)

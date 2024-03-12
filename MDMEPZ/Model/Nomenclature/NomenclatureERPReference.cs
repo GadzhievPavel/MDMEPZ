@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.NomenclatureERP{
+namespace TFlex.DOCs.References.NomenclatureERP
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -230,4 +231,5 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             }
             return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
         }
-    }}
+    }
+}

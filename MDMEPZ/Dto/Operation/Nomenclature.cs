@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Операция
+﻿namespace ClassLibrary1.Dto
 {
     /// <summary>
     /// Номенклатура (по сути таже что и Владелец у маршрута но называется иначе)

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClassLibrary1
+namespace ClassLibrary1.Dto
 {
     /// <summary>
     /// Владелец

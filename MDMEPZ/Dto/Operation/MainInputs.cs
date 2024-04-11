@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ClassLibrary1.Операция
+namespace ClassLibrary1.Dto
 {
     /// <summary>
     /// Основные Входы

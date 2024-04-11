@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Операция
+﻿namespace ClassLibrary1.Dto
 {
     /// <summary>
     /// Разряд Работ

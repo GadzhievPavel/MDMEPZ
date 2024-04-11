@@ -9,7 +9,7 @@ namespace ClassLibrary1.Dto
     /// <summary>
     /// Маршрут
     /// </summary>
-    public class Route
+    public class ClassRoute
     {
         public bool OBJECT { get; set; }
         public string NEW { get; set; }

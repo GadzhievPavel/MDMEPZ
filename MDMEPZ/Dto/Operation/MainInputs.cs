@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ClassLibrary1.Dto
+namespace MDMEPZ.Dto
 {
     /// <summary>
     /// Основные Входы

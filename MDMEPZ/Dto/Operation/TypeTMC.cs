@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Dto
+﻿namespace MDMEPZ.Dto
 {
     /// <summary>
     /// Вид Учета ТМЦ

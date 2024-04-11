@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1.Dto
+namespace MDMEPZ.Dto
 {
     /// <summary>
     /// Маршрут
     /// </summary>
-    public class ClassRoute
+    public class Route
     {
         public bool OBJECT { get; set; }
         public string NEW { get; set; }

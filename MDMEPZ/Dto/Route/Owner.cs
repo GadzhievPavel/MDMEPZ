@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ClassLibrary1.Dto
+namespace MDMEPZ.Dto
 {
     /// <summary>
     /// Владелец

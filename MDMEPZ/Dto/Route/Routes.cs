@@ -1,14 +1,14 @@
-﻿using ClassLibrary1.Dto;
+﻿using MDMEPZ.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMEPZ.Dto.Route
+namespace MDMEPZ.Dto
 {
     public class Routes
     {
-        public ClassRoute[] routes { get; set; }  
+        public Route[] routes { get; set; }  
     }
 }

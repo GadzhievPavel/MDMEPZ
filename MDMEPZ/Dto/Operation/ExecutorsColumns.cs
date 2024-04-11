@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Dto
+﻿namespace MDMEPZ.Dto
 {
     /// <summary>
     /// Столбцы в исполнителе (ДОПИСАТЬ ПАРАМЕТРЫ)

@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
@@ -133,6 +135,22 @@
     <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.cs" />
     <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.Designer.cs">
       <DependentUpon>EtalonElectronicCompoentsTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReference.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReference.designer.cs">
+      <DependentUpon>EtalonUserManualReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReferenceObject.designer.cs">
+      <DependentUpon>EtalonUserManualReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualType.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualType.designer.cs">
+      <DependentUpon>EtalonUserManualType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualTypes.designer.cs">
+      <DependentUpon>EtalonUserManualTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.cs" />
     <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.Designer.cs">
@@ -265,6 +283,22 @@
     <Compile Include="Model\FilterReference\IFilterNSI.cs" />
     <Compile Include="Model\FilterReference\IFinderEtalonReference.cs" />
     <Compile Include="Model\FilterReference\IFinderNsiReference.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReference.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReference.designer.cs">
+      <DependentUpon>FilterUserManualReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReferenceObject.Designer.cs">
+      <DependentUpon>FilterUserManualReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualType.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualType.designer.cs">
+      <DependentUpon>FilterUserManualType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualTypes.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualTypes.designer.cs">
+      <DependentUpon>FilterUserManualTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.cs" />
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.designer.cs">
       <DependentUpon>FilterMaterialReference.cs</DependentUpon>
@@ -410,6 +444,22 @@
     <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.cs" />
     <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.designer.cs">
       <DependentUpon>CategoryProductTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\GroupList\GroupListReference.cs" />
     <Compile Include="Model\References1C\GroupList\GroupListReference.designer.cs">

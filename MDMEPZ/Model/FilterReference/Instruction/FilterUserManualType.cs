@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.FilterUserManual{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Classes;			public partial class FilterUserManualType : ClassObject	{	}}

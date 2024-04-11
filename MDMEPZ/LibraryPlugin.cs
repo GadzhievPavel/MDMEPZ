@@ -29,6 +29,7 @@ using TFlex.DOCs.References.GroupFinanceNomenclature;
 using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.ReplacementERP;
+using TFlex.DOCs.References.Route;
 using TFlex.DOCs.References.SpecificationERP;
 using TFlex.DOCs.References.StandartProduct;
 using TFlex.DOCs.References.StructNomenclature;
@@ -93,7 +94,9 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(EtalonUserManualReference.ReferenceId, new EtalonUserManualReference.Factory());
 
             ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
-            
+
+            //route(test)
+            ReferenceCatalog.RegisterSpecialReference(RouteReference.ReferenceId, new RouteReference.Factory());
         }
     }
 }

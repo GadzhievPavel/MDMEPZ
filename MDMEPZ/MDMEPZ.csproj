@@ -573,6 +573,22 @@
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Route\RouteReference.cs" />
+    <Compile Include="Model\Route\RouteReference.designer.cs">
+      <DependentUpon>RouteReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteReferenceObject.cs" />
+    <Compile Include="Model\Route\RouteReferenceObject.Designer.cs">
+      <DependentUpon>RouteReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteType.cs" />
+    <Compile Include="Model\Route\RouteType.designer.cs">
+      <DependentUpon>RouteType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteTypes.cs" />
+    <Compile Include="Model\Route\RouteTypes.designer.cs">
+      <DependentUpon>RouteTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\StagesEnum.cs" />
     <Compile Include="Model\StructNomenclature\StructNomenclatureReference.cs" />
     <Compile Include="Model\StructNomenclature\StructNomenclatureReference.designer.cs">

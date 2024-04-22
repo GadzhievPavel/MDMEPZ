@@ -9,6 +9,7 @@ using TFlex.DOCs.Model.References;
 using TFlex.DOCs.References.ApplicabiltyMaterials;
 using TFlex.DOCs.References.CategoryProduct;
 using TFlex.DOCs.References.ConnectionNomenclatures;
+using TFlex.DOCs.References.Devision;
 using TFlex.DOCs.References.EtalonDetailAndAssebly;
 using TFlex.DOCs.References.EtalonElectronicCompoents;
 using TFlex.DOCs.References.EtalonMaterial;
@@ -97,6 +98,7 @@ namespace MDMEPZ
 
             //route(test)
             ReferenceCatalog.RegisterSpecialReference(RouteReference.ReferenceId, new RouteReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(DevisionReference.ReferenceId, new DevisionReference.Factory());
         }
     }
 }

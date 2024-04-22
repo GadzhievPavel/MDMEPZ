@@ -7,8 +7,6 @@
     {
         public string TYPE { get; set; }
         public string UID { get; set; }
-        public string Наименование { get; set; }
-        public string Код { get; set; }
      
     }
 }

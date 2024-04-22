@@ -40,11 +40,33 @@ namespace TFlex.DOCs.References.Route
 		/// <summary>
 		/// Возвращает true, если текущий экземпляр описывает тип "Маршруты ERP" или порождён от него
 		/// </summary>
-		public bool IsRoute_Type
+		public bool IsMainTypeRoute
 		{
 			get
 			{
-				return IsInherit(RouteTypes.Keys.Route_Type);
+				return IsInherit(RouteTypes.Keys.MainTypeRoute);
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает true, если текущий экземпляр описывает тип "Маршрут" или порождён от него
+		/// </summary>
+		public bool IsRouteType
+		{
+			get
+			{
+				return IsInherit(RouteTypes.Keys.RouteType);
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает true, если текущий экземпляр описывает тип "Цехопереход" или порождён от него
+		/// </summary>
+		public bool IsRoutePointType
+		{
+			get
+			{
+				return IsInherit(RouteTypes.Keys.RoutePointType);
 			}
 		}
 	}

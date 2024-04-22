@@ -30,11 +30,33 @@ namespace TFlex.DOCs.References.Route
 		/// <summary>
 		/// Возвращает описание типа объектов "Маршруты ERP"
 		/// </summary>
-		public RouteType Route_Type
+		public RouteType MainTypeRoute
 		{
 			get
 			{
-				return Find(Keys.Route_Type);
+				return Find(Keys.MainTypeRoute);
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает описание типа объектов "Маршрут"
+		/// </summary>
+		public RouteType RouteType
+		{
+			get
+			{
+				return Find(Keys.RouteType);
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает описание типа объектов "Цехопереход"
+		/// </summary>
+		public RouteType RoutePointType
+		{
+			get
+			{
+				return Find(Keys.RoutePointType);
 			}
 		}
 		
@@ -52,7 +74,17 @@ namespace TFlex.DOCs.References.Route
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) типа "Маршруты ERP"
 			/// </summary>
-		   public static readonly Guid Route_Type = new Guid("1c508e74-a9d7-4513-92fe-a6b6a44d1372");
+		   public static readonly Guid MainTypeRoute = new Guid("6228b4cb-5a75-491c-8661-da8b0bc0ac69");
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) типа "Маршрут"
+			/// </summary>
+		   public static readonly Guid RouteType = new Guid("921dd95e-90fa-427b-92a6-1b0248d9b978");
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) типа "Цехопереход"
+			/// </summary>
+		   public static readonly Guid RoutePointType = new Guid("83625249-d8ab-407e-9c9c-0724f935178c");
 
 		}
 	}

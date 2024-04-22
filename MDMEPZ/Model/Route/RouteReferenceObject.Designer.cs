@@ -43,36 +43,56 @@ namespace TFlex.DOCs.References.Route
 		/// <summary>
 		/// Возвращает параметр "Наименование"
 		/// </summary>
-		public StringParameter Name_Route
+		public StringParameter Name
 		{
 			get
 			{
-				return ((StringParameter)(this[FieldKeys.Name_Route]));
+				return ((StringParameter)(this[FieldKeys.Name]));
 			}
 		}
 		
 		/// <summary>
-		/// Возвращает параметр "Код"
+		/// Возвращает параметр "UID"
 		/// </summary>
-		public StringParameter Kod_Route
+		public StringParameter UID
 		{
 			get
 			{
-				return ((StringParameter)(this[FieldKeys.Kod_Route]));
+				return ((StringParameter)(this[FieldKeys.UID]));
 			}
 		}
-		
-		/// <summary>
-		/// Возвращает параметр "Количество нормирования"
-		/// </summary>
-		public Int32Parameter Kolichestvo_normirovaniya_Route
+
+		public StringParameter Kod
 		{
+			
 			get
 			{
-				return ((Int32Parameter)(this[FieldKeys.Kolichestvo_normirovaniya_Route]));
+				if (Class.IsRouteType)
+					return ((StringParameter)(this[FieldKeys.Kod]));
+				return null;
 			}
 		}
-		
+		public StringParameter Vladelets
+		{
+
+			get
+			{
+				if (Class.IsRouteType)
+					return ((StringParameter)(this[FieldKeys.Vladelets]));
+				return null;
+			}
+		}
+		public Int32Parameter NomerStroki
+		{
+
+			get
+			{
+				if (Class.IsRoutePointType)
+					return ((Int32Parameter)(this[FieldKeys.NomerStroki]));
+				return null;
+			}
+		}
+
 		/// <summary>
 		/// Уникальные идентификаторы (GUID) параметров справочника "Маршруты ERP"
 		/// </summary>
@@ -82,17 +102,27 @@ namespace TFlex.DOCs.References.Route
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) параметра "Наименование"
 			/// </summary>
-		   public static readonly Guid Name_Route = new Guid("2a98c2cf-444a-4367-a09e-0621e97c3026");
+		   public static readonly Guid Name = new Guid("9ab109a1-3e83-4475-afa3-890674bef1a4");
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) параметра "UID"
+			/// </summary>
+		   public static readonly Guid UID = new Guid("ce6f666b-327b-4d6c-a185-5431695ce64c");
 
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) параметра "Код"
 			/// </summary>
-		   public static readonly Guid Kod_Route = new Guid("10203677-0771-426a-8728-3731aa52e9b4");
+		   public static readonly Guid Kod = new Guid("0a6ea952-fe32-4b52-9f52-856010af842d");
 
 			/// <summary>
-			/// Представляет уникальный идентификатор (GUID) параметра "Количество нормирования"
+			/// Представляет уникальный идентификатор (GUID) параметра "Владелец"
 			/// </summary>
-		   public static readonly Guid Kolichestvo_normirovaniya_Route = new Guid("5efc2bbe-4e44-4e38-99ef-59debf1269d5");
+		   public static readonly Guid Vladelets = new Guid("cc758815-8a75-4f5a-b40f-d03aa63c9bd4");
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) параметра "НомерСтроки"
+			/// </summary>
+		   public static readonly Guid NomerStroki = new Guid("e34612c6-2359-4900-b1c0-53fe8324a560");
 
 		}
 	}

@@ -26,7 +26,7 @@ namespace TFlex.DOCs.References.Route
 		/// <summary>
 		/// Представляет уникальный идентификатор (GUID) справочника "Маршруты ERP"
 		/// </summary>
-		public static readonly System.Guid ReferenceId = new Guid("6a213147-0a6f-45ae-ad14-cee0b91bc989");
+		public static readonly System.Guid ReferenceId = new Guid("8f13c934-bd8a-44a4-8110-690aa7267c91");
 		
 		/// <summary>
 		/// Инициализирует новый экземпляр RouteReference для работы с объектами справочника "Маршруты ERP"
@@ -59,7 +59,7 @@ namespace TFlex.DOCs.References.Route
 			{
 				return null;
 			}
-			if (type.IsRoute_Type)
+			if (type.IsMainTypeRoute)
 			{
 				return new RouteReferenceObject(this);
 			}

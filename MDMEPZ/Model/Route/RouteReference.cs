@@ -1,16 +1,21 @@
-namespace TFlex.DOCs.References.Route{
-    using System;
-    using System.Linq;
-    using MDMEPZ.Dto;
-    using MDMEPZ.Model;
+namespace TFlex.DOCs.References.Route{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
     using MDMEPZ.Util;
-    using TFlex.DOCs.Model;
-    using TFlex.DOCs.Model.Classes;
-    using TFlex.DOCs.Model.References;
-    using TFlex.DOCs.Model.Search;
-    using TFlex.DOCs.Model.Structure;
+    using System.Collections.Generic;
+    using MDMEPZ.Dto;
 
+    public partial class RouteReference : SpecialReference<RouteReferenceObject>	{				public partial class Factory		{		}
+		public ReferenceObject CreateReferenceObject(MDMEPZ.Dto.Route route)		{			List<ReferenceObject> saveList = new List<ReferenceObject>();			RouteReferenceObject routeReferenceObject = CreateReferenceObject(Classes.RouteType) as RouteReferenceObject;			routeReferenceObject.StartUpdate();			routeReferenceObject.Name.Value = route.Наименование;
+			routeReferenceObject.UID.Value = route.Ссылка.UID;
+			routeReferenceObject.Kod.Value = route.Код;
+            //routeReferenceObject.EndChanges(); ????
 
-    public partial class RouteReference : SpecialReference<RouteReferenceObject>	{				public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(MDMEPZ.Dto.Route route)
-		{			RouteReferenceObject routeReferenceObject = CreateReferenceObject() as RouteReferenceObject;
-            routeReferenceObject.StartUpdate();            routeReferenceObject.Name_Route.Value = route.Наименование;            routeReferenceObject.Kod_Route.Value = route.Код;            routeReferenceObject.Kolichestvo_normirovaniya_Route.Value = route.КоличествоНормирования;            return routeReferenceObject;		}	}}
+						return routeReferenceObject;		}
+
+		public ReferenceObject CreateReferenceObjectRoutePoint(RoutePointRows point, ReferenceObject parentRoute)		{
+
+				var routePoint = CreateReferenceObject((ReferenceObject)parentRoute, Classes.RoutePointType) as RouteReferenceObject;
+				routePoint.StartUpdate();
+				routePoint.NomerStroki.Value = point.НомерСтроки;
+				routePoint.UID.Value = point.Заход.UID;
+				
+						return routePoint;		}	}}

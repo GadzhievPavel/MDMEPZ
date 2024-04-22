@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.Devision{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.References.Links;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model.Parameters;			public partial class DevisionReferenceObject : SpecialReferenceObject<DevisionReference>	{	}}

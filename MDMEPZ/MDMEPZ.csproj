@@ -410,6 +410,22 @@
     <Compile Include="Model\Nomenclature\NomenclatureERPTypes.designer.cs">
       <DependentUpon>NomenclatureERPTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Operation\DevisionReference.cs" />
+    <Compile Include="Model\Operation\DevisionReference.designer.cs">
+      <DependentUpon>DevisionReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\DevisionReferenceObject.cs" />
+    <Compile Include="Model\Operation\DevisionReferenceObject.designer.cs">
+      <DependentUpon>DevisionReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\DevisionType.cs" />
+    <Compile Include="Model\Operation\DevisionType.designer.cs">
+      <DependentUpon>DevisionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\DevisionTypes.cs" />
+    <Compile Include="Model\Operation\DevisionTypes.designer.cs">
+      <DependentUpon>DevisionTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">
       <DependentUpon>ApplicabiltyMaterialsReference.cs</DependentUpon>

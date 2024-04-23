@@ -15,7 +15,7 @@ namespace MDMEPZ.Dto
         public Nomenclature Номенклатура { get; set; }
         public MeasurementUnits ЕдиницаИзмерения { get; set; }
         public bool ИспользоватьФормулу { get; set; }
-        public int Применяемость { get; set; }
+        public double Применяемость { get; set; }
         public EnterRoute Заход { get;set;}
         public TypeTMC ВидУчетаТМЦ { get; set; }
     }

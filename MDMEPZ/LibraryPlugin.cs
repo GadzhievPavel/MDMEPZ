@@ -29,6 +29,7 @@ using TFlex.DOCs.References.FilterUserManual;
 using TFlex.DOCs.References.GroupFinanceNomenclature;
 using TFlex.DOCs.References.GroupList;
 using TFlex.DOCs.References.NomenclatureERP;
+using TFlex.DOCs.References.Operation;
 using TFlex.DOCs.References.ReplacementERP;
 using TFlex.DOCs.References.Route;
 using TFlex.DOCs.References.SpecificationERP;
@@ -99,6 +100,7 @@ namespace MDMEPZ
             //route(test)
             ReferenceCatalog.RegisterSpecialReference(RouteReference.ReferenceId, new RouteReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(DevisionReference.ReferenceId, new DevisionReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(OperationReference.ReferenceId, new OperationReference.Factory());
         }
     }
 }

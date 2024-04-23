@@ -61,6 +61,7 @@
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
+    <Compile Include="Dto\Operation\OwnerOperation.cs" />
     <Compile Include="Dto\Product\FullProductWhitSpecification.cs" />
     <Compile Include="Dto\Product\Product.cs" />
     <Compile Include="Dto\Product\Products.cs" />
@@ -412,21 +413,37 @@
     <Compile Include="Model\Nomenclature\NomenclatureERPTypes.designer.cs">
       <DependentUpon>NomenclatureERPTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operation\DevisionReference.cs" />
-    <Compile Include="Model\Operation\DevisionReference.designer.cs">
+    <Compile Include="Model\Division\DevisionReference.cs" />
+    <Compile Include="Model\Division\DevisionReference.designer.cs">
       <DependentUpon>DevisionReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operation\DevisionReferenceObject.cs" />
-    <Compile Include="Model\Operation\DevisionReferenceObject.designer.cs">
+    <Compile Include="Model\Division\DevisionReferenceObject.cs" />
+    <Compile Include="Model\Division\DevisionReferenceObject.designer.cs">
       <DependentUpon>DevisionReferenceObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operation\DevisionType.cs" />
-    <Compile Include="Model\Operation\DevisionType.designer.cs">
+    <Compile Include="Model\Division\DevisionType.cs" />
+    <Compile Include="Model\Division\DevisionType.designer.cs">
       <DependentUpon>DevisionType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Operation\DevisionTypes.cs" />
-    <Compile Include="Model\Operation\DevisionTypes.designer.cs">
+    <Compile Include="Model\Division\DevisionTypes.cs" />
+    <Compile Include="Model\Division\DevisionTypes.designer.cs">
       <DependentUpon>DevisionTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationReference.cs" />
+    <Compile Include="Model\Operation\OperationReference.designer.cs">
+      <DependentUpon>OperationReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationReferenceObject.cs" />
+    <Compile Include="Model\Operation\OperationReferenceObject.designer.cs">
+      <DependentUpon>OperationReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationType.cs" />
+    <Compile Include="Model\Operation\OperationType.designer.cs">
+      <DependentUpon>OperationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationTypes.cs" />
+    <Compile Include="Model\Operation\OperationTypes.designer.cs">
+      <DependentUpon>OperationTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">

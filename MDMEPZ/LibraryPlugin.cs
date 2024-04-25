@@ -36,6 +36,7 @@ using TFlex.DOCs.References.SpecificationERP;
 using TFlex.DOCs.References.StandartProduct;
 using TFlex.DOCs.References.StructNomenclature;
 using TFlex.DOCs.References.TypeNomenclatureERP;
+using TFlex.DOCs.References.TypeOperationMDM;
 using TFlex.DOCs.References.TypeReproductionERP;
 using TFlex.DOCs.References.UnitOfMeasurement;
 using TFlex.DOCs.References.Workpiece;
@@ -101,6 +102,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(RouteReference.ReferenceId, new RouteReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(DevisionReference.ReferenceId, new DevisionReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(OperationReference.ReferenceId, new OperationReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(TypeOperationMDMReference.ReferenceId, new TypeOperationMDMReference.Factory());
         }
     }
 }

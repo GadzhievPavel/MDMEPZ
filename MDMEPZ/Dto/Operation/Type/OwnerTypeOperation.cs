@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMEPZ.Dto.Operation.Type
+namespace MDMEPZ.Dto
 {
     /// <summary>
     /// родитель типа операции

@@ -18,7 +18,7 @@ namespace MDMEPZ.Dto
         public LinkTypeOperation Ссылка { get; set; }
         public bool ПометкаУдаления { get; set; }
         public bool ЭтоГруппа { get; set; }
-        //родитель
+        public OwnerOperation Родитель { get; set; }
         public string Наименование { get; set; }
         public string Код { get; set; }
     }

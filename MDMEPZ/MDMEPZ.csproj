@@ -62,6 +62,8 @@
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
+    <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />
+    <Compile Include="Dto\Operation\Type\TypeOperationMDM.cs" />
     <Compile Include="Dto\Product\FullProductWhitSpecification.cs" />
     <Compile Include="Dto\Product\Product.cs" />
     <Compile Include="Dto\Product\Products.cs" />
@@ -572,6 +574,22 @@
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPTypes.cs" />
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPTypes.designer.cs">
       <DependentUpon>TypeNomenclatureERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReference.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReference.designer.cs">
+      <DependentUpon>TypeOperationMDMReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReferenceObject.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReferenceObject.designer.cs">
+      <DependentUpon>TypeOperationMDMReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMType.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMType.designer.cs">
+      <DependentUpon>TypeOperationMDMType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMTypes.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMTypes.designer.cs">
+      <DependentUpon>TypeOperationMDMTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.cs" />
     <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.designer.cs">

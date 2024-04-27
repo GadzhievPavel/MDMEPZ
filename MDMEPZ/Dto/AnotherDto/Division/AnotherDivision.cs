@@ -12,6 +12,7 @@ namespace MDMEPZ.Dto.AnotherDto.Division
     public class AnotherDivision
     {
         public ReferenceAnotherDevision Ссылка { get; set; }
+        public OwnerAnotherDevision Родитель { get; set; }
         public string Наименование { get; set; }
         public string Код { get; set; }
         public TypeAnotherDevision ВидПодразделения { get; set; }

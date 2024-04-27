@@ -83,6 +83,16 @@ namespace TFlex.DOCs.References.Devision
                 return ((StringParameter)(this[FieldKeys.TipPodrazdeleniya]));
             }
         }
+        /// <summary>
+        /// Возвращает параметр "Родитель"
+        /// </summary>
+        public StringParameter UID_Owner
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.UID_Owner]));
+            }
+        }
 
         /// <summary>
         /// Возвращает параметр "НомерЦеха"
@@ -141,6 +151,10 @@ namespace TFlex.DOCs.References.Devision
             /// Представляет уникальный идентификатор (GUID) параметра "Тип подразделения"
             /// </summary>
             public static readonly Guid TipPodrazdeleniya = new Guid("18c7fdd7-a898-4cd2-95ff-f63bf84cb928");
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Родитель"
+            /// </summary>
+            public static readonly Guid UID_Owner = new Guid("0dedc52b-5b6a-4db0-9dbe-1ec5e1eafb92");
 
         }
 	}

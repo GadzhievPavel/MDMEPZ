@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dto\AnotherDto\Division\AnotherDivision.cs" />
+    <Compile Include="Dto\AnotherDto\Division\OwnerAnotherDevision.cs" />
     <Compile Include="Dto\AnotherDto\Division\ReferenceAnotherDevision.cs" />
     <Compile Include="Dto\AnotherDto\Division\TypeAnotherDevision.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />

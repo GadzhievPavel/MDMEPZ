@@ -14,6 +14,8 @@ namespace MDMEPZ.Dto.AnotherDto.Division
         public ReferenceAnotherDevision Ссылка { get; set; }
         public string Наименование { get; set; }
         public string Код { get; set; }
+        public TypeAnotherDevision ВидПодразделения { get; set; }
+        public TypeAnotherDevision ТипПодразделения { get; set; }
         public string НомерЦеха { get; set; }
     }
 }

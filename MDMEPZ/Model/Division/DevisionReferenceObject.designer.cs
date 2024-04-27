@@ -61,11 +61,33 @@ namespace TFlex.DOCs.References.Devision
 				return ((StringParameter)(this[FieldKeys.Kod]));
 			}
 		}
-		
-		/// <summary>
-		/// Возвращает параметр "НомерЦеха"
-		/// </summary>
-		public StringParameter NomerTsekha
+
+        /// <summary>
+        /// Возвращает параметр "Вид подразделения"
+        /// </summary>
+        public StringParameter VidPodrazdeleniya
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.VidPodrazdeleniya]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Тип подразделения"
+        /// </summary>
+        public StringParameter TipPodrazdeleniya
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.TipPodrazdeleniya]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "НомерЦеха"
+        /// </summary>
+        public StringParameter NomerTsekha
 		{
 			get
 			{
@@ -110,6 +132,16 @@ namespace TFlex.DOCs.References.Devision
 			/// </summary>
 		   public static readonly Guid UID = new Guid("a5422a89-f536-404e-81ce-5dab3dcbedde");
 
-		}
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Вид подразделения"
+            /// </summary>
+            public static readonly Guid VidPodrazdeleniya = new Guid("79cbec3d-f7f9-4406-a7b9-46b2e0ed506c");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Тип подразделения"
+            /// </summary>
+            public static readonly Guid TipPodrazdeleniya = new Guid("18c7fdd7-a898-4cd2-95ff-f63bf84cb928");
+
+        }
 	}
 }

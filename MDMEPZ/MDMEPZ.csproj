@@ -56,6 +56,8 @@
     <Compile Include="Dto\AnotherDto\Division\OwnerAnotherDevision.cs" />
     <Compile Include="Dto\AnotherDto\Division\ReferenceAnotherDevision.cs" />
     <Compile Include="Dto\AnotherDto\Division\TypeAnotherDevision.cs" />
+    <Compile Include="Dto\AnotherDto\Profession\LinkProfession.cs" />
+    <Compile Include="Dto\AnotherDto\Profession\Profession.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
     <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
@@ -529,6 +531,22 @@
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.cs" />
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.designer.cs">
       <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionReference.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionReference.designer.cs">
+      <DependentUpon>ProfessionReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionReferenceObject.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionReferenceObject.designer.cs">
+      <DependentUpon>ProfessionReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionType.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionType.designer.cs">
+      <DependentUpon>ProfessionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionTypes.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionTypes.designer.cs">
+      <DependentUpon>ProfessionTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.cs" />
     <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.designer.cs">

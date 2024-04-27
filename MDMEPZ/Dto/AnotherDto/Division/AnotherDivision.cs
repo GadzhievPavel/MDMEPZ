@@ -19,4 +19,5 @@ namespace MDMEPZ.Dto.AnotherDto.Division
         public TypeAnotherDevision ТипПодразделения { get; set; }
         public string НомерЦеха { get; set; }
     }
+
 }

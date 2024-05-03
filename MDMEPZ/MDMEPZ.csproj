@@ -58,6 +58,8 @@
     <Compile Include="Dto\AnotherDto\Division\TypeAnotherDevision.cs" />
     <Compile Include="Dto\AnotherDto\Profession\LinkProfession.cs" />
     <Compile Include="Dto\AnotherDto\Profession\Profession.cs" />
+    <Compile Include="Dto\AnotherDto\Rank\RankLink.cs" />
+    <Compile Include="Dto\AnotherDto\Rank\RankMain.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
     <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
@@ -451,6 +453,22 @@
     <Compile Include="Model\Operation\OperationTypes.cs" />
     <Compile Include="Model\Operation\OperationTypes.designer.cs">
       <DependentUpon>OperationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankReference.cs" />
+    <Compile Include="Model\Rank\RankReference.designer.cs">
+      <DependentUpon>RankReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankReferenceObject.cs" />
+    <Compile Include="Model\Rank\RankReferenceObject.designer.cs">
+      <DependentUpon>RankReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankType.cs" />
+    <Compile Include="Model\Rank\RankType.Designer.cs">
+      <DependentUpon>RankType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankTypes.cs" />
+    <Compile Include="Model\Rank\RankTypes.designer.cs">
+      <DependentUpon>RankTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">

@@ -16,6 +16,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using System.Linq;
     using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.References.ApplicabiltyMaterials;
+    using TFlex.DOCs.Model.References.Nomenclature;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -39,6 +40,29 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
             applicabilityMaterialsReference = this.Connection.ReferenceCatalog.Find(ApplicabiltyMaterialsReference.ReferenceId).CreateReference() as ApplicabiltyMaterialsReference; 
+        }
+
+        public ReferenceObject CreateReferenceObject(NomenclatureObject nom)
+        {
+            var filter = Filter.Parse($"[GUID(T-FLEX)] = '{nom.Guid}'", ParameterGroup);
+            if (Find(filter).Any())
+            {
+                throw new Exception("Объект с таким guid уже существует");
+            }
+            var erpObject = CreateReferenceObject() as NomenclatureERPReferenceObject;
+
+            erpObject.StartUpdate();
+            erpObject.Denotation.Value = nom.Denotation;
+            erpObject.Name.Value = nom.Name;
+            erpObject.GUIDTFLEX.Value = nom.SystemFields.Guid;
+            erpObject.Weight.Value = nom.Mass;
+            erpObject.EndUpdate("");
+
+            erpObject.StartUpdate();
+            erpObject.Nomenclature = nom;
+            erpObject.EndUpdate("");
+
+            return erpObject;
         }
 
         public ReferenceObject CreateReferenceObject(Nomenclature product)

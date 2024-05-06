@@ -517,6 +517,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EtalonHandler.cs" />
     <Compile Include="Service\FilterHandler.cs" />
+    <Compile Include="Service\Integration\Integration.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Util\LogTFlex.cs" />

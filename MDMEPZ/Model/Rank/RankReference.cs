@@ -20,6 +20,8 @@ namespace TFlex.DOCs.References.Rank
 			rankReferenceObject.UID.Value = rank.—сылка.UID;
 			return rankReferenceObject;
 		}
+
+		
 	}
 }
 

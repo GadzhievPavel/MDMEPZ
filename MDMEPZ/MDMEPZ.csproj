@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="TFlex.DOCs.Model, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Model.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.DOCs.Resources, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.PdmFramework.Resolve, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\PdmFramework.NX\startup\TFlex.PdmFramework.Resolve.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

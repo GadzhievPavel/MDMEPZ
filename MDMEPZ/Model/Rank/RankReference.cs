@@ -1,8 +1,15 @@
-namespace TFlex.DOCs.References.Rank{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
-    using MDMEPZ.Dto.AnotherDto.Rank;
-    using MDMEPZ.Util;
+namespace TFlex.DOCs.References.Rank
+{
+	using MDMEPZ.Dto.AnotherDto.Rank;
+	using MDMEPZ.Util;
+	using TFlex.DOCs.Model.References;
 
-    public partial class RankReference : SpecialReference<RankReferenceObject>	{				public partial class Factory		{		}
+	public partial class RankReference : SpecialReference<RankReferenceObject>
+	{
+
+		public partial class Factory
+		{
+		}
 
 		public ReferenceObject CreateReferenceObject(RankMain rank)
 		{
@@ -11,8 +18,8 @@ namespace TFlex.DOCs.References.Rank{	using System;	using TFlex.DOCs.Model.Re
 			rankReferenceObject.Kod.Value = rank.Код;
 			rankReferenceObject.Name.Value = rank.Наименование;
 			rankReferenceObject.UID.Value = rank.Ссылка.UID;
-
 			return rankReferenceObject;
 		}
 	}
-}}
+}
+

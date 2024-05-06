@@ -522,7 +522,9 @@
     <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dto\Integration\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Model\Etalon\EtalonDetaliAndAssembling\settings.ssd" />
     <None Include="Model\Etalon\EtalonElectronicComponents\settings.ssd" />

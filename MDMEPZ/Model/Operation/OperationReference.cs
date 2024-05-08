@@ -29,9 +29,5 @@ namespace TFlex.DOCs.References.Operation
             operationReferenceObject.Zakhod_UID.Value = operation.Заход.UID;
             return operationReferenceObject;
         }
-        public ReferenceObject CreateReferenceObjectPerformers (Operation performer)
-        {
-
-        }
     }
 }

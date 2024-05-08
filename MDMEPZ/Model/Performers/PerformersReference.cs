@@ -24,10 +24,14 @@ namespace TFlex.DOCs.References.Performers{
             var listPerformersJson = performers.Исполнители.ROWS;
             foreach (var performer in listPerformersJson)
             {
-
-                var performerReferenceObject = CreateReferenceObject(performer);
-                listPerformers.Add(performerReferenceObject);
-
+                if (performer != null)
+                {
+                    var performerReferenceObject = CreateReferenceObject(performer);
+                    if (performerReferenceObject!=null)
+                    {
+                        listPerformers.Add(performerReferenceObject);
+                    }
+                }
             }
             return listPerformers;
         }
@@ -39,19 +43,21 @@ namespace TFlex.DOCs.References.Performers{
         public ReferenceObject CreateReferenceObject(ExecutorsRows performer)
         {
             ReferenceObject professionTP = null;
-            var referenceMDMProfession = Connection.ReferenceCatalog.Find(new Guid("6c55d27d-e87b-4d64-b9b5-4f7bce9456c6")).CreateReference();//справочник профессий
-            var professionMDM = referenceMDMProfession.Find(performer.Профессия.UID);//нашёл по UID из .json объект в справочнике профессий MDM;
-
-            if (professionMDM != null)
-            {
-                professionTP = professionMDM.GetObject(new Guid("1fe93298-7d24-4842-b885-3a70160ebe41"));//получил из MDM профессии -> профессию в поставке
-            }
+            //var referenceMDMProfession = Connection.ReferenceCatalog.Find(new Guid("6c55d27d-e87b-4d64-b9b5-4f7bce9456c6")).CreateReference();//справочник профессий
+            //if (referenceMDMProfession != null)
+            //{
+            //    var professionMDM = referenceMDMProfession.Find(performer.Профессия.UID.ToString());//нашёл по UID из .json объект в справочнике профессий MDM;
+            //    if (professionMDM != null)
+            //    {
+            //        professionTP = professionMDM.GetObject(new Guid("1fe93298-7d24-4842-b885-3a70160ebe41"));//получил из MDM профессии -> профессию в поставке
+            //    }
+            //}
 
             var performersReferenceObject = CreateReferenceObject(Classes.MainPerformers) as PerformersReferenceObject;// СОЗДАЛИ ОБЪЕКТ В СПРАВОЧНИКЕ ИСПОЛНИТЕЛЬ ОПЕРАЦИИ
             performersReferenceObject.StartUpdate();
             performersReferenceObject.WorkersCount.Value = performer.КоличествоИсполнителей;
-            performersReferenceObject.SetLinkedObject(PerformersReferenceObject.RelationKeys.PerformersToProfessions, professionTP);
-
+           // performersReferenceObject.SetLinkedObject(PerformersReferenceObject.RelationKeys.PerformersToProfessions, professionTP);
+            performersReferenceObject.EndChanges();
             //performersReferenceObject.Rank.Value = performer.РазрядРабот.;
             return performersReferenceObject;
         }

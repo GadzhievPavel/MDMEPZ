@@ -23,16 +23,29 @@ namespace TFlex.DOCs.References.Performers
             List<ReferenceObject> listPerformers = new List<ReferenceObject>();
 
             var listPerformersJson = performers.Исполнители.ROWS;
-            foreach (var performer in listPerformersJson)
+            if (listPerformersJson != null)
             {
-                if (performer != null)
+                foreach (var performer in listPerformersJson)
                 {
-                    var performerReferenceObject = CreateReferenceObject(performer);
-                    if (performerReferenceObject!=null)
+                    
+                    if (performer != null)
                     {
-                        listPerformers.Add(performerReferenceObject);
+
+                        var performerReferenceObject = CreateReferenceObject(performer);
+                        if (performerReferenceObject != null)
+                        {
+                            listPerformers.Add(performerReferenceObject);
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("зашёл в foreach с списком исполнителей но исполнителей нет");
                     }
                 }
+            }
+            else
+            {
+                throw new Exception("список исполнителей пришёл пустым");
             }
             return listPerformers;
         }
@@ -57,8 +70,8 @@ namespace TFlex.DOCs.References.Performers
             var performersReferenceObject = CreateReferenceObject(Classes.MainPerformers) as PerformersReferenceObject;// СОЗДАЛИ ОБЪЕКТ В СПРАВОЧНИКЕ ИСПОЛНИТЕЛЬ ОПЕРАЦИИ
             performersReferenceObject.StartUpdate();
             performersReferenceObject.WorkersCount.Value = performer.КоличествоИсполнителей;
-           // performersReferenceObject.SetLinkedObject(PerformersReferenceObject.RelationKeys.PerformersToProfessions, professionTP);
-            performersReferenceObject.EndChanges();
+            // performersReferenceObject.SetLinkedObject(PerformersReferenceObject.RelationKeys.PerformersToProfessions, professionTP);
+            performersReferenceObject.EndUpdate("");
             //performersReferenceObject.Rank.Value = performer.РазрядРабот.;
             return performersReferenceObject;
         }

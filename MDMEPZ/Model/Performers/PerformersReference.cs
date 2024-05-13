@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.Performers{
+namespace TFlex.DOCs.References.Performers
+{
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using System;
@@ -64,4 +65,5 @@ namespace TFlex.DOCs.References.Performers{
 
     }
 
-}
+}
+

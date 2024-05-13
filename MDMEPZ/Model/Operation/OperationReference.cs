@@ -20,7 +20,7 @@ namespace TFlex.DOCs.References.Operation
         {
             var operationReferenceObject = CreateReferenceObject(Classes.AssemblyOperationType) as OperationReferenceObject;
             operationReferenceObject.StartUpdate();
-            operationReferenceObject.Name.Value = operation.Наименование.Remove(0,3);
+            operationReferenceObject.Name.Value = operation.Наименование.Remove(0,4);
             operationReferenceObject.Kod.Value = operation.Код;
             operationReferenceObject.NomerOperatsii.Value = operation.НомерОперации.Trim();
             operationReferenceObject.PoryadkovyyNomer.Value = operation.ПорядковыйНомер.Trim(new char[]{' ','.'});

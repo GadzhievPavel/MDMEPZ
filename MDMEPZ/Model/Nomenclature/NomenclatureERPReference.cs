@@ -17,6 +17,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.References.ApplicabiltyMaterials;
     using TFlex.DOCs.Model.References.Nomenclature;
+    using TFlex.DOCs.References.GroupFinanceNomenclature;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -26,7 +27,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         private TypeReproductionERPReference typeReproductionERPReference;
         private TypeNomenclatureERPReference typeNomenclatureERPReference;
         private UnitOfMeasurementReference unitOfMeasurementReference;
-        private ApplicabiltyMaterialsReference applicabilityMaterialsReference;
+        private GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
 
         public partial class Factory
         {
@@ -39,7 +40,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
-            applicabilityMaterialsReference = this.Connection.ReferenceCatalog.Find(ApplicabiltyMaterialsReference.ReferenceId).CreateReference() as ApplicabiltyMaterialsReference; 
+            groupFinanceNomenclatureReference = this.Connection.ReferenceCatalog.Find(GroupFinanceNomenclatureReference.ReferenceId).CreateReference() as GroupFinanceNomenclatureReference;
         }
 
         public ReferenceObject CreateReferenceObject(NomenclatureObject nom)
@@ -118,13 +119,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
             }
 
-            //foreach(var material in product.applicationMaterials)
-            //{
-            //    var materialReferenceObject = applicabilityMaterialsReference.CreateReferenceObject(material) as ApplicabiltyMaterialsReferenceObject;
-            //    o.AddMaterialUsed(materialReferenceObject);
-            //}
+            var groupFinance = getGroupFinancialNomenclature(product);
+            if (groupFinance != null)
+            {
+                o.GroupFinanceNomenclature = groupFinance;
+            }
 
-            
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }
@@ -239,5 +239,20 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
         }
 
-        
+        private ReferenceObject getGroupFinancialNomenclature(Nomenclature nomenclature)
+        {
+            if(nomenclature is null)
+            {
+                return null;
+            }
+            if(nomenclature.financialGroup is null)
+            {
+                return null;
+            }
+            if(nomenclature.financialGroup.guid1C is null)
+            {
+                return null;
+            }
+            return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
+        }
     }}

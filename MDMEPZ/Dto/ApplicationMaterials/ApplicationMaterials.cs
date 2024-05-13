@@ -10,29 +10,29 @@ using TFlex.DOCs.References.UnitOfMeasurement;
 
 namespace MDMEPZ.Dto
 {
-    public class ApplicationMaterials
-    {
-        public static ApplicationMaterials CreateInstance(ApplicabiltyMaterialsReferenceObject appMatRefObj)
-        {
-            if(appMatRefObj == null)
-            {
-                return null;
-            }
-            var appMat = new ApplicationMaterials();
-            appMat.amount = appMatRefObj.Amount;
+    //public class ApplicationMaterials
+    //{
+    //    public static ApplicationMaterials CreateInstance(ApplicabiltyMaterialsReferenceObject appMatRefObj)
+    //    {
+    //        if(appMatRefObj == null)
+    //        {
+    //            return null;
+    //        }
+    //        var appMat = new ApplicationMaterials();
+    //        appMat.amount = appMatRefObj.Amount;
 
-            var material = appMatRefObj.Material as NomenclatureERPReferenceObject;
-            appMat.material = material.GUID1C.GetString();
+    //        var material = appMatRefObj.Material as NomenclatureERPReferenceObject;
+    //        appMat.material = material.GUID1C.GetString();
 
-            var unit = appMatRefObj.UnitsOfMeasurement as UnitOfMeasurementReferenceObject;
-            appMat.unitOfMeasurement = unit.GUID_1C.GetString();
+    //        var unit = appMatRefObj.UnitsOfMeasurement as UnitOfMeasurementReferenceObject;
+    //        appMat.unitOfMeasurement = unit.GUID_1C.GetString();
 
-            return appMat;
-        }
+    //        return appMat;
+    //    }
 
-        public string material { get; set; }
-        public string unitOfMeasurement { get; set; }
+    //    public string material { get; set; }
+    //    public string unitOfMeasurement { get; set; }
 
-        public double amount { get; set; }
-    }
+    //    public double amount { get; set; }
+    //}
 }

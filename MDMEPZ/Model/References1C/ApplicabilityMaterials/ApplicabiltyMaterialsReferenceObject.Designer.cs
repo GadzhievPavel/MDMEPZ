@@ -21,168 +21,168 @@ namespace TFlex.DOCs.References.ApplicabiltyMaterials
 	/// <summary>
 	/// Представляет объект справочника "Применение материала"
 	/// </summary>
-	public partial class ApplicabiltyMaterialsReferenceObject
-	{
+	//public partial class ApplicabiltyMaterialsReferenceObject
+	//{
 		
-		internal ApplicabiltyMaterialsReferenceObject(ApplicabiltyMaterialsReference reference) : 
-				base(reference)
-		{
-		}
+	//	internal ApplicabiltyMaterialsReferenceObject(ApplicabiltyMaterialsReference reference) : 
+	//			base(reference)
+	//	{
+	//	}
 		
-		/// <summary>
-		/// Возвращает описание типа объекта
-		/// </summary>
-		public new ApplicabiltyMaterialsType Class
-		{
-			get
-			{
-				return ((ApplicabiltyMaterialsType)(base.Class));
-			}
-		}
+	//	/// <summary>
+	//	/// Возвращает описание типа объекта
+	//	/// </summary>
+	//	public new ApplicabiltyMaterialsType Class
+	//	{
+	//		get
+	//		{
+	//			return ((ApplicabiltyMaterialsType)(base.Class));
+	//		}
+	//	}
 		
-		/// <summary>
-		/// Возвращает параметр "Наименование"
-		/// </summary>
-		public StringParameter Name
-		{
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.Name]));
-			}
-		}
+	//	/// <summary>
+	//	/// Возвращает параметр "Наименование"
+	//	/// </summary>
+	//	public StringParameter Name
+	//	{
+	//		get
+	//		{
+	//			return ((StringParameter)(this[FieldKeys.Name]));
+	//		}
+	//	}
 		
-		/// <summary>
-		/// Возвращает параметр "Количество"
-		/// </summary>
-		public DoubleParameter Amount
-		{
-			get
-			{
-				return ((DoubleParameter)(this[FieldKeys.Amount]));
-			}
-		}
+	//	/// <summary>
+	//	/// Возвращает параметр "Количество"
+	//	/// </summary>
+	//	public DoubleParameter Amount
+	//	{
+	//		get
+	//		{
+	//			return ((DoubleParameter)(this[FieldKeys.Amount]));
+	//		}
+	//	}
 
-        /// <summary>
-        /// Возвращает связанные объекты справочника "Единицы измерения" по связи "Единица измерения"
-        /// </summary>
-        public ReferenceObject UnitsOfMeasurement
-        {
-            get
-            {
-                return GetObject(RelationKeys.UnitOfMeasurement);
-            }
-            set
-            {
-                SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
-            }
-        }
+ //       /// <summary>
+ //       /// Возвращает связанные объекты справочника "Единицы измерения" по связи "Единица измерения"
+ //       /// </summary>
+ //       public ReferenceObject UnitsOfMeasurement
+ //       {
+ //           get
+ //           {
+ //               return GetObject(RelationKeys.UnitOfMeasurement);
+ //           }
+ //           set
+ //           {
+ //               SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
+ //           }
+ //       }
         
 		
-		/// <summary>
-		/// Возвращает связанные объекты справочника "Номенклатура ERP" по связи "Материал"
-		/// </summary>
-		public ReferenceObject Material
-		{
-			get
-			{
-				return GetObject(RelationKeys.Material);
-			}
-			set
-			{
-				SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
-			}
-		}
+	//	/// <summary>
+	//	/// Возвращает связанные объекты справочника "Номенклатура ERP" по связи "Материал"
+	//	/// </summary>
+	//	public ReferenceObject Material
+	//	{
+	//		get
+	//		{
+	//			return GetObject(RelationKeys.Material);
+	//		}
+	//		set
+	//		{
+	//			SetLinkedObject(RelationKeys.UnitOfMeasurement, value);
+	//		}
+	//	}
 		
-		///// <summary>
-		///// Подключает объект справочника "Единицы измерения" по связи "Единица измерения"
-		///// </summary>
-		///// <param name="newLinkedObject">
-		///// Подключаемый объект
-		///// </param>
-		///// <returns>
-		///// Подключённый объект
-		///// </returns>
-		//public ReferenceObject AddUnitOfMeasurement(ReferenceObject newLinkedObject)
-		//{
-		//	return AddLinkedObject(RelationKeys.UnitOfMeasurement, newLinkedObject);
-		//}
+	//	///// <summary>
+	//	///// Подключает объект справочника "Единицы измерения" по связи "Единица измерения"
+	//	///// </summary>
+	//	///// <param name="newLinkedObject">
+	//	///// Подключаемый объект
+	//	///// </param>
+	//	///// <returns>
+	//	///// Подключённый объект
+	//	///// </returns>
+	//	//public ReferenceObject AddUnitOfMeasurement(ReferenceObject newLinkedObject)
+	//	//{
+	//	//	return AddLinkedObject(RelationKeys.UnitOfMeasurement, newLinkedObject);
+	//	//}
 		
-		///// <summary>
-		///// Отключает объект справочника "Единицы измерения" по связи "Единица измерения"
-		///// </summary>
-		///// <param name="linkedObject">
-		///// Связанный объект
-		///// </param>
-		///// <returns>
-		///// true, если объект был отключен
-		///// </returns>
-		//public Boolean RemoveUnitOfMeasurement(ReferenceObject linkedObject)
-		//{
-		//	return RemoveLinkedObject(RelationKeys.UnitOfMeasurement, linkedObject);
-		//}
+	//	///// <summary>
+	//	///// Отключает объект справочника "Единицы измерения" по связи "Единица измерения"
+	//	///// </summary>
+	//	///// <param name="linkedObject">
+	//	///// Связанный объект
+	//	///// </param>
+	//	///// <returns>
+	//	///// true, если объект был отключен
+	//	///// </returns>
+	//	//public Boolean RemoveUnitOfMeasurement(ReferenceObject linkedObject)
+	//	//{
+	//	//	return RemoveLinkedObject(RelationKeys.UnitOfMeasurement, linkedObject);
+	//	//}
 		
-		///// <summary>
-		///// Подключает объект справочника "Номенклатура ERP" по связи "Материал"
-		///// </summary>
-		///// <param name="newLinkedObject">
-		///// Подключаемый объект
-		///// </param>
-		///// <returns>
-		///// Подключённый объект
-		///// </returns>
-		//public ReferenceObject AddMaterial(ReferenceObject newLinkedObject)
-		//{
-		//	return AddLinkedObject(RelationKeys.Material, newLinkedObject);
-		//}
+	//	///// <summary>
+	//	///// Подключает объект справочника "Номенклатура ERP" по связи "Материал"
+	//	///// </summary>
+	//	///// <param name="newLinkedObject">
+	//	///// Подключаемый объект
+	//	///// </param>
+	//	///// <returns>
+	//	///// Подключённый объект
+	//	///// </returns>
+	//	//public ReferenceObject AddMaterial(ReferenceObject newLinkedObject)
+	//	//{
+	//	//	return AddLinkedObject(RelationKeys.Material, newLinkedObject);
+	//	//}
 		
-		///// <summary>
-		///// Отключает объект справочника "Номенклатура ERP" по связи "Материал"
-		///// </summary>
-		///// <param name="linkedObject">
-		///// Связанный объект
-		///// </param>
-		///// <returns>
-		///// true, если объект был отключен
-		///// </returns>
-		//public Boolean RemoveMaterial(ReferenceObject linkedObject)
-		//{
-		//	return RemoveLinkedObject(RelationKeys.Material, linkedObject);
-		//}
+	//	///// <summary>
+	//	///// Отключает объект справочника "Номенклатура ERP" по связи "Материал"
+	//	///// </summary>
+	//	///// <param name="linkedObject">
+	//	///// Связанный объект
+	//	///// </param>
+	//	///// <returns>
+	//	///// true, если объект был отключен
+	//	///// </returns>
+	//	//public Boolean RemoveMaterial(ReferenceObject linkedObject)
+	//	//{
+	//	//	return RemoveLinkedObject(RelationKeys.Material, linkedObject);
+	//	//}
 		
-		/// <summary>
-		/// Уникальные идентификаторы (GUID) параметров справочника "Применение материала"
-		/// </summary>
-		public class FieldKeys
-		{
+	//	/// <summary>
+	//	/// Уникальные идентификаторы (GUID) параметров справочника "Применение материала"
+	//	/// </summary>
+	//	public class FieldKeys
+	//	{
 			
-			/// <summary>
-			/// Представляет уникальный идентификатор (GUID) параметра "Наименование"
-			/// </summary>
-		   public static readonly Guid Name = new Guid("9e175c2b-614d-43f8-883a-5e070b0d3d70");
+	//		/// <summary>
+	//		/// Представляет уникальный идентификатор (GUID) параметра "Наименование"
+	//		/// </summary>
+	//	   public static readonly Guid Name = new Guid("9e175c2b-614d-43f8-883a-5e070b0d3d70");
 
-			/// <summary>
-			/// Представляет уникальный идентификатор (GUID) параметра "Количество"
-			/// </summary>
-		   public static readonly Guid Amount = new Guid("59270f28-6a21-4601-a5dc-be7ea849ede1");
+	//		/// <summary>
+	//		/// Представляет уникальный идентификатор (GUID) параметра "Количество"
+	//		/// </summary>
+	//	   public static readonly Guid Amount = new Guid("59270f28-6a21-4601-a5dc-be7ea849ede1");
 
-		}
+	//	}
 		
-		/// <summary>
-		/// Уникальные идентификаторы (GUID) связей и списков объектов справочника "Применение материала"
-		/// </summary>
-		public class RelationKeys
-		{
+	//	/// <summary>
+	//	/// Уникальные идентификаторы (GUID) связей и списков объектов справочника "Применение материала"
+	//	/// </summary>
+	//	public class RelationKeys
+	//	{
 			
-			/// <summary>
-			/// Представляет уникальный идентификатор (GUID) связи "Единица измерения"
-			/// </summary>
-		   public static readonly Guid UnitOfMeasurement = new Guid("8c4b5bb2-b887-43b4-bde4-d0ee2e5262b0");
+	//		/// <summary>
+	//		/// Представляет уникальный идентификатор (GUID) связи "Единица измерения"
+	//		/// </summary>
+	//	   public static readonly Guid UnitOfMeasurement = new Guid("8c4b5bb2-b887-43b4-bde4-d0ee2e5262b0");
 
-			/// <summary>
-			/// Представляет уникальный идентификатор (GUID) связи "Материал"
-			/// </summary>
-		   public static readonly Guid Material = new Guid("c3000bc7-35a3-4e6b-aec1-0e67eed6079b");
+	//		/// <summary>
+	//		/// Представляет уникальный идентификатор (GUID) связи "Материал"
+	//		/// </summary>
+	//	   public static readonly Guid Material = new Guid("c3000bc7-35a3-4e6b-aec1-0e67eed6079b");
 
-		}
-	}
+	//	}
+	//}
 }

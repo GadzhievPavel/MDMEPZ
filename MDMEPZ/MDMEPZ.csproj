@@ -31,36 +31,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TFlex.DOCs.Model, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2)\Program\TFlex.DOCs.Model.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.DOCs.Resources, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2)\Program\TFlex.DOCs.Resources.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.PdmFramework.Resolve, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2)\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Program\TFlex.PdmFramework.Resolve.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\AnotherDto\Division\AnotherDivision.cs" />
+    <Compile Include="Dto\AnotherDto\Division\OwnerAnotherDevision.cs" />
+    <Compile Include="Dto\AnotherDto\Division\ReferenceAnotherDevision.cs" />
+    <Compile Include="Dto\AnotherDto\Division\TypeAnotherDevision.cs" />
+    <Compile Include="Dto\AnotherDto\Profession\LinkProfession.cs" />
+    <Compile Include="Dto\AnotherDto\Profession\Profession.cs" />
+    <Compile Include="Dto\AnotherDto\Rank\RankLink.cs" />
+    <Compile Include="Dto\AnotherDto\Rank\RankMain.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
+    <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
+    <Compile Include="Dto\Operation\OwnerOperation.cs" />
+    <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />
+    <Compile Include="Dto\Operation\Type\OwnerTypeOperation.cs" />
+    <Compile Include="Dto\Operation\Type\TypeOperationMDM.cs" />
     <Compile Include="Dto\Product\FullProductWhitSpecification.cs" />
     <Compile Include="Dto\Product\Product.cs" />
     <Compile Include="Dto\Product\Products.cs" />
@@ -68,6 +78,7 @@
     <Compile Include="Dto\ProductsCategories\ProductsCategories.cs" />
     <Compile Include="Dto\ReplacementErp\Replacement.cs" />
     <Compile Include="Dto\ReplacementErp\Replacements.cs" />
+    <Compile Include="Dto\Route\Routes.cs" />
     <Compile Include="Dto\TypeNomenclature\TypeOfNomenclature.cs" />
     <Compile Include="Dto\TypeNomenclature\TypesOfNomenclatures.cs" />
     <Compile Include="Dto\TypeOfReproduction\TypeOfReproduction.cs" />
@@ -75,6 +86,32 @@
     <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurement.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitOfMeasurementFull.cs" />
     <Compile Include="Dto\UnitOfMeasurement\UnitsOfMeasurement.cs" />
+    <Compile Include="Dto\Route\EnterRoute.cs" />
+    <Compile Include="Dto\Route\Owner.cs" />
+    <Compile Include="Dto\Route\Parent.cs" />
+    <Compile Include="Dto\Route\ReferenceRoute.cs" />
+    <Compile Include="Dto\Route\Route.cs" />
+    <Compile Include="Dto\Route\RoutePoint.cs" />
+    <Compile Include="Dto\Route\RoutePointColumns.cs" />
+    <Compile Include="Dto\Route\RoutePointRows.cs" />
+    <Compile Include="Dto\Operation\Division.cs" />
+    <Compile Include="Dto\Operation\Executors.cs" />
+    <Compile Include="Dto\Operation\ExecutorsColumns.cs" />
+    <Compile Include="Dto\Operation\ExecutorsRows.cs" />
+    <Compile Include="Dto\Operation\Expenses.cs" />
+    <Compile Include="Dto\Operation\MainInputs.cs" />
+    <Compile Include="Dto\Operation\MainInputsColumns.cs" />
+    <Compile Include="Dto\Operation\MainInputsRows.cs" />
+    <Compile Include="Dto\Operation\MeasurementUnits.cs" />
+    <Compile Include="Dto\Operation\Nomenclature.cs" />
+    <Compile Include="Dto\Operation\Operation.cs" />
+    <Compile Include="Dto\Operation\Profession.cs" />
+    <Compile Include="Dto\Operation\ReferenceOperation.cs" />
+    <Compile Include="Dto\Operation\Region.cs" />
+    <Compile Include="Dto\Operation\Tarif.cs" />
+    <Compile Include="Dto\Operation\TypeJobs.cs" />
+    <Compile Include="Dto\Operation\TypeOperation.cs" />
+    <Compile Include="Dto\Operation\TypeTMC.cs" />
     <Compile Include="LibraryPlugin.cs" />
     <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.cs" />
     <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.Designer.cs">
@@ -107,6 +144,22 @@
     <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.cs" />
     <Compile Include="Model\Etalon\EtalonElectronicComponents\EtalonElectronicCompoentsTypes.Designer.cs">
       <DependentUpon>EtalonElectronicCompoentsTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReference.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReference.designer.cs">
+      <DependentUpon>EtalonUserManualReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReferenceObject.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualReferenceObject.designer.cs">
+      <DependentUpon>EtalonUserManualReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualType.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualType.designer.cs">
+      <DependentUpon>EtalonUserManualType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualTypes.cs" />
+    <Compile Include="Model\Etalon\EtalonInstruction\EtalonUserManualTypes.designer.cs">
+      <DependentUpon>EtalonUserManualTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.cs" />
     <Compile Include="Model\Etalon\EtalonMaterial\EtalonMaterialReference.Designer.cs">
@@ -239,6 +292,22 @@
     <Compile Include="Model\FilterReference\IFilterNSI.cs" />
     <Compile Include="Model\FilterReference\IFinderEtalonReference.cs" />
     <Compile Include="Model\FilterReference\IFinderNsiReference.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReference.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReference.designer.cs">
+      <DependentUpon>FilterUserManualReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReferenceObject.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualReferenceObject.Designer.cs">
+      <DependentUpon>FilterUserManualReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualType.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualType.designer.cs">
+      <DependentUpon>FilterUserManualType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualTypes.cs" />
+    <Compile Include="Model\FilterReference\Instruction\FilterUserManualTypes.designer.cs">
+      <DependentUpon>FilterUserManualTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.cs" />
     <Compile Include="Model\FilterReference\Material\FilterMaterialReference.designer.cs">
       <DependentUpon>FilterMaterialReference.cs</DependentUpon>
@@ -353,6 +422,54 @@
     <Compile Include="Model\Nomenclature\NomenclatureERPTypes.designer.cs">
       <DependentUpon>NomenclatureERPTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Division\DevisionReference.cs" />
+    <Compile Include="Model\Division\DevisionReference.designer.cs">
+      <DependentUpon>DevisionReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division\DevisionReferenceObject.cs" />
+    <Compile Include="Model\Division\DevisionReferenceObject.designer.cs">
+      <DependentUpon>DevisionReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division\DevisionType.cs" />
+    <Compile Include="Model\Division\DevisionType.designer.cs">
+      <DependentUpon>DevisionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division\DevisionTypes.cs" />
+    <Compile Include="Model\Division\DevisionTypes.designer.cs">
+      <DependentUpon>DevisionTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationReference.cs" />
+    <Compile Include="Model\Operation\OperationReference.designer.cs">
+      <DependentUpon>OperationReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationReferenceObject.cs" />
+    <Compile Include="Model\Operation\OperationReferenceObject.designer.cs">
+      <DependentUpon>OperationReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationType.cs" />
+    <Compile Include="Model\Operation\OperationType.designer.cs">
+      <DependentUpon>OperationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Operation\OperationTypes.cs" />
+    <Compile Include="Model\Operation\OperationTypes.designer.cs">
+      <DependentUpon>OperationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankReference.cs" />
+    <Compile Include="Model\Rank\RankReference.designer.cs">
+      <DependentUpon>RankReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankReferenceObject.cs" />
+    <Compile Include="Model\Rank\RankReferenceObject.designer.cs">
+      <DependentUpon>RankReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankType.cs" />
+    <Compile Include="Model\Rank\RankType.Designer.cs">
+      <DependentUpon>RankType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rank\RankTypes.cs" />
+    <Compile Include="Model\Rank\RankTypes.designer.cs">
+      <DependentUpon>RankTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">
       <DependentUpon>ApplicabiltyMaterialsReference.cs</DependentUpon>
@@ -385,6 +502,22 @@
     <Compile Include="Model\References1C\CategoryProduct\CategoryProductTypes.designer.cs">
       <DependentUpon>CategoryProductTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReference.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureReferenceObject.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureType.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.cs" />
+    <Compile Include="Model\References1C\GroupFinanceNomenclature\GroupFinanceNomenclatureTypes.designer.cs">
+      <DependentUpon>GroupFinanceNomenclatureTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\GroupList\GroupListReference.cs" />
     <Compile Include="Model\References1C\GroupList\GroupListReference.designer.cs">
       <DependentUpon>GroupListReference.cs</DependentUpon>
@@ -416,6 +549,22 @@
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.cs" />
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesTypes.designer.cs">
       <DependentUpon>ConnectionNomenclaturesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionReference.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionReference.designer.cs">
+      <DependentUpon>ProfessionReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionReferenceObject.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionReferenceObject.designer.cs">
+      <DependentUpon>ProfessionReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionType.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionType.designer.cs">
+      <DependentUpon>ProfessionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\Profession\ProfessionTypes.cs" />
+    <Compile Include="Model\References1C\Profession\ProfessionTypes.designer.cs">
+      <DependentUpon>ProfessionTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.cs" />
     <Compile Include="Model\References1C\ReplacementsERP\ReplacementERPReference.designer.cs">
@@ -465,6 +614,22 @@
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPTypes.designer.cs">
       <DependentUpon>TypeNomenclatureERPTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReference.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReference.designer.cs">
+      <DependentUpon>TypeOperationMDMReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReferenceObject.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMReferenceObject.designer.cs">
+      <DependentUpon>TypeOperationMDMReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMType.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMType.designer.cs">
+      <DependentUpon>TypeOperationMDMType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMTypes.cs" />
+    <Compile Include="Model\References1C\TypeOperation\TypeOperationMDMTypes.designer.cs">
+      <DependentUpon>TypeOperationMDMTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.cs" />
     <Compile Include="Model\References1C\TypeReproduction\TypeReproductionERPReference.designer.cs">
       <DependentUpon>TypeReproductionERPReference.cs</DependentUpon>
@@ -496,6 +661,23 @@
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.cs" />
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RoutePointType.cs" />
+    <Compile Include="Model\Route\RouteReference.cs" />
+    <Compile Include="Model\Route\RouteReference.designer.cs">
+      <DependentUpon>RouteReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteReferenceObject.cs" />
+    <Compile Include="Model\Route\RouteReferenceObject.designer.cs">
+      <DependentUpon>RouteReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteType.cs" />
+    <Compile Include="Model\Route\RouteType.designer.cs">
+      <DependentUpon>RouteType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Route\RouteTypes.cs" />
+    <Compile Include="Model\Route\RouteTypes.designer.cs">
+      <DependentUpon>RouteTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\StagesEnum.cs" />
     <Compile Include="Model\StructNomenclature\StructNomenclatureReference.cs" />

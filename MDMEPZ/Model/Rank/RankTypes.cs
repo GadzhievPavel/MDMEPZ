@@ -1,0 +1,1 @@
+namespace TFlex.DOCs.References.Rank{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class RankTypes : SpecialClassTree<RankType>	{	}}

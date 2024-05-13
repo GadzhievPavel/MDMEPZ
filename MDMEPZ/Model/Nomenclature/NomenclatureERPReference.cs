@@ -15,7 +15,8 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.UnitOfMeasurement;
     using System.Linq;
     using TFlex.DOCs.Model.Parameters;
-    using TFlex.DOCs.References.GroupFinanceNomenclature;
+    using TFlex.DOCs.References.ApplicabiltyMaterials;
+    using TFlex.DOCs.Model.References.Nomenclature;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -25,7 +26,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         private TypeReproductionERPReference typeReproductionERPReference;
         private TypeNomenclatureERPReference typeNomenclatureERPReference;
         private UnitOfMeasurementReference unitOfMeasurementReference;
-        private GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
+        private ApplicabiltyMaterialsReference applicabilityMaterialsReference;
 
         public partial class Factory
         {
@@ -38,7 +39,30 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
-            groupFinanceNomenclatureReference = this.Connection.ReferenceCatalog.Find(GroupFinanceNomenclatureReference.ReferenceId).CreateReference() as GroupFinanceNomenclatureReference;
+            applicabilityMaterialsReference = this.Connection.ReferenceCatalog.Find(ApplicabiltyMaterialsReference.ReferenceId).CreateReference() as ApplicabiltyMaterialsReference; 
+        }
+
+        public ReferenceObject CreateReferenceObject(NomenclatureObject nom)
+        {
+            var filter = Filter.Parse($"[GUID(T-FLEX)] = '{nom.Guid}'", ParameterGroup);
+            if (Find(filter).Any())
+            {
+                throw new Exception("Объект с таким guid уже существует");
+            }
+            var erpObject = CreateReferenceObject() as NomenclatureERPReferenceObject;
+
+            erpObject.StartUpdate();
+            erpObject.Denotation.Value = nom.Denotation;
+            erpObject.Name.Value = nom.Name;
+            erpObject.GUIDTFLEX.Value = nom.SystemFields.Guid;
+            erpObject.Weight.Value = nom.Mass;
+            erpObject.EndUpdate("");
+
+            erpObject.StartUpdate();
+            erpObject.Nomenclature = nom;
+            erpObject.EndUpdate("");
+
+            return erpObject;
         }
 
         public ReferenceObject CreateReferenceObject(Nomenclature product)
@@ -94,12 +118,13 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
             }
 
-            var groupFinance = getGroupFinancialNomenclature(product);
-            if (groupFinance != null)
-            {
-                o.GroupFinanceNomenclature = groupFinance;
-            }
+            //foreach(var material in product.applicationMaterials)
+            //{
+            //    var materialReferenceObject = applicabilityMaterialsReference.CreateReferenceObject(material) as ApplicabiltyMaterialsReferenceObject;
+            //    o.AddMaterialUsed(materialReferenceObject);
+            //}
 
+            
             //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }
@@ -214,20 +239,5 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
         }
 
-        private ReferenceObject getGroupFinancialNomenclature(Nomenclature nomenclature)
-        {
-            if(nomenclature is null)
-            {
-                return null;
-            }
-            if(nomenclature.financialGroup is null)
-            {
-                return null;
-            }
-            if(nomenclature.financialGroup.guid1C is null)
-            {
-                return null;
-            }
-            return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
-        }
+        
     }}

@@ -21,6 +21,7 @@ namespace MDMEPZ.Service.Integration
         private StructureTypesReferenceObject structureType;
         private ServerConnection connection;
         private NomenclatureERPReference referenceERP;
+
         public Integration(ServerConnection serverConnection, NomenclatureObject rootProduct)
         {
             this.rootProduct = rootProduct;

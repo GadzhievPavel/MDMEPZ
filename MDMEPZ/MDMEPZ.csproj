@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MDMEPZ</RootNamespace>
-    <AssemblyName>MDMEPZ</AssemblyName>
+    <AssemblyName>MDMEPZIN</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -715,12 +715,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EtalonHandler.cs" />
     <Compile Include="Service\FilterHandler.cs" />
+    <Compile Include="Service\Integration\Integration.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dto\Integration\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Model\Etalon\EtalonDetaliAndAssembling\settings.ssd" />
     <None Include="Model\Etalon\EtalonElectronicComponents\settings.ssd" />

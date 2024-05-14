@@ -1,4 +1,5 @@
 ﻿using MDMEPZ.Dto;
+using MDMEPZ.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +58,7 @@ namespace MDMEPZ.Service.Integration
                 }
                 catch
                 {
-
+                    throw new ExceptionIntegration($"{nom} не удалось создать в MDM");
                 }
             }
         }

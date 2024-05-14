@@ -30,9 +30,25 @@ namespace MDMEPZ.Service.Integration
             this.connection = serverConnection;
             referenceERP  = connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;
 
+            if(referenceERP is null )
+            {
+                throw new ExceptionIntegration("Справочник Номенклатуры ERP не был найден");
+            }
             structureTypesReference = serverConnection.ReferenceCatalog.Find(StructureTypesReference.ReferenceId).CreateReference() as StructureTypesReference;
+            
+            if(structureTypesReference is null)
+            {
+                throw new ExceptionIntegration("Справочник типов структур не был найден");
+            }
+
             structureType = structureTypesReference.Find("Производственно-технологическая") as StructureTypesReferenceObject;
-            FillNomenclature(rootProduct);
+
+            if(structureType is null)
+            {
+                throw new ExceptionIntegration("Производственно-технологическая структура не была найдена");
+            }
+
+            FillNomenclature(this.rootProduct);
         }
 
         private void FillNomenclature(NomenclatureObject nom)
@@ -43,8 +59,11 @@ namespace MDMEPZ.Service.Integration
             foreach ( var link in links )
             {
                 var child = link.ChildObject;
-                nomenclatures.Add((NomenclatureObject)child);
-                FillNomenclature((NomenclatureObject)child);
+                if(child != null)
+                {
+                    nomenclatures.Add((NomenclatureObject)child);
+                    FillNomenclature((NomenclatureObject)child);
+                }
             }
         }
 

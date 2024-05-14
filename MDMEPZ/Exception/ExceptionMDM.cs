@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Exception
 {
-    public class ExceptionIntegration: SystemException
+    public class ExceptionMDM : SystemException
     {
-        public ExceptionIntegration(string msg):base(msg) { }
-
+        public ExceptionMDM(string msg) : base(msg) { }
     }
 }

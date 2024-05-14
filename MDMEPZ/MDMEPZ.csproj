@@ -113,6 +113,7 @@
     <Compile Include="Dto\Operation\TypeOperation.cs" />
     <Compile Include="Dto\Operation\TypeTMC.cs" />
     <Compile Include="Exception\ExceptionIntegration.cs" />
+    <Compile Include="Exception\ExceptionMDM.cs" />
     <Compile Include="LibraryPlugin.cs" />
     <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.cs" />
     <Compile Include="Model\Etalon\EtalonDetaliAndAssembling\EtalonDetailAndAsseblingReference.Designer.cs">

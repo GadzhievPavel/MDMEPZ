@@ -56,9 +56,12 @@ namespace MDMEPZ.Service.Integration
                 {
                     referenceERP.CreateReferenceObject(nom);
                 }
-                catch
+                catch( ExceptionMDM ex)
                 {
-                    throw new ExceptionIntegration($"{nom} не удалось создать в MDM");
+                    throw ex;
+                }catch(ExceptionIntegration ex)
+                {
+                    throw ex;
                 }
             }
         }

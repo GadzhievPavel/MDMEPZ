@@ -18,6 +18,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.ApplicabiltyMaterials;
     using TFlex.DOCs.Model.References.Nomenclature;
     using TFlex.DOCs.References.GroupFinanceNomenclature;
+    using MDMEPZ.Exception;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -48,7 +49,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             var filter = Filter.Parse($"[GUID(T-FLEX)] = '{nom.Guid}'", ParameterGroup);
             if (Find(filter).Any())
             {
-                throw new Exception("Объект с таким guid уже существует");
+                throw new ExceptionMDM("Объект с таким guid уже существует");
             }
             var erpObject = CreateReferenceObject() as NomenclatureERPReferenceObject;
 

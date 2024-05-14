@@ -28,22 +28,46 @@ namespace MDMEPZ.Service.Integration
             this.rootProduct = rootProduct;
             nomenclatures = new HashSet<NomenclatureObject>();
             this.connection = serverConnection;
-            referenceERP  = connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;
+            referenceERP = serverConnection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;
 
-            if(referenceERP is null )
+            if (referenceERP is null)
             {
                 throw new ExceptionIntegration("Справочник Номенклатуры ERP не был найден");
             }
             structureTypesReference = serverConnection.ReferenceCatalog.Find(StructureTypesReference.ReferenceId).CreateReference() as StructureTypesReference;
-            
-            if(structureTypesReference is null)
+
+            if (structureTypesReference is null)
             {
                 throw new ExceptionIntegration("Справочник типов структур не был найден");
             }
 
             structureType = structureTypesReference.Find("Производственно-технологическая") as StructureTypesReferenceObject;
 
-            if(structureType is null)
+            if (structureType is null)
+            {
+                throw new ExceptionIntegration("Производственно-технологическая структура не была найдена");
+            }
+
+            FillNomenclature(this.rootProduct);
+        }
+
+        public Integration(NomenclatureERPReference nomenclatureERP, StructureTypesReference structureTypesReference, NomenclatureObject rootProduct)
+        {
+            this.rootProduct = rootProduct;
+            nomenclatures = new HashSet<NomenclatureObject>();
+            this.referenceERP = nomenclatureERP;
+            if (referenceERP is null)
+            {
+                throw new ExceptionIntegration("Справочник Номенклатуры ERP не был найден");
+            }
+            this.structureTypesReference = structureTypesReference;
+            if (structureTypesReference is null)
+            {
+                throw new ExceptionIntegration("Справочник типов структур не был найден");
+            }
+            structureType = structureTypesReference.Find("Производственно-технологическая") as StructureTypesReferenceObject;
+
+            if (structureType is null)
             {
                 throw new ExceptionIntegration("Производственно-технологическая структура не была найдена");
             }
@@ -56,10 +80,10 @@ namespace MDMEPZ.Service.Integration
             nomenclatures.Add(nom);
             var childrenLinks = nom.Children.GetHierarchyLinks().Cast<NomenclatureHierarchyLink>();
             var links = childrenLinks.Where(link => link.StructureTypes.Contains(structureType)).ToList();
-            foreach ( var link in links )
+            foreach (var link in links)
             {
                 var child = link.ChildObject;
-                if(child != null)
+                if (child != null)
                 {
                     nomenclatures.Add((NomenclatureObject)child);
                     FillNomenclature((NomenclatureObject)child);
@@ -69,16 +93,17 @@ namespace MDMEPZ.Service.Integration
 
         public void CreateNomenclatureInMDM()
         {
-            foreach ( var nom in nomenclatures)
+            foreach (var nom in nomenclatures)
             {
                 try
                 {
                     referenceERP.CreateReferenceObject(nom);
                 }
-                catch( ExceptionMDM ex)
+                catch (ExceptionMDM ex)
                 {
                     throw ex;
-                }catch(ExceptionIntegration ex)
+                }
+                catch (ExceptionIntegration ex)
                 {
                     throw ex;
                 }

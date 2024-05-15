@@ -26,12 +26,12 @@ namespace TFlex.DOCs.References.Performers
             //LogTFlex a = new LogTFlex("D:\\temp"+DateTime.Now+".txt");
             // a.error("Зашёл сюда");
             var listPerformersJson = performers.Исполнители.ROWS;
-            if (listPerformersJson == null)
+            if (listPerformersJson.Count != 0)
             {
                 foreach (var performer in listPerformersJson)
                 {
 
-                    if (performer != null)
+                    if (performer.Профессия.UID != "")
                     {
 
                         var performerReferenceObject = CreateReferenceObject(performer);
@@ -72,6 +72,10 @@ namespace TFlex.DOCs.References.Performers
                     professionTP = professionMDM.GetObject(new Guid("1fe93298-7d24-4842-b885-3a70160ebe41"));//получил из MDM профессии -> профессию в поставке
                 }
             }
+            else
+            {
+                throw new Exception("не найден справочник для поиска професиии МДМ");
+            }
 
             if (referenceMDMRank != null)
             {
@@ -84,12 +88,16 @@ namespace TFlex.DOCs.References.Performers
             performersReferenceObject.WorkersCount.Value = performer.КоличествоИсполнителей;
             if (professionTP != null)
             {
-                var _professionTP = professionTP as ProfessionReferenceObject;
+                // var _professionTP = professionTP as ProfessionReferenceObject;
                 performersReferenceObject.SetLinkedObject(PerformersReferenceObject.RelationKeys.PerformersToProfessions, professionTP);
-                performersReferenceObject.Name.Value = _professionTP.Name;//отдельно записываю имя т.к. в диалоге отображается отдельным параметром, а не параметром связи
+                // performersReferenceObject.Name.Value = _professionTP.Name;//отдельно записываю имя т.к. в диалоге отображается отдельным параметром, а не параметром связи
             }
 
-            performersReferenceObject.Rank.Value = (int)_rankMDM.Kod;//использую код, т.к. он приходит обработанным и имеет значение как и номер разряда(только цифра)
+            if (_rankMDM != null)
+            {
+                performersReferenceObject.Rank.Value = (int)_rankMDM.Kod;//использую код, т.к. он приходит обработанным и имеет значение как и номер разряда(только цифра)
+            }
+
             performersReferenceObject.EndUpdate("");
             return performersReferenceObject;
         }

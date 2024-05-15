@@ -113,7 +113,7 @@ namespace MDMEPZ.Service.Integration
         public string SendBom(string path)
         {
             var bomService = new BomService(rootProduct, nomenclatures);
-            return bomService.GetBom();
+            return bomService.GetBom(path);
         }
     }
 }

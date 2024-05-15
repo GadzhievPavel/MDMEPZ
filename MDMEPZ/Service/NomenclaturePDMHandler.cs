@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDMEPZ.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.Model.Search;
 using TFlex.DOCs.Model.Structure;
+using TFlex.DOCs.References.NomenclatureERP;
 
 namespace MDMEPZ.Service
 {
@@ -37,6 +39,14 @@ namespace MDMEPZ.Service
 
             filter.Validate();
             return filter;
+        }
+
+        public void setNomenclatureParameterInMDM(NomenclatureObject nom, Guid link, ReferenceObject obj)
+        {
+            var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
+            mdm.StartUpdate();
+            mdm.SetLinkedObject(link, obj);
+            mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {obj}");
         }
     }
 }

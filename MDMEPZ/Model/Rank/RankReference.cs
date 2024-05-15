@@ -15,7 +15,7 @@ namespace TFlex.DOCs.References.Rank
 		{
 			var rankReferenceObject = CreateReferenceObject(Classes.MainRankType) as RankReferenceObject;
 			rankReferenceObject.StartUpdate();
-			rankReferenceObject.Kod.Value = rank.Код;
+			rankReferenceObject.Kod.Value = rank.Код.Trim(new char[] {'0'});
 			rankReferenceObject.Name.Value = rank.Наименование;
 			rankReferenceObject.UID.Value = rank.Ссылка.UID;
 			return rankReferenceObject;

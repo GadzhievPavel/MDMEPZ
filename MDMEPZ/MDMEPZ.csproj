@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +64,7 @@
     <Compile Include="Dto\AnotherDto\Rank\RankLink.cs" />
     <Compile Include="Dto\AnotherDto\Rank\RankMain.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
+    <Compile Include="Dto\Integration\BomDto.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />
     <Compile Include="Dto\GroupFinanceNomenclature\GroupFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
@@ -717,15 +721,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EtalonHandler.cs" />
     <Compile Include="Service\FilterHandler.cs" />
+    <Compile Include="Service\Integration\BomService.cs" />
     <Compile Include="Service\Integration\Integration.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
+    <Compile Include="Util\At3bootSerializator.cs" />
     <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dto\Integration\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Model\Etalon\EtalonDetaliAndAssembling\settings.ssd" />
     <None Include="Model\Etalon\EtalonElectronicComponents\settings.ssd" />

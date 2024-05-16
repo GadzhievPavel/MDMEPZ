@@ -72,7 +72,18 @@ namespace TFlex.DOCs.References.EtalonMaterial
 				return ((StringParameter)(this[FieldKeys.Description]));
 			}
 		}
-		
+
+		/// <summary>
+		/// Возвращает параметр "Тип сортамента"
+		/// </summary>
+		public StringParameter Tip_sortamenta
+		{
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.Tip_sortamenta]));
+			}
+		}
+
 		/// <summary>
 		/// Возвращает параметр "Вспомогательный материал"
 		/// </summary>
@@ -254,6 +265,13 @@ namespace TFlex.DOCs.References.EtalonMaterial
 			/// Представляет уникальный идентификатор (GUID) параметра "Покрытие"
 			/// </summary>
 		   public static readonly Guid IsCovering = new Guid("cce61225-2d69-432d-90be-9de3b0a5701c");
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) параметра "Сортамент тип"
+			/// </summary>
+			public static readonly Guid Tip_sortamenta = new Guid("1621bfe5-0100-4136-ab98-95f2f4b656fc");
+
+
 
 		}
 		

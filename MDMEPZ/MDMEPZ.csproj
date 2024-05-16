@@ -49,6 +49,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
+    <Reference Include="TFlex.Model.Technology">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2.25)\Program\TFlex.Model.Technology.dll</HintPath>
+    </Reference>
     <Reference Include="TFlex.PdmFramework.Resolve, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\PdmFramework.NX\startup\TFlex.PdmFramework.Resolve.dll</HintPath>
@@ -70,7 +73,12 @@
     <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
+    <Compile Include="Dto\Integration\Route\Employee.cs" />
+    <Compile Include="Dto\Integration\Route\OperationPlm.cs" />
+    <Compile Include="Dto\Integration\Route\RoutePointPlm.cs" />
+    <Compile Include="Dto\Integration\Route\TechnologicalProcessPLM.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
+    <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
     <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />
     <Compile Include="Dto\Operation\Type\OwnerTypeOperation.cs" />
@@ -82,6 +90,7 @@
     <Compile Include="Dto\ProductsCategories\ProductsCategories.cs" />
     <Compile Include="Dto\ReplacementErp\Replacement.cs" />
     <Compile Include="Dto\ReplacementErp\Replacements.cs" />
+    <Compile Include="Dto\Integration\Route\RoutePlm.cs" />
     <Compile Include="Dto\Route\Routes.cs" />
     <Compile Include="Dto\TypeNomenclature\TypeOfNomenclature.cs" />
     <Compile Include="Dto\TypeNomenclature\TypesOfNomenclatures.cs" />

@@ -9,5 +9,7 @@ namespace MDMEPZ.Dto
     public class BomDto
     {
         public Nomenclature[] nomenclatures;
+
+        public NomenclatureWithRoute nomenclature;
     }
 }

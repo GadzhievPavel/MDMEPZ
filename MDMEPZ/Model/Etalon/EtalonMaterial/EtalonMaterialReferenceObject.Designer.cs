@@ -271,7 +271,7 @@ namespace TFlex.DOCs.References.EtalonMaterial
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) связи "Сортамент"
 			/// </summary>
-		   public static readonly Guid Sortament = new Guid("ccbb15a7-1c22-48b6-820a-79f5e17d626d");
+		   public static readonly Guid Sortament = new Guid("13ba807b-25aa-42b6-90b9-4381e2a8ee59");
 
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) связи "Рецептура"

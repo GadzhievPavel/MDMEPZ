@@ -15,6 +15,11 @@ namespace TFlex.DOCs.References.Route
 		public partial class Factory
 		{
 		}
+		/// <summary>
+		/// Создаёт маршрут
+		/// </summary>
+		/// <param name="route"></param>
+		/// <returns></returns>
 		public ReferenceObject CreateReferenceObject(Route route)
 		{
 			List<ReferenceObject> saveList = new List<ReferenceObject>();
@@ -28,7 +33,12 @@ namespace TFlex.DOCs.References.Route
 			
 			return routeReferenceObject;
 		}
-
+		/// <summary>
+		/// Создаёт точку маршрута(заход)
+		/// </summary>
+		/// <param name="point"></param>
+		/// <param name="parentRoute"></param>
+		/// <returns></returns>
 		public ReferenceObject CreateReferenceObjectRoutePoint(RoutePointRows point, ReferenceObject parentRoute)
 		{
 

@@ -8,7 +8,7 @@ namespace TFlex.DOCs.References.Performers
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.References.Profession;
     using TFlex.DOCs.References.Rank;
-
+    
     public partial class PerformersReference : SpecialReference<PerformersReferenceObject>
     {
 
@@ -25,30 +25,33 @@ namespace TFlex.DOCs.References.Performers
             List<ReferenceObject> listPerformers = new List<ReferenceObject>();
             //LogTFlex a = new LogTFlex("D:\\temp"+DateTime.Now+".txt");
             // a.error("Зашёл сюда");
-            var listPerformersJson = performers.Исполнители.ROWS;
-            if (listPerformersJson.Count != 0)
+            if (performers.Исполнители != null)
             {
-                foreach (var performer in listPerformersJson)
+                var listPerformersJson = performers.Исполнители.ROWS;
+                if (listPerformersJson != null)
                 {
-
-                    if (performer.Профессия.UID != "")
+                    foreach (var performer in listPerformersJson)
                     {
 
-                        var performerReferenceObject = CreateReferenceObject(performer);
-                        if (performerReferenceObject != null)
+                        if (performer.Профессия.UID != "")
                         {
-                            listPerformers.Add(performerReferenceObject);
+
+                            var performerReferenceObject = CreateReferenceObject(performer);
+                            if (performerReferenceObject != null)
+                            {
+                                listPerformers.Add(performerReferenceObject);
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("зашёл в foreach с списком исполнителей но исполнителей нет");
                         }
                     }
-                    else
-                    {
-                        throw new Exception("зашёл в foreach с списком исполнителей но исполнителей нет");
-                    }
                 }
-            }
-            else
-            {
-                throw new Exception("список исполнителей пришёл пустым");
+                else
+                {
+                    throw new Exception("список исполнителей пришёл пустым");
+                }
             }
             return listPerformers;
         }

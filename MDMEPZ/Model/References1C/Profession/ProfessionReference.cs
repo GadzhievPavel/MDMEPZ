@@ -14,7 +14,11 @@ namespace TFlex.DOCs.References.Profession
 		public partial class Factory
 		{
 		}
-
+        /// <summary>
+        /// Создаёт профессию в справочниках технологии
+        /// </summary>
+        /// <param name="profession"></param>
+        /// <returns></returns>
         public ReferenceObject CreateReferenceObject(MDMEPZ.Dto.AnotherDto.Profession profession)
         {
             ProfessionReferenceObject professionReferenceObject = CreateReferenceObject(Classes.MainProfessionType) as ProfessionReferenceObject;

@@ -10,7 +10,11 @@ namespace TFlex.DOCs.References.Rank
 		public partial class Factory
 		{
 		}
-
+		/// <summary>
+		/// Создаёт Разряд исполнителя
+		/// </summary>
+		/// <param name="rank"></param>
+		/// <returns></returns>
 		public ReferenceObject CreateReferenceObject(RankMain rank)
 		{
 			var rankReferenceObject = CreateReferenceObject(Classes.MainRankType) as RankReferenceObject;

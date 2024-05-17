@@ -80,11 +80,11 @@ namespace TFlex.DOCs.References.Profession
 		{
 			get
 			{
-				return GetObject(RelationKeys.Link_3780_259);
+				return GetObject(RelationKeys.ProfessionPDM);
 			}
 			set
 			{
-				SetLinkedObject(RelationKeys.Link_3780_259, value);
+				SetLinkedObject(RelationKeys.ProfessionPDM, value);
 			}
 		}
 		
@@ -120,7 +120,7 @@ namespace TFlex.DOCs.References.Profession
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) связи "Профессии ТП"
 			/// </summary>
-		   public static readonly Guid Link_3780_259 = new Guid("1fe93298-7d24-4842-b885-3a70160ebe41");
+		   public static readonly Guid ProfessionPDM = new Guid("1fe93298-7d24-4842-b885-3a70160ebe41");
 
 		}
 	}

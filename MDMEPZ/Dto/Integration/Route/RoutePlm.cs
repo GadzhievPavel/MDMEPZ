@@ -30,9 +30,10 @@ namespace MDMEPZ.Dto.Integration.Route
             routePlm.RoutePoints = new List<RoutePointPlm>();
             foreach (var routePoint in routePoints)
             {
-                routePlm.RoutePoints.Add();
+                routePlm.RoutePoints.Add(RoutePointPlm.CreateInstance(routePoint));
             }
             
+            return routePlm;
         }
     }
 }

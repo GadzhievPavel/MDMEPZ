@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibraryMDM">
+      <HintPath>..\..\..\..\Downloads\LibraryMDM.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -628,6 +631,22 @@
     <Compile Include="Model\References1C\Specification\SpecificationERPTypes.cs" />
     <Compile Include="Model\References1C\Specification\SpecificationERPTypes.designer.cs">
       <DependentUpon>SpecificationERPTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReference.cs" />
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReference.designer.cs">
+      <DependentUpon>TypeJobMDMReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReferenceObject.cs" />
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReferenceObject.designer.cs">
+      <DependentUpon>TypeJobMDMReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMType.cs" />
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMType.designer.cs">
+      <DependentUpon>TypeJobMDMType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMTypes.cs" />
+    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMTypes.designer.cs">
+      <DependentUpon>TypeJobMDMTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.cs" />
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.designer.cs">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.EtalonMaterial;
@@ -23,7 +24,7 @@ namespace MDMEPZ.Dto.Integration.Route
         public List<Nomenclature> materials { get; set; }
         public List<EmployeePlmDto> employees { get; set; }
 
-        public static OperationPlm CreateInstance(StructuredTechnologicalOperation operation)
+        public static OperationPlm CreateInstance(ServerConnection connection, StructuredTechnologicalOperation operation)
         {
             var operationPlm = new OperationPlm();
             operationPlm.Name = operation.Name;
@@ -35,7 +36,12 @@ namespace MDMEPZ.Dto.Integration.Route
 
             List<ReferenceObject> complect = new List<ReferenceObject>();
             ///комплектующие
-            operation.TryGetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"), out complect);
+            //operation.TryGetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"), out complect);
+
+            if(operation.Class.IsAssemblyTechnologicalOperation)
+            {
+                complect = operation.GetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"));
+            }
 
             if (complect != null)
             {
@@ -44,14 +50,14 @@ namespace MDMEPZ.Dto.Integration.Route
                 {
                     var nom = (NomenclatureObject)obj;
                     var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
-                    operationPlm.nomenclatures.Add(NomenclatureWithRoute.CreateInstance(mdm));
+                    operationPlm.nomenclatures.Add( NomenclatureWithRoute.CreateInstance(connection, mdm));
                 }
             }
 
             operationPlm.materials = new List<Nomenclature> { };
             ///материалы ТП
             var materialsTP = operation.GetObjects(new Guid("beeab0ff-1598-44b5-a2d4-32fdf0e98e90"));
-            foreach(var materialTP in materialsTP)
+            foreach (var materialTP in materialsTP)
             {
                 ///материал из сортамента
                 var materialSort = materialTP.GetObject(new Guid("2eb68fd6-9935-4ade-a057-35d20beaea2d")) as SortamentReferenceObject;
@@ -61,15 +67,15 @@ namespace MDMEPZ.Dto.Integration.Route
             }
 
             operationPlm.employees = new List<EmployeePlmDto> { };
-
+            ///исполнители
             var workers = operation.GetObjects(new Guid("3a7eab57-39e7-4bb7-92dd-aaa791be9fc4"));
-            foreach(var worker in workers)
+            foreach (var worker in workers)
             {
-                operationPlm.employees.Add(EmployeePlmDto.)
+                operationPlm.employees.Add(EmployeePlmDto.CreateInstance(connection, worker as WorkerReferenceObject));
             }
 
             return operationPlm;
-            
+
         }
     }
 }

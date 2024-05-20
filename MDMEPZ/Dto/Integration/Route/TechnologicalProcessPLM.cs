@@ -3,6 +3,7 @@
 using MDMEPZ.Dto;
 using System.Collections.Generic;
 using System.Linq;
+using TFlex.DOCs.Model;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.Model.Technology.References.TechnologyElements;
 
@@ -15,7 +16,7 @@ namespace MDMEPZ.Dto.Integration.Route
         public List<Nomenclature> ProducedNomenclatures { get; set; }
         public List<OperationPlm> Operations { get; set; }
 
-        public static TechnologicalProcessPLM CreateInstance(StructuredTechnologicalProcess process)
+        public static TechnologicalProcessPLM CreateInstance(ServerConnection connection, StructuredTechnologicalProcess process)
         {
             var processPlm = new TechnologicalProcessPLM();
             processPlm.Name = process.Name;
@@ -33,9 +34,10 @@ namespace MDMEPZ.Dto.Integration.Route
 
             foreach(var operation in operations)
             {
-                processPlm.Operations.Add(OperationPlm.);
+                processPlm.Operations.Add(OperationPlm.CreateInstance(connection, operation));
             }
 
+            return processPlm;
         }
     }
 }

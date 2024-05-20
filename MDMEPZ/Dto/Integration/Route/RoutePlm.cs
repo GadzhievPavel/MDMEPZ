@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.DOCs.Model;
 using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto.Integration.Route
@@ -15,7 +16,7 @@ namespace MDMEPZ.Dto.Integration.Route
         public int AmountNorm { get; set; }
         public List<RoutePointPlm> RoutePoints { get; set; }
 
-        public static RoutePlm CreateInstance(TechRoute route)
+        public static RoutePlm CreateInstance(ServerConnection connection, TechRoute route)
         {
             var routePlm = new RoutePlm();
             routePlm.Name = route.Name;
@@ -30,7 +31,7 @@ namespace MDMEPZ.Dto.Integration.Route
             routePlm.RoutePoints = new List<RoutePointPlm>();
             foreach (var routePoint in routePoints)
             {
-                routePlm.RoutePoints.Add(RoutePointPlm.CreateInstance(routePoint));
+                routePlm.RoutePoints.Add(RoutePointPlm.CreateInstance(connection, routePoint));
             }
             
             return routePlm;

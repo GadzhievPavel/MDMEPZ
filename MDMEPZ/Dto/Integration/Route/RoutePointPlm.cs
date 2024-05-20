@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto.Integration.Route
 {
@@ -16,7 +18,7 @@ namespace MDMEPZ.Dto.Integration.Route
         public double FinalTimeHour { get; set; }
         public TechnologicalProcessPLM TechProcess { get; set; }
 
-        public static RoutePointPlm CreateInstance(ReferenceObject routePoint)
+        public static RoutePointPlm CreateInstance(ServerConnection connection, ReferenceObject routePoint)
         {
             if(!routePoint.Class.Guid.Equals(new Guid("25fad9d1-be23-4f4b-9afc-581b6d96b992")))
             {
@@ -37,7 +39,9 @@ namespace MDMEPZ.Dto.Integration.Route
             ///Ссылочный техпроцесс
             var techProcess = routePoint.GetObject(new Guid("2c0aed62-4ad9-4152-8138-18e94c4ffbe6"));
 
-            routePointPlm.TechProcess = TechnologicalProcessPLM.
+            routePointPlm.TechProcess = TechnologicalProcessPLM.CreateInstance(connection, techProcess as StructuredTechnologicalProcess);
+
+            return routePointPlm;
         }
     }
 }

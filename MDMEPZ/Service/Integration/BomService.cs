@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.NomenclatureERP;
 
@@ -14,8 +15,10 @@ namespace MDMEPZ.Service.Integration
         private NomenclatureObject nomenclature;
         private HashSet<NomenclatureObject> nomenclatureObjects;
         private At3bootSerializator serializator;
-        public BomService(NomenclatureObject rootNom, HashSet<NomenclatureObject> nomenclatures)
+        private ServerConnection connection;
+        public BomService(ServerConnection connection, NomenclatureObject rootNom, HashSet<NomenclatureObject> nomenclatures)
         {
+            this.connection = connection;
             this.nomenclature = rootNom;
             this.nomenclatureObjects = nomenclatures;
             this.serializator = new At3bootSerializator();
@@ -34,6 +37,8 @@ namespace MDMEPZ.Service.Integration
             }
 
             bomDto.nomenclatures = nomListTemp.ToArray();
+            var mdmRoot = nomenclature.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+            bomDto.nomenclature = NomenclatureWithRoute.CreateInstance(connection ,mdmRoot);
 
             if (path != null)
             {

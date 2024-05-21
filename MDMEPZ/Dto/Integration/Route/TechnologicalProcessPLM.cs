@@ -9,10 +9,22 @@ using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto.Integration.Route
 {
+    /// <summary>
+    /// DTO тех. процесса
+    /// </summary>
     public class TechnologicalProcessPLM
     {
+        /// <summary>
+        /// Наименование
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Обозначение
+        /// </summary>
         public string Denotation { get; set; }
+        /// <summary>
+        /// Производимая номенклатура - выход техпроцесса
+        /// </summary>
         public List<Nomenclature> ProducedNomenclatures { get; set; }
         public List<OperationPlm> Operations { get; set; }
 

@@ -15,6 +15,9 @@ namespace MDMEPZ.Dto
 {
     public class NomenclatureWithRoute: Nomenclature
     {
+        /// <summary>
+        /// Маршрут
+        /// </summary>
         public RoutePlm[] routePlm { get; set; }
 
         

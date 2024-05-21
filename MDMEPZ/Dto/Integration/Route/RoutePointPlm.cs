@@ -9,13 +9,34 @@ using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto.Integration.Route
 {
+    /// <summary>
+    /// DTO цехоперехода
+    /// </summary>
     public class RoutePointPlm
     {
+        /// <summary>
+        /// наименование
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// номер подразделения
+        /// </summary>
         public string NumberDepartament { get; set; }
+        /// <summary>
+        /// длительность в часах
+        /// </summary>
         public double DurationHour { get; set; }
+        /// <summary>
+        /// подготовительное время
+        /// </summary>
         public double PreparatoryTimeHour { get; set; }
+        /// <summary>
+        /// Заключительное время
+        /// </summary>
         public double FinalTimeHour { get; set; }
+        /// <summary>
+        /// Технологический процесс
+        /// </summary>
         public TechnologicalProcessPLM TechProcess { get; set; }
 
         public static RoutePointPlm CreateInstance(ServerConnection connection, ReferenceObject routePoint)

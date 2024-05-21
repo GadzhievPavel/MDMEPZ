@@ -7,7 +7,7 @@ namespace TFlex.DOCs.References.Performers
     using System.Linq;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.References.Profession;
-    using TFlex.DOCs.References.Rank;
+    using TFlex.DOCs.References.MDM.Rank;
     
     public partial class PerformersReference : SpecialReference<PerformersReferenceObject>
     {
@@ -63,7 +63,7 @@ namespace TFlex.DOCs.References.Performers
         public ReferenceObject CreateReferenceObject(ExecutorsRows performer)
         {
             ReferenceObject professionTP = null;
-            RankReferenceObject _rankMDM = null;
+            RankMDMReferenceObject _rankMDM = null;
             var referenceMDMProfession = Connection.ReferenceCatalog.Find(new Guid("6c55d27d-e87b-4d64-b9b5-4f7bce9456c6")).CreateReference();//справочник профессий
             var referenceMDMRank = Connection.ReferenceCatalog.Find(new Guid("862578ee-a916-4db6-8753-13dc61520ede")).CreateReference();//Справочник разрядов
 
@@ -82,8 +82,8 @@ namespace TFlex.DOCs.References.Performers
 
             if (referenceMDMRank != null)
             {
-                ReferenceObject rankMDM = referenceMDMRank.Find(RankReferenceObject.FieldKeys.UID, performer.РазрядРабот.UID).First();//поиск по uid разряд работ из данных .json в справочнике MDM рязрядов
-                _rankMDM = rankMDM as RankReferenceObject;
+                ReferenceObject rankMDM = referenceMDMRank.Find(RankMDMReferenceObject.FieldKeys.UID, performer.РазрядРабот.UID).First();//поиск по uid разряд работ из данных .json в справочнике MDM рязрядов
+                _rankMDM = rankMDM as RankMDMReferenceObject;
             }
 
             var performersReferenceObject = CreateReferenceObject(Classes.MainPerformers) as PerformersReferenceObject;// СОЗДАЛИ ОБЪЕКТ В СПРАВОЧНИКЕ ИСПОЛНИТЕЛЬ ОПЕРАЦИИ

@@ -488,21 +488,21 @@
     <Compile Include="Model\Performers\PerformersTypes.designer.cs">
       <DependentUpon>PerformersTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rank\RankReference.cs" />
-    <Compile Include="Model\Rank\RankReference.designer.cs">
-      <DependentUpon>RankReference.cs</DependentUpon>
+    <Compile Include="Model\Rank\RankMDMReference.cs" />
+    <Compile Include="Model\Rank\RankMDMReference.designer.cs">
+      <DependentUpon>RankMDMReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rank\RankReferenceObject.cs" />
-    <Compile Include="Model\Rank\RankReferenceObject.designer.cs">
-      <DependentUpon>RankReferenceObject.cs</DependentUpon>
+    <Compile Include="Model\Rank\RankMDMReferenceObject.cs" />
+    <Compile Include="Model\Rank\RankMDMReferenceObject.designer.cs">
+      <DependentUpon>RankMDMReferenceObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rank\RankType.cs" />
-    <Compile Include="Model\Rank\RankType.Designer.cs">
-      <DependentUpon>RankType.cs</DependentUpon>
+    <Compile Include="Model\Rank\RankMDMType.cs" />
+    <Compile Include="Model\Rank\RankMDMType.Designer.cs">
+      <DependentUpon>RankMDMType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Rank\RankTypes.cs" />
-    <Compile Include="Model\Rank\RankTypes.designer.cs">
-      <DependentUpon>RankTypes.cs</DependentUpon>
+    <Compile Include="Model\Rank\RankMDMTypes.cs" />
+    <Compile Include="Model\Rank\RankMDMTypes.designer.cs">
+      <DependentUpon>RankMDMTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.cs" />
     <Compile Include="Model\References1C\ApplicabilityMaterials\ApplicabiltyMaterialsReference.designer.cs">

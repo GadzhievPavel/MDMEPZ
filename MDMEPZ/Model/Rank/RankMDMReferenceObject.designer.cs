@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TFlex.DOCs.References.Rank
+namespace TFlex.DOCs.References.MDM.Rank
 {
 	using System;
 	using TFlex.DOCs.Model.References;
@@ -21,10 +21,10 @@ namespace TFlex.DOCs.References.Rank
 	/// <summary>
 	/// Представляет объект справочника "Разряд работ"
 	/// </summary>
-	public partial class RankReferenceObject
+	public partial class RankMDMReferenceObject
 	{
 		
-		internal RankReferenceObject(RankReference reference) : 
+		internal RankMDMReferenceObject(RankMDMReference reference) : 
 				base(reference)
 		{
 		}
@@ -32,11 +32,11 @@ namespace TFlex.DOCs.References.Rank
 		/// <summary>
 		/// Возвращает описание типа объекта
 		/// </summary>
-		public new RankType Class
+		public new RankMDMType Class
 		{
 			get
 			{
-				return ((RankType)(base.Class));
+				return ((RankMDMType)(base.Class));
 			}
 		}
 		

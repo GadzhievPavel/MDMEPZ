@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TFlex.DOCs.References.Rank
+namespace TFlex.DOCs.References.MDM.Rank
 {
 	using System;
 	using TFlex.DOCs.Model.References;
@@ -20,7 +20,7 @@ namespace TFlex.DOCs.References.Rank
 	/// <summary>
 	/// Представляет описание справочника "Разряд работ"
 	/// </summary>
-	public partial class RankReference
+	public partial class RankMDMReference
 	{
 		
 		/// <summary>
@@ -31,12 +31,12 @@ namespace TFlex.DOCs.References.Rank
 		/// <summary>
 		/// Инициализирует новый экземпляр RankReference для работы с объектами справочника "Разряд работ"
 		/// </summary>
-		public RankReference(TFlex.DOCs.Model.ServerConnection connection) : 
-				base(connection, RankReference.ReferenceId)
+		public RankMDMReference(TFlex.DOCs.Model.ServerConnection connection) : 
+				base(connection, RankMDMReference.ReferenceId)
 		{
 		}
 		
-		private RankReference(ParameterGroup masterGroup) : 
+		private RankMDMReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
 		}
@@ -44,43 +44,43 @@ namespace TFlex.DOCs.References.Rank
 		/// <summary>
 		/// Возвращает типы объектов справочника "Разряд работ"
 		/// </summary>
-		public new RankTypes Classes
+		public new RankMDMTypes Classes
 		{
 			get
 			{
-				return ((RankTypes)(base.Classes));
+				return ((RankMDMTypes)(base.Classes));
 			}
 		}
 		
-		protected override RankReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
+		protected override RankMDMReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
 		{
-			RankType type = classObject as RankType;
+			RankMDMType type = classObject as RankMDMType;
 			if ((type == null))
 			{
 				return null;
 			}
 			if (type.IsMainRankRype)
 			{
-				return new RankReferenceObject(this);
+				return new RankMDMReferenceObject(this);
 			}
-			return new RankReferenceObject(this);
+			return new RankMDMReferenceObject(this);
 		}
 		
-		public partial class Factory : SpecialReferenceFactory<RankReference, RankTypes>
+		public partial class Factory : SpecialReferenceFactory<RankMDMReference, RankMDMTypes>
 		{
 			
 			internal Factory()
 			{
 			}
 			
-			public override RankReference CreateReference(ParameterGroup masterGroup)
+			public override RankMDMReference CreateReference(ParameterGroup masterGroup)
 			{
-				return new RankReference(masterGroup);
+				return new RankMDMReference(masterGroup);
 			}
 			
-			public override RankTypes CreateClassTree(ParameterGroup masterGroup)
+			public override RankMDMTypes CreateClassTree(ParameterGroup masterGroup)
 			{
-				return new RankTypes(masterGroup);
+				return new RankMDMTypes(masterGroup);
 			}
 		}
 	}

@@ -38,12 +38,15 @@ namespace MDMEPZ.Dto.Integration.Route
             ///комплектующие
             //operation.TryGetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"), out complect);
 
-            if(operation.Class.IsAssemblyTechnologicalOperation)
+            AssemblyTechnologicalOperation assemblyOperation = null;
+            if (operation.Class.IsAssemblyTechnologicalOperation)
             {
-                complect = operation.GetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"));
+                assemblyOperation = operation as AssemblyTechnologicalOperation;
+                complect = assemblyOperation.MaterialObjectsGroup.Objects.ToList();
             }
 
-            if (complect != null)
+
+            if (complect.Any())
             {
                 operationPlm.nomenclatures = new List<NomenclatureWithRoute>();
                 foreach (var obj in complect)

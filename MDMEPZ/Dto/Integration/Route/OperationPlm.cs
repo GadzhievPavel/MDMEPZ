@@ -16,12 +16,33 @@ namespace MDMEPZ.Dto.Integration.Route
 {
     public class OperationPlm
     {
+        /// <summary>
+        /// Наименование
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Обозначение
+        /// </summary>
         public string Denotation { get; set; }
+        /// <summary>
+        /// номер операции
+        /// </summary>
         public string NumberOperation { get; set; }
+        /// <summary>
+        /// номер подразделения
+        /// </summary>
         public string NumberDepartament { get; set; }
+        /// <summary>
+        /// комплектующие - ходящая номенклатура
+        /// </summary>
         public List<NomenclatureWithRoute> nomenclatures { get; set; }
+        /// <summary>
+        /// материалы - входящая номенклатура
+        /// </summary>
         public List<Nomenclature> materials { get; set; }
+        /// <summary>
+        /// сотрудники
+        /// </summary>
         public List<EmployeePlmDto> employees { get; set; }
 
         public static OperationPlm CreateInstance(ServerConnection connection, StructuredTechnologicalOperation operation)

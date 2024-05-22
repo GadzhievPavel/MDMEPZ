@@ -13,6 +13,9 @@ using TFlex.Technology.References;
 
 namespace MDMEPZ.Dto
 {
+    /// <summary>
+    /// DTO номенклатура c маршрутом. наследует поля у Nomenclature
+    /// </summary>
     public class NomenclatureWithRoute: Nomenclature
     {
         /// <summary>

@@ -14,6 +14,9 @@ using TFlex.DOCs.References.UnitOfMeasurement;
 
 namespace MDMEPZ.Dto
 {
+    /// <summary>
+    /// DTO номенклатуры ERP
+    /// </summary>
     public class Nomenclature
     {
         public static Nomenclature CreateInstance(NomenclatureERPReferenceObject nomenclatureERP)

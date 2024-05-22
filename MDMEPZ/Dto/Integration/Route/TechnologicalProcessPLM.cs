@@ -26,6 +26,9 @@ namespace MDMEPZ.Dto.Integration.Route
         /// Производимая номенклатура - выход техпроцесса
         /// </summary>
         public List<Nomenclature> ProducedNomenclatures { get; set; }
+        /// <summary>
+        /// Операции
+        /// </summary>
         public List<OperationPlm> Operations { get; set; }
 
         public static TechnologicalProcessPLM CreateInstance(ServerConnection connection, StructuredTechnologicalProcess process)

@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibraryMDM">
-      <HintPath>..\..\..\..\Downloads\LibraryMDM.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\LibraryMDM.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,19 +44,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TFlex.DOCs.Model, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="TFlex.DOCs.Model">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
-    <Reference Include="TFlex.DOCs.Resources, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="TFlex.DOCs.Resources">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.Model.Technology">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2.25)\Program\TFlex.Model.Technology.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.Model.Technology.dll</HintPath>
     </Reference>
-    <Reference Include="TFlex.PdmFramework.Resolve, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="TFlex.PdmFramework.Resolve">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\PdmFramework.NX\startup\TFlex.PdmFramework.Resolve.dll</HintPath>
     </Reference>
   </ItemGroup>

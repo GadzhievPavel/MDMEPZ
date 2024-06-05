@@ -12,7 +12,7 @@ namespace MDMEPZ.Dto
     public class MainInputsRows
     {
         public int НомерСтроки { get; set; }
-        public Nomenclature Номенклатура { get; set; }
+        public NomenclatureOperation Номенклатура { get; set; }
         public MeasurementUnits ЕдиницаИзмерения { get; set; }
         public bool ИспользоватьФормулу { get; set; }
         public double Применяемость { get; set; }

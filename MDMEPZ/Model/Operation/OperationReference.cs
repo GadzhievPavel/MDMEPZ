@@ -29,7 +29,7 @@ namespace TFlex.DOCs.References.Operation
             var listRows = operation.ОсновныеВходы.ROWS;
             foreach (var row in listRows)
             {
-                var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Заход.UID}'", referenceNumenclatureERP.ParameterGroup)).First();
+                var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Номенклатура.UID}'", referenceNumenclatureERP.ParameterGroup)).First();
                 if (result != null)
                 {
                     var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
@@ -50,7 +50,7 @@ namespace TFlex.DOCs.References.Operation
                 operationReferenceObject = CreateReferenceObject(Classes.DefaultOperationType) as OperationReferenceObject;
             }
 
-
+            //operationReferenceObject = CreateReferenceObject(Classes.AssemblyOperationType) as OperationReferenceObject;
             operationReferenceObject.StartUpdate();
             operationReferenceObject.Name.Value = operation.Наименование.Remove(0, 4);
             operationReferenceObject.Kod.Value = operation.Код;

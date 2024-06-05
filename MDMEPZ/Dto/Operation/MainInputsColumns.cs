@@ -3,7 +3,7 @@
     /// <summary>
     /// Столбцы основных входов
     /// </summary>
-    public class MainInputsColumns //А какого типа могут быть вообще столбцы?
+    public class MainInputsColumns 
     {
         public string НомерСтроки { get; set; }
         public string Номенклатура { get; set; }

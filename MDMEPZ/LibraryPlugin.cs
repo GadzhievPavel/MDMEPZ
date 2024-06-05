@@ -38,7 +38,6 @@ using TFlex.DOCs.References.Route;
 using TFlex.DOCs.References.SpecificationERP;
 using TFlex.DOCs.References.StandartProduct;
 using TFlex.DOCs.References.StructNomenclature;
-using TFlex.DOCs.References.TypeJobMDM;
 using TFlex.DOCs.References.TypeNomenclatureERP;
 using TFlex.DOCs.References.TypeOperationMDM;
 using TFlex.DOCs.References.TypeReproductionERP;
@@ -110,7 +109,6 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(ProfessionReference.ReferenceId, new ProfessionReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(PerformersReference.ReferenceId, new PerformersReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(RankMDMReference.ReferenceId, new RankMDMReference.Factory());
-            ReferenceCatalog.RegisterSpecialReference(TypeJobMDMReference.ReferenceId, new TypeJobMDMReference.Factory());
         }
     }
 }

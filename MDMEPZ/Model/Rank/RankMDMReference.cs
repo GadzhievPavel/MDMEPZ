@@ -2,9 +2,11 @@ namespace TFlex.DOCs.References.MDM.Rank
 {
 	using MDMEPZ.Dto.AnotherDto.Rank;
 	using MDMEPZ.Util;
-	using TFlex.DOCs.Model.References;
+    using System.Linq;
+    using TFlex.DOCs.Model.References;
+    using TFlex.DOCs.Model.Search;
 
-	public partial class RankMDMReference : SpecialReference<RankMDMReferenceObject>
+    public partial class RankMDMReference : SpecialReference<RankMDMReferenceObject>
 	{
 
 		public partial class Factory
@@ -25,7 +27,10 @@ namespace TFlex.DOCs.References.MDM.Rank
 			return rankReferenceObject;
 		}
 
-		
+		public RankMDMReferenceObject FindTypeJob(string number)
+		{
+			return Find(Filter.Parse($"[Код] = '{number}'", this.ParameterGroup)).FirstOrDefault() as RankMDMReferenceObject;
+		}
 	}
 }
 

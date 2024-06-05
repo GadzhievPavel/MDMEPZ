@@ -1,5 +1,5 @@
 ﻿using TFlex.DOCs.Model;
-using TFlex.DOCs.References.TypeJobMDM;
+using TFlex.DOCs.References.MDM.Rank;
 
 namespace MDMEPZ.Dto
 {
@@ -14,7 +14,7 @@ namespace MDMEPZ.Dto
         public static TypeJobs CreateInstance(ServerConnection connection, string number)
         {
             var instance = new TypeJobs();
-            TypeJobMDMReference typeJobsReference = new TypeJobMDMReference(connection);
+            RankMDMReference typeJobsReference = new RankMDMReference(connection);
             var typeJob = typeJobsReference.FindTypeJob(number);
             instance.UID = typeJob.UID;
             instance.TYPE = null;

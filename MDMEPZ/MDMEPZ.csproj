@@ -629,22 +629,6 @@
     <Compile Include="Model\References1C\Specification\SpecificationERPTypes.designer.cs">
       <DependentUpon>SpecificationERPTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReference.cs" />
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReference.designer.cs">
-      <DependentUpon>TypeJobMDMReference.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReferenceObject.cs" />
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMReferenceObject.designer.cs">
-      <DependentUpon>TypeJobMDMReferenceObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMType.cs" />
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMType.designer.cs">
-      <DependentUpon>TypeJobMDMType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMTypes.cs" />
-    <Compile Include="Model\References1C\TypeJobs\TypeJobMDMTypes.designer.cs">
-      <DependentUpon>TypeJobMDMTypes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.cs" />
     <Compile Include="Model\References1C\TypeNomenclature\TypeNomenclatureERPReference.designer.cs">
       <DependentUpon>TypeNomenclatureERPReference.cs</DependentUpon>

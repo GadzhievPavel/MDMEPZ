@@ -1,1 +1,0 @@
-namespace TFlex.DOCs.References.TypeJobMDM{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;			public partial class TypeJobMDMTypes : SpecialClassTree<TypeJobMDMType>	{	}}

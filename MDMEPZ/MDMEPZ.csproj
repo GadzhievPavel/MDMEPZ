@@ -116,7 +116,7 @@
     <Compile Include="Dto\Operation\MainInputsColumns.cs" />
     <Compile Include="Dto\Operation\MainInputsRows.cs" />
     <Compile Include="Dto\Operation\MeasurementUnits.cs" />
-    <Compile Include="Dto\Operation\Nomenclature.cs" />
+    <Compile Include="Dto\Operation\NomenclatureOperation.cs" />
     <Compile Include="Dto\Operation\Operation.cs" />
     <Compile Include="Dto\Operation\Profession.cs" />
     <Compile Include="Dto\Operation\ReferenceOperation.cs" />
@@ -734,6 +734,7 @@
     <Compile Include="Service\Integration\Integration.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
+    <Compile Include="Service\ServiceOperation.cs" />
     <Compile Include="Util\At3bootSerializator.cs" />
     <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />

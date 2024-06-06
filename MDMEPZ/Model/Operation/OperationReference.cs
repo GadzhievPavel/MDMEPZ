@@ -1,7 +1,10 @@
 namespace TFlex.DOCs.References.Operation
 {
     using MDMEPZ.Dto;
+    using MDMEPZ.Exception;
+    using MDMEPZ.Service;
     using MDMEPZ.Util;
+    using Newtonsoft.Json;
     using System.Linq;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.References.Nomenclature;
@@ -21,25 +24,36 @@ namespace TFlex.DOCs.References.Operation
         /// <returns>Объект справочника Операции MDM</returns>
         public ReferenceObject CreateReferenceObjectOperation(Operation operation)
         {
-
             OperationReferenceObject operationReferenceObject = null;
             var referenceNumenclatureERP = Connection.ReferenceCatalog.Find(3496).CreateReference();//справочник Номенклатуры ERP
 
             bool flag = false;// false значит у объекта на входе не сборка
-            var listRows = operation.ОсновныеВходы.ROWS;
-            foreach (var row in listRows)
-            {
-                var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Номенклатура.UID}'", referenceNumenclatureERP.ParameterGroup)).First();
-                if (result != null)
-                {
-                    var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
-                    if (objESI != null && (objESI.Class.Guid.Equals(NomenclatureTypes.Keys.Assembly.ToString()) || objESI.Class.Guid.Equals(NomenclatureTypes.Keys.AssemblyNode)))
-                    {
-                        flag = true;
-                    }
-                }
 
+            if (operation.ОсновныеВходы != null)
+            {
+                var listRows = operation.ОсновныеВходы.ROWS;
+                foreach (var row in listRows)
+                {
+                    var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Номенклатура.UID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
+                    if (result != null)
+                    {
+                        var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
+                        if (objESI != null)
+                        {
+                            string serialisOper = JsonConvert.SerializeObject(operation);
+                            throw new ExceptionIntegration(serialisOper +"SERIAL"+row.НомерСтроки +  row.Номенклатура.TYPE +" - type" + row.Номенклатура.UID +"   - UID "+ result+"  <-- Результат поиска     " +objESI.Name +"       "+ objESI.Class+'\n' + objESI);
+                            //if (!objESI.Class.IsAssembly)
+                            //{
+                            //    flag = true;
+                            //}
+                        }
+                    }
+
+                }
             }
+
+
+
 
             if (flag)
             {

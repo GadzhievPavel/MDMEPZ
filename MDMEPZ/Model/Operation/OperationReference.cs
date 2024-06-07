@@ -28,30 +28,33 @@ namespace TFlex.DOCs.References.Operation
             var referenceNumenclatureERP = Connection.ReferenceCatalog.Find(3496).CreateReference();//справочник Номенклатуры ERP
 
             bool flag = false;// false значит у объекта на входе не сборка
+            ServiceOperation service = new ServiceOperation(Connection);
+            flag = service.isAssemblyOperation(operation);
+            //if (operation.ОсновныеВходы != null)
+            //{
+            //    var listRows = operation.ОсновныеВходы.ROWS;
+            //    foreach (var row in listRows)
+            //    {
+            //        //var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.ЕдиницаИзмерения.UID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
+            //        //if (result != null)
+            //        //{
+            //        //    var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
+            //        //    if (objESI != null)
+            //        //    {
+            //        //       // string serialisOper = JsonConvert.SerializeObject(operation);
+            //        //        throw new ExceptionIntegration(row.НомерСтроки +  row.ЕдиницаИзмерения.TYPE +" - type" + row.ЕдиницаИзмерения.UID +"   - UID "+ result+"  <-- Результат поиска     " +objESI.Name +"       "+ objESI.Class+'\n' + objESI);
+            //        //        //if (!objESI.Class.IsAssembly)
+            //        //        //{
+            //        //        //    flag = true;
+            //        //        //}
+            //        //    }
+            //        //}
+            //        throw new ExceptionIntegration(row.НомерСтроки + row.Номенклатура.TYPE + " - type" + row.Номенклатура.UID + "   - UID ");
 
-            if (operation.ОсновныеВходы != null)
-            {
-                var listRows = operation.ОсновныеВходы.ROWS;
-                foreach (var row in listRows)
-                {
-                    var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Номенклатура.UID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
-                    if (result != null)
-                    {
-                        var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
-                        if (objESI != null)
-                        {
-                            string serialisOper = JsonConvert.SerializeObject(operation);
-                            throw new ExceptionIntegration(serialisOper +"SERIAL"+row.НомерСтроки +  row.Номенклатура.TYPE +" - type" + row.Номенклатура.UID +"   - UID "+ result+"  <-- Результат поиска     " +objESI.Name +"       "+ objESI.Class+'\n' + objESI);
-                            //if (!objESI.Class.IsAssembly)
-                            //{
-                            //    flag = true;
-                            //}
-                        }
-                    }
-
-                }
-            }
-
+            //    }
+            //    throw new ExceptionIntegration("Основные входы пустые " + operation);
+            //}
+            
 
 
 

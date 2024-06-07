@@ -24,7 +24,7 @@ namespace MDMEPZ.Dto
         public RoutePlm[] routePlm { get; set; }
 
         
-        public new static NomenclatureWithRoute CreateInstance(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureErp)
+        public static NomenclatureWithRoute CreateInstance(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureErp)
         {
             var nom = Nomenclature.CreateInstance(nomenclatureErp);
             var nomWithRoute = new NomenclatureWithRoute();

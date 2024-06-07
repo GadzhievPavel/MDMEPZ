@@ -6,7 +6,7 @@
     public class MainInputsColumns 
     {
         public string НомерСтроки { get; set; }
-        public string Номенклатура { get; set; }
+       // public string Номенклатура { get; set; }
         public string ХарактеристикаНоменклатуры { get; set; }
         public string ЕдиницаИзмерения { get; set; }
         public string ИспользоватьФормулу { get; set; }

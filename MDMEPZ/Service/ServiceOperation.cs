@@ -8,7 +8,7 @@ using TFlex.DOCs.References.NomenclatureERP;
 
 namespace MDMEPZ.Service
 {
-    class ServiceOperation
+    public class ServiceOperation
     {
         private ServerConnection connection;
 
@@ -28,7 +28,8 @@ namespace MDMEPZ.Service
                 {
                     foreach (var row in listRows)
                     {
-                        var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{row.Номенклатура.UID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
+                        var searchUID = row.Номенклатура.UID;
+                        var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{searchUID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
                         if (result != null)
                         {
                             var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
@@ -39,17 +40,13 @@ namespace MDMEPZ.Service
                                 {
                                     return true;
                                 }
-                               
+                                return false;
                             }
-                            else
-                            {
-                                throw new ExceptionIntegration(objESI.Name + objESI.Class);
-                            }
+                            throw new ExceptionIntegration("У объекта в Номенклатура ERP " + result + " отсутствует связанный объект с ЭСИ!");
                         }
-
+                        throw new ExceptionIntegration("Основные входы присутствуют, но объект в НоменклатуреERP с заданным UID - " + searchUID + " отсутствует!");
                     }
                 }
-
             }
             return false;
         }

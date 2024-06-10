@@ -22,25 +22,25 @@ namespace TFlex.DOCs.References.Operation
         /// </summary>
         /// <param name="operation">Операция из .json</param>
         /// <returns>Объект справочника Операции MDM</returns>
-        public ReferenceObject CreateReferenceObjectOperation(Operation operation)
+        public ReferenceObject CreateReferenceObjectOperation(Operation operation,bool flag)
         {
             OperationReferenceObject operationReferenceObject = null;
-            var referenceNumenclatureERP = Connection.ReferenceCatalog.Find(3496).CreateReference();//справочник Номенклатуры ERP
+            //var referenceNumenclatureERP = Connection.ReferenceCatalog.Find(3496).CreateReference();//справочник Номенклатуры ERP
 
-            bool flag = false;// false значит у объекта на входе не сборка
-            ServiceOperation service = new ServiceOperation(Connection);
+            //bool flag = false;// false значит у объекта на входе не сборка
+            //ServiceOperation service = new ServiceOperation(Connection);
 
-            var listNomenclature = service.GetNomenclatureFromAssemblyOperation(operation);
-            if(!listNomenclature.Any())
-            {
-                foreach (var nomenclature in listNomenclature)
-                {
-                    if(nomenclature.Class.IsAssembly)
-                    {
-                        flag = true;
-                    }
-                }
-            }
+            //var listNomenclature = service.GetNomenclatureFromAssemblyOperation(operation);
+            //if(!listNomenclature.Any())
+            //{
+            //    foreach (var nomenclature in listNomenclature)
+            //    {
+            //        if(nomenclature.Class.IsAssembly)
+            //        {
+            //            flag = true;
+            //        }
+            //    }
+            //}
             if (flag)
             {
                 operationReferenceObject = CreateReferenceObject(Classes.AssemblyOperationType) as OperationReferenceObject;

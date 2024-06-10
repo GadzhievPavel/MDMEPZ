@@ -28,6 +28,7 @@ namespace TFlex.DOCs.References.Route
 			routeReferenceObject.Name.Value = route.Наименование;
 			routeReferenceObject.UID.Value = route.Ссылка.UID;
 			routeReferenceObject.Kod.Value = route.Код;
+			routeReferenceObject.Vladelets.Value = route.Владелец.UID;
             //routeReferenceObject.EndChanges(); ????
 
 			

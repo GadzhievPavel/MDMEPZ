@@ -48,5 +48,15 @@ namespace TFlex.DOCs.References.Devision
             return Find(Filter.Parse($"[UID] = '{uid}'",this.ParameterGroup)).FirstOrDefault();
 			
 		}
+
+		/// <summary>
+		/// Поиск записи в справочнике по объекту из справочника "Группы и пользователи"
+		/// </summary>
+		/// <param name="departament"></param>
+		/// <returns></returns>
+		public ReferenceObject FindByLinkedObject(ReferenceObject departament)
+		{
+            return Find(Filter.Parse($"[Группы и пользователи] = '{departament}'", this.ParameterGroup)).FirstOrDefault();
+        }
 	}
 }

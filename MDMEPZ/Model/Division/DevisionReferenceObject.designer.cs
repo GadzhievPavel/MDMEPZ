@@ -115,6 +115,18 @@ namespace TFlex.DOCs.References.Devision
 				return ((StringParameter)(this[FieldKeys.UID]));
 			}
 		}
+
+		public ReferenceObject GroupAndUsers
+		{
+			get
+			{
+				return GetObject(RelationKeys.GroupAndUsers);
+			}
+			set
+			{
+				SetLinkedObject(RelationKeys.GroupAndUsers, value);
+			}
+		}
 		
 		/// <summary>
 		/// Уникальные идентификаторы (GUID) параметров справочника "Подразделение"
@@ -157,5 +169,14 @@ namespace TFlex.DOCs.References.Devision
             public static readonly Guid UID_Owner = new Guid("0dedc52b-5b6a-4db0-9dbe-1ec5e1eafb92");
 
         }
-	}
+
+        public class RelationKeys
+		{
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) связи "Группы и пользователи"
+            /// </summary>
+            public static readonly Guid GroupAndUsers = new Guid("4e9be1c8-03e3-4885-b68f-fc7fe719316b");
+		}
+
+    }
 }

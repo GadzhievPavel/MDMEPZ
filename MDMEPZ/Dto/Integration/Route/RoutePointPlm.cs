@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.DOCs.References.Devision;
 using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto.Integration.Route
@@ -19,10 +20,6 @@ namespace MDMEPZ.Dto.Integration.Route
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// номер подразделения
-        /// </summary>
-        public string NumberDepartament { get; set; }
-        /// <summary>
         /// длительность в часах
         /// </summary>
         public double DurationHour { get; set; }
@@ -34,6 +31,8 @@ namespace MDMEPZ.Dto.Integration.Route
         /// Заключительное время
         /// </summary>
         public double FinalTimeHour { get; set; }
+
+        public DepartamentDTO Departament { get; set; }
         /// <summary>
         /// Технологический процесс
         /// </summary>
@@ -41,7 +40,7 @@ namespace MDMEPZ.Dto.Integration.Route
 
         public static RoutePointPlm CreateInstance(ServerConnection connection, ReferenceObject routePoint)
         {
-            if(!routePoint.Class.Guid.Equals(new Guid("25fad9d1-be23-4f4b-9afc-581b6d96b992")))
+            if (!routePoint.Class.Guid.Equals(new Guid("25fad9d1-be23-4f4b-9afc-581b6d96b992")))
             {
                 return null;
             }
@@ -49,8 +48,14 @@ namespace MDMEPZ.Dto.Integration.Route
             var routePointPlm = new RoutePointPlm();
             ///Наименование цехоперехода
             routePointPlm.Name = routePoint[new Guid("f97e40ea-3c79-4013-b1ea-383a2f09454d")].GetString() ?? string.Empty;
-            ///Код отдела
-            routePointPlm.NumberDepartament = routePoint.GetObject(new Guid("30888ac1-d215-478f-aaf2-915be9aa9066"))[new Guid("15372720-40fe-4c5a-bfe1-edd30c5e5b78")].GetString();
+
+            ///Подразделение
+            var departament = routePoint.GetObject(new Guid("30888ac1-d215-478f-aaf2-915be9aa9066"));
+            var dividionReference = connection.ReferenceCatalog.Find(DevisionReference.ReferenceId).CreateReference() as DevisionReference;
+            var division = dividionReference.FindByLinkedObject(departament) as DevisionReferenceObject;
+            routePointPlm.Departament = DepartamentDTO.CreateInstance(division, connection);
+
+
             ///Длительность
             routePointPlm.DurationHour = routePoint[new Guid("66536b01-dabb-418c-830c-1d396c1d1b24")].GetDouble();
             ///Подготовительное время

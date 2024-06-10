@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
+using TFlex.DOCs.References.Devision;
 using TFlex.DOCs.References.EtalonMaterial;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.Sortament;
@@ -33,6 +34,10 @@ namespace MDMEPZ.Dto.Integration.Route
         /// </summary>
         public string NumberDepartament { get; set; }
         /// <summary>
+        /// подразделение
+        /// </summary>
+        public DepartamentDTO Departament {  get; set; }
+        /// <summary>
         /// комплектующие - ходящая номенклатура
         /// </summary>
         public List<NomenclatureWithRoute> nomenclatures { get; set; }
@@ -51,7 +56,10 @@ namespace MDMEPZ.Dto.Integration.Route
             operationPlm.Name = operation.Name;
             operationPlm.Denotation = operation.Code.GetString();
             ///номер подразделения
-            operationPlm.NumberDepartament = operation.ProductionUnit[new Guid("15372720-40fe-4c5a-bfe1-edd30c5e5b78")].GetString();
+            //operationPlm.NumberDepartament = operation.ProductionUnit[new Guid("15372720-40fe-4c5a-bfe1-edd30c5e5b78")].GetString();
+            var divisionReference = connection.ReferenceCatalog.Find(DevisionReference.ReferenceId).CreateReference() as DevisionReference;
+            var divisionObject = divisionReference.FindByLinkedObject(operation.ProductionUnit) as DevisionReferenceObject;
+            operationPlm.Departament = DepartamentDTO.CreateInstance(divisionObject, connection);
             ///номер операции
             operationPlm.NumberOperation = operation[new Guid("814ba811-e651-4d5a-ba7d-29123a4e353a")].GetString();
 

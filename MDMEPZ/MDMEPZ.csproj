@@ -73,6 +73,7 @@
     <Compile Include="Dto\GroupFinanceNomenclature\GroupsFinanceNomenclature.cs" />
     <Compile Include="Dto\GroupOfList\GroupOfList.cs" />
     <Compile Include="Dto\GroupOfList\ArrayGroupOfList.cs" />
+    <Compile Include="Dto\Integration\Route\DepartamentDTO.cs" />
     <Compile Include="Dto\Integration\Route\Employee.cs" />
     <Compile Include="Dto\Integration\Route\OperationPlm.cs" />
     <Compile Include="Dto\Integration\Route\RoutePointPlm.cs" />

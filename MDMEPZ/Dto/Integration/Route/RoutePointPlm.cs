@@ -51,9 +51,13 @@ namespace MDMEPZ.Dto.Integration.Route
 
             ///Подразделение
             var departament = routePoint.GetObject(new Guid("30888ac1-d215-478f-aaf2-915be9aa9066"));
-            var dividionReference = connection.ReferenceCatalog.Find(DevisionReference.ReferenceId).CreateReference() as DevisionReference;
-            var division = dividionReference.FindByLinkedObject(departament) as DevisionReferenceObject;
-            routePointPlm.Departament = DepartamentDTO.CreateInstance(division, connection);
+            if(departament != null)
+            {
+                var dividionReference = connection.ReferenceCatalog.Find(DevisionReference.ReferenceId).CreateReference() as DevisionReference;
+                var division = dividionReference.FindByLinkedObject(departament) as DevisionReferenceObject;
+                routePointPlm.Departament = DepartamentDTO.CreateInstance(division, connection);
+            }
+            
 
 
             ///Длительность

@@ -18,6 +18,7 @@ namespace MDMEPZ.Dto.Integration.Route
 
         public static DepartamentDTO CreateInstance(DevisionReferenceObject division, ServerConnection connection)
         {
+            if (division == null) throw new ArgumentNullException($"Подразделение null");
             var departament = new DepartamentDTO();
             departament.Name = division.Name;
             departament.UID = division.UID;

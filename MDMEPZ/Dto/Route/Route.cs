@@ -17,7 +17,7 @@ namespace MDMEPZ.Dto
         public bool Предопределенный { get; set; }
         public ReferenceRoute Ссылка { get; set; }
         public bool ПометкаУдаления { get; set; }
-        public Owner Владелец { get; set; }
+        public Owner Владелец { get; set; } //номенклатура 
         public Parent Родитель { get; set; }
         public string Наименование { get; set; }
         public string Код { get; set; }

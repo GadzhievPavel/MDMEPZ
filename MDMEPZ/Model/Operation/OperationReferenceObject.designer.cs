@@ -73,7 +73,18 @@ namespace TFlex.DOCs.References.Operation
 				return ((StringParameter)(this[FieldKeys.Name]));
 			}
 		}
-		
+
+		/// <summary>
+		/// Возвращает параметр "Подразделение"
+		/// </summary>
+		public StringParameter Podrazdelenie
+		{
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.Podrazdelenie]));
+			}
+		}
+
 		/// <summary>
 		/// Возвращает параметр "Код"
 		/// </summary>
@@ -156,7 +167,10 @@ namespace TFlex.DOCs.References.Operation
 			/// Представляет уникальный идентификатор (GUID) параметра "Заход_UID"
 			/// </summary>
 			public static readonly Guid Zakhod_UID = new Guid("e1ed97bf-4b3b-4b65-ab46-4a8535b3b590");
-
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) параметра "Подразделение"
+			/// </summary>
+			public static readonly Guid Podrazdelenie = new Guid("d2b7e406-0b5c-4566-b14d-ab0ef1646b0a");
 		}
 	}
 }

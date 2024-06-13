@@ -56,6 +56,7 @@ namespace TFlex.DOCs.References.Devision
 		/// <returns></returns>
 		public ReferenceObject FindByLinkedObject(ReferenceObject departament)
 		{
+			if(departament == null) return null;
             return Find(Filter.Parse($"[Группы и пользователи] = '{departament}'", this.ParameterGroup)).FirstOrDefault();
         }
 	}

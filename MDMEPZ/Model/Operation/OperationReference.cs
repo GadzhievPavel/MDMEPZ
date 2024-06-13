@@ -25,22 +25,6 @@ namespace TFlex.DOCs.References.Operation
         public ReferenceObject CreateReferenceObjectOperation(Operation operation,bool flag)
         {
             OperationReferenceObject operationReferenceObject = null;
-            //var referenceNumenclatureERP = Connection.ReferenceCatalog.Find(3496).CreateReference();//справочник Номенклатуры ERP
-
-            //bool flag = false;// false значит у объекта на входе не сборка
-            //ServiceOperation service = new ServiceOperation(Connection);
-
-            //var listNomenclature = service.GetNomenclatureFromAssemblyOperation(operation);
-            //if(!listNomenclature.Any())
-            //{
-            //    foreach (var nomenclature in listNomenclature)
-            //    {
-            //        if(nomenclature.Class.IsAssembly)
-            //        {
-            //            flag = true;
-            //        }
-            //    }
-            //}
             if (flag)
             {
                 operationReferenceObject = CreateReferenceObject(Classes.AssemblyOperationType) as OperationReferenceObject;
@@ -59,6 +43,7 @@ namespace TFlex.DOCs.References.Operation
             operationReferenceObject.UID.Value = operation.Ссылка.UID;
             operationReferenceObject.Vladelets.Value = operation.Владелец.UID;
             operationReferenceObject.Zakhod_UID.Value = operation.Заход.UID;
+            operationReferenceObject.Podrazdelenie.Value = operation.Подразделение.UID;
             return operationReferenceObject;
         }
     }

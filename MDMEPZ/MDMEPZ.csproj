@@ -93,6 +93,9 @@
     <Compile Include="Dto\ReplacementErp\Replacements.cs" />
     <Compile Include="Dto\Integration\Route\RoutePlm.cs" />
     <Compile Include="Dto\Route\Routes.cs" />
+    <Compile Include="Dto\Route\Visit\LinkVisit.cs" />
+    <Compile Include="Dto\Route\Visit\OwnerVisit.cs" />
+    <Compile Include="Dto\Route\Visit\Visit.cs" />
     <Compile Include="Dto\TypeNomenclature\TypeOfNomenclature.cs" />
     <Compile Include="Dto\TypeNomenclature\TypesOfNomenclatures.cs" />
     <Compile Include="Dto\TypeOfReproduction\TypeOfReproduction.cs" />

@@ -256,4 +256,14 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             }
             return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
         }
+
+        /// <summary>
+        /// Находит запись в таблице номенклатуры по номенлктуре в PDM
+        /// </summary>
+        /// <param name="nom">номенклатура в PDM</param>
+        /// <returns></returns>
+        public NomenclatureERPReferenceObject FindByPdmObject(NomenclatureObject nom)
+        {
+            return Find(Filter.Parse($"[Номенклатура] = '{nom}'" , this.ParameterGroup)).FirstOrDefault() as NomenclatureERPReferenceObject;
+        }
     }}

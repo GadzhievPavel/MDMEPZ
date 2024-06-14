@@ -51,7 +51,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.Model.Technology">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.Model.Technology.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2.25)\Program\TFlex.Model.Technology.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.PdmFramework.Resolve">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\PdmFramework.NX\startup\TFlex.PdmFramework.Resolve.dll</HintPath>

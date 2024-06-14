@@ -9,7 +9,6 @@ using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.Devision;
 using TFlex.DOCs.References.EtalonMaterial;
 using TFlex.DOCs.References.NomenclatureERP;
-using TFlex.DOCs.References.Sortament;
 using TFlex.Model.Technology.References.TechnologyElements;
 using TFlex.Model.Technology.References.TechnologyElements.OperationWorkers;
 
@@ -93,11 +92,10 @@ namespace MDMEPZ.Dto.Integration.Route
             {
                 //to do переделать поиск материала через эталоны и эквиваленты
                 ///материал
-                //var material = materialTP.GetObject(new Guid("f0d0e7da-5b72-4ece-abaf-e958503f7b1e")) as SortamentReferenceObject;
-                //var materialPDM = material.GetLinkedNomenclatureObject();
-                //NomenclatureERPReference nomenclatureERP = new NomenclatureERPReference(connection);
-                //var nomMaterial = nomenclatureERP.FindByPdmObject(materialPDM);
-                //operationPlm.materials.Add(Nomenclature.CreateInstance(nomMaterial));
+                var material = materialTP.GetObject(new Guid("f0d0e7da-5b72-4ece-abaf-e958503f7b1e"));
+                var materialInEsi = material.GetLinkedNomenclatureObject();
+                var materialMdm = materialInEsi.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+                operationPlm.materials.Add(Nomenclature.CreateInstance(materialMdm));
             }
 
             operationPlm.employees = new List<EmployeePlmDto> { };

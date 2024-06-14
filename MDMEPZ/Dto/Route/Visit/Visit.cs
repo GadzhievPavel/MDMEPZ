@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto
 {
+    /// <summary>
+    /// Заход маршрута
+    /// </summary>
     public class Visit
     {
         public bool OBJECT { get; set; }

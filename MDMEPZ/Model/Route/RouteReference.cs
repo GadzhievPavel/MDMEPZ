@@ -8,6 +8,7 @@ namespace TFlex.DOCs.References.Route
     using MDMEPZ.Util;
     using System.Collections.Generic;
     using MDMEPZ.Dto;
+    using System.Linq;
 
     public partial class RouteReference : SpecialReference<RouteReferenceObject>
 	{
@@ -51,5 +52,21 @@ namespace TFlex.DOCs.References.Route
 			
 			return routePoint;
 		}
+		/// <summary>
+		/// Получаю в json заходы, ищу уже созданные заходы по UID и
+		/// </summary>
+		/// <param name="visit"></param>
+		/// <returns></returns>
+		//public ReferenceObject CreateReferenceObjectRoutePoint(Visit visit)
+  //      {
+		//	var referenceRouteAndPoint = Connection.ReferenceCatalog.Find(RouteReference.ReferenceId).CreateReference();
+		//	var oneVisit = referenceRouteAndPoint.Find(RouteTypes.Keys.RoutePointType, visit.Ссылка.UID).FirstOrDefault();
+		//	if(oneVisit!=null)
+  //          {
+		//		var cexoperexod = oneVisit.GetObject(RouteReferenceObject.RelationKeys.Visit_Link);
+		//		cexoperexod.SetLinkedObject(new Guid("30888ac1-d215-478f-aaf2-915be9aa9066"),);//установка найденному цехопереходу подразделение
+  //          }
+
+  //      }
 	}
 }

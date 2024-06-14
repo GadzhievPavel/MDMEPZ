@@ -93,6 +93,43 @@ namespace TFlex.DOCs.References.Route
 			}
 		}
 
+		public StringParameter Ssylka_zakhoda
+		{
+
+			get
+			{
+				if (Class.IsRouteType)
+					return ((StringParameter)(this[FieldKeys.Ssylka_zakhoda]));
+				return null;
+			}
+		}
+
+		public StringParameter NaimenovanieKratkoe
+		{
+
+			get
+			{
+				if (Class.IsRouteType)
+					return ((StringParameter)(this[FieldKeys.NaimenovanieKratkoe]));
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// Возвращает или задаёт связанный объект справочника "МаршрутыMDM" по связи "Цехопереход ТП"
+		/// </summary>
+		public ReferenceObject Link_265_3769
+		{
+			get
+			{
+				return GetObject(RelationKeys.Visit_Link);
+			}
+			set
+			{
+				SetLinkedObject(RelationKeys.Visit_Link, value);
+			}
+		}
+
 		/// <summary>
 		/// Уникальные идентификаторы (GUID) параметров справочника "Маршруты ERP"
 		/// </summary>
@@ -123,6 +160,26 @@ namespace TFlex.DOCs.References.Route
 			/// Представляет уникальный идентификатор (GUID) параметра "НомерСтроки"
 			/// </summary>
 		   public static readonly Guid NomerStroki = new Guid("e34612c6-2359-4900-b1c0-53fe8324a560");
+			/// <summary>
+			/// /// Представляет уникальный идентификатор (GUID) параметра "Ссылка захода"
+			/// </summary>
+			public static readonly Guid Ssylka_zakhoda = new Guid("d79c2d6e-e42e-4c7c-ab7b-14b1efb99689");
+			/// <summary>
+			/// /// Представляет уникальный идентификатор (GUID) параметра "НаименованиеКраткое"
+			/// </summary>
+			public static readonly Guid NaimenovanieKratkoe = new Guid("НаименованиеКраткое");
+
+		}
+		/// <summary>
+		/// Уникальные идентификаторы (GUID) связей и списков объектов справочника "Профессия"
+		/// </summary>
+		public class RelationKeys
+		{
+
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) связи "Цехопереход ТП"
+			/// </summary>
+			public static readonly Guid Visit_Link = new Guid("fa0e7fe8-e827-4ed6-b6ab-8cd02fc691f5");
 
 		}
 	}

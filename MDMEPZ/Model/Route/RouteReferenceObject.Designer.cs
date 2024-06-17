@@ -167,7 +167,7 @@ namespace TFlex.DOCs.References.Route
 			/// <summary>
 			/// /// Представляет уникальный идентификатор (GUID) параметра "НаименованиеКраткое"
 			/// </summary>
-			public static readonly Guid NaimenovanieKratkoe = new Guid("НаименованиеКраткое");
+			public static readonly Guid NaimenovanieKratkoe = new Guid("e40f6e0c-dd2f-4995-a6f3-af26a013aa0e");
 
 		}
 		/// <summary>

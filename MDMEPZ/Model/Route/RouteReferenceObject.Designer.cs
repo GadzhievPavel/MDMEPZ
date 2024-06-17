@@ -154,7 +154,7 @@ namespace TFlex.DOCs.References.Route
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) параметра "Владелец"
 			/// </summary>
-		   public static readonly Guid Vladelets = new Guid("cc758815-8a75-4f5a-b40f-d03aa63c9bd4");
+		   public static readonly Guid Vladelets = new Guid("6f0ed7e9-c184-4803-bc83-c6793d4bf7d1");
 
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) параметра "НомерСтроки"

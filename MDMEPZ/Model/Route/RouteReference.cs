@@ -36,13 +36,13 @@ namespace TFlex.DOCs.References.Route
         /// <param name="point"></param>
         /// <param name="parentRoute"></param>
         /// <returns></returns>
-        public ReferenceObject CreateReferenceObjectRoutePoint(RoutePointRows point, ReferenceObject parentRoute, Route route)
+        public ReferenceObject CreateReferenceObjectRoutePoint(RoutePointRows point, ReferenceObject parentRoute,string vladelets)
         {
             var routePoint = CreateReferenceObject((ReferenceObject)parentRoute, Classes.RoutePointType) as RouteReferenceObject;
             routePoint.StartUpdate();
             routePoint.NomerStroki.Value = point.НомерСтроки;
             routePoint.UID.Value = point.Заход.UID;
-            routePoint.Vladelets.Value = route.Ссылка.UID;
+            routePoint.Vladelets.Value = vladelets;
             return routePoint;
         }
         /// <summary>

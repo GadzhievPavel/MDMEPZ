@@ -11,7 +11,9 @@ using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.Model.Search;
 using TFlex.DOCs.References.NomenclatureERP;
+using TFlex.DOCs.References.Route;
 using TFlex.DOCs.References.StructureTypes;
+using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Service.Integration
 {
@@ -128,6 +130,29 @@ namespace MDMEPZ.Service.Integration
         {
             var bomService = new BomService(connection ,rootProduct, nomenclatures);
             return bomService.GetBom(path);
+        }
+        /// <summary>
+        /// Формирует набор Json строк в формате выгрузки из 1С
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public List<String> GetFilesOfBom(string root)
+        {
+            var bomService = new BomService(connection, rootProduct, nomenclatures);
+            List<String> jsons = new List<String>();
+            //jsons.Add(bomService.);
+            return jsons;
+        }
+
+        private void preprocessingRoute()
+        {
+            RouteReference routeReference = new RouteReference(connection);
+            foreach(var nom in nomenclatures)
+            {
+                var routesPdm = nom.GetObjects(NomenclatureObject.RelationKeys.LinkedTP).
+                    Where(obj => obj.Class.Guid.Equals(new Guid("c02f6d42-1a50-48b2-ab35-fef5a165cde3"))).ToList();///поиск маршрута по guid
+                routeReference.CreateReferenceObject();
+            }
         }
     }
 }

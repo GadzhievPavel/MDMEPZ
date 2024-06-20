@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TFlex.Model.Technology.References.TechnologyElements;
 
 namespace MDMEPZ.Dto
 {
@@ -24,5 +25,18 @@ namespace MDMEPZ.Dto
         public int КоличествоНормирования { get; set; }
         public bool Поточный { get; set; }
         public RoutePoint ТочкиМаршрута { get; set; }
+
+        public static Route CreateInstance(TechRoute routePdm)
+        {
+            var routeDto = new Route();
+
+            routeDto.Ссылка = new ReferenceRoute();
+            routeDto.Ссылка.TYPE = "СправочникСсылка.Маршруты";
+
+
+            routeDto.Ссылка.UID = null;
+
+            return routeDto;
+        }
     }
 }

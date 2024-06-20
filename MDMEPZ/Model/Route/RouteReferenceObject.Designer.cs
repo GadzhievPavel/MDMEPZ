@@ -118,7 +118,7 @@ namespace TFlex.DOCs.References.Route
 		/// <summary>
 		/// Возвращает или задаёт связанный объект справочника "МаршрутыMDM" по связи "Цехопереход ТП"
 		/// </summary>
-		public ReferenceObject Link_265_3769
+		public ReferenceObject DepartamentTransition
 		{
 			get
 			{
@@ -130,10 +130,30 @@ namespace TFlex.DOCs.References.Route
 			}
 		}
 
-		/// <summary>
-		/// Уникальные идентификаторы (GUID) параметров справочника "Маршруты ERP"
-		/// </summary>
-		public class FieldKeys
+
+        /// <summary>
+        /// Возвращает значение параметра "Актуальность записи"
+        /// </summary>
+        public bool IsActual
+        {
+            get
+            {
+                return ((BooleanParameter)this[FieldKeys.IsActual]).Value;
+            }
+        }
+        /// <summary>
+        /// Задать значение актуальности 
+        /// </summary>
+        /// <param name="flag"></param>
+        public void SetActual(bool flag)
+        {
+            this[FieldKeys.IsActual].Value = flag;
+        }
+
+        /// <summary>
+        /// Уникальные идентификаторы (GUID) параметров справочника "Маршруты ERP"
+        /// </summary>
+        public class FieldKeys
 		{
 			
 			/// <summary>
@@ -168,6 +188,10 @@ namespace TFlex.DOCs.References.Route
 			/// /// Представляет уникальный идентификатор (GUID) параметра "НаименованиеКраткое"
 			/// </summary>
 			public static readonly Guid NaimenovanieKratkoe = new Guid("e40f6e0c-dd2f-4995-a6f3-af26a013aa0e");
+            /// <summary>
+            /// /// Представляет уникальный идентификатор (GUID) параметра "Актуальность записи"
+            /// </summary>
+            public static readonly Guid IsActual = new Guid("95acd848-7321-4b11-9741-99fff64b3c83");
 
 		}
 		/// <summary>

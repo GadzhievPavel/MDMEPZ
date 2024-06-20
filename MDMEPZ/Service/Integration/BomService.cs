@@ -49,6 +49,16 @@ namespace MDMEPZ.Service.Integration
                 return JsonConvert.SerializeObject(bomDto, Formatting.Indented);
             }
         }
+
+        public string getRoute(string root)
+        {
+            List<Route> routes = new List<Route>();
+            foreach(var nom in nomenclatureObjects)
+            {
+                //nom.
+            }
+            return JsonConvert.SerializeObject(routes, Formatting.Indented);
+        }
         
     }
 }

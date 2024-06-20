@@ -116,6 +116,25 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 return (BooleanParameter)this[FieldKeys.IsTypical];
             }
         }
+
+        /// <summary>
+        /// Возвращает значение параметра "Актуальность записи"
+        /// </summary>
+        public bool IsActual
+        {
+            get
+            {
+                return ((BooleanParameter)this[FieldKeys.IsActual]).Value;
+            }
+        }
+        /// <summary>
+        /// Задать значение актуальности 
+        /// </summary>
+        /// <param name="flag"></param>
+        public void SetActual(bool flag) {
+            this[FieldKeys.IsActual].Value = flag;
+        }
+
         /// <summary>
         /// Возвращает или задаёт связанный объект справочника "Товарные категории изделий" по связи "Товарная категория"
         /// </summary>
@@ -261,32 +280,32 @@ namespace TFlex.DOCs.References.NomenclatureERP
         //    }
         //}
         /// <summary>
-		/// Подключает объект справочника "Применение материалов" по связи "Используемые материалы"
-		/// </summary>
-		/// <param name="addObject">
-		/// Подключаемый объект
-		/// </param>
-		/// <returns>
-		/// Подключённый объект
-		/// </returns>
+        /// Подключает объект справочника "Применение материалов" по связи "Используемые материалы"
+        /// </summary>
+        /// <param name="addObject">
+        /// Подключаемый объект
+        /// </param>
+        /// <returns>
+        /// Подключённый объект
+        /// </returns>
         //public ReferenceObject AddMaterialUsed(ReferenceObject addObject)
         //{
         //    return AddLinkedObject(RelationKeys.MaterialUsed, addObject);
         //}
 
         /// <summary>
-		/// Отключает объект справочника "Номенклатура ERP" по связи "Набор подключений"
-		/// </summary>
-		/// <param name="linkedObject">
-		/// Связанный объект
-		/// </param>
-		/// <returns>
-		/// true, если объект был отключен
-		/// </returns>
-		//public Boolean RemoveMaterialUsed(ReferenceObject linkedObject)
-  //      {
-  //          return RemoveLinkedObject(RelationKeys.MaterialUsed, linkedObject);
-  //      }
+        /// Отключает объект справочника "Номенклатура ERP" по связи "Набор подключений"
+        /// </summary>
+        /// <param name="linkedObject">
+        /// Связанный объект
+        /// </param>
+        /// <returns>
+        /// true, если объект был отключен
+        /// </returns>
+        //public Boolean RemoveMaterialUsed(ReferenceObject linkedObject)
+        //      {
+        //          return RemoveLinkedObject(RelationKeys.MaterialUsed, linkedObject);
+        //      }
 
         /// <summary>
         /// Уникальные идентификаторы (GUID) параметров справочника "Номенклатура ERP"
@@ -328,6 +347,11 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// Представляет уникальный идентификатор (GUID) параметра "Типовое"
             /// </summary>
             public readonly static Guid IsTypical = new Guid("6602adfc-6ade-4eda-978e-363362a7babe");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Актуальность записи"
+            /// </summary>
+            public readonly static Guid IsActual = new Guid("50efae15-8902-4a6f-9cc8-e7da07abbb58");
 
         }
 

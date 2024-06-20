@@ -56,6 +56,12 @@ namespace MDMEPZ.Service
             }
             return false;
         }
+
+        /// <summary>
+        /// Ищет в Номенклатуре ЕРП по GUID(1C),затем получает этот объект в ЭСИ
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <returns>Найденные объекты ЭСИ</returns>
         public List<NomenclatureObject> GetNomenclatureFromAssemblyOperation(Operation operation)
         {
             List<NomenclatureObject> listNomenclature = new List<NomenclatureObject>();

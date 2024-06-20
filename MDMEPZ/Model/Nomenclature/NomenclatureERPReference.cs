@@ -19,6 +19,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.Model.References.Nomenclature;
     using TFlex.DOCs.References.GroupFinanceNomenclature;
     using MDMEPZ.Exception;
+    using TFlex.Model.Technology.References.Materials;
 
     public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
     {
@@ -43,7 +44,12 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
             groupFinanceNomenclatureReference = this.Connection.ReferenceCatalog.Find(GroupFinanceNomenclatureReference.ReferenceId).CreateReference() as GroupFinanceNomenclatureReference;
         }
-
+        /// <summary>
+        /// Создаем объект объект в MDM на основе объекта PDM
+        /// </summary>
+        /// <param name="nom">Объект PDM</param>
+        /// <returns></returns>
+        /// <exception cref="ExceptionMDM">проверка на уникальность</exception>
         public ReferenceObject CreateReferenceObject(NomenclatureObject nom)
         {
             var filter = Filter.Parse($"[GUID(T-FLEX)] = '{nom.Guid}'", ParameterGroup);
@@ -67,6 +73,11 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return erpObject;
         }
 
+        /// <summary>
+        /// Создание объекта в MDM из DTO
+        /// </summary>
+        /// <param name="product"> DTO номенклатуры</param>
+        /// <returns></returns>
         public ReferenceObject CreateReferenceObject(Nomenclature product)
         {
 
@@ -130,16 +141,29 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             return o;
         }
 
+        /// <summary>
+        /// Поиск по обозначению
+        /// </summary>
+        /// <param name="denotation"></param>
+        /// <returns></returns>
         public List<ReferenceObject> findObjectsByDenotation(String denotation)
         {
             return Find(getFilterNomenclatureByDenotation(denotation));
         }
-
+        /// <summary>
+        /// Поиск по названию
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public List<ReferenceObject> findObjectsByName(String name)
         {
             return Find(getFilterNomenclatureByName(name));
         }
-
+        /// <summary>
+        /// Поиск по guid 1C
+        /// </summary>
+        /// <param name="guidStr"></param>
+        /// <returns></returns>
         public ReferenceObject findObjectByGuid1C(String guidStr)
         {
             Guid guid = new Guid(guidStr);
@@ -265,5 +289,17 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         public NomenclatureERPReferenceObject FindByPdmObject(NomenclatureObject nom)
         {
             return Find(Filter.Parse($"[Номенклатура] = '{nom}'" , this.ParameterGroup)).FirstOrDefault() as NomenclatureERPReferenceObject;
+        }
+
+        /// <summary>
+        /// Находит номенклатуру в MDM по объекту из справочника "Материалы ТП"
+        /// </summary>
+        /// <param name="materialTP"></param>
+        /// <returns></returns>
+        public NomenclatureERPReferenceObject FindByTechnologicalMaterial(TechProcessMaterialsReferenceObject materialTP)
+        {
+            var material = materialTP.GetObject(TechProcessMaterialsReferenceObject.RelationKeys.MaterialsTP_MaterialsRel);
+            var materialPdm = material.GetLinkedNomenclatureObject();
+            return FindByPdmObject(materialPdm);
         }
     }}

@@ -1,5 +1,6 @@
 ﻿using MDMEPZ.Dto;
 using MDMEPZ.Exception;
+using MDMEPZ.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,10 @@ namespace MDMEPZ.Service.Integration
             FillNomenclature(this.rootProduct);
         }
 
+        /// <summary>
+        /// Заполнение списка номенклатуры
+        /// </summary>
+        /// <param name="nom"></param>
         private void FillNomenclature(NomenclatureObject nom)
         {
             nomenclatures.Add(nom);
@@ -91,13 +96,17 @@ namespace MDMEPZ.Service.Integration
             }
         }
 
+        /// <summary>
+        /// Создание объекта в MDM
+        /// </summary>
         public void CreateNomenclatureInMDM()
         {
             foreach (var nom in nomenclatures)
             {
                 try
                 {
-                    referenceERP.CreateReferenceObject(nom);
+                    var o = referenceERP.CreateReferenceObject(nom);
+                    o.EndUpdate("Создан объек");
                 }
                 catch (ExceptionMDM ex)
                 {
@@ -110,6 +119,11 @@ namespace MDMEPZ.Service.Integration
             }
         }
 
+        /// <summary>
+        /// Формирование ресурсной спецификации
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public string SendBom(string path)
         {
             var bomService = new BomService(connection ,rootProduct, nomenclatures);

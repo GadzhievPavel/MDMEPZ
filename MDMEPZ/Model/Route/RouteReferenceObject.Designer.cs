@@ -130,7 +130,20 @@ namespace TFlex.DOCs.References.Route
 			}
 		}
 
-
+		/// <summary>
+		/// Возвращает или задает объект справочника по связи "Маршрут ТП"
+		/// </summary>
+		public ReferenceObject RoutePdm
+		{
+			get
+			{
+				return GetObject(RelationKeys.RoutePdm);
+			}
+			set
+			{
+				SetLinkedObject(RelationKeys.RoutePdm, value);
+			}
+		}
         /// <summary>
         /// Возвращает значение параметра "Актуальность записи"
         /// </summary>
@@ -204,6 +217,11 @@ namespace TFlex.DOCs.References.Route
 			/// Представляет уникальный идентификатор (GUID) связи "Цехопереход ТП"
 			/// </summary>
 			public static readonly Guid Visit_Link = new Guid("fa0e7fe8-e827-4ed6-b6ab-8cd02fc691f5");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) связи "Маршрут ТП"
+            /// </summary>
+            public static readonly Guid RoutePdm = new Guid("e513105a-438c-465d-97a4-b9fc4db54b38");
 
 		}
 	}

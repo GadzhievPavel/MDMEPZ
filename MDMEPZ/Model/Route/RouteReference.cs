@@ -3,8 +3,14 @@ namespace TFlex.DOCs.References.Route
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using System.Collections.Generic;
+    using System.Linq;
     using TFlex.DOCs.Model.References;
+    using TFlex.DOCs.Model.Search;
+    using TFlex.Model.Technology.References.TechnologyElements;
 
+    /// <summary>
+    /// Справочник MDM
+    /// </summary>
     public partial class RouteReference : SpecialReference<RouteReferenceObject>
     {
 
@@ -30,6 +36,27 @@ namespace TFlex.DOCs.References.Route
 
             return routeReferenceObject;
         }
+
+        /// <summary>
+        /// Создание объекта в MDM на основе данных из PDM
+        /// </summary>
+        /// <param name="techRoute"></param>
+        /// <returns></returns>
+        public ReferenceObject CreateReferenceObject(TechRoute techRoute)
+        {
+            var findedRoute = Find(Filter.Parse($"[Маршрут ТП] = '{techRoute}'", ParameterGroup)).FirstOrDefault();
+            if (findedRoute != null)
+            {
+                return findedRoute;
+            }
+
+            var routeMdm = CreateReferenceObject(Classes.RouteType) as RouteReferenceObject;
+            routeMdm.StartUpdate();
+            routeMdm.Name.Value = techRoute.Name.Value;
+            routeMdm.RoutePdm = techRoute;
+            return routeMdm;
+        }
+
         /// <summary>
         /// Создаёт точку маршрута(заход)
         /// </summary>

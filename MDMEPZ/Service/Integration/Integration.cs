@@ -144,15 +144,27 @@ namespace MDMEPZ.Service.Integration
             return jsons;
         }
 
-        private void preprocessingRoute()
+        /// <summary>
+        /// Создает и возвращает все маршруты прикрепленные к коллекции номенклатуры
+        /// </summary>
+        /// <returns></returns>
+        private List<RouteReferenceObject> preprocessingRoute()
         {
             RouteReference routeReference = new RouteReference(connection);
+            List<RouteReferenceObject> listRoutes = new List<RouteReferenceObject>();
             foreach(var nom in nomenclatures)
             {
                 var routesPdm = nom.GetObjects(NomenclatureObject.RelationKeys.LinkedTP).
                     Where(obj => obj.Class.Guid.Equals(new Guid("c02f6d42-1a50-48b2-ab35-fef5a165cde3"))).ToList();///поиск маршрута по guid
-                routeReference.CreateReferenceObject();
+                foreach(var route in routesPdm)
+                {
+                    var routeMDM = routeReference.CreateReferenceObject(route) as RouteReferenceObject;
+                    routeMDM.EndUpdate("Сохранение созданного объекта");
+                    listRoutes.Add(routeMDM);
+                }   
             }
+
+            return listRoutes;
         }
     }
 }

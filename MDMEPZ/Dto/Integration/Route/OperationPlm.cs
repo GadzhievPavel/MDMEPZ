@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,11 +36,11 @@ namespace MDMEPZ.Dto.Integration.Route
         /// <summary>
         /// подразделение
         /// </summary>
-        public DepartamentDTO Departament {  get; set; }
+        public DepartamentDTO Departament { get; set; }
         /// <summary>
         /// комплектующие - ходящая номенклатура
         /// </summary>
-        public List<NomenclatureWithRoute> nomenclatures { get; set; }
+        public List<NomenclatureFromComplectDTO> nomenclatures { get; set; }
         /// <summary>
         /// материалы - входящая номенклатура
         /// </summary>
@@ -62,7 +63,7 @@ namespace MDMEPZ.Dto.Integration.Route
             ///номер операции
             operationPlm.NumberOperation = operation[new Guid("814ba811-e651-4d5a-ba7d-29123a4e353a")].GetString();
 
-            List<ReferenceObject> complect = new List<ReferenceObject>();
+            var complect = new List<NomenclatureFromComplectDTO>();
             ///комплектующие
             //operation.TryGetObjects(new Guid("25a393dc-8f97-4e25-aa68-30f8382cd756"), out complect);
 
@@ -70,19 +71,12 @@ namespace MDMEPZ.Dto.Integration.Route
             if (operation.Class.IsAssemblyTechnologicalOperation)
             {
                 assemblyOperation = operation as AssemblyTechnologicalOperation;
-                complect = assemblyOperation.MaterialObjectsGroup.Objects.ToList();
+                complect = getComplectNomenclatures(assemblyOperation, connection);
             }
-
 
             if (complect.Any())
             {
-                operationPlm.nomenclatures = new List<NomenclatureWithRoute>();
-                foreach (var obj in complect)
-                {
-                    var nom = (NomenclatureObject)obj;
-                    var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
-                    operationPlm.nomenclatures.Add( NomenclatureWithRoute.CreateInstance(connection, mdm));
-                }
+                operationPlm.nomenclatures = complect;
             }
 
             operationPlm.materials = new List<Nomenclature> { };
@@ -108,6 +102,44 @@ namespace MDMEPZ.Dto.Integration.Route
 
             return operationPlm;
 
+        }
+        /// <summary>
+        /// возвращает комплектующие для сборочной операции
+        /// </summary>
+        /// <param name="operation">сборочная операция</param>
+        /// <param name="connection">подключение</param>
+        /// <returns></returns>
+        public static List<NomenclatureFromComplectDTO> getComplectNomenclatures(AssemblyTechnologicalOperation operation, ServerConnection connection)
+        {
+            var dictNomenclatures = new Dictionary<NomenclatureReferenceObject, Double>();
+
+            var producedNomenclature = operation.GetAssemblyNode();
+
+            var complectLinks = operation.MaterialObjectsGroup.Objects.GetHierarchyLinks().Cast<NomenclatureHierarchyLink>();
+
+            foreach (var complectLink in complectLinks)
+            {
+                if (dictNomenclatures.ContainsKey(complectLink.ChildObject))
+                {
+                    dictNomenclatures[complectLink.ChildObject] += complectLink.Amount;
+                }
+                else
+                {
+                    dictNomenclatures.Add(complectLink.ChildObject, complectLink.Amount);
+                }
+            }
+
+            var listNomenclatures = new List<NomenclatureFromComplectDTO>();
+            foreach (var pair in dictNomenclatures)
+            {
+                var mdm = pair.Key.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+                listNomenclatures.Add(new NomenclatureFromComplectDTO()
+                {
+                    Nomenclature = NomenclatureWithRoute.CreateInstance(connection, mdm),
+                    Count = pair.Value
+                });
+            }
+            return listNomenclatures;
         }
     }
 }

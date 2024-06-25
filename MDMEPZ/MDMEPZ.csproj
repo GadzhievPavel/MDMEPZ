@@ -78,6 +78,7 @@
     <Compile Include="Dto\Integration\Route\OperationPlm.cs" />
     <Compile Include="Dto\Integration\Route\RoutePointPlm.cs" />
     <Compile Include="Dto\Integration\Route\TechnologicalProcessPLM.cs" />
+    <Compile Include="Dto\Nomenclature\MaterialApplicated.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureFromComplectDTO.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />

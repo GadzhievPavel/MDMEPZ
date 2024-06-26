@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.Diagnostics;
+using TFlex.DOCs.Model.Parameters;
 using TFlex.DOCs.Model.References;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.Model.Search;
@@ -47,6 +48,15 @@ namespace MDMEPZ.Service
             mdm.StartUpdate();
             mdm.SetLinkedObject(link, obj);
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {obj}");
+        }
+
+
+        public void setNomenclatureParameterInMDM(NomenclatureObject nom, Guid link, object o)
+        {
+            var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
+            mdm.StartUpdate();
+            mdm[link].Value = o;
+            mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {o}");
         }
     }
 }

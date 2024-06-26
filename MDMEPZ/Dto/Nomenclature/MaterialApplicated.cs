@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDMEPZ.Exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,8 +27,17 @@ namespace MDMEPZ.Dto
         {
             var materialApplicated = new MaterialApplicated();
 
-            var material = materialTp.GetMaterial().GetLinkedNomenclatureObject();
-            var materialMdm = material.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+            var material = materialTp.GetMaterial();
+            if (material == null)
+            {
+                throw new ExceptionIntegration($"материал ТП {materialTp} не связан с материалом в справочнике \"Материалы\"");
+            }
+            var materialNom = material.GetLinkedNomenclatureObject();
+            var materialMdm = materialNom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+            if (materialMdm == null)
+            {
+                throw new ExceptionIntegration($"материал ТП {materialNom} не имеет представление в MDM");
+            }
             materialApplicated.nomenclature = NomenclatureShortDto.CreateInstance(materialMdm);
 
             materialApplicated.rationingUnit = materialTp.RationingUnit.Value;

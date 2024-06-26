@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.DOCs.Model.References.Materials;
 using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.UnitOfMeasurement;
 using TFlex.Model.Technology.References.Materials;
@@ -32,7 +33,7 @@ namespace MDMEPZ.Dto
             {
                 throw new ExceptionIntegration($"материал ТП {materialTp} не связан с материалом в справочнике \"Материалы\"");
             }
-            var materialNom = material.GetLinkedNomenclatureObject();
+            var materialNom = (material as MaterialReferenceObject).GetLinkedNomenclatureObject();
             var materialMdm = materialNom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
             if (materialMdm == null)
             {

@@ -81,6 +81,7 @@
     <Compile Include="Dto\Nomenclature\MaterialApplicated.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureFromComplectDTO.cs" />
+    <Compile Include="Dto\Nomenclature\NomenclatureShortDto.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
     <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />

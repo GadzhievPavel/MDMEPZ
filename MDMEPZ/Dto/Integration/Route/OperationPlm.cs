@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +9,7 @@ using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.References.Devision;
 using TFlex.DOCs.References.EtalonMaterial;
 using TFlex.DOCs.References.NomenclatureERP;
+using TFlex.Model.Technology.References.Materials;
 using TFlex.Model.Technology.References.TechnologyElements;
 using TFlex.Model.Technology.References.TechnologyElements.OperationWorkers;
 
@@ -44,7 +44,7 @@ namespace MDMEPZ.Dto.Integration.Route
         /// <summary>
         /// материалы - входящая номенклатура
         /// </summary>
-        public List<Nomenclature> materials { get; set; }
+        public List<MaterialApplicated> materials { get; set; }
         /// <summary>
         /// сотрудники
         /// </summary>
@@ -79,17 +79,13 @@ namespace MDMEPZ.Dto.Integration.Route
                 operationPlm.nomenclatures = complect;
             }
 
-            operationPlm.materials = new List<Nomenclature> { };
+            operationPlm.materials = new List<MaterialApplicated> { };
+
             ///материалы ТП
-            var materialsTP = operation.GetObjects(new Guid("beeab0ff-1598-44b5-a2d4-32fdf0e98e90"));
+            var materialsTP = operation.GetObjects(new Guid("beeab0ff-1598-44b5-a2d4-32fdf0e98e90")).Cast<TechnologicalProcessMaterial>().ToList();
             foreach (var materialTP in materialsTP)
             {
-                //to do переделать поиск материала через эталоны и эквиваленты
-                ///материал
-                var material = materialTP.GetObject(new Guid("f0d0e7da-5b72-4ece-abaf-e958503f7b1e"));
-                var materialInEsi = material.GetLinkedNomenclatureObject();
-                var materialMdm = materialInEsi.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
-                operationPlm.materials.Add(Nomenclature.CreateInstance(materialMdm));
+                operationPlm.materials.Add(MaterialApplicated.CreateInstance(connection, materialTP));
             }
 
             operationPlm.employees = new List<EmployeePlmDto> { };

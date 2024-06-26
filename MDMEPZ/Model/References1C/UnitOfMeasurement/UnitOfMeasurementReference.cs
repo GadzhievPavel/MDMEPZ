@@ -4,6 +4,7 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
     using MDMEPZ.Model;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
+    using TFlex.DOCs.Model.References.Units;
 
     public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>, IFindService	{		public partial class Factory		{		}		/// <summary>
 		/// Создание объекта на основе DTO
@@ -26,5 +27,14 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 		public ReferenceObject FindByName(String name)
 		{
 			return Find(Filter.Parse($"[Наименование] = '{name}'", this.ParameterGroup)).First();
+		}
+
+		/// <summary>
+		/// Проводит поиск по записи в справочнике по объекту из справолчника "Единицы измерений"
+		/// </summary>
+		/// <param name="unit"></param>
+		/// <returns></returns>
+		public ReferenceObject FindByObjectTFlex(Unit unit) {
+			return Find(Filter.Parse($"[Связанная единица измерения] = '{unit}'", this.ParameterGroup)).First();
 		}
     }}

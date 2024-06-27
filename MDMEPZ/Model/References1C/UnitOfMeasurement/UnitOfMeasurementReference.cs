@@ -35,6 +35,6 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 		/// <param name="unit"></param>
 		/// <returns></returns>
 		public ReferenceObject FindByObjectTFlex(Unit unit) {
-			return Find(Filter.Parse($"[Связанная единица измерения] = '{unit}'", this.ParameterGroup)).First();
+			return Find(Filter.Parse($"[Связанная единица измерения]->[Guid] = '{unit.Guid}'", this.ParameterGroup)).First();
 		}
     }}

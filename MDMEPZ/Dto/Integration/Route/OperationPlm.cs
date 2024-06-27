@@ -91,9 +91,10 @@ namespace MDMEPZ.Dto.Integration.Route
             operationPlm.employees = new List<EmployeePlmDto> { };
             ///исполнители
             var workers = operation.GetObjects(new Guid("3a7eab57-39e7-4bb7-92dd-aaa791be9fc4"));
+            //var workers = operation.OperationWorkersGroup.Objects.Cast<WorkerReferenceObject>().ToList();
             foreach (var worker in workers)
             {
-                operationPlm.employees.Add(EmployeePlmDto.CreateInstance(connection, worker as WorkerReferenceObject));
+                operationPlm.employees.Add(EmployeePlmDto.CreateInstance(connection, worker));
             }
 
             return operationPlm;

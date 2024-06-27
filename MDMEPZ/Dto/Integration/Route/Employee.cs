@@ -46,7 +46,7 @@ namespace MDMEPZ.Dto.Integration.Route
         /// </summary>
         public int auto { get; set; }
 
-        public static EmployeePlmDto CreateInstance(ServerConnection connection, WorkerReferenceObject worker)
+        public static EmployeePlmDto CreateInstance(ServerConnection connection, ReferenceObject worker)
         {
             var employeePlm = new EmployeePlmDto();
 
@@ -55,11 +55,11 @@ namespace MDMEPZ.Dto.Integration.Route
                 return employeePlm;
             }
             //профессия
-            var profession = worker.TPWorkerProfession.GetObject(ProfessionReferenceObject.RelationKeys.ProfessionPDM) as ProfessionReferenceObject;
+            var profession = worker.GetObject(new Guid("2f1acb06-b20a-4fe5-897f-045138476351")).GetObject(ProfessionReferenceObject.RelationKeys.ProfessionPDM) as ProfessionReferenceObject;
             employeePlm.profession = Profession.CreateInstance(profession);
 
-            employeePlm.typeJobs = TypeJobs.CreateInstance(connection, worker.Rank.Value.ToString());
-            employeePlm.unitNormalize = (float)worker.EN.Value;
+            employeePlm.typeJobs = TypeJobs.CreateInstance(connection, worker[WorkerReferenceObject.FieldKeys.Rank].Value.ToString());
+            employeePlm.unitNormalize = (float)worker[WorkerReferenceObject.FieldKeys.EN].Value;
             employeePlm.amount = worker[WorkerReferenceObject.FieldKeys.WorkCount].GetInt32();
             employeePlm.pieceTime = (float)worker[WorkerReferenceObject.FieldKeys.PieceTime].Value;
             employeePlm.coeffPieceTime = (float)worker[WorkerReferenceObject.FieldKeys.TimeKoef].Value;

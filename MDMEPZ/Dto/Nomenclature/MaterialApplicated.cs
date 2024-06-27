@@ -44,8 +44,8 @@ namespace MDMEPZ.Dto
             materialApplicated.rationingUnit = materialTp.RationingUnit.Value;
 
             var unit = materialTp.GetUnits();
-            var unitOfMeasurement = new UnitOfMeasurementReference(connection);
-            var unitMdm = unitOfMeasurement.FindByObjectTFlex(unit) as UnitOfMeasurementReferenceObject;
+            var unitOfMeasurementReference = new UnitOfMeasurementReference(connection);
+            var unitMdm = unitOfMeasurementReference.FindByObjectTFlex(unit) as UnitOfMeasurementReferenceObject;
 
             materialApplicated.unitOfMeasurement = UnitOfMeasurement.CreateInstance(unitMdm);
 

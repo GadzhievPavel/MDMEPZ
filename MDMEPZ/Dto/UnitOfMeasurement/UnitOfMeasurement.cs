@@ -16,7 +16,7 @@ namespace MDMEPZ.Dto
         {
             var unitDto = new UnitOfMeasurement();
             unitDto.name = unitMdm.Name;
-            unitDto.guid1C = unitDto.guid1C;
+            unitDto.guid1C = unitMdm.GUID_1C.ToString();
             return unitDto;
         }
     }

@@ -18,7 +18,7 @@ namespace MDMEPZ.Dto
     /// </summary>
     public class MaterialApplicated
     {
-        public NomenclatureShortDto nomenclature { get; set; }
+        public Nomenclature nomenclature { get; set; }
         public Double amount { get; set; }
 
         public int rationingUnit { get; set; }
@@ -39,7 +39,7 @@ namespace MDMEPZ.Dto
             {
                 throw new ExceptionIntegration($"материал ТП {materialNom} не имеет представление в MDM");
             }
-            materialApplicated.nomenclature = NomenclatureShortDto.CreateInstance(materialMdm);
+            materialApplicated.nomenclature = Nomenclature.CreateInstance(materialMdm);
 
             materialApplicated.rationingUnit = materialTp.RationingUnit.Value;
 

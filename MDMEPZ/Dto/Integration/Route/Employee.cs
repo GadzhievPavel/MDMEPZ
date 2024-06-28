@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
 using TFlex.DOCs.Model.References;
+using TFlex.DOCs.References.Performers;
 using TFlex.DOCs.References.Profession;
 using TFlex.Model.Technology.References.TechnologyElements.OperationWorkers;
 
@@ -32,15 +33,15 @@ namespace MDMEPZ.Dto.Integration.Route
         /// <summary>
         /// штучное время
         /// </summary>
-        public float pieceTime { get; set; }
+        public double pieceTime { get; set; }
         /// <summary>
         /// Коэффициент штучного времени
         /// </summary>
-        public float coeffPieceTime { get; set; }
+        public double coeffPieceTime { get; set; }
         /// <summary>
         /// Подготовительно-заключительное время
         /// </summary>
-        public float preparatoryFinalTime { get; set; }
+        public double preparatoryFinalTime { get; set; }
         /// <summary>
         /// степень механизации
         /// </summary>
@@ -58,13 +59,23 @@ namespace MDMEPZ.Dto.Integration.Route
             var profession = worker.GetObject(new Guid("2f1acb06-b20a-4fe5-897f-045138476351")).GetObject(ProfessionReferenceObject.RelationKeys.ProfessionPDM) as ProfessionReferenceObject;
             employeePlm.profession = Profession.CreateInstance(profession);
 
-            employeePlm.typeJobs = TypeJobs.CreateInstance(connection, worker[WorkerReferenceObject.FieldKeys.Rank].Value.ToString());
-            employeePlm.unitNormalize = (float)worker[WorkerReferenceObject.FieldKeys.EN].Value;
-            employeePlm.amount = worker[WorkerReferenceObject.FieldKeys.WorkCount].GetInt32();
-            employeePlm.pieceTime = (float)worker[WorkerReferenceObject.FieldKeys.PieceTime].Value;
-            employeePlm.coeffPieceTime = (float)worker[WorkerReferenceObject.FieldKeys.TimeKoef].Value;
-            employeePlm.preparatoryFinalTime = (float)worker[WorkerReferenceObject.FieldKeys.PrepTime].Value;
-            employeePlm.auto = (int)worker[WorkerReferenceObject.FieldKeys.AutoRange].Value;
+
+            var performer = worker as PerformersReferenceObject;
+            //employeePlm.typeJobs = TypeJobs.CreateInstance(connection, worker[PerformersReferenceObject.FieldKeys.Rank].Value.ToString());
+            employeePlm.typeJobs = TypeJobs.CreateInstance(connection, performer.Rank.Value.ToString());
+            //employeePlm.unitNormalize = (float)worker[WorkerReferenceObject.FieldKeys.EN].Value;
+            employeePlm.unitNormalize = performer.RationingUnit;
+            employeePlm.amount = performer.WorkersCount;
+            //employeePlm.amount = worker[WorkerReferenceObject.FieldKeys.WorkCount].GetInt32();
+            employeePlm.pieceTime = performer.PieceTime;
+            //employeePlm.pieceTime = (float)worker[WorkerReferenceObject.FieldKeys.PieceTime].Value;
+            employeePlm.coeffPieceTime = performer.TimeKoef;
+            //employeePlm.coeffPieceTime = (float)worker[WorkerReferenceObject.FieldKeys.TimeKoef].Value;
+            employeePlm.preparatoryFinalTime = performer.PrepTime;
+            //employeePlm.preparatoryFinalTime = (float)worker[WorkerReferenceObject.FieldKeys.PrepTime].Value;
+            employeePlm.auto = performer.MechanizationLevel;
+            //employeePlm.auto = (int)worker[WorkerReferenceObject.FieldKeys.AutoRange].Value;
+
             return employeePlm;
         }
     }

@@ -428,6 +428,22 @@
       <DependentUpon>FilterWorkpieceTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\IReferenceService.cs" />
+    <Compile Include="Model\Materials\VariantsMaterialsReference.cs" />
+    <Compile Include="Model\Materials\VariantsMaterialsReference.Designer.cs">
+      <DependentUpon>VariantsMaterialsReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Materials\VariantsMaterialsReferenceObject.cs" />
+    <Compile Include="Model\Materials\VariantsMaterialsReferenceObject.designer.cs">
+      <DependentUpon>VariantsMaterialsReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Materials\VariantsMaterialsType.cs" />
+    <Compile Include="Model\Materials\VariantsMaterialsType.designer.cs">
+      <DependentUpon>VariantsMaterialsType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Materials\VariantsMaterialsTypes.cs" />
+    <Compile Include="Model\Materials\VariantsMaterialsTypes.designer.cs">
+      <DependentUpon>VariantsMaterialsTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Nomenclature\NomenclatureERPReference.cs" />
     <Compile Include="Model\Nomenclature\NomenclatureERPReference.designer.cs">
       <DependentUpon>NomenclatureERPReference.cs</DependentUpon>

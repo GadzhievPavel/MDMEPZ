@@ -42,6 +42,7 @@ using TFlex.DOCs.References.TypeNomenclatureERP;
 using TFlex.DOCs.References.TypeOperationMDM;
 using TFlex.DOCs.References.TypeReproductionERP;
 using TFlex.DOCs.References.UnitOfMeasurement;
+using TFlex.DOCs.References.VariantsMaterials;
 using TFlex.DOCs.References.Workpiece;
 using TFlex.PdmFramework.Resolve;
 
@@ -100,6 +101,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(EtalonUserManualReference.ReferenceId, new EtalonUserManualReference.Factory());
 
             ReferenceCatalog.RegisterSpecialReference(StructNomenclatureReference.ReferenceId, new StructNomenclatureReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(VariantsMaterialsReference.ReferenceId, new VariantsMaterialsReference.Factory());
 
             //route(test)
             ReferenceCatalog.RegisterSpecialReference(RouteReference.ReferenceId, new RouteReference.Factory());

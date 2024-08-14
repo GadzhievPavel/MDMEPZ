@@ -21,6 +21,6 @@ namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DO
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).First();
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).FirstOrDefault();
         }
     }}

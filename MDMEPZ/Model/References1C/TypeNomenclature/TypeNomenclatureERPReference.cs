@@ -23,6 +23,6 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
     }}

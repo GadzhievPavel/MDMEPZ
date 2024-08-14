@@ -21,12 +21,12 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
 
 		public ReferenceObject FindByName(String name)
 		{
-			return Find(Filter.Parse($"[Наименование] = '{name}'", this.ParameterGroup)).First();
+			return Find(Filter.Parse($"[Наименование] = '{name}'", this.ParameterGroup)).FirstOrDefault();
 		}
 
 		/// <summary>
@@ -35,6 +35,6 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 		/// <param name="unit"></param>
 		/// <returns></returns>
 		public ReferenceObject FindByObjectTFlex(Unit unit) {
-			return Find(Filter.Parse($"[Связанная единица измерения]->[Guid] = '{unit.Guid}'", this.ParameterGroup)).First();
+			return Find(Filter.Parse($"[Связанная единица измерения]->[Guid] = '{unit.Guid}'", this.ParameterGroup)).FirstOrDefault();
 		}
     }}

@@ -1,11 +1,24 @@
-namespace TFlex.DOCs.References.GroupFinanceNomenclature{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
+namespace TFlex.DOCs.References.GroupFinanceNomenclature
+{
+	using System;
+	using TFlex.DOCs.Model.References;
+	using TFlex.DOCs.Model.Structure;
+	using TFlex.DOCs.Model.Classes;
+	using TFlex.DOCs.Model;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using MDMEPZ.Model;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
 
-    public partial class GroupFinanceNomenclatureReference : SpecialReference<GroupFinanceNomenclatureReferenceObject>, IFindService	{				public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(GroupFinanceNomenclature groupFinanceNomenclature)
+    public partial class GroupFinanceNomenclatureReference : SpecialReference<GroupFinanceNomenclatureReferenceObject>, IFindService
+	{
+		
+		public partial class Factory
+		{
+		}
+
+		public ReferenceObject CreateReferenceObject(GroupFinanceNomenclature groupFinanceNomenclature)
 		{
 			var group = CreateReferenceObject() as GroupFinanceNomenclatureReferenceObject;
 			group.Name.Value = groupFinanceNomenclature.name;
@@ -15,6 +28,7 @@ namespace TFlex.DOCs.References.GroupFinanceNomenclature{	using System;	using
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-			return Find(Filter.Parse($"[GUID1C] = '{guid}'", this.ParameterGroup)).First();
+			return Find(Filter.Parse($"[GUID1C] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
-    }}
+    }
+}

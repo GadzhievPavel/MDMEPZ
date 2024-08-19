@@ -1,4 +1,10 @@
-namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
+namespace TFlex.DOCs.References.UnitOfMeasurement
+{
+	using System;
+	using TFlex.DOCs.Model.References;
+	using TFlex.DOCs.Model.Structure;
+	using TFlex.DOCs.Model.Classes;
+	using TFlex.DOCs.Model;
 	using MDMEPZ.Util;
     using MDMEPZ.Dto;
     using MDMEPZ.Model;
@@ -6,11 +12,17 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
     using System.Linq;
     using TFlex.DOCs.Model.References.Units;
 
-    public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>, IFindService	{		public partial class Factory		{		}		/// <summary>
+    public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>, IFindService
+	{
+		public partial class Factory
+		{
+		}
+		/// <summary>
 		/// Создание объекта на основе DTO
 		/// </summary>
 		/// <param name="unitOfMeasurement"></param>
-		/// <returns></returns>		public ReferenceObject CreateReferenceObject(UnitOfMeasurement unitOfMeasurement)
+		/// <returns></returns>
+		public ReferenceObject CreateReferenceObject(UnitOfMeasurement unitOfMeasurement)
 		{
 			var obj = this.CreateReferenceObject() as UnitOfMeasurementReferenceObject;
 			obj.StartUpdate();
@@ -37,4 +49,5 @@ namespace TFlex.DOCs.References.UnitOfMeasurement{	using System;	using TFlex.
 		public ReferenceObject FindByObjectTFlex(Unit unit) {
 			return Find(Filter.Parse($"[Связанная единица измерения]->[Guid] = '{unit.Guid}'", this.ParameterGroup)).FirstOrDefault();
 		}
-    }}
+    }
+}

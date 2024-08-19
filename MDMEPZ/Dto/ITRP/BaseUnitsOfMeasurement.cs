@@ -11,6 +11,7 @@ namespace MDMEPZ.Dto.ITRP
     /// </summary>
     public class BaseUnitsOfMeasurement
     {
+        public string Наименование { get; set; }
         public string UID { get; set; }
        // public string Guid1C { get; set; }
     }

@@ -11,7 +11,7 @@ namespace MDMEPZ.Dto.ITRP
     /// </summary>
    public class TypeReproductionITRP
     {
-        public string UID { get; set; }
+        public string ВидВоспроизводства { get; set; }
 
     }
 }

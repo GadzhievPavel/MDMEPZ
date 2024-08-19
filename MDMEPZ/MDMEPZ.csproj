@@ -78,6 +78,9 @@
     <Compile Include="Dto\Integration\Route\OperationPlm.cs" />
     <Compile Include="Dto\Integration\Route\RoutePointPlm.cs" />
     <Compile Include="Dto\Integration\Route\TechnologicalProcessPLM.cs" />
+    <Compile Include="Dto\ITRP\BaseUnitsOfMeasurement.cs" />
+    <Compile Include="Dto\ITRP\NomenclatureITRP_Main.cs" />
+    <Compile Include="Dto\ITRP\TypeReproductionITRP.cs" />
     <Compile Include="Dto\Nomenclature\MaterialApplicated.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureFromComplectDTO.cs" />

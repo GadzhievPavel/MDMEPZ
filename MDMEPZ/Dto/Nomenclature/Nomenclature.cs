@@ -19,7 +19,7 @@ namespace MDMEPZ.Dto
     /// </summary>
     public class Nomenclature
     {
-        public static Nomenclature CreateInstance(NomenclatureERPReferenceObject nomenclatureERP)
+        public static Nomenclature CreateInstance(NomenclatureMDMReferenceObject nomenclatureERP)
         {
             if (nomenclatureERP == null)
             {

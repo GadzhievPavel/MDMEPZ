@@ -36,7 +36,21 @@ namespace TFlex.DOCs.References.UnitOfMeasurement
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
 
-		public ReferenceObject FindByName(String name)
+        public ReferenceObject FindByGuid1C(UnitOfMeasurementFull unit)
+        {
+            if (unit is null)
+            {
+                return null;
+            }
+            if (unit.guid1C is null)
+            {
+                return null;
+            }
+            //var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
+            return FindByGuid1C(new Guid(unit.guid1C));
+        }
+
+        public ReferenceObject FindByName(String name)
 		{
 			return Find(Filter.Parse($"[Наименование] = '{name}'", this.ParameterGroup)).FirstOrDefault();
 		}

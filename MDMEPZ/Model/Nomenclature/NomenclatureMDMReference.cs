@@ -21,15 +21,15 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using MDMEPZ.Exception;
     using TFlex.Model.Technology.References.Materials;
 
-    public partial class NomenclatureERPReference : SpecialReference<NomenclatureERPReferenceObject>
+    public partial class NomenclatureMDMReference : SpecialReference<NomenclatureMDMReferenceObject>
     {
 
-        private CategoryProductReference categoryProductReference;
-        private GroupListReference groupListReference;
-        private TypeReproductionERPReference typeReproductionERPReference;
-        private TypeNomenclatureERPReference typeNomenclatureERPReference;
-        private UnitOfMeasurementReference unitOfMeasurementReference;
-        private GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
+        protected CategoryProductReference categoryProductReference;
+        protected GroupListReference groupListReference;
+        protected TypeReproductionERPReference typeReproductionERPReference;
+        protected TypeNomenclatureERPReference typeNomenclatureERPReference;
+        protected UnitOfMeasurementReference unitOfMeasurementReference;
+        protected GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
 
         public partial class Factory
         {
@@ -57,7 +57,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             {
                 throw new ExceptionMDM("Объект с таким guid уже существует");
             }
-            var erpObject = CreateReferenceObject() as NomenclatureERPReferenceObject;
+            var erpObject = CreateReferenceObject() as NomenclatureMDMReferenceObject;
 
             erpObject.StartUpdate();
             erpObject.Denotation.Value = nom.Denotation;
@@ -81,7 +81,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         public ReferenceObject CreateReferenceObject(Nomenclature product)
         {
 
-            var o = CreateReferenceObject() as NomenclatureERPReferenceObject;
+            var o = CreateReferenceObject() as NomenclatureMDMReferenceObject;
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
@@ -95,49 +95,44 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             }
             o.Weight.Value = product.weight;
 
-            var productCategory = getProductCategoryByGuid1C(product);
+            var productCategory = categoryProductReference.FindByGuid1C(product);
             if(productCategory!= null)
             {
                 o.ProductCategory = productCategory;
             }
-            //o.ProductCategory = getProductCategoryByGuid1C(new Guid(product.category.guid1C));
-            var groupList = getGroupListByGuid1C(product);
+            var groupList = groupListReference.FindByGuid1C(product);
             if (groupList != null)
             {
                 o.GroupList = groupList;
             }
-            //o.GroupList = getGroupListByGuid1C(new Guid(product.groupOfList.guid1C));
-            var typeReproduction = getTypeReproductionByGuid1C(product);
+            var typeReproduction = typeReproductionERPReference.FindByGuid1C(product);
             if (typeReproduction != null)
             {
                 o.TypeReproduction = typeReproduction;
             }
-            //o.TypeReproduction = getTypeReproductionByGuid1C(new Guid(product.typeOfReproduction.guid1C));
-            var typeNomenclature = getTypeNomenclatureByGuid1C(product);
-            if(typeNomenclature != null)
+            var typeNomenclature = typeNomenclatureERPReference.FindByGuid1C(product);
+            if (typeNomenclature != null)
             {
                 o.TypeNomenclature = typeNomenclature;
             }
-            //o.TypeNomenclature = getTypeNomenclatureByGuid1C(new Guid(product.typeNomenclature.guid1C));
-            var unitsOfMeasurement = getUnitsOfMeasurementByGuid1C(product.unitOfMeasurement);
+            var unitsOfMeasurement = unitOfMeasurementReference.FindByGuid1C(product.unitOfMeasurement);
             if(unitsOfMeasurement != null)
             {
                 o.UnitsOfMeasurement = unitsOfMeasurement;
             }
 
-            var unitOfMeasurementWeight = getUnitsOfMeasurementByGuid1C(product.weightUnitOfMeasurement);
+            var unitOfMeasurementWeight = unitOfMeasurementReference.FindByGuid1C(product.weightUnitOfMeasurement);
             if (unitOfMeasurementWeight != null)
             {
                 o.UnitOfMeasurementWeight = unitOfMeasurementWeight;
             }
 
-            var groupFinance = getGroupFinancialNomenclature(product);
+            var groupFinance = groupFinanceNomenclatureReference.FindByGuid1C(product);
             if (groupFinance != null)
             {
                 o.GroupFinanceNomenclature = groupFinance;
             }
 
-            //o.UnitsOfMeasurement = getUnitsOfMeasurementByGuid1C(new Guid(product.unitOfMeasurement.guid1C));
             return o;
         }
 
@@ -173,7 +168,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         {
             Filter filter = new Filter(ParameterGroup);
             ReferenceObjectTerm term = new ReferenceObjectTerm(filter.Terms);
-            term.Path.AddParameter(ParameterGroup.Parameters.Find(NomenclatureERPReferenceObject.FieldKeys.Denotation));
+            term.Path.AddParameter(ParameterGroup.Parameters.Find(NomenclatureMDMReferenceObject.FieldKeys.Denotation));
             term.Operator = ComparisonOperator.Equal;
             term.Value = denotation;
             filter.Validate();
@@ -184,101 +179,11 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         {
             Filter filter = new Filter(ParameterGroup);
             ReferenceObjectTerm term = new ReferenceObjectTerm(filter.Terms);
-            term.Path.AddParameter(ParameterGroup.Parameters.Find(NomenclatureERPReferenceObject.FieldKeys.Name));
+            term.Path.AddParameter(ParameterGroup.Parameters.Find(NomenclatureMDMReferenceObject.FieldKeys.Name));
             term.Operator = ComparisonOperator.Equal;
             term.Value = name;
             filter.Validate();
             return filter;
-        }
-
-        private ReferenceObject getProductCategoryByGuid1C(Nomenclature product)
-        {
-            if(product.category is null)
-            {
-                return null;
-            }
-            if(product.category.guid1C is null)
-            {
-                return null;
-            }
-
-            //var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
-            return categoryProductReference.FindByGuid1C(new Guid(product.category.guid1C));
-        }
-
-        private ReferenceObject getGroupListByGuid1C(Nomenclature product)
-        {
-            if (product.groupOfList is null)
-            {
-                return null;
-            }
-            if (product.groupOfList.guid1C is null)
-            {
-                return null;
-            }
-
-            //var groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
-            return groupListReference.FindByGuid1C(new Guid(product.groupOfList.guid1C));
-        }
-
-        private ReferenceObject getTypeReproductionByGuid1C(Nomenclature product)
-        {
-            if (product.typeOfReproduction is null)
-            {
-                return null;
-            }
-            if (product.typeOfReproduction.guid1C is null)
-            {
-                return null;
-            }
-            //var typeOfReproductionReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
-            return typeReproductionERPReference.FindByGuid1C(new Guid(product.typeOfReproduction.guid1C));
-
-        }
-
-        private ReferenceObject getTypeNomenclatureByGuid1C(Nomenclature product)
-        {
-            if (product.typeNomenclature is null)
-            {
-                return null;
-            }
-            if (product.typeNomenclature.guid1C is null)
-            {
-                return null;
-            }
-            //var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
-            return typeNomenclatureERPReference.FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
-        }
-
-        private ReferenceObject getUnitsOfMeasurementByGuid1C(UnitOfMeasurementFull unit)
-        {
-            if (unit is null)
-            {
-                return null;
-            }
-            if (unit.guid1C is null)
-            {
-                return null;
-            }
-            //var unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
-            return unitOfMeasurementReference.FindByGuid1C(new Guid(unit.guid1C));
-        }
-
-        private ReferenceObject getGroupFinancialNomenclature(Nomenclature nomenclature)
-        {
-            if(nomenclature is null)
-            {
-                return null;
-            }
-            if(nomenclature.financialGroup is null)
-            {
-                return null;
-            }
-            if(nomenclature.financialGroup.guid1C is null)
-            {
-                return null;
-            }
-            return groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
         }
 
         /// <summary>
@@ -286,9 +191,9 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         /// </summary>
         /// <param name="nom">номенклатура в PDM</param>
         /// <returns></returns>
-        public NomenclatureERPReferenceObject FindByPdmObject(NomenclatureObject nom)
+        public NomenclatureMDMReferenceObject FindByPdmObject(NomenclatureObject nom)
         {
-            return Find(Filter.Parse($"[Номенклатура] = '{nom}'" , this.ParameterGroup)).FirstOrDefault() as NomenclatureERPReferenceObject;
+            return Find(Filter.Parse($"[Номенклатура] = '{nom}'" , this.ParameterGroup)).FirstOrDefault() as NomenclatureMDMReferenceObject;
         }
 
         /// <summary>
@@ -296,7 +201,7 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         /// </summary>
         /// <param name="materialTP"></param>
         /// <returns></returns>
-        public NomenclatureERPReferenceObject FindByTechnologicalMaterial(TechProcessMaterialsReferenceObject materialTP)
+        public NomenclatureMDMReferenceObject FindByTechnologicalMaterial(TechProcessMaterialsReferenceObject materialTP)
         {
             var material = materialTP.GetObject(TechProcessMaterialsReferenceObject.RelationKeys.MaterialsTP_MaterialsRel);
             var materialPdm = material.GetLinkedNomenclatureObject();

@@ -7,12 +7,12 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures{	using System;	using 
     using System.Linq;
 
     public partial class ConnectionNomenclaturesReference : SpecialReference<ConnectionNomenclaturesReferenceObject>	{
-        private NomenclatureERPReference nomenclatureReference;
+        private NomenclatureMDMReference nomenclatureReference;
         public partial class Factory		{		}
 
         private void loadReference()
         {
-            nomenclatureReference = this.Connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;
+            nomenclatureReference = this.Connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference() as NomenclatureMDMReference;
         }
 
         public ReferenceObject CreateReferenceObject(ConnectionNomenclatures connection)
@@ -26,7 +26,7 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures{	using System;	using 
             return connectionRefObj;
         }
 
-        public List<ConnectionNomenclaturesReferenceObject> findConnectionByParentNomenclature(NomenclatureERPReferenceObject nomErp)
+        public List<ConnectionNomenclaturesReferenceObject> findConnectionByParentNomenclature(NomenclatureMDMReferenceObject nomErp)
         {
             var filter = Filter.Parse($"[родительский объект] = '{nomErp.GUID1C}'", ParameterGroup);
             return Find(filter).Cast<ConnectionNomenclaturesReferenceObject>().ToList();

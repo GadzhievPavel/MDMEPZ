@@ -12,7 +12,7 @@ namespace TFlex.DOCs.References.EtalonUserManual{	using System;	using TFlex.D
             return this.Find(Filter.Parse($"[Номенклатура ERP] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
         }
 
-        public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject erpNomenclature)
+        public ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject erpNomenclature)
         {
             var etalon = CreateReferenceObject() as EtalonUserManualReferenceObject;
             etalon.StartUpdate();

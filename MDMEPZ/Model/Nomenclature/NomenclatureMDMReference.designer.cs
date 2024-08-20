@@ -15,12 +15,13 @@ namespace TFlex.DOCs.References.NomenclatureERP
 	using TFlex.DOCs.Model.Structure;
 	using TFlex.DOCs.Model.Classes;
 	using TFlex.DOCs.Model;
-	
-	
-	/// <summary>
-	/// Представляет описание справочника "Номенклатура ERP"
-	/// </summary>
-	public partial class NomenclatureERPReference
+    using TFlex.DOCs.References.NomenclatureMDM;
+
+
+    /// <summary>
+    /// Представляет описание справочника "Номенклатура ERP"
+    /// </summary>
+    public partial class NomenclatureMDMReference
 	{
 		
 		/// <summary>
@@ -31,13 +32,13 @@ namespace TFlex.DOCs.References.NomenclatureERP
 		/// <summary>
 		/// Инициализирует новый экземпляр NomenclatureERPReference для работы с объектами справочника "Номенклатура ERP"
 		/// </summary>
-		public NomenclatureERPReference(TFlex.DOCs.Model.ServerConnection connection) : 
-				base(connection, NomenclatureERPReference.ReferenceId)
+		public NomenclatureMDMReference(TFlex.DOCs.Model.ServerConnection connection) : 
+				base(connection, NomenclatureMDMReference.ReferenceId)
 		{
 			loadSupportReference();
 		}
 		
-		private NomenclatureERPReference(ParameterGroup masterGroup) : 
+		private NomenclatureMDMReference(ParameterGroup masterGroup) : 
 				base(masterGroup)
 		{
 			loadSupportReference();
@@ -46,43 +47,47 @@ namespace TFlex.DOCs.References.NomenclatureERP
 		/// <summary>
 		/// Возвращает типы объектов справочника "Номенклатура ERP"
 		/// </summary>
-		public new NomenclatureERPTypes Classes
+		public new NomenclatureMDMTypes Classes
 		{
 			get
 			{
-				return ((NomenclatureERPTypes)(base.Classes));
+				return ((NomenclatureMDMTypes)(base.Classes));
 			}
 		}
 		
-		protected override NomenclatureERPReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
+		protected override NomenclatureMDMReferenceObject CreateReferenceObjectForClass(ClassObject classObject)
 		{
-			NomenclatureERPType type = classObject as NomenclatureERPType;
+			NomenclatureMDMType type = classObject as NomenclatureMDMType;
 			if ((type == null))
 			{
 				return null;
 			}
-			if (type.IsNomenclatureERPReferenceObject)
+			if (type.IsNomenclatureERP)
 			{
 				return new NomenclatureERPReferenceObject(this);
 			}
-			return new NomenclatureERPReferenceObject(this);
+			if (type.IsNomenclatureITRP)
+			{
+				return new NomenclatureITRPReferenceObject(this);
+			}
+			return new NomenclatureMDMReferenceObject(this);
 		}
 		
-		public partial class Factory : SpecialReferenceFactory<NomenclatureERPReference, NomenclatureERPTypes>
+		public partial class Factory : SpecialReferenceFactory<NomenclatureMDMReference, NomenclatureMDMTypes>
 		{
 			
 			internal Factory()
 			{
 			}
 			
-			public override NomenclatureERPReference CreateReference(ParameterGroup masterGroup)
+			public override NomenclatureMDMReference CreateReference(ParameterGroup masterGroup)
 			{
-				return new NomenclatureERPReference(masterGroup);
+				return new NomenclatureMDMReference(masterGroup);
 			}
 			
-			public override NomenclatureERPTypes CreateClassTree(ParameterGroup masterGroup)
+			public override NomenclatureMDMTypes CreateClassTree(ParameterGroup masterGroup)
 			{
-				return new NomenclatureERPTypes(masterGroup);
+				return new NomenclatureMDMTypes(masterGroup);
 			}
 		}
 	}

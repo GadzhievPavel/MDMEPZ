@@ -23,7 +23,7 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
 		{
 		}
 
-		ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject erpNomenclature)
+		ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject erpNomenclature)
 		{
 			var etalon = CreateReferenceObject() as EtalonDetailAndAsseblingReferenceObject;
 			etalon.StartUpdate();

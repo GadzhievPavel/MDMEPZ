@@ -25,4 +25,18 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
         {
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
+
+        public ReferenceObject FindByGuid1C(Nomenclature product)
+        {
+            if (product.typeNomenclature is null)
+            {
+                return null;
+            }
+            if (product.typeNomenclature.guid1C is null)
+            {
+                return null;
+            }
+            //var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
+            return FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
+        }
     }}

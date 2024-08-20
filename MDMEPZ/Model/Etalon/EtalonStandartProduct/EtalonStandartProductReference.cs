@@ -22,7 +22,7 @@ namespace TFlex.DOCs.References.StandartProduct
 		{
 		}
 
-		public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
+		public ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject nomenclature)
 		{
 			var etalon = CreateReferenceObject() as EtalonStandartProductReferenceObject;
 			etalon.StartUpdate();

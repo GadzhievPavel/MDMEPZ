@@ -10,7 +10,7 @@ namespace TFlex.DOCs.References.ReplacementERP{
 
     public partial class ReplacementERPReference : SpecialReference<ReplacementERPReferenceObject>
     {
-        private NomenclatureERPReference nomenclatureERPRef;
+        private NomenclatureMDMReference nomenclatureERPRef;
         public partial class Factory
         {
         }
@@ -44,5 +44,5 @@ namespace TFlex.DOCs.References.ReplacementERP{
 
         private void loadSupportReference()
         {
-            this.nomenclatureERPRef = Connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;        }
+            this.nomenclatureERPRef = Connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference() as NomenclatureMDMReference;        }
     }}

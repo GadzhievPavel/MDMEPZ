@@ -34,7 +34,7 @@ namespace MDMEPZ.Dto
                 throw new ExceptionIntegration($"материал ТП {materialTp} не связан с материалом в справочнике \"Материалы\"");
             }
             var materialNom = (material as MaterialReferenceObject).GetLinkedNomenclatureObject();
-            var materialMdm = materialNom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+            var materialMdm = materialNom.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
             if (materialMdm == null)
             {
                 throw new ExceptionIntegration($"материал ТП {materialNom} не имеет представление в MDM");

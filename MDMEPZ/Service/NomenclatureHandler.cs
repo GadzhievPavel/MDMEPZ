@@ -25,7 +25,7 @@ namespace MDMEPZ.Service
     public class NomenclatureHandler
     {
         private ServerConnection ServerConnection;
-        private NomenclatureERPReferenceObject nomenclatureERP;
+        private NomenclatureMDMReferenceObject nomenclatureERP;
         private FilterDetaliAssemblingReference filterDetaliAssemblingReference;
         private FilterElectronicComponentReference filterElectronicComponentReference;
         private FilterMaterialReference filterMaterialReference;
@@ -36,7 +36,7 @@ namespace MDMEPZ.Service
         private FilterWorkpieceReference workpieceReference;
         private FilterUserManualReference filterUserManualReference;
 
-        public NomenclatureHandler(ServerConnection connection, NomenclatureERPReferenceObject nomenclatureERP)
+        public NomenclatureHandler(ServerConnection connection, NomenclatureMDMReferenceObject nomenclatureERP)
         {
             this.ServerConnection = connection;
             filterDetaliAssemblingReference = connection.ReferenceCatalog.Find(FilterDetaliAssemblingReference.ReferenceId).CreateReference() as FilterDetaliAssemblingReference;
@@ -213,13 +213,13 @@ namespace MDMEPZ.Service
 
         public static ReferenceObject CreateObjectInNsiLayer(ServerConnection connection, NomenclatureObject nomenclature)
         {
-            if (nomenclature.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) == null)
+            if (nomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) == null)
             {
                 throw new NullReferenceException("у объекта ЭСИ отсутствует связанная номенклатура в Номенклатуре ERP");
             }
 
             var handler = new NomenclatureHandler(connection, nomenclature.
-                    GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject);
+                    GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
 
             var referenceNomenclature = nomenclature.Reference;
             ReferenceObject nsiObject = null;

@@ -11,7 +11,7 @@ namespace MDMEPZ.Dto
     {
         public string name { get; set; }
         public string guid1C { get; set; }
-        public static NomenclatureShortDto CreateInstance(NomenclatureERPReferenceObject nomenclatureErp)
+        public static NomenclatureShortDto CreateInstance(NomenclatureMDMReferenceObject nomenclatureErp)
         {
             var nom = new NomenclatureShortDto();
             nom.guid1C = nomenclatureErp.GUID1C.ToString();

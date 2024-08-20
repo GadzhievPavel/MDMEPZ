@@ -44,7 +44,7 @@ namespace MDMEPZ.Service
 
         public void setNomenclatureParameterInMDM(NomenclatureObject nom, Guid link, ReferenceObject obj)
         {
-            var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
+            var mdm = nom.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
             mdm.StartUpdate();
             mdm.SetLinkedObject(link, obj);
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {obj}");
@@ -53,7 +53,7 @@ namespace MDMEPZ.Service
 
         public void setNomenclatureParameterInMDM(NomenclatureObject nom, Guid link, object o)
         {
-            var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature);
+            var mdm = nom.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
             mdm.StartUpdate();
             mdm[link].Value = o;
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {o}");

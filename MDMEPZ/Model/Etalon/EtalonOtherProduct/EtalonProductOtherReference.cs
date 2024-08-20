@@ -17,7 +17,7 @@ namespace TFlex.DOCs.References.EtalonProductOther{
         {
         }
 
-        ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
+        ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject nomenclature)
         {
             var etalon = CreateReferenceObject() as EtalonProductOtherReferenceObject;
             etalon.StartUpdate();

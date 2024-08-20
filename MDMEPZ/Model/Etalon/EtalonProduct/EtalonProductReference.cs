@@ -11,7 +11,7 @@ namespace TFlex.DOCs.References.EtalonProduct{	using System;	using TFlex.DOCs
             return this.Find(Filter.Parse($"[Номенклатура ERP И] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
         }
 
-        public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
+        public partial class Factory		{		}		public ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject nomenclature)
 		{
 			var etalon = CreateReferenceObject() as EtalonProductReferenceObject;
 			etalon.Name.Value = nomenclature.Name.Value;

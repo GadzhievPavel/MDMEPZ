@@ -20,12 +20,12 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 
 
     /// <summary>
-    /// Представляет объект "Номенклатура ERP" справочника "Номенклатура ERP" или порождённый от него
+    /// Представляет объект "Номенклатура ИТРП" справочника "Номенклатура ERP" или порождённый от него
     /// </summary>
-    public partial class NomenclatureERPReferenceObject
+    public partial class NomenclatureITRPReferenceObject:NomenclatureMDMReferenceObject
 	{
 		
-		internal NomenclatureERPReferenceObject(NomenclatureMDMReference reference) : 
+		internal NomenclatureITRPReferenceObject(NomenclatureMDMReference reference) : 
 				base(reference)
 		{
 		}
@@ -45,7 +45,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 		/// Возвращает параметр "Обозначение"
 		/// </summary>
 		public StringParameter Denotation
-        {
+		{
 			get
 			{
 				return ((StringParameter)(this[FieldKeys.Denotation]));
@@ -56,7 +56,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 		/// Возвращает параметр "Вес"
 		/// </summary>
 		public DoubleParameter Weight
-        {
+		{
 			get
 			{
 				return ((DoubleParameter)(this[FieldKeys.Weight]));
@@ -100,7 +100,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 		/// Возвращает параметр "КодЕламед"
 		/// </summary>
 		public StringParameter CodeElamed
-        {
+		{
 			get
 			{
 				return ((StringParameter)(this[FieldKeys.CodeElamed]));
@@ -111,10 +111,65 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 		/// Возвращает параметр "Актуальность записи"
 		/// </summary>
 		public BooleanParameter IsActual
-        {
+		{
 			get
 			{
 				return ((BooleanParameter)(this[FieldKeys.IsActual]));
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает параметр "НаименованиеДляВвода"
+		/// </summary>
+		public StringParameter NameForInput
+        {
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.NameForInput]));
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает параметр "НаименованиеПолное"
+		/// </summary>
+		public StringParameter NameFull
+        {
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.NameFull]));
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает параметр "ID53"
+		/// </summary>
+		public Int32Parameter ID53
+		{
+			get
+			{
+				return ((Int32Parameter)(this[FieldKeys.ID53]));
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает параметр "Артикул"
+		/// </summary>
+		public StringParameter Articul
+        {
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.Articul]));
+			}
+		}
+		
+		/// <summary>
+		/// Возвращает параметр "Код"
+		/// </summary>
+		public StringParameter Code
+		{
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.Code]));
 			}
 		}
 	}

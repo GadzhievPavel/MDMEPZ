@@ -20,7 +20,7 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
 		{
             if (this.refDocument != null)
             {
-                var nomenclatureERP = this.Nomenclature as NomenclatureERPReferenceObject;
+                var nomenclatureERP = this.Nomenclature as NomenclatureMDMReferenceObject;
                 var document = refDocument.CreateReferenceObject();
                 var objEsi = refNomenclature.CreateNomenclatureObject(document, null, null, null, false);
                 nomenclatureERP.StartUpdate();

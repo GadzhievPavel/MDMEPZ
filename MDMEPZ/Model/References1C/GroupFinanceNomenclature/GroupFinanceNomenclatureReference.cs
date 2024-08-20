@@ -30,5 +30,22 @@ namespace TFlex.DOCs.References.GroupFinanceNomenclature
         {
 			return Find(Filter.Parse($"[GUID1C] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
+
+        public ReferenceObject FindByGuid1C(Nomenclature nomenclature)
+        {
+            if (nomenclature is null)
+            {
+                return null;
+            }
+            if (nomenclature.financialGroup is null)
+            {
+                return null;
+            }
+            if (nomenclature.financialGroup.guid1C is null)
+            {
+                return null;
+            }
+            return FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
+        }
     }
 }

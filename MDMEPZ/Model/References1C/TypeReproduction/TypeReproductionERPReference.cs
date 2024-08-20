@@ -18,4 +18,19 @@ namespace TFlex.DOCs.References.TypeReproductionERP{	using System;	using TFle
         {
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
         }
+
+        public ReferenceObject FindByGuid1C(Nomenclature product)
+        {
+            if (product.typeOfReproduction is null)
+            {
+                return null;
+            }
+            if (product.typeOfReproduction.guid1C is null)
+            {
+                return null;
+            }
+            //var typeOfReproductionReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
+            return FindByGuid1C(new Guid(product.typeOfReproduction.guid1C));
+
+        }
     }}

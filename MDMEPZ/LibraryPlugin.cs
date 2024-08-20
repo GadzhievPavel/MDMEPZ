@@ -74,7 +74,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(FilterStandartProductReference.ReferenceId, new FilterStandartProductReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(FilterUserManualReference.ReferenceId, new FilterUserManualReference.Factory());
             
-            ReferenceCatalog.RegisterSpecialReference(NomenclatureERPReference.ReferenceId, new NomenclatureERPReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(NomenclatureMDMReference.ReferenceId, new NomenclatureMDMReference.Factory());
 
             //reference 1C
             //ReferenceCatalog.RegisterSpecialReference(ApplicabiltyMaterialsReference.ReferenceId, new ApplicabiltyMaterialsReference.Factory());

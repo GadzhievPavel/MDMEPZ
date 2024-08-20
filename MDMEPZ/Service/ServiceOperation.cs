@@ -20,7 +20,7 @@ namespace MDMEPZ.Service
 
         public bool isAssemblyOperation(Operation operation)
         {
-            var referenceNumenclatureERP = connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference();//справочник Номенклатуры ERP
+            var referenceNumenclatureERP = connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference();//справочник Номенклатуры ERP
             var ownerIN = operation.ОсновныеВходы;
             if (ownerIN != null)
             {
@@ -33,7 +33,7 @@ namespace MDMEPZ.Service
                         var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{searchUID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
                         if (result != null)
                         {
-                            var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
+                            var objESI = result.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
                             if (objESI != null)
                             {
 
@@ -65,7 +65,7 @@ namespace MDMEPZ.Service
         public List<NomenclatureObject> GetNomenclatureFromAssemblyOperation(Operation operation)
         {
             List<NomenclatureObject> listNomenclature = new List<NomenclatureObject>();
-            var referenceNumenclatureERP = connection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference();//справочник Номенклатуры ERP
+            var referenceNumenclatureERP = connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference();//справочник Номенклатуры ERP
             var ownerIN = operation.ОсновныеВходы;
             if (ownerIN != null)
             {
@@ -78,7 +78,7 @@ namespace MDMEPZ.Service
                         var result = referenceNumenclatureERP.Find(Filter.Parse($"[GUID(1C)] = '{searchUID}'", referenceNumenclatureERP.ParameterGroup)).FirstOrDefault();
                         if (result != null)
                         {
-                            var objESI = result.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
+                            var objESI = result.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureObject;
                             if (objESI != null)
                             {
 

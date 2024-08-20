@@ -23,4 +23,19 @@ namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DO
         {
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).FirstOrDefault();
         }
+
+        public ReferenceObject FindByGuid1C(Nomenclature product)
+        {
+            if (product.category is null)
+            {
+                return null;
+            }
+            if (product.category.guid1C is null)
+            {
+                return null;
+            }
+
+            //var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
+            return FindByGuid1C(new Guid(product.category.guid1C));
+        }
     }}

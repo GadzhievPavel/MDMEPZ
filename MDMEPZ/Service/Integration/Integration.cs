@@ -24,14 +24,14 @@ namespace MDMEPZ.Service.Integration
         private StructureTypesReference structureTypesReference;
         private StructureTypesReferenceObject structureType;
         private ServerConnection connection;
-        private NomenclatureERPReference referenceERP;
+        private NomenclatureMDMReference referenceERP;
 
         public Integration(ServerConnection serverConnection, NomenclatureObject rootProduct)
         {
             this.rootProduct = rootProduct;
             nomenclatures = new HashSet<NomenclatureObject>();
             this.connection = serverConnection;
-            referenceERP = serverConnection.ReferenceCatalog.Find(NomenclatureERPReference.ReferenceId).CreateReference() as NomenclatureERPReference;
+            referenceERP = serverConnection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference() as NomenclatureMDMReference;
 
             if (referenceERP is null)
             {
@@ -54,7 +54,7 @@ namespace MDMEPZ.Service.Integration
             FillNomenclature(this.rootProduct);
         }
 
-        public Integration(NomenclatureERPReference nomenclatureERP, StructureTypesReference structureTypesReference, NomenclatureObject rootProduct)
+        public Integration(NomenclatureMDMReference nomenclatureERP, StructureTypesReference structureTypesReference, NomenclatureObject rootProduct)
         {
             this.rootProduct = rootProduct;
             nomenclatures = new HashSet<NomenclatureObject>();

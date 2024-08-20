@@ -33,5 +33,20 @@ namespace TFlex.DOCs.References.GroupList
         {
             return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).FirstOrDefault();
         }
+
+        public ReferenceObject FindByGuid1C(Nomenclature product)
+        {
+            if (product.groupOfList is null)
+            {
+                return null;
+            }
+            if (product.groupOfList.guid1C is null)
+            {
+                return null;
+            }
+
+            //var groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
+            return FindByGuid1C(new Guid(product.groupOfList.guid1C));
+        }
     }
 }

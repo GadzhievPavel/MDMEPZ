@@ -20,7 +20,7 @@ namespace TFlex.DOCs.References.EtalonWorkpiece{
         {
         }
 
-        public ReferenceObject CreateReferenceObject(NomenclatureERPReferenceObject nomenclature)
+        public ReferenceObject CreateReferenceObject(NomenclatureMDMReferenceObject nomenclature)
         {
             var etalon = CreateReferenceObject() as EtalonWorkpieceReferenceObject;
             etalon.StartUpdate();

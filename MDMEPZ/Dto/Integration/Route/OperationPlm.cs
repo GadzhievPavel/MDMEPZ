@@ -129,7 +129,7 @@ namespace MDMEPZ.Dto.Integration.Route
             var listNomenclatures = new List<NomenclatureFromComplectDTO>();
             foreach (var pair in dictNomenclatures)
             {
-                var mdm = pair.Key.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+                var mdm = pair.Key.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
                 listNomenclatures.Add(new NomenclatureFromComplectDTO()
                 {
                     Nomenclature = NomenclatureWithRoute.CreateInstance(connection, mdm),

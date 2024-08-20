@@ -40,7 +40,7 @@ namespace MDMEPZ.Dto.Integration.Route
             var dseObjects = process.ProducedDSEGroup.ToList();
             foreach (var dseObject in dseObjects)
             {
-                var mdmObject = dseObject.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+                var mdmObject = dseObject.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
                 processPlm.ProducedNomenclatures.Add(Nomenclature.CreateInstance(mdmObject));
             }
 

@@ -33,13 +33,13 @@ namespace MDMEPZ.Service.Integration
             List<Nomenclature> nomListTemp = new List<Nomenclature>();
             foreach (var nom in nomenclatureObjects)
             {
-                var mdm = nom.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+                var mdm = nom.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
                 var nomDto = Nomenclature.CreateInstance(mdm);
                 nomListTemp.Add(nomDto);
             }
 
             bomDto.nomenclatures = nomListTemp.ToArray();
-            var mdmRoot = nomenclature.GetObject(NomenclatureERPReferenceObject.RelationKeys.Nomenclature) as NomenclatureERPReferenceObject;
+            var mdmRoot = nomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
             bomDto.nomenclature = NomenclatureWithRoute.CreateInstance(connection ,mdmRoot);
 
             if (path != null)

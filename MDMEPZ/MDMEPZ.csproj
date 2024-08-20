@@ -449,21 +449,25 @@
     <Compile Include="Model\Materials\VariantsMaterialsTypes.designer.cs">
       <DependentUpon>VariantsMaterialsTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Nomenclature\NomenclatureERPReference.cs" />
-    <Compile Include="Model\Nomenclature\NomenclatureERPReference.designer.cs">
-      <DependentUpon>NomenclatureERPReference.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Nomenclature\NomenclatureERPReferenceObject.cs" />
     <Compile Include="Model\Nomenclature\NomenclatureERPReferenceObject.designer.cs">
       <DependentUpon>NomenclatureERPReferenceObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Nomenclature\NomenclatureERPType.cs" />
-    <Compile Include="Model\Nomenclature\NomenclatureERPType.designer.cs">
-      <DependentUpon>NomenclatureERPType.cs</DependentUpon>
+    <Compile Include="Model\Nomenclature\NomenclatureMDMReference.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureMDMReference.designer.cs">
+      <DependentUpon>NomenclatureMDMReference.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Nomenclature\NomenclatureERPTypes.cs" />
-    <Compile Include="Model\Nomenclature\NomenclatureERPTypes.designer.cs">
-      <DependentUpon>NomenclatureERPTypes.cs</DependentUpon>
+    <Compile Include="Model\Nomenclature\NomenclatureMDMReferenceObject.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureMDMReferenceObject.designer.cs">
+      <DependentUpon>NomenclatureMDMReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureMDMType.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureMDMType.designer.cs">
+      <DependentUpon>NomenclatureMDMType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureMDMTypes.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureMDMTypes.designer.cs">
+      <DependentUpon>NomenclatureMDMTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Division\DevisionReference.cs" />
     <Compile Include="Model\Division\DevisionReference.designer.cs">
@@ -480,6 +484,10 @@
     <Compile Include="Model\Division\DevisionTypes.cs" />
     <Compile Include="Model\Division\DevisionTypes.designer.cs">
       <DependentUpon>DevisionTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nomenclature\NomenclatureITRPReferenceObject.cs" />
+    <Compile Include="Model\Nomenclature\NomenclatureITRPReferenceObject.designer.cs">
+      <DependentUpon>NomenclatureITRPReferenceObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Operation\OperationReference.cs" />
     <Compile Include="Model\Operation\OperationReference.designer.cs">

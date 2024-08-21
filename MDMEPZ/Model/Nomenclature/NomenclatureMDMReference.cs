@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.NomenclatureERP{
+namespace TFlex.DOCs.References.NomenclatureERP
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -20,6 +21,8 @@ namespace TFlex.DOCs.References.NomenclatureERP{
     using TFlex.DOCs.References.GroupFinanceNomenclature;
     using MDMEPZ.Exception;
     using TFlex.Model.Technology.References.Materials;
+    using TFlex.DOCs.References.NomenclatureMDM;
+    using MDMEPZ.Dto.ITRP;
 
     public partial class NomenclatureMDMReference : SpecialReference<NomenclatureMDMReferenceObject>
     {
@@ -57,7 +60,9 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             {
                 throw new ExceptionMDM("Объект с таким guid уже существует");
             }
-            var erpObject = CreateReferenceObject() as NomenclatureMDMReferenceObject;
+
+            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var erpObject = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureERPReferenceObject;
 
             erpObject.StartUpdate();
             erpObject.Denotation.Value = nom.Denotation;
@@ -80,8 +85,8 @@ namespace TFlex.DOCs.References.NomenclatureERP{
         /// <returns></returns>
         public ReferenceObject CreateReferenceObject(Nomenclature product)
         {
-
-            var o = CreateReferenceObject() as NomenclatureMDMReferenceObject;
+            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var o = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureERPReferenceObject;
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
@@ -133,6 +138,19 @@ namespace TFlex.DOCs.References.NomenclatureERP{
                 o.GroupFinanceNomenclature = groupFinance;
             }
 
+            return o;
+        }
+
+        /// <summary>
+        /// Создает номенклатуру ИТРП на основе данных из ИТРП
+        /// </summary>
+        /// <param name="nomenclatureItrpMain"></param>
+        /// <returns></returns>
+        public NomenclatureITRPReferenceObject CreateReferenceObject(NomenclatureItrpMain nomenclatureItrpMain) {
+            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var o = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureITRPReferenceObject;
+            o.StartUpdate();
+            o.EndUpdate("");
             return o;
         }
 
@@ -207,4 +225,5 @@ namespace TFlex.DOCs.References.NomenclatureERP{
             var materialPdm = material.GetLinkedNomenclatureObject();
             return FindByPdmObject(materialPdm);
         }
-    }}
+    }
+}

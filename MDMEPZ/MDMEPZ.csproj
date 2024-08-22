@@ -603,6 +603,22 @@
     <Compile Include="Model\References1C\GroupList\GroupListTypes.designer.cs">
       <DependentUpon>GroupListTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCReference.cs" />
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCReference.designer.cs">
+      <DependentUpon>TypeTMCReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCReferenceObject.cs" />
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCReferenceObject.designer.cs">
+      <DependentUpon>TypeTMCReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCType.cs" />
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCType.designer.cs">
+      <DependentUpon>TypeTMCType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCTypes.cs" />
+    <Compile Include="Model\References1C\ITRP\TypeTMC\TypeTMCTypes.designer.cs">
+      <DependentUpon>TypeTMCTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReference.cs" />
     <Compile Include="Model\References1C\newConnection\ConnectionNomenclaturesReference.designer.cs">
       <DependentUpon>ConnectionNomenclaturesReference.cs</DependentUpon>

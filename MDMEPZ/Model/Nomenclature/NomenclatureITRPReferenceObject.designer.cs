@@ -10,195 +10,213 @@
 
 namespace TFlex.DOCs.References.NomenclatureMDM
 {
-	using System;
-	using TFlex.DOCs.Model.References;
-	using TFlex.DOCs.Model.Structure;
-	using TFlex.DOCs.Model.References.Links;
-	using TFlex.DOCs.Model.Classes;
-	using TFlex.DOCs.Model.Parameters;
+    using System;
+    using TFlex.DOCs.Model.References;
+    using TFlex.DOCs.Model.Structure;
+    using TFlex.DOCs.Model.References.Links;
+    using TFlex.DOCs.Model.Classes;
+    using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Model.Nomenclature.UnitOfMeasurementITRP;
+    using TFlex.DOCs.References.TypeTMC;
 
 
     /// <summary>
     /// Представляет объект "Номенклатура ИТРП" справочника "Номенклатура ERP" или порождённый от него
     /// </summary>
-    public partial class NomenclatureITRPReferenceObject:NomenclatureMDMReferenceObject
-	{
-		
-		internal NomenclatureITRPReferenceObject(NomenclatureMDMReference reference) : 
-				base(reference)
-		{
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Наименование"
-		/// </summary>
-		public StringParameter Name
-		{
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.Name]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Обозначение"
-		/// </summary>
-		public StringParameter Denotation
-		{
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.Denotation]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Вес"
-		/// </summary>
-		public DoubleParameter Weight
-		{
-			get
-			{
-				return ((DoubleParameter)(this[FieldKeys.Weight]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "GUID(1C)"
-		/// </summary>
-		public GuidParameter GUID1C
-		{
-			get
-			{
-				return ((GuidParameter)(this[FieldKeys.GUID1C]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "GUID(T-FLEX)"
-		/// </summary>
-		public GuidParameter GUIDTFLEX
-        {
-			get
-			{
-				return ((GuidParameter)(this[FieldKeys.GUIDTFLEX]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Типовое"
-		/// </summary>
-		public BooleanParameter IsTypical
-        {
-			get
-			{
-				return ((BooleanParameter)(this[FieldKeys.IsTypical]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "КодЕламед"
-		/// </summary>
-		public StringParameter CodeElamed
-		{
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.CodeElamed]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Актуальность записи"
-		/// </summary>
-		public BooleanParameter IsActual
-		{
-			get
-			{
-				return ((BooleanParameter)(this[FieldKeys.IsActual]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "НаименованиеДляВвода"
-		/// </summary>
-		public StringParameter NameForInput
-        {
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.NameForInput]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "НаименованиеПолное"
-		/// </summary>
-		public StringParameter NameFull
-        {
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.NameFull]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "ID53"
-		/// </summary>
-		public Int32Parameter ID53
-		{
-			get
-			{
-				return ((Int32Parameter)(this[FieldKeys.ID53]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Артикул"
-		/// </summary>
-		public StringParameter Articul
-        {
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.Articul]));
-			}
-		}
-		
-		/// <summary>
-		/// Возвращает параметр "Код"
-		/// </summary>
-		public StringParameter Code
-		{
-			get
-			{
-				return ((StringParameter)(this[FieldKeys.Code]));
-			}
-		}
+    public partial class NomenclatureITRPReferenceObject : NomenclatureMDMReferenceObject
+    {
 
-		/// <summary>
-		/// Создать объект списка Единицы измерения
-		/// </summary>
-		/// <returns></returns>
-		public UnitOfMesurementITRPReferenceObject CreateUnitsOfMeasurement(Guid type)
-		{
-			var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList, type);
-			return new UnitOfMesurementITRPReferenceObject(obj);
-		}
-		/// <summary>
-		/// Создать объект списка Единицы
-		/// </summary>
-		/// <returns></returns>
-		public UnitITRPReferenceObject CreateUnit()
-		{
-			var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsList);
-			return new UnitITRPReferenceObject(obj);
-		}
+        internal NomenclatureITRPReferenceObject(NomenclatureMDMReference reference) :
+                base(reference)
+        {
+        }
 
-		public static class TypesOfListUnitsOfMeasurement
-		{
-			/// <summary>
-			/// тип списка Единицы Измерения Базовая единица измерения
-			/// </summary>
-			public static readonly Guid BaseUnitOfMeasurementClass = new Guid("0b20a3d6-787d-47ac-910e-fdb5a56f96ef");
+        /// <summary>
+        /// Возвращает параметр "Наименование"
+        /// </summary>
+        public StringParameter Name
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.Name]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Обозначение"
+        /// </summary>
+        public StringParameter Denotation
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.Denotation]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Вес"
+        /// </summary>
+        public DoubleParameter Weight
+        {
+            get
+            {
+                return ((DoubleParameter)(this[FieldKeys.Weight]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "GUID(1C)"
+        /// </summary>
+        public GuidParameter GUID1C
+        {
+            get
+            {
+                return ((GuidParameter)(this[FieldKeys.GUID1C]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "GUID(T-FLEX)"
+        /// </summary>
+        public GuidParameter GUIDTFLEX
+        {
+            get
+            {
+                return ((GuidParameter)(this[FieldKeys.GUIDTFLEX]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Типовое"
+        /// </summary>
+        public BooleanParameter IsTypical
+        {
+            get
+            {
+                return ((BooleanParameter)(this[FieldKeys.IsTypical]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "КодЕламед"
+        /// </summary>
+        public StringParameter CodeElamed
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.CodeElamed]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Актуальность записи"
+        /// </summary>
+        public BooleanParameter IsActual
+        {
+            get
+            {
+                return ((BooleanParameter)(this[FieldKeys.IsActual]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "НаименованиеДляВвода"
+        /// </summary>
+        public StringParameter NameForInput
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.NameForInput]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "НаименованиеПолное"
+        /// </summary>
+        public StringParameter NameFull
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.NameFull]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "ID53"
+        /// </summary>
+        public Int32Parameter ID53
+        {
+            get
+            {
+                return ((Int32Parameter)(this[FieldKeys.ID53]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Артикул"
+        /// </summary>
+        public StringParameter Articul
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.Articul]));
+            }
+        }
+
+        /// <summary>
+        /// Возвращает параметр "Код"
+        /// </summary>
+        public StringParameter Code
+        {
+            get
+            {
+                return ((StringParameter)(this[FieldKeys.Code]));
+            }
+        }
+
+        public TypeTMCReferenceObject TypeTMC
+        {
+            get
+            {
+                return GetObject(NomenclatureITRPReferenceObject.RelationKeys.TypeRecordTMC) as TypeTMCReferenceObject;
+            }
+            set
+            {
+                SetLinkedObject(NomenclatureITRPReferenceObject.RelationKeys.TypeRecordTMC, value);
+            }
+        }
+
+        /// <summary>
+        /// Создать объект списка Единицы измерения
+        /// </summary>
+        /// <returns></returns>
+        public UnitOfMesurementITRPReferenceObject CreateUnitsOfMeasurement(Guid type)
+        {
+            var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList, type);
+            return new UnitOfMesurementITRPReferenceObject(obj);
+        }
+        /// <summary>
+        /// Создать объект списка Единицы
+        /// </summary>
+        /// <returns></returns>
+        public UnitITRPReferenceObject CreateUnit()
+        {
+            var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsList);
+            return new UnitITRPReferenceObject(obj);
+        }
+
+        public new string TypeReproduction
+        {
+            get { return this[NomenclatureITRPReferenceObject.FieldKeys.TypeReproduction].GetString(); }
+            set { this[NomenclatureITRPReferenceObject.FieldKeys.TypeReproduction].Value = value; }
+        }
+        public static class TypesOfListUnitsOfMeasurement
+        {
+            /// <summary>
+            /// тип списка Единицы Измерения Базовая единица измерения
+            /// </summary>
+            public static readonly Guid BaseUnitOfMeasurementClass = new Guid("0b20a3d6-787d-47ac-910e-fdb5a56f96ef");
             /// <summary>
             /// тип списка Единицы Измерения Единица хранения Остатков
             /// </summary>
@@ -210,23 +228,24 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 
         }
 
-		public static class FieldKeysOfListUnitsOfMeasurement
-		{
-			/// <summary>
-			/// гуид параметра UID единицы измерения из списка объектов Единицы Измерения
-			/// </summary>
-			public static readonly Guid UID = new Guid("c4857482-578f-4676-af34-97ee9899d555");
+        public static class FieldKeysOfListUnitsOfMeasurement
+        {
+            /// <summary>
+            /// гуид параметра UID единицы измерения из списка объектов Единицы Измерения
+            /// </summary>
+            public static readonly Guid UID = new Guid("c4857482-578f-4676-af34-97ee9899d555");
             /// <summary>
             /// гуид параметра Наименование единицы измерения из списка объектов Единицы Измерения
             /// </summary>
             public static readonly Guid Name = new Guid("b4d20392-a341-4267-a67a-9b6da34ca853");
-		}
+        }
 
-		public static class FieldKeysUnits {
-			/// <summary>
-			/// guid параметра наименование из списка объектов Единицы
-			/// </summary>
-			public static readonly Guid Name = new Guid("82efddd5-c39b-4b9a-95c5-d0b62ff4bd42");
+        public static class FieldKeysUnits
+        {
+            /// <summary>
+            /// guid параметра наименование из списка объектов Единицы
+            /// </summary>
+            public static readonly Guid Name = new Guid("82efddd5-c39b-4b9a-95c5-d0b62ff4bd42");
             /// <summary>
             /// guid параметра Единица измерения код из списка объектов Единицы
             /// </summary>
@@ -239,6 +258,6 @@ namespace TFlex.DOCs.References.NomenclatureMDM
             /// guid параметра UID из списка объектов Единицы
             /// </summary>
             public static readonly Guid UID = new Guid("bee0ae90-788d-43fd-af9c-1d674fe34ba1");
-		}
+        }
     }
 }

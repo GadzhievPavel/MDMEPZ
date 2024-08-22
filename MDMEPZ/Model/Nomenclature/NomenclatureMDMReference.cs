@@ -23,6 +23,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
     using TFlex.Model.Technology.References.Materials;
     using TFlex.DOCs.References.NomenclatureMDM;
     using MDMEPZ.Dto.ITRP;
+    using TFlex.DOCs.References.TypeTMC;
 
     public partial class NomenclatureMDMReference : SpecialReference<NomenclatureMDMReferenceObject>
     {
@@ -98,8 +99,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
             o.GUID1C.Value = new Guid(product.guid1C);
             o.IsTypical.Value = product.isTypical;
             o.CodeElamed.Value = product.codeElamed;
-            
-            
+
+
             if (product.denotation != null)
             {
                 o.Denotation.Value = product.denotation;
@@ -107,7 +108,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             o.Weight.Value = product.weight;
 
             var productCategory = categoryProductReference.FindByGuid1C(product);
-            if(productCategory!= null)
+            if (productCategory != null)
             {
                 o.ProductCategory = productCategory;
             }
@@ -127,7 +128,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 o.TypeNomenclature = typeNomenclature;
             }
             var unitsOfMeasurement = unitOfMeasurementReference.FindByGuid1C(product.unitOfMeasurement);
-            if(unitsOfMeasurement != null)
+            if (unitsOfMeasurement != null)
             {
                 o.UnitsOfMeasurement = unitsOfMeasurement;
             }
@@ -152,7 +153,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// </summary>
         /// <param name="nomenclatureItrpMain"></param>
         /// <returns></returns>
-        public NomenclatureITRPReferenceObject CreateReferenceObject(NomenclatureItrpMain nomenclatureItrpMain) {
+        public NomenclatureITRPReferenceObject CreateReferenceObject(NomenclatureItrpMain nomenclatureItrpMain)
+        {
             //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
             var o = CreateReferenceObject(itrpClass) as NomenclatureITRPReferenceObject;
             o.StartUpdate();
@@ -165,7 +167,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             o.Articul.Value = nomenclatureItrpMain.Артикул;
             o.Code.Value = nomenclatureItrpMain.Код;
             var baseUnitMeasurement = nomenclatureItrpMain.БазоваяЕдиницаИзмерения;
-            if(baseUnitMeasurement != null)
+            if (baseUnitMeasurement != null)
             {
                 var baseUnitReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.BaseUnitOfMeasurementClass);
                 baseUnitReferenceObject.UID = baseUnitMeasurement.UID;
@@ -173,7 +175,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 baseUnitReferenceObject.EndUpdate("создана единица измерения");
             }
             var unitStorageRemains = nomenclatureItrpMain.ЕдиницаХраненияОстатков;
-            if(unitStorageRemains != null)
+            if (unitStorageRemains != null)
             {
                 var unitStorageRemainsReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.UnitOfMeasurementStorageRemainsClass);
                 unitStorageRemainsReferenceObject.UID = unitStorageRemains.UID;
@@ -181,7 +183,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 unitStorageRemainsReferenceObject.EndUpdate("создана единица измерения");
             }
             var unitAccountInProduction = nomenclatureItrpMain.ЕдиницаУчетаВПроизводстве;
-            if(unitAccountInProduction != null)
+            if (unitAccountInProduction != null)
             {
                 var unitAccountInProductionReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.UnitOfMeasurementAccountInProduction);
                 unitAccountInProductionReferenceObject.UID = unitAccountInProduction.UID;
@@ -189,11 +191,11 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 unitAccountInProductionReferenceObject.EndUpdate("создана единица измерения");
             }
             var units = nomenclatureItrpMain.Единицы;
-            if(units != null)
+            if (units != null)
             {
-                foreach(var unit in units)
+                foreach (var unit in units)
                 {
-                    if(unit != null)
+                    if (unit != null)
                     {
                         var unitReferenceObject = o.CreateUnit();
                         unitReferenceObject.Koeff = unit.ЕдиницыИзмеренияКоэффициент;
@@ -204,6 +206,14 @@ namespace TFlex.DOCs.References.NomenclatureERP
                     }
                 }
             }
+            var typeTMCReference = new TypeTMCReference(this.Connection);
+            if (nomenclatureItrpMain.ВидУчетаТМЦ != null)
+            {
+                var typeTMCReferenceObject = typeTMCReference.FindByGuid1C(new Guid(nomenclatureItrpMain.ВидУчетаТМЦ.UID));
+                o.TypeTMC = typeTMCReferenceObject;
+            }
+
+            o.TypeReproduction = nomenclatureItrpMain.ВидВоспроизводства;
             o.EndUpdate("");
             return o;
         }
@@ -265,7 +275,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <returns></returns>
         public NomenclatureMDMReferenceObject FindByPdmObject(NomenclatureObject nom)
         {
-            return Find(Filter.Parse($"[Номенклатура] = '{nom}'" , this.ParameterGroup)).FirstOrDefault() as NomenclatureMDMReferenceObject;
+            return Find(Filter.Parse($"[Номенклатура] = '{nom}'", this.ParameterGroup)).FirstOrDefault() as NomenclatureMDMReferenceObject;
         }
 
         /// <summary>

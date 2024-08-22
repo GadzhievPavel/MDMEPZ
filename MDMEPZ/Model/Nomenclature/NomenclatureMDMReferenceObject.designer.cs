@@ -399,6 +399,11 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// </summary>
             public static readonly Guid Code = new Guid("675d4b1f-e154-4737-89e7-1a9f78cceb78");
 
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Вид воспроизводства"
+            /// </summary>
+            public static readonly Guid TypeReproduction = new Guid("a20ce066-638c-4712-8f0d-ef4b50e49f18");
+
         }
 
         /// <summary>

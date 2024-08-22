@@ -17,6 +17,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 	using TFlex.DOCs.Model.Classes;
 	using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.References.NomenclatureERP;
+    using MDMEPZ.Model.Nomenclature.UnitOfMeasurementITRP;
 
 
     /// <summary>
@@ -172,5 +173,72 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 				return ((StringParameter)(this[FieldKeys.Code]));
 			}
 		}
-	}
+
+		/// <summary>
+		/// Создать объект списка Единицы измерения
+		/// </summary>
+		/// <returns></returns>
+		public UnitOfMesurementITRPReferenceObject CreateUnitsOfMeasurement(Guid type)
+		{
+			var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList, type);
+			return new UnitOfMesurementITRPReferenceObject(obj);
+		}
+		/// <summary>
+		/// Создать объект списка Единицы
+		/// </summary>
+		/// <returns></returns>
+		public UnitITRPReferenceObject CreateUnit()
+		{
+			var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsList);
+			return new UnitITRPReferenceObject(obj);
+		}
+
+		public static class TypesOfListUnitsOfMeasurement
+		{
+			/// <summary>
+			/// тип списка Единицы Измерения Базовая единица измерения
+			/// </summary>
+			public static readonly Guid BaseUnitOfMeasurementClass = new Guid("0b20a3d6-787d-47ac-910e-fdb5a56f96ef");
+            /// <summary>
+            /// тип списка Единицы Измерения Единица хранения Остатков
+            /// </summary>
+            public static readonly Guid UnitOfMeasurementStorageRemainsClass = new Guid("cf145736-dfa6-4ead-86f5-6b3fcbed9549");
+            /// <summary>
+            /// тип списка Единицы Измерения Единица учета в производстве
+            /// </summary>
+            public static readonly Guid UnitOfMeasurementAccountInProduction = new Guid("f057f8f8-9e34-43e7-90af-cec53249f188");
+
+        }
+
+		public static class FieldKeysOfListUnitsOfMeasurement
+		{
+			/// <summary>
+			/// гуид параметра UID единицы измерения из списка объектов Единицы Измерения
+			/// </summary>
+			public static readonly Guid UID = new Guid("c4857482-578f-4676-af34-97ee9899d555");
+            /// <summary>
+            /// гуид параметра Наименование единицы измерения из списка объектов Единицы Измерения
+            /// </summary>
+            public static readonly Guid Name = new Guid("b4d20392-a341-4267-a67a-9b6da34ca853");
+		}
+
+		public static class FieldKeysUnits {
+			/// <summary>
+			/// guid параметра наименование из списка объектов Единицы
+			/// </summary>
+			public static readonly Guid Name = new Guid("82efddd5-c39b-4b9a-95c5-d0b62ff4bd42");
+            /// <summary>
+            /// guid параметра Единица измерения код из списка объектов Единицы
+            /// </summary>
+            public static readonly Guid UnitOfMeasurementCode = new Guid("df09a3ba-021a-4c26-a1af-1065f3708a37");
+            /// <summary>
+            /// guid параметра Единица измерения коэффициент из списка объектов Единицы
+            /// </summary>
+            public static readonly Guid UnitOfMeasurementKoeff = new Guid("8413170b-4cc6-471a-a87b-d0e674667f75");
+            /// <summary>
+            /// guid параметра UID из списка объектов Единицы
+            /// </summary>
+            public static readonly Guid UID = new Guid("bee0ae90-788d-43fd-af9c-1d674fe34ba1");
+		}
+    }
 }

@@ -34,12 +34,18 @@ namespace TFlex.DOCs.References.NomenclatureERP
         protected UnitOfMeasurementReference unitOfMeasurementReference;
         protected GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
 
+        private ClassObject erpClass;
+        private ClassObject itrpClass;
+
         public partial class Factory
         {
         }
 
         private void loadSupportReference()
         {
+            erpClass = this.Classes.AllClasses.Where(cl => cl.Guid.Equals(NomenclatureMDMTypes.Keys.NomenclatureERP)).FirstOrDefault();
+            itrpClass = this.Classes.AllClasses.Where((cl) => cl.Guid.Equals(NomenclatureMDMTypes.Keys.NomenclatureITRP)).FirstOrDefault();
+
             categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
             groupListReference = this.Connection.ReferenceCatalog.Find(GroupListReference.ReferenceId).CreateReference() as GroupListReference;
             typeReproductionERPReference = this.Connection.ReferenceCatalog.Find(TypeReproductionERPReference.ReferenceId).CreateReference() as TypeReproductionERPReference;
@@ -61,8 +67,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
                 throw new ExceptionMDM("Объект с таким guid уже существует");
             }
 
-            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
-            var erpObject = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureERPReferenceObject;
+            //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var erpObject = CreateReferenceObjectForClass(erpClass) as NomenclatureERPReferenceObject;
 
             erpObject.StartUpdate();
             erpObject.Denotation.Value = nom.Denotation;
@@ -85,8 +91,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <returns></returns>
         public ReferenceObject CreateReferenceObject(Nomenclature product)
         {
-            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
-            var o = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureERPReferenceObject;
+            //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var o = CreateReferenceObjectForClass(erpClass) as NomenclatureERPReferenceObject;
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);
@@ -147,9 +153,57 @@ namespace TFlex.DOCs.References.NomenclatureERP
         /// <param name="nomenclatureItrpMain"></param>
         /// <returns></returns>
         public NomenclatureITRPReferenceObject CreateReferenceObject(NomenclatureItrpMain nomenclatureItrpMain) {
-            NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
-            var o = CreateReferenceObjectForClass(nomenclatureMDMTypes.NomenclatureERP) as NomenclatureITRPReferenceObject;
+            //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
+            var o = CreateReferenceObject(itrpClass) as NomenclatureITRPReferenceObject;
             o.StartUpdate();
+            o.Name.Value = nomenclatureItrpMain.Наименование;
+            o.NameForInput.Value = nomenclatureItrpMain.НаименованиеДляВвода;
+            o.NameFull.Value = nomenclatureItrpMain.НаименованиеПолное;
+            o.Denotation.Value = nomenclatureItrpMain.Обозначение;
+            o.GUID1C.Value = new Guid(nomenclatureItrpMain.UID);
+            o.ID53.Value = nomenclatureItrpMain.ID53;
+            o.Articul.Value = nomenclatureItrpMain.Артикул;
+            o.Code.Value = nomenclatureItrpMain.Код;
+            var baseUnitMeasurement = nomenclatureItrpMain.БазоваяЕдиницаИзмерения;
+            if(baseUnitMeasurement != null)
+            {
+                var baseUnitReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.BaseUnitOfMeasurementClass);
+                baseUnitReferenceObject.UID = baseUnitMeasurement.UID;
+                baseUnitReferenceObject.Name = baseUnitMeasurement.Наименование;
+                baseUnitReferenceObject.EndUpdate("создана единица измерения");
+            }
+            var unitStorageRemains = nomenclatureItrpMain.ЕдиницаХраненияОстатков;
+            if(unitStorageRemains != null)
+            {
+                var unitStorageRemainsReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.UnitOfMeasurementStorageRemainsClass);
+                unitStorageRemainsReferenceObject.UID = unitStorageRemains.UID;
+                unitStorageRemainsReferenceObject.Name = unitStorageRemains.Наименование;
+                unitStorageRemainsReferenceObject.EndUpdate("создана единица измерения");
+            }
+            var unitAccountInProduction = nomenclatureItrpMain.ЕдиницаУчетаВПроизводстве;
+            if(unitAccountInProduction != null)
+            {
+                var unitAccountInProductionReferenceObject = o.CreateUnitsOfMeasurement(NomenclatureITRPReferenceObject.TypesOfListUnitsOfMeasurement.UnitOfMeasurementAccountInProduction);
+                unitAccountInProductionReferenceObject.UID = unitAccountInProduction.UID;
+                unitAccountInProductionReferenceObject.Name = unitAccountInProduction.Наименование;
+                unitAccountInProductionReferenceObject.EndUpdate("создана единица измерения");
+            }
+            var units = nomenclatureItrpMain.Единицы;
+            if(units != null)
+            {
+                foreach(var unit in units)
+                {
+                    if(unit != null)
+                    {
+                        var unitReferenceObject = o.CreateUnit();
+                        unitReferenceObject.Koeff = unit.ЕдиницыИзмеренияКоэффициент;
+                        unitReferenceObject.Code = unit.ЕдиницыИзмеренияКод;
+                        unitReferenceObject.UID = unit.UID;
+                        unitReferenceObject.Name = unit.ЕдиницыИзмеренияНаименование;
+                        unitReferenceObject.EndUpdate("создание единицы");
+                    }
+                }
+            }
             o.EndUpdate("");
             return o;
         }

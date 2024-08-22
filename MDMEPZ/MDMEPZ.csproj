@@ -489,6 +489,8 @@
     <Compile Include="Model\Nomenclature\NomenclatureITRPReferenceObject.designer.cs">
       <DependentUpon>NomenclatureITRPReferenceObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Nomenclature\UnitOfMeasurementITRP\UnitITRPReferenceObject.cs" />
+    <Compile Include="Model\Nomenclature\UnitOfMeasurementITRP\UnitOfMesurementITRPReferenceObject.cs" />
     <Compile Include="Model\Operation\OperationReference.cs" />
     <Compile Include="Model\Operation\OperationReference.designer.cs">
       <DependentUpon>OperationReference.cs</DependentUpon>
@@ -772,6 +774,7 @@
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Service\ServiceOperation.cs" />
     <Compile Include="Util\At3bootSerializator.cs" />
+    <Compile Include="Util\BaseObjectTFlex.cs" />
     <Compile Include="Util\LogTFlex.cs" />
     <Compile Include="Util\ReferenceObjectExtensions.cs" />
   </ItemGroup>

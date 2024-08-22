@@ -10,9 +10,11 @@ namespace MDMEPZ.Dto.ITRP
 /// </summary>
     public class NomenclatureItrpMain
     {
+        public string UID { get; set; }
         public string Наименование { get;set; }
         public string НаименованиеДляВвода { get; set; }
         public string НаименованиеПолное { get; set; }
+        public string Обозначение { get; set; }
         public int ID53 { get; set; }
         public string Артикул {  get; set; }
         public string Код { get; set; }

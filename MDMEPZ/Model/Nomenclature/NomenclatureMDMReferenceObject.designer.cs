@@ -255,6 +255,27 @@ namespace TFlex.DOCs.References.NomenclatureERP
         }
 
         /// <summary>
+		/// Возвращает объекты списка "Единицы измерения"
+		/// </summary>
+        public ReferenceObjectCollection UnitsOfMeasurementList
+        {
+            get
+            {
+                return Links.ToMany[RelationKeys.UnitsOfMeasurement].Objects;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает объекты списка "Единицы"
+        /// </summary>
+        public ReferenceObjectCollection UnitsList
+        {
+            get
+            {
+                return Links.ToMany[RelationKeys.UnitsList].Objects;
+            }
+        }
+        /// <summary>
         /// Возвращает или задаёт связанный объект справочника "Применение материала" по связи "Используемые материалы"
         /// </summary>
         //public ReferenceObject MaterialUsed
@@ -587,6 +608,16 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// Представляет уникальный идентификатор (GUID) связи "Вид учета ТМЦ"
             /// </summary>
             public static readonly Guid TypeRecordTMC = new Guid("16a38cef-325a-4f11-a8e3-9b644d75d05b");
+
+            /// <summary>
+			/// Представляет уникальный идентификатор (GUID) списка объектов "Единицы измерения"
+			/// </summary>
+            public static readonly Guid UnitsOfMeasurementList = new Guid("a997ffb6-7d44-40ad-81df-9a3d7396dee2");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) списка объектов "Единицы"
+            /// </summary>
+            public static readonly Guid UnitsList = new Guid("de540b61-fd8d-4664-bb86-3648cdc6b14d");
 
         }
     }

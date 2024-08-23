@@ -82,6 +82,7 @@
     <Compile Include="Dto\ITRP\FullUnitOfMeasurementItrp.cs" />
     <Compile Include="Dto\ITRP\NomenclatureItrpMain.cs" />
     <Compile Include="Dto\ITRP\TypeReproductionITRP.cs" />
+    <Compile Include="Dto\ITRP\TypesTmcForNomenclature.cs" />
     <Compile Include="Dto\ITRP\TypeTmcForNomenclature.cs" />
     <Compile Include="Dto\Nomenclature\MaterialApplicated.cs" />
     <Compile Include="Dto\Nomenclature\Nomenclature.cs" />

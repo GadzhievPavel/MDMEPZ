@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Dto.ITRP
 {
-    public class TypeTmcForNomenclature
+    public class TypesTmcForNomenclature
     {
-        public string name;
-        public string UID;
+        public List<TypeTmcForNomenclature> typeTmcForNomenclatures { get; set; }
     }
 }

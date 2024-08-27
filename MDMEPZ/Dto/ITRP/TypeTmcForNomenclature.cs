@@ -8,7 +8,7 @@ namespace MDMEPZ.Dto.ITRP
 {
     public class TypeTmcForNomenclature
     {
-        public string name { get; set; }
         public string UID { get; set; }
+        public string name { get; set; }
     }
 }

@@ -19,6 +19,8 @@ namespace TFlex.DOCs.References.NomenclatureMDM
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Model.Nomenclature.UnitOfMeasurementITRP;
     using TFlex.DOCs.References.TypeTMC;
+    using System.Collections.Generic;
+    using System.Linq;
 
 
     /// <summary>
@@ -196,6 +198,15 @@ namespace TFlex.DOCs.References.NomenclatureMDM
             var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList, type);
             return new UnitOfMesurementITRPReferenceObject(obj);
         }
+
+        /// <summary>
+        /// Вернуть объекты списка Единицы измерения
+        /// </summary>
+        /// <returns></returns>
+        public List<UnitOfMesurementITRPReferenceObject> GetUnitOfMesurementITRPReferenceObjects()
+        {
+            return this.GetObjects(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList).Cast<UnitOfMesurementITRPReferenceObject>().ToList();
+        }
         /// <summary>
         /// Создать объект списка Единицы
         /// </summary>
@@ -204,6 +215,15 @@ namespace TFlex.DOCs.References.NomenclatureMDM
         {
             var obj = this.CreateListObject(NomenclatureITRPReferenceObject.RelationKeys.UnitsList);
             return new UnitITRPReferenceObject(obj);
+        }
+
+        /// <summary>
+        /// Вернуть объекты списка Единицы
+        /// </summary>
+        /// <returns></returns>
+        public List<UnitITRPReferenceObject> GetUnits()
+        {
+            return this.GetObjects(NomenclatureITRPReferenceObject.RelationKeys.UnitsList).Cast<UnitITRPReferenceObject>().ToList();
         }
 
         public new string TypeReproduction

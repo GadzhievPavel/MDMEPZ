@@ -24,5 +24,7 @@ namespace MDMEPZ.Util
         {
             obj.EndUpdate(comment);
         }
+
+        public void Delete() { obj.Delete(); }
     }
 }

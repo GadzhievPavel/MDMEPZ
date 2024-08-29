@@ -7,9 +7,12 @@ namespace TFlex.DOCs.References.Profession
 	using TFlex.DOCs.Model;
     using System.Collections.Generic;
     using MDMEPZ.Util;
+    using MDMEPZ.Model;
+    using TFlex.DOCs.Model.Search;
+    using System.Linq;
 
-    public partial class ProfessionReference : SpecialReference<ProfessionReferenceObject>
-	{
+    public partial class ProfessionReference : SpecialReference<ProfessionReferenceObject>, IFindService
+    {
 		
 		public partial class Factory
 		{
@@ -28,6 +31,11 @@ namespace TFlex.DOCs.References.Profession
             professionReferenceObject.Kod.Value = profession.Код;
 
             return professionReferenceObject;
+        }
+
+        public ReferenceObject FindByGuid1C(Guid guid)
+        {
+            return this.Find(Filter.Parse($"[UID] = '{guid}'", ParameterGroup)).FirstOrDefault();
         }
     }
 }

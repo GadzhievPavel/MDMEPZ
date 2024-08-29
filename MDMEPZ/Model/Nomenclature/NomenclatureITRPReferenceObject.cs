@@ -16,8 +16,16 @@ namespace TFlex.DOCs.References.NomenclatureMDM{	using System;	using TFlex.DO
 			this.TypeReproduction = nomenclatureItrp.¬ид¬оспроизводства;
 
 			var typeTMCReference = new TypeTMCReference(this.Reference.Connection);
-			var typeTMC = typeTMCReference.FindByGuid1C(new Guid(nomenclatureItrp.¬ид”чета“ћ÷.UID));
-			this.TypeTMC = typeTMC;
+            if(nomenclatureItrp.¬ид”чета“ћ÷ is null )
+            {
+                this.TypeTMC = null;
+            }
+            else
+            {
+                var typeTMC = typeTMCReference.FindByGuid1C(new Guid(nomenclatureItrp.¬ид”чета“ћ÷.UID));
+                this.TypeTMC = typeTMC;
+            }
+			
 
 			var unitsOfMesurementITRPReferenceObjects = this.GetUnitOfMesurementITRPReferenceObjects();
 			foreach( var unit in unitsOfMesurementITRPReferenceObjects)

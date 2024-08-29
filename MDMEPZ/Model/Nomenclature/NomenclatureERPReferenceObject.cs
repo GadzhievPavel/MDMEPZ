@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.NomenclatureMDM{
+namespace TFlex.DOCs.References.NomenclatureMDM
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -27,25 +28,81 @@ namespace TFlex.DOCs.References.NomenclatureMDM{
             var connection = Reference.Connection;
 
             var groupFinanceNomenclatureReference = new GroupFinanceNomenclatureReference(connection);
-            this.GroupFinanceNomenclature = groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
+            if(nomenclature.financialGroup is null)
+            {
+                this.GroupFinanceNomenclature = null;
+            }
+            else
+            {
+                this.GroupFinanceNomenclature = groupFinanceNomenclatureReference.FindByGuid1C(new Guid(nomenclature.financialGroup.guid1C));
+            }
+
 
             var groupListReference = new GroupListReference(connection);
-            this.GroupList = groupListReference.FindByGuid1C(new Guid(nomenclature.groupOfList.guid1C));
+            if (nomenclature.groupOfList is null)
+            {
+                this.GroupList = null;
+            }
+            else
+            {
+                this.GroupList = groupListReference.FindByGuid1C(new Guid(nomenclature.groupOfList.guid1C));
+            }
+
 
 
             var categoryProductReference = new CategoryProductReference(connection);
-            this.ProductCategory = categoryProductReference.FindByGuid1C(new Guid(nomenclature.category.guid1C));
+            if(nomenclature.category is null)
+            {
+                this.ProductCategory = null;
+            }
+            else
+            {
+                this.ProductCategory = categoryProductReference.FindByGuid1C(new Guid(nomenclature.category.guid1C));
+            }
+
 
             var typeNomenclatureReference = new TypeNomenclatureERPReference(connection);
-            this.TypeNomenclature = typeNomenclatureReference.FindByGuid1C(new Guid(nomenclature.typeNomenclature.guid1C));
+            if(nomenclature.typeNomenclature is null)
+            {
+                this.TypeNomenclature = null;
+            }
+            else
+            {
+                this.TypeNomenclature = typeNomenclatureReference.FindByGuid1C(new Guid(nomenclature.typeNomenclature.guid1C));
+            }
+
 
             var typeReproduction = new TypeReproductionERPReference(connection);
-            this.TypeReproduction = typeReproduction.FindByGuid1C(new Guid(nomenclature.typeOfReproduction.guid1C));
+            if(nomenclature.typeOfReproduction is null)
+            {
+                this.TypeReproduction = null;
+            }
+            else
+            {
+                this.TypeReproduction = typeReproduction.FindByGuid1C(new Guid(nomenclature.typeOfReproduction.guid1C));
+            }
+
 
             var unitOfMeasurementReference = new UnitOfMeasurementReference(connection);
-            this.UnitOfMeasurementWeight = unitOfMeasurementReference.FindByGuid1C(new Guid(nomenclature.weightUnitOfMeasurement.guid1C));
+            if(nomenclature.weightUnitOfMeasurement is null)
+            {
+                this.UnitOfMeasurementWeight = null;
+            }
+            else
+            {
+                this.UnitOfMeasurementWeight = unitOfMeasurementReference.FindByGuid1C(new Guid(nomenclature.weightUnitOfMeasurement.guid1C));
+            }
 
-            this.UnitsOfMeasurement = unitOfMeasurementReference.FindByGuid1C(new Guid(nomenclature.unitOfMeasurement.guid1C));
+            if(nomenclature.unitOfMeasurement is null)
+            {
+                this.UnitsOfMeasurement = null;
+            }
+            else
+            {
+                this.UnitsOfMeasurement = unitOfMeasurementReference.FindByGuid1C(new Guid(nomenclature.unitOfMeasurement.guid1C));
+            }
+
 
         }
-    }}
+    }
+}

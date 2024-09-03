@@ -37,6 +37,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NotificationsEPZ">
+      <HintPath>..\..\NotificationsEPZ\NotificationsEPZ\bin\Debug\NotificationsEPZ.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -89,6 +92,8 @@
     <Compile Include="Dto\Nomenclature\NomenclatureFromComplectDTO.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureShortDto.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />
+    <Compile Include="Dto\Notification\ListInputs.cs" />
+    <Compile Include="Dto\Notification\NotificationDTO.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
     <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />
     <Compile Include="Dto\Operation\Type\OwnerTypeOperation.cs" />

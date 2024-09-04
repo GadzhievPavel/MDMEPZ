@@ -1,4 +1,5 @@
-﻿using NotificationsEPZ.Changes.ListObjects;
+﻿using NotificationsEPZ;
+using NotificationsEPZ.Changes.ListObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,12 +41,14 @@ namespace MDMEPZ.Dto.Notification
         /// </summary>
         public NomenclatureWithRoute nomenclatureNew { get; set; }
 
-        public static ListInputs CreateInstance(MatchConnection matchConnection, ServerConnection connection)
+        public static ListInputs CreateInstance(Change change, MatchConnection matchConnection, ServerConnection connection)
         {
             var input = new ListInputs();
             var mdmReference = new NomenclatureMDMReference(connection);
             var nomSrc = mdmReference.FindByPdmObject(matchConnection.SourceConnection.ChildObject as NomenclatureObject);
             input.nomenclatureSrc = Nomenclature.CreateInstance(nomSrc);
+            input.usingZadel = change.UsingZadel;
+            input.countBefore = (matchConnection.SourceConnection as NomenclatureHierarchyLink).Amount;
             
             return input;
         }

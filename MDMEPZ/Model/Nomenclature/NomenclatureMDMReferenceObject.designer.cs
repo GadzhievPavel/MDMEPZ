@@ -106,6 +106,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
             }
         }
 
+
+
         /// <summary>
         /// Возвращает параметр "Типовое"
         /// </summary>
@@ -363,6 +365,16 @@ namespace TFlex.DOCs.References.NomenclatureERP
             /// Представляет уникальный идентификатор (GUID) параметра "КодЕламед"
             /// </summary>
             public readonly static Guid CodeElamed = new Guid("249171d8-0b8a-4623-9072-8cbbcbe00934");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Артикул ЕРП"
+            /// </summary>
+            public readonly static Guid Artikul_ERP = new Guid("c30cbbfc-0f37-44d8-bf52-df79953477eb");
+
+            /// <summary>
+            /// Представляет уникальный идентификатор (GUID) параметра "Код БП ЕРП"
+            /// </summary>
+            public readonly static Guid Kod_BP_ERP = new Guid("709346c6-372d-43c4-b963-c3f26d11be96");
 
             /// <summary>
             /// Представляет уникальный идентификатор (GUID) параметра "Типовое"

@@ -99,7 +99,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
             o.GUID1C.Value = new Guid(product.guid1C);
             o.IsTypical.Value = product.isTypical;
             o.CodeElamed.Value = product.codeElamed;
-
+            o.Artikul_ERP.Value = product.article;
+            o.Kod_BP_ERP.Value = product.codeBP;
 
             if (product.denotation != null)
             {

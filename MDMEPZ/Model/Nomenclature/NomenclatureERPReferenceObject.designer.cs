@@ -106,7 +106,30 @@ namespace TFlex.DOCs.References.NomenclatureMDM
 				return ((StringParameter)(this[FieldKeys.CodeElamed]));
 			}
 		}
-		
+
+		/// <summary>
+		/// Возвращает параметр "Артикул ERP"
+		/// </summary>
+		public StringParameter Artikul_ERP
+		{
+			get
+			{
+				return (StringParameter)this[FieldKeys.Artikul_ERP];
+			}
+		}
+
+		/// <summary>
+		/// Возвращает параметр "Код БП ERP"
+		/// </summary>
+		public StringParameter Kod_BP_ERP
+		{
+			get
+			{
+				return (StringParameter)this[FieldKeys.Kod_BP_ERP];
+			}
+		}
+
+
 		/// <summary>
 		/// Возвращает параметр "Актуальность записи"
 		/// </summary>

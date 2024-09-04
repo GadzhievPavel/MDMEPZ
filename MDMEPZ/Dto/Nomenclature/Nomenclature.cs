@@ -98,6 +98,14 @@ namespace MDMEPZ.Dto
         /// </summary>
         public string codeElamed { get; set; }
         /// <summary>
+        /// Код БП
+        /// </summary>
+        public string codeBP { get; set; }
+        /// <summary>
+        /// Артикул
+        /// </summary>
+        public string article { get; set; }
+        /// <summary>
         /// Единица измерения массы
         /// </summary>
         public UnitOfMeasurementFull weightUnitOfMeasurement { get; set; }

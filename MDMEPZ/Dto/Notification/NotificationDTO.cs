@@ -75,6 +75,7 @@ namespace MDMEPZ.Dto.Notification
                 noticeDto.ListTMC.Add(Nomenclature.CreateInstance(mdmReference.FindByPdmObject(item)));
             }
 
+            //foreach(var item in notification)
 
             return noticeDto;
         }

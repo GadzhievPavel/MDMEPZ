@@ -46,6 +46,7 @@ namespace MDMEPZ.Dto.Notification
             var mdmReference = new NomenclatureMDMReference(connection);
             var nomSrc = mdmReference.FindByPdmObject(matchConnection.SourceConnection.ChildObject as NomenclatureObject);
             input.nomenclatureSrc = Nomenclature.CreateInstance(nomSrc);
+            
             return input;
         }
     }

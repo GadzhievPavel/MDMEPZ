@@ -205,7 +205,13 @@ namespace TFlex.DOCs.References.NomenclatureMDM
         /// <returns></returns>
         public List<UnitOfMesurementITRPReferenceObject> GetUnitOfMesurementITRPReferenceObjects()
         {
-            return this.GetObjects(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList).Cast<UnitOfMesurementITRPReferenceObject>().ToList();
+            var listObj = this.GetObjects(NomenclatureITRPReferenceObject.RelationKeys.UnitsOfMeasurementList);
+            var response = new List<UnitOfMesurementITRPReferenceObject>();
+            foreach ( var obj in listObj )
+            {
+                response.Add(new UnitOfMesurementITRPReferenceObject(obj));
+            }
+            return response;
         }
         /// <summary>
         /// Создать объект списка Единицы

@@ -10,7 +10,7 @@ using TFlex.DOCs.References.NomenclatureERP;
 
 namespace MDMEPZ.Dto.Notification
 {
-    public class NotificationDTO
+    public class NotificationITRPDTO
     {
         /// <summary>
         /// Номер извещения в ИТРП
@@ -57,9 +57,9 @@ namespace MDMEPZ.Dto.Notification
         /// </summary>
         public List<ListInputs> ListInputsNomenclatures { get; set;}
 
-        public static NotificationDTO CreateInstance(NotificationEPZ notification, ServerConnection serverConnection)
+        public static NotificationITRPDTO CreateInstance(NotificationEPZ notification, ServerConnection serverConnection)
         {
-            var noticeDto = new NotificationDTO();
+            var noticeDto = new NotificationITRPDTO();
             noticeDto.NumberNotificationITRP = notification.NumberNotificationITRP;
             noticeDto.DateActionSince = notification.DateActionSince;
             noticeDto.IsComplect = notification.IsComplect;
@@ -70,7 +70,7 @@ namespace MDMEPZ.Dto.Notification
             noticeDto.NumberITRPBaseNotice = notification.SourceNotice.NumberNotificationITRP;
             noticeDto.Comment = notification.Comment;
             noticeDto.ListTMC = new List<Nomenclature>();
-            foreach(var item in notification.getFullUsingAreas())
+            foreach (var item in notification.getFullUsingAreas())
             {
                 noticeDto.ListTMC.Add(Nomenclature.CreateInstance(mdmReference.FindByPdmObject(item)));
             }

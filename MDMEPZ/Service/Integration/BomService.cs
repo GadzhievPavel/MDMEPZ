@@ -12,6 +12,9 @@ using TFlex.DOCs.References.NomenclatureERP;
 
 namespace MDMEPZ.Service.Integration
 {
+    /// <summary>
+    /// Сервис для формирования ресурсных спецификаций
+    /// </summary>
     public class BomService
     {
         private NomenclatureObject nomenclature;

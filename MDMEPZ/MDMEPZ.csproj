@@ -93,7 +93,7 @@
     <Compile Include="Dto\Nomenclature\NomenclatureShortDto.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />
     <Compile Include="Dto\Notification\ListInputs.cs" />
-    <Compile Include="Dto\Notification\NotificationDTO.cs" />
+    <Compile Include="Dto\Notification\NotificationITRPDTO.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
     <Compile Include="Dto\Operation\Type\LinkTypeOperation.cs" />
     <Compile Include="Dto\Operation\Type\OwnerTypeOperation.cs" />
@@ -792,6 +792,7 @@
     <Compile Include="Service\FilterHandler.cs" />
     <Compile Include="Service\Integration\BomService.cs" />
     <Compile Include="Service\Integration\Integration.cs" />
+    <Compile Include="Service\Integration\NoticeService.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />
     <Compile Include="Service\ServiceOperation.cs" />

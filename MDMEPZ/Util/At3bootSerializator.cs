@@ -8,8 +8,18 @@ using System.Threading.Tasks;
 
 namespace MDMEPZ.Util
 {
+    /// <summary>
+    /// Класс с методами для сериализации данных
+    /// </summary>
     public class At3bootSerializator
     {
+        /// <summary>
+        /// Сохраняет сериализованный объект в файл
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dto">объект для сериализации</param>
+        /// <param name="path">путь для сохранения данных</param>
+        /// <returns></returns>
         public string saveFile<T>(T dto, string path)
         {
             var str = JsonConvert.SerializeObject(dto, Formatting.Indented);

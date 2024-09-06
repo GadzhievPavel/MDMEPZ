@@ -38,7 +38,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NotificationsEPZ">
-      <HintPath>..\..\NotificationsEPZ\NotificationsEPZ\bin\Debug\NotificationsEPZ.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\NotificationsEPZ.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,6 +84,7 @@
     <Compile Include="Dto\ITRP\BaseUnitsOfMeasurement.cs" />
     <Compile Include="Dto\ITRP\FullUnitOfMeasurementItrp.cs" />
     <Compile Include="Dto\ITRP\NomenclatureItrpMain.cs" />
+    <Compile Include="Dto\ITRP\NomenclatureItrpMainMass.cs" />
     <Compile Include="Dto\ITRP\TypeReproductionITRP.cs" />
     <Compile Include="Dto\ITRP\TypesTmcForNomenclature.cs" />
     <Compile Include="Dto\ITRP\TypeTmcForNomenclature.cs" />

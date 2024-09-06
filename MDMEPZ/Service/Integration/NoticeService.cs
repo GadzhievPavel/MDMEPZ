@@ -68,6 +68,10 @@ namespace MDMEPZ.Service.Integration
             return notificationITRPDTO;
         }
 
+        private ListInputs CreateListInputs(Change change)
+        {
+            return null;
+        }
         private ConfigurationSettings GetConfigurationSettings(DesignContextObject designContext)
         {
             var config = new ConfigurationSettings(connection)

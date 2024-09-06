@@ -30,7 +30,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM{	using System;	using TFlex.DO
 			var unitsOfMesurementITRPReferenceObjects = this.GetUnitOfMesurementITRPReferenceObjects();
 			foreach( var unit in unitsOfMesurementITRPReferenceObjects)
 			{
-				unit.StartUpdate();
+				//unit.StartUpdate();
 				unit.Delete();
 				unit.EndUpdate("");
 			}
@@ -63,7 +63,7 @@ namespace TFlex.DOCs.References.NomenclatureMDM{	using System;	using TFlex.DO
             var units = this.GetUnits();
             foreach (var unit in units)
             {
-                unit.StartUpdate();
+                //unit.StartUpdate();
                 unit.Delete();
                 unit.EndUpdate("");
             }

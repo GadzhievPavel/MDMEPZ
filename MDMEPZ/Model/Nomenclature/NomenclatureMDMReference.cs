@@ -93,7 +93,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
         public ReferenceObject CreateReferenceObject(Nomenclature product)
         {
             //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
-            var o = CreateReferenceObjectForClass(erpClass) as NomenclatureERPReferenceObject;
+            var o = CreateReferenceObject(erpClass) as NomenclatureERPReferenceObject;
             o.StartUpdate();
             o.Name.Value = product.name;
             o.GUID1C.Value = new Guid(product.guid1C);

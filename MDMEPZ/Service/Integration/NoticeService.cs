@@ -1,6 +1,7 @@
 ﻿using MDMEPZ.Dto;
 using MDMEPZ.Dto.Notification;
 using NotificationsEPZ;
+using NotificationsEPZ.Changes.ListObjects.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,9 +69,27 @@ namespace MDMEPZ.Service.Integration
             return notificationITRPDTO;
         }
 
-        private ListInputs CreateListInputs(Change change)
+        private List<ListInputs> CreateListInputs(Change change)
         {
-            return null;
+            var listInputs = new List<ListInputs>();
+            var actions = change.Actions;
+            foreach ( var action in actions)
+            {
+                var input = new ListInputs();
+                if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
+                {
+                }else if (action.TypeGuid.Equals(TypeActionsChange.ADD))
+                {
+
+                }else if(action.TypeGuid.Equals(TypeActionsChange.CHANGE))
+                {
+                    action.GetChangeConnection(); 
+                }else if(action.TypeGuid.Equals(TypeActionsChange.DELETED))
+                {
+
+                }
+            }
+            return listInputs;
         }
         private ConfigurationSettings GetConfigurationSettings(DesignContextObject designContext)
         {

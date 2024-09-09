@@ -49,8 +49,28 @@ namespace MDMEPZ.Dto.Notification
             input.nomenclatureSrc = Nomenclature.CreateInstance(nomSrc);
             input.usingZadel = change.UsingZadel;
             input.countBefore = (matchConnection.SourceConnection as NomenclatureHierarchyLink).Amount;
-            
+
             return input;
         }
+
+        /// <summary>
+        /// СОздания входа номенклатур заменяющихся
+        /// </summary>
+        /// <param name="change"></param>
+        /// <param name="action"></param>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        public static ListInputs CreateSwapListInput(Change change, NotificationsEPZ.Changes.ListObjects.Action action, ServerConnection connection)
+        {
+            var input = new ListInputs();
+            var mdmReference = new NomenclatureMDMReference(connection);
+
+            var sourceConnection = action.GetChangeConnection().Find(m => m.IsDeleted);
+            var newConnection = action.GetChangeConnection().Find(m => m.IsAdded);
+
+            return input;
+        }
+
+
     }
 }

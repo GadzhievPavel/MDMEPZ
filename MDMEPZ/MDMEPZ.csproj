@@ -37,8 +37,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NotificationsEPZ">
-      <HintPath>..\..\..\..\Desktop\NotificationsEPZ.dll</HintPath>
+    <Reference Include="NotificationsEPZ, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NotificationsEPZ\NotificationsEPZ\bin\Debug\NotificationsEPZ.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,6 +94,7 @@
     <Compile Include="Dto\Nomenclature\NomenclatureFromComplectDTO.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureShortDto.cs" />
     <Compile Include="Dto\Nomenclature\NomenclatureWithRoute.cs" />
+    <Compile Include="Dto\Notification\ItemTMC.cs" />
     <Compile Include="Dto\Notification\ListInputs.cs" />
     <Compile Include="Dto\Notification\NotificationITRPDTO.cs" />
     <Compile Include="Dto\Operation\OwnerOperation.cs" />
@@ -793,6 +795,7 @@
     <Compile Include="Service\FilterHandler.cs" />
     <Compile Include="Service\Integration\BomService.cs" />
     <Compile Include="Service\Integration\Integration.cs" />
+    <Compile Include="Service\Integration\ListTMCService.cs" />
     <Compile Include="Service\Integration\NoticeService.cs" />
     <Compile Include="Service\NomenclatureHandler.cs" />
     <Compile Include="Service\NomenclaturePDMHandler.cs" />

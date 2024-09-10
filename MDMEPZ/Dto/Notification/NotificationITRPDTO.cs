@@ -51,7 +51,7 @@ namespace MDMEPZ.Dto.Notification
         /// <summary>
         /// Список ТМЦ
         /// </summary>
-        public List<Nomenclature> ListTMC {  get; set; }
+        public List<ItemTMC> ListTMC {  get; set; }
         /// <summary>
         /// Список входы
         /// </summary>
@@ -66,14 +66,11 @@ namespace MDMEPZ.Dto.Notification
             var mdmReference = new NomenclatureMDMReference(serverConnection);
             noticeDto.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notification.ZadelOn));
             noticeDto.NumberNotice = notification.Denotation;
-            noticeDto.NumberBaseNotice = notification.SourceNotice.Denotation;
-            noticeDto.NumberITRPBaseNotice = notification.SourceNotice.NumberNotificationITRP;
+            noticeDto.NumberBaseNotice = notification.SourceNotices.First()?.Denotation;
+            noticeDto.NumberITRPBaseNotice = notification.SourceNotices.First()?.NumberNotificationITRP;
             noticeDto.Comment = notification.Comment;
-            noticeDto.ListTMC = new List<Nomenclature>();
-            foreach (var item in notification.getFullUsingAreas())
-            {
-                noticeDto.ListTMC.Add(Nomenclature.CreateInstance(mdmReference.FindByPdmObject(item)));
-            }
+            noticeDto.ListTMC = new List<ItemTMC>();
+
 
             //foreach(var item in notification)
 

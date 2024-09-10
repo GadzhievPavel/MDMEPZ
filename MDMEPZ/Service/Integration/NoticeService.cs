@@ -1,6 +1,7 @@
 ﻿using MDMEPZ.Dto;
 using MDMEPZ.Dto.Notification;
 using NotificationsEPZ;
+using NotificationsEPZ.Changes.ListObjects;
 using NotificationsEPZ.Changes.ListObjects.Actions;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace MDMEPZ.Service.Integration
         private DesignContextsReference designContextsReference;
         private DesignContextObject modificationDesignContextObject;
 
+        private ListTMCService tmcServiceList;
 
 
         public NoticeService(ServerConnection connection, NotificationEPZ notificationEPZ)
@@ -39,6 +41,7 @@ namespace MDMEPZ.Service.Integration
             mdmReference = new NomenclatureMDMReference(connection);
             designContextsReference = new DesignContextsReference(connection);
             modificationDesignContextObject = designContextsReference.Find("Изменения") as DesignContextObject;
+            tmcServiceList = new ListTMCService(connection);
         }
 
         /// <summary>
@@ -53,18 +56,32 @@ namespace MDMEPZ.Service.Integration
             notificationITRPDTO.IsComplect = notificationEPZ.IsComplect;
             notificationITRPDTO.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notificationEPZ.ZadelOn));
             notificationITRPDTO.NumberNotice = notificationEPZ.Denotation;
-            notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotice.Denotation;
-            notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotice.NumberNotificationITRP;
+            notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotices.First()?.Denotation;
+            notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotices.First()?.NumberNotificationITRP;
             notificationITRPDTO.Comment = notificationEPZ.Comment;
 
-            notificationITRPDTO.ListTMC = new List<Nomenclature>();
-
+            notificationITRPDTO.ListTMC = new List<ItemTMC>();
             notificationEPZ.UpdateInContext(GetConfigurationSettings(modificationDesignContextObject));
-            var usingAreas = notificationEPZ.getFullUsingAreas();
-            foreach ( var area in usingAreas)
-            {
-                notificationITRPDTO.ListTMC.Add(Nomenclature.CreateInstance(mdmReference.FindByPdmObject(area)));
+
+            var changes = notificationEPZ.Changes;
+            ///Заполнение списка ТМС
+            if (changes.Any()){
+                foreach (var change in changes)
+                {
+                    var actions = change.Actions;
+                    var usingAreasList = change.UsingAreas;
+                    List<MatchConnection> matches = new List<MatchConnection>();
+                    foreach(var area in usingAreasList)
+                    {
+                        matches.AddRange(area.GetMatchConnections());
+                    }
+                    foreach(var action in actions)
+                    {
+                        notificationITRPDTO.ListTMC.AddRange(tmcServiceList.getListTMC(matches, action));
+                    }
+                }
             }
+            
 
             return notificationITRPDTO;
         }
@@ -78,6 +95,7 @@ namespace MDMEPZ.Service.Integration
                 var input = new ListInputs();
                 if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
                 {
+
                 }else if (action.TypeGuid.Equals(TypeActionsChange.ADD))
                 {
 

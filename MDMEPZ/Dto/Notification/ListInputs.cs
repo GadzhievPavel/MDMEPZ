@@ -27,15 +27,15 @@ namespace MDMEPZ.Dto.Notification
         /// <summary>
         /// применяемость
         /// </summary>
-        public double countBefore { get; set; }
+        public Double countBefore { get; set; }
         /// <summary>
         /// применяемость после
         /// </summary>
-        public double countAfter { get; set; }
+        public Double countAfter { get; set; }
         /// <summary>
         /// применяемость замены
         /// </summary>
-        public double countZamen { get; set; }
+        public Double countZamen { get; set; }
         /// <summary>
         /// Замена
         /// </summary>
@@ -54,13 +54,12 @@ namespace MDMEPZ.Dto.Notification
         }
 
         /// <summary>
-        /// СОздания входа номенклатур заменяющихся
+        /// Создания входа номенклатур заменяющихся
         /// </summary>
-        /// <param name="change"></param>
         /// <param name="action"></param>
         /// <param name="connection"></param>
         /// <returns></returns>
-        public static ListInputs CreateSwapListInput(Change change, NotificationsEPZ.Changes.ListObjects.Action action, ServerConnection connection)
+        public static ListInputs CreateSwapListInput(NotificationsEPZ.Changes.ListObjects.Action action, ServerConnection connection)
         {
             var input = new ListInputs();
             var mdmReference = new NomenclatureMDMReference(connection);
@@ -68,9 +67,45 @@ namespace MDMEPZ.Dto.Notification
             var sourceConnection = action.GetChangeConnection().Find(m => m.IsDeleted);
             var newConnection = action.GetChangeConnection().Find(m => m.IsAdded);
 
+            var sourceNomenclature = sourceConnection.ChildObject as NomenclatureObject;
+            var newNomenclature = newConnection.ChildObject as NomenclatureObject;
+
+            input.nomenclatureSrc = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(sourceNomenclature));
+            input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, mdmReference.FindByPdmObject(newNomenclature));
+
+            input.countBefore = sourceConnection.Amount;
+            input.countZamen = newConnection.Amount;
+            input.countAfter = 0;
+
+            input.usingZadel = action.UsingZadel;
+
             return input;
         }
 
+        public static ListInputs CreateDeletedListInput(NotificationsEPZ.Changes.ListObjects.Action action, ServerConnection connection)
+        {
+            var input = new ListInputs();
+            var mdmReference = new NomenclatureMDMReference(connection);
 
+            var deletedConnection = action.GetChangeConnection().First();
+
+            var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
+
+            input.nomenclatureSrc = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(deletedNomenclature));
+            input.countZamen = deletedConnection.Amount;
+            input.countBefore = 0;
+            input.countAfter = 0;
+            input.usingZadel = action.UsingZadel;
+
+            return input;
+        }
+
+        public static ListInputs CreateAddedListInput(NotificationsEPZ.Changes.ListObjects.Action action, ServerConnection connection)
+        {
+            var input = new ListInputs();
+            var mdmReference = new NomenclatureMDMReference(connection);
+
+            return input;
+        }
     }
 }

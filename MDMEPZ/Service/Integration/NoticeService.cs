@@ -56,8 +56,14 @@ namespace MDMEPZ.Service.Integration
             notificationITRPDTO.IsComplect = notificationEPZ.IsComplect;
             notificationITRPDTO.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notificationEPZ.ZadelOn));
             notificationITRPDTO.NumberNotice = notificationEPZ.Denotation;
-            notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotices.First()?.Denotation;
-            notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotices.First()?.NumberNotificationITRP;
+            
+            var sourceNotices = notificationEPZ.SourceNotices;
+            if (sourceNotices.Any())
+            {
+                notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotices.First()?.Denotation;
+                notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotices.First()?.NumberNotificationITRP;
+            }
+
             notificationITRPDTO.Comment = notificationEPZ.Comment;
 
             notificationITRPDTO.ListTMC = new List<ItemTMC>();

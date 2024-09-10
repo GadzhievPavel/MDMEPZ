@@ -28,17 +28,17 @@ namespace MDMEPZ.Service.Integration
             foreach (var match in matches)
             {
                 HashSet<NomenclatureObject> nomenclatures = new HashSet<NomenclatureObject>();
-                var sourceParent = match.SourceConnection.ParentObject as NomenclatureObject;
+                var sourceParent = match.SourceConnection?.ParentObject as NomenclatureObject;
                 if (sourceParent == null)
                 {
                     nomenclatures.Add(sourceParent);
                 }
-                var deletedParent = match.DeletedConnection.ParentObject as NomenclatureObject;
+                var deletedParent = match.DeletedConnection?.ParentObject as NomenclatureObject;
                 if (deletedParent == null)
                 {
                     nomenclatures.Add(deletedParent);
                 }
-                var addedParent = match.AddedConnection.ParentObject as NomenclatureObject;
+                var addedParent = match.AddedConnection?.ParentObject as NomenclatureObject;
                 if (addedParent == null)
                 {
                     nomenclatures.Add(addedParent);
@@ -56,18 +56,24 @@ namespace MDMEPZ.Service.Integration
                 var itemTMC = new ItemTMC();
                 itemTMC.product = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(product));
                 var connections = action.GetChangeConnection();
-                foreach (var connection in connections)
+                if(connections != null)
                 {
-                    if (connection.IsAdded)
+                    if (connections.Any())
                     {
-                        itemTMC.newNomenclature = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(connection.ChildObject as NomenclatureObject));
-                    }
-                    else if (connection.IsDeleted)
-                    {
-                        itemTMC.excluded = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(connection.ChildObject as NomenclatureObject));
+                        foreach (var connection in connections)
+                        {
+                            if (connection.IsAdded)
+                            {
+                                itemTMC.newNomenclature = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(connection.ChildObject as NomenclatureObject));
+                            }
+                            else if (connection.IsDeleted)
+                            {
+                                itemTMC.excluded = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(connection.ChildObject as NomenclatureObject));
+                            }
+                        }
                     }
                 }
-
+                listTMC.Add(itemTMC);
             }
             return listTMC;
         }

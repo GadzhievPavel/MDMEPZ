@@ -19,7 +19,8 @@ namespace MDMEPZ.Service
     {
         private NomenclatureReference nomenclaturePdmReference;
         private ServerConnection connection;
-        public NomenclaturePDMHandler(ServerConnection connectionInfo) {
+        public NomenclaturePDMHandler(ServerConnection connectionInfo)
+        {
             this.connection = connectionInfo;
             nomenclaturePdmReference = connection.ReferenceCatalog.Find(SpecialReference.Nomenclature).CreateReference() as NomenclatureReference;
         }
@@ -57,6 +58,23 @@ namespace MDMEPZ.Service
             mdm.StartUpdate();
             mdm[link].Value = o;
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {o}");
+        }
+
+        public List<NomenclatureObject> GetAllRevisions(NomenclatureObject nomenclature)
+        {
+            var nameRevisions = nomenclature.GetExistingRevisionNames();
+            string prefix = "";
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach ( var nameRevision in nameRevisions )
+            {
+                stringBuilder.Append( prefix );
+                stringBuilder.Append( nameRevision );
+                prefix = ", ";
+            }
+            var findedNomenclatures = nomenclaturePdmReference.Find(Filter.Parse($"[Обозначение] = '{nomenclature.Denotation}' " +
+                $"И [Наименование] = '{nomenclature.Name}' И [Ревизия] Входит в список '{stringBuilder.ToString()}'",
+                nomenclaturePdmReference.ParameterGroup)).Cast<NomenclatureObject>().ToList();
+            return findedNomenclatures;
         }
     }
 }

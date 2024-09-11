@@ -219,6 +219,17 @@ namespace TFlex.DOCs.References.NomenclatureERP
             return o;
         }
 
+        public NomenclatureMDMReferenceObject CreateRevision(NomenclatureObject newNomenclatureRevision)
+        {
+            
+            var mdmObject = newNomenclatureRevision.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
+            var newRevisionMdmObject = mdmObject.CreateRevision() as NomenclatureMDMReferenceObject;
+            newRevisionMdmObject.StartUpdate();
+            newRevisionMdmObject.GUIDTFLEX.Value = newNomenclatureRevision.Guid;
+            newRevisionMdmObject.Nomenclature = newNomenclatureRevision;
+            newNomenclatureRevision.EndUpdate("Создание ревизии номенклатуры");
+            return newRevisionMdmObject;
+        }
         /// <summary>
         /// Поиск по обозначению
         /// </summary>

@@ -65,28 +65,29 @@ namespace MDMEPZ.Service.Integration
             }
 
             notificationITRPDTO.Comment = notificationEPZ.Comment;
+            notificationEPZ.UpdateInContext(GetConfigurationSettings(modificationDesignContextObject));
 
             notificationITRPDTO.ListTMC = new List<ItemTMC>();
-            notificationEPZ.UpdateInContext(GetConfigurationSettings(modificationDesignContextObject));
+            
 
             var changes = notificationEPZ.Changes;
             ///Заполнение списка ТМС
-            if (changes.Any()){
-                foreach (var change in changes)
-                {
-                    var actions = change.Actions;
-                    var usingAreasList = change.UsingAreas;
-                    List<MatchConnection> matches = new List<MatchConnection>();
-                    foreach(var area in usingAreasList)
-                    {
-                        matches.AddRange(area.GetMatchConnections());
-                    }
-                    foreach(var action in actions)
-                    {
-                        notificationITRPDTO.ListTMC.AddRange(tmcServiceList.getListTMC(matches, action));
-                    }
-                }
-            }
+            //if (changes.Any()){
+            //    foreach (var change in changes)
+            //    {
+            //        var actions = change.Actions;
+            //        var usingAreasList = change.UsingAreas;
+            //        List<MatchConnection> matches = new List<MatchConnection>();
+            //        foreach(var area in usingAreasList)
+            //        {
+            //            matches.AddRange(area.GetMatchConnections());
+            //        }
+            //        foreach(var action in actions)
+            //        {
+            //            notificationITRPDTO.ListTMC.AddRange(tmcServiceList.getListTMC(matches, action));
+            //        }
+            //    }
+            //}
             
 
             return notificationITRPDTO;

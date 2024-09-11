@@ -69,7 +69,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
             }
 
             //NomenclatureMDMTypes nomenclatureMDMTypes = new NomenclatureMDMTypes(this.ParameterGroup);
-            var erpObject = CreateReferenceObjectForClass(erpClass) as NomenclatureERPReferenceObject;
+            var erpObject = CreateReferenceObject(erpClass) as NomenclatureERPReferenceObject;
 
             erpObject.StartUpdate();
             erpObject.Denotation.Value = nom.Denotation;

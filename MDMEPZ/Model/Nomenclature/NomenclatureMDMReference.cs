@@ -291,15 +291,15 @@ namespace TFlex.DOCs.References.NomenclatureERP
             return filter;
         }
 
-        /// <summary>
-        /// Находит запись в таблице номенклатуры по номенлктуре в PDM
-        /// </summary>
-        /// <param name="nom">номенклатура в PDM</param>
-        /// <returns></returns>
-        public NomenclatureMDMReferenceObject FindByPdmObject(NomenclatureObject nom)
-        {
-            return Find(Filter.Parse($"[Номенклатура] = '{nom}'", this.ParameterGroup)).FirstOrDefault() as NomenclatureMDMReferenceObject;
-        }
+        ///// <summary>
+        ///// Находит запись в таблице номенклатуры по номенлктуре в PDM
+        ///// </summary>
+        ///// <param name="nom">номенклатура в PDM</param>
+        ///// <returns></returns>
+        //public NomenclatureMDMReferenceObject FindByPdmObject(NomenclatureObject nom)
+        //{
+        //    return Find(Filter.Parse($"[Номенклатура] = '{nom}'", this.ParameterGroup)).FirstOrDefault() as NomenclatureMDMReferenceObject;
+        //}
 
         /// <summary>
         /// Находит номенклатуру в MDM по объекту из справочника "Материалы ТП"
@@ -310,7 +310,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
         {
             var material = materialTP.GetObject(TechProcessMaterialsReferenceObject.RelationKeys.MaterialsTP_MaterialsRel);
             var materialPdm = material.GetLinkedNomenclatureObject();
-            return FindByPdmObject(materialPdm);
+            return materialPdm.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
+            //return FindByPdmObject(materialPdm);
         }
     }
 }

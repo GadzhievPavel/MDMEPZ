@@ -223,10 +223,14 @@ namespace TFlex.DOCs.References.NomenclatureERP
             o.EndUpdate("");
             return o;
         }
-
+        /// <summary>
+        /// Создание ревизии в справочнике MDM
+        /// </summary>
+        /// <param name="newNomenclatureRevision"></param>
+        /// <returns></returns>
         public NomenclatureMDMReferenceObject CreateRevision(NomenclatureObject newNomenclatureRevision)
         {
-            var allRevisionsNomenclature = nomenclaturePDMHandler.GetAllRevisions(newNomenclatureRevision);
+            var allRevisionsNomenclature = newNomenclatureRevision.GetAllRevision();
             var sourceRevisionNomenclature = allRevisionsNomenclature.Find(nom =>
                 nom.SystemFields.RevisionName.Equals(newNomenclatureRevision.SystemFields.SourceRevisionName));
             var sourceRevisonNomenclatureMdm = sourceRevisionNomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
@@ -235,7 +239,6 @@ namespace TFlex.DOCs.References.NomenclatureERP
             newRevisionMdmObject.StartUpdate();
             newRevisionMdmObject.GUIDTFLEX.Value = newNomenclatureRevision.Guid;
             newRevisionMdmObject.Nomenclature = newNomenclatureRevision;
-
             return newRevisionMdmObject;
         }
         /// <summary>

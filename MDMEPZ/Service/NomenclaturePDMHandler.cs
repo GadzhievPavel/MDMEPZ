@@ -61,26 +61,26 @@ namespace MDMEPZ.Service
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {o}");
         }
 
-        /// <summary>
-        /// Возвращает список всех ревизий объекта номенклатуры
-        /// </summary>
-        /// <param name="nomenclature"></param>
-        /// <returns></returns>
-        public List<NomenclatureObject> GetAllRevisions(NomenclatureObject nomenclature)
-        {
-            var nameRevisions = nomenclature.GetExistingRevisionNames();
-            string prefix = "";
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach ( var nameRevision in nameRevisions )
-            {
-                stringBuilder.Append( prefix );
-                stringBuilder.Append( nameRevision );
-                prefix = ", ";
-            }
-            var findedNomenclatures = nomenclaturePdmReference.Find(Filter.Parse($"[Обозначение] = '{nomenclature.Denotation}' " +
-                $"И [Наименование] = '{nomenclature.Name}' И [Ревизия] Входит в список '{stringBuilder.ToString()}'",
-                nomenclaturePdmReference.ParameterGroup)).Cast<NomenclatureObject>().ToList();
-            return findedNomenclatures;
-        }
+        ///// <summary>
+        ///// Возвращает список всех ревизий объекта номенклатуры
+        ///// </summary>
+        ///// <param name="nomenclature"></param>
+        ///// <returns></returns>
+        //public List<NomenclatureObject> GetAllRevisions(NomenclatureObject nomenclature)
+        //{
+        //    var nameRevisions = nomenclature.GetExistingRevisionNames();
+        //    string prefix = "";
+        //    StringBuilder stringBuilder = new StringBuilder();
+        //    foreach ( var nameRevision in nameRevisions )
+        //    {
+        //        stringBuilder.Append( prefix );
+        //        stringBuilder.Append( nameRevision );
+        //        prefix = ", ";
+        //    }
+        //    var findedNomenclatures = nomenclaturePdmReference.Find(Filter.Parse($"[Обозначение] = '{nomenclature.Denotation}' " +
+        //        $"И [Наименование] = '{nomenclature.Name}' И [Ревизия] Входит в список '{stringBuilder.ToString()}'",
+        //        nomenclaturePdmReference.ParameterGroup)).Cast<NomenclatureObject>().ToList();
+        //    return findedNomenclatures;
+        //}
     }
 }

@@ -12,6 +12,7 @@ namespace TFlex.DOCs.References.GroupList
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using MDMEPZ.Model;
+    using DeveloperUtilsLibrary;
 
     public partial class GroupListReference : SpecialReference<GroupListReferenceObject>, IFindService
     {

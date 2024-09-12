@@ -1,10 +1,16 @@
-namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;
+namespace TFlex.DOCs.References.TypeNomenclatureERP
+{
+	using System;
+	using TFlex.DOCs.Model.References;
+	using TFlex.DOCs.Model.Structure;
+	using TFlex.DOCs.Model.Classes;
     using TFlex.DOCs.Model;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using MDMEPZ.Model;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class TypeNomenclatureERPReference : SpecialReference<TypeNomenclatureERPReferenceObject>, IFindService
     {
@@ -39,4 +45,5 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP{	using System;	using TFle
             //var typeNomenclatureReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             return FindByGuid1C(new Guid(product.typeNomenclature.guid1C));
         }
-    }}
+    }
+}

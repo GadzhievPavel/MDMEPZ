@@ -24,6 +24,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
     using TFlex.DOCs.References.NomenclatureMDM;
     using MDMEPZ.Dto.ITRP;
     using TFlex.DOCs.References.TypeTMC;
+    using MDMEPZ.Service;
+    using DeveloperUtilsLibrary;
 
     public partial class NomenclatureMDMReference : SpecialReference<NomenclatureMDMReferenceObject>
     {
@@ -34,6 +36,7 @@ namespace TFlex.DOCs.References.NomenclatureERP
         protected TypeNomenclatureERPReference typeNomenclatureERPReference;
         protected UnitOfMeasurementReference unitOfMeasurementReference;
         protected GroupFinanceNomenclatureReference groupFinanceNomenclatureReference;
+        private NomenclaturePDMHandler nomenclaturePDMHandler;
 
         private ClassObject erpClass;
         private ClassObject itrpClass;
@@ -53,6 +56,8 @@ namespace TFlex.DOCs.References.NomenclatureERP
             typeNomenclatureERPReference = this.Connection.ReferenceCatalog.Find(TypeNomenclatureERPReference.ReferenceId).CreateReference() as TypeNomenclatureERPReference;
             unitOfMeasurementReference = this.Connection.ReferenceCatalog.Find(UnitOfMeasurementReference.ReferenceId).CreateReference() as UnitOfMeasurementReference;
             groupFinanceNomenclatureReference = this.Connection.ReferenceCatalog.Find(GroupFinanceNomenclatureReference.ReferenceId).CreateReference() as GroupFinanceNomenclatureReference;
+
+            nomenclaturePDMHandler = new NomenclaturePDMHandler(this.Connection);
         }
         /// <summary>
         /// Создаем объект объект в MDM на основе объекта PDM
@@ -221,13 +226,16 @@ namespace TFlex.DOCs.References.NomenclatureERP
 
         public NomenclatureMDMReferenceObject CreateRevision(NomenclatureObject newNomenclatureRevision)
         {
-            
-            var mdmObject = newNomenclatureRevision.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
-            var newRevisionMdmObject = mdmObject.CreateRevision() as NomenclatureMDMReferenceObject;
+            var allRevisionsNomenclature = nomenclaturePDMHandler.GetAllRevisions(newNomenclatureRevision);
+            var sourceRevisionNomenclature = allRevisionsNomenclature.Find(nom =>
+                nom.SystemFields.RevisionName.Equals(newNomenclatureRevision.SystemFields.SourceRevisionName));
+            var sourceRevisonNomenclatureMdm = sourceRevisionNomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature);
+
+            var newRevisionMdmObject = sourceRevisonNomenclatureMdm.CreateRevision() as NomenclatureMDMReferenceObject;
             newRevisionMdmObject.StartUpdate();
             newRevisionMdmObject.GUIDTFLEX.Value = newNomenclatureRevision.Guid;
             newRevisionMdmObject.Nomenclature = newNomenclatureRevision;
-            newNomenclatureRevision.EndUpdate("Создание ревизии номенклатуры");
+
             return newRevisionMdmObject;
         }
         /// <summary>

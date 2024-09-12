@@ -1,4 +1,6 @@
-namespace TFlex.DOCs.References.TypeOperationMDM{
+namespace TFlex.DOCs.References.TypeOperationMDM
+{
+    using DeveloperUtilsLibrary;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using TFlex.DOCs.Model.References;
@@ -19,4 +21,5 @@ namespace TFlex.DOCs.References.TypeOperationMDM{
 
             return typeReferenceObject;
         }
-    }}
+    }
+}

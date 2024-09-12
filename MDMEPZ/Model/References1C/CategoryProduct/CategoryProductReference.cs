@@ -1,4 +1,10 @@
-namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model;
+namespace TFlex.DOCs.References.CategoryProduct
+{
+	using System;
+	using TFlex.DOCs.Model.References;
+	using TFlex.DOCs.Model.Structure;
+	using TFlex.DOCs.Model.Classes;
+	using TFlex.DOCs.Model;
     using System.Runtime.Remoting.Contexts;
     using System.Collections.Generic;
     using MDMEPZ.Dto;
@@ -7,8 +13,14 @@ namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DO
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using MDMEPZ.Model;
+    using DeveloperUtilsLibrary;
 
-    public partial class CategoryProductReference : SpecialReference<CategoryProductReferenceObject>, IFindService	{				public partial class Factory		{		}
+    public partial class CategoryProductReference : SpecialReference<CategoryProductReferenceObject>, IFindService
+	{
+		
+		public partial class Factory
+		{
+		}
 
         public ReferenceObject CreateReferenceObject(ProductCategory productCategory)
         {
@@ -38,4 +50,5 @@ namespace TFlex.DOCs.References.CategoryProduct{	using System;	using TFlex.DO
             //var categoryProductReference = this.Connection.ReferenceCatalog.Find(CategoryProductReference.ReferenceId).CreateReference() as CategoryProductReference;
             return FindByGuid1C(new Guid(product.category.guid1C));
         }
-    }}
+    }
+}

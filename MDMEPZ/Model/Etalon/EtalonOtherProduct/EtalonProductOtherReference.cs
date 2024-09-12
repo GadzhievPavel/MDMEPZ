@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.EtalonProductOther{
+namespace TFlex.DOCs.References.EtalonProductOther
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -9,6 +10,7 @@ namespace TFlex.DOCs.References.EtalonProductOther{
     using TFlex.DOCs.Model.Search;
     using MDMEPZ.Model.FilterReference;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class EtalonProductOtherReference : SpecialReference<EtalonProductOtherReferenceObject>, IFinderEtalonReference
     {
@@ -30,4 +32,5 @@ namespace TFlex.DOCs.References.EtalonProductOther{
         {
             return this.Find(Filter.Parse($"[Номенклатура ERP ПИ] = '{nomErp}'", ParameterGroup)).FirstOrDefault();
         }
-    }}
+    }
+}

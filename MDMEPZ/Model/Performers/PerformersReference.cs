@@ -8,7 +8,8 @@ namespace TFlex.DOCs.References.Performers
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.References.Profession;
     using TFlex.DOCs.References.MDM.Rank;
-    
+    using DeveloperUtilsLibrary;
+
     public partial class PerformersReference : SpecialReference<PerformersReferenceObject>
     {
 

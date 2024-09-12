@@ -10,6 +10,7 @@ namespace TFlex.DOCs.References.Profession
     using MDMEPZ.Model;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class ProfessionReference : SpecialReference<ProfessionReferenceObject>, IFindService
     {

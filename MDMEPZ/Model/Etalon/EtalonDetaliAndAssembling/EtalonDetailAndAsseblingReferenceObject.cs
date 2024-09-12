@@ -11,8 +11,9 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
     using MDMEPZ.Util;
 	using TFlex.DOCs.Model.References.Nomenclature;
 	using TFlex.DOCs.Model.References.Documents;
+    using DeveloperUtilsLibrary;
 
-	public partial class EtalonDetailAndAsseblingReferenceObject : SpecialReferenceObject<EtalonDetailAndAsseblingReference>
+    public partial class EtalonDetailAndAsseblingReferenceObject : SpecialReferenceObject<EtalonDetailAndAsseblingReference>
 	{
 		private Reference refDocument;
 		private NomenclatureReference refNomenclature;

@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.ReplacementERP{
+namespace TFlex.DOCs.References.ReplacementERP
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -7,6 +8,7 @@ namespace TFlex.DOCs.References.ReplacementERP{
     using MDMEPZ.Dto.ReplacementErp;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Util;
+    using DeveloperUtilsLibrary;
 
     public partial class ReplacementERPReference : SpecialReference<ReplacementERPReferenceObject>
     {
@@ -44,5 +46,7 @@ namespace TFlex.DOCs.References.ReplacementERP{
 
         private void loadSupportReference()
         {
-            this.nomenclatureERPRef = Connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference() as NomenclatureMDMReference;        }
-    }}
+            this.nomenclatureERPRef = Connection.ReferenceCatalog.Find(NomenclatureMDMReference.ReferenceId).CreateReference() as NomenclatureMDMReference;
+        }
+    }
+}

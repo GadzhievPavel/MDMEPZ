@@ -1,4 +1,5 @@
-﻿using MDMEPZ.Util;
+﻿using DeveloperUtilsLibrary;
+using MDMEPZ.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,11 @@ namespace MDMEPZ.Service
             mdm.EndUpdate($"в мдм для номенклатуры {nom} по связи {link} записано значение {o}");
         }
 
+        /// <summary>
+        /// Возвращает список всех ревизий объекта номенклатуры
+        /// </summary>
+        /// <param name="nomenclature"></param>
+        /// <returns></returns>
         public List<NomenclatureObject> GetAllRevisions(NomenclatureObject nomenclature)
         {
             var nameRevisions = nomenclature.GetExistingRevisionNames();

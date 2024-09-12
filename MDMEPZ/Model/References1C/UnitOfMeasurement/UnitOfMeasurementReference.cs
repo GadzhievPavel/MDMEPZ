@@ -11,6 +11,7 @@ namespace TFlex.DOCs.References.UnitOfMeasurement
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using TFlex.DOCs.Model.References.Units;
+    using DeveloperUtilsLibrary;
 
     public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>, IFindService
 	{

@@ -9,6 +9,7 @@ namespace TFlex.DOCs.References.TypeTMC
     using System.Linq;
     using MDMEPZ.Dto.ITRP;
     using MDMEPZ.Util;
+    using DeveloperUtilsLibrary;
 
     public partial class TypeTMCReference : SpecialReference<TypeTMCReferenceObject>
 	{

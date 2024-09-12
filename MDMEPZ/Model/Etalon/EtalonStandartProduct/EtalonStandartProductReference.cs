@@ -10,6 +10,7 @@ namespace TFlex.DOCs.References.StandartProduct
     using TFlex.DOCs.Model.Search;
     using MDMEPZ.Model.FilterReference;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class EtalonStandartProductReference : SpecialReference<EtalonStandartProductReferenceObject>, IFinderEtalonReference
 	{

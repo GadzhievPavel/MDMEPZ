@@ -10,6 +10,7 @@ namespace TFlex.DOCs.References.EtalonDetailAndAssebly
     using MDMEPZ.Model.FilterReference;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class EtalonDetailAndAsseblingReference : SpecialReference<EtalonDetailAndAsseblingReferenceObject>, IFinderEtalonReference
 	{

@@ -11,8 +11,9 @@ namespace TFlex.DOCs.References.Devision
 	using TFlex.DOCs.Model.Search;
 	using System.Security.Cryptography;
 	using System.Linq;
+    using DeveloperUtilsLibrary;
 
-	public partial class DevisionReference : SpecialReference<DevisionReferenceObject>
+    public partial class DevisionReference : SpecialReference<DevisionReferenceObject>
 	{
 		
 		public partial class Factory

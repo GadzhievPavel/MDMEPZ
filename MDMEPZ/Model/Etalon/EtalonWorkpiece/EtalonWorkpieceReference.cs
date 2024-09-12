@@ -1,4 +1,5 @@
-namespace TFlex.DOCs.References.EtalonWorkpiece{
+namespace TFlex.DOCs.References.EtalonWorkpiece
+{
     using System;
     using TFlex.DOCs.Model.References;
     using TFlex.DOCs.Model.Structure;
@@ -9,6 +10,7 @@ namespace TFlex.DOCs.References.EtalonWorkpiece{
     using TFlex.DOCs.Model.Search;
     using MDMEPZ.Model.FilterReference;
     using System.Linq;
+    using DeveloperUtilsLibrary;
 
     public partial class EtalonWorkpieceReference : SpecialReference<EtalonWorkpieceReferenceObject>, IFinderEtalonReference
     {
@@ -30,4 +32,4 @@ namespace TFlex.DOCs.References.EtalonWorkpiece{
             return etalon;
         }
     }
-}
+}

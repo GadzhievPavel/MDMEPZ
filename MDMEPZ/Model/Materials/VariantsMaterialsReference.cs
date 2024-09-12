@@ -9,6 +9,7 @@ namespace TFlex.DOCs.References.VariantsMaterials
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using MDMEPZ.Util;
+    using DeveloperUtilsLibrary;
 
     public partial class VariantsMaterialsReference : SpecialReference<VariantsMaterialsReferenceObject>
 	{

@@ -41,40 +41,96 @@ namespace MDMEPZ.Service.Integration
                     }
 
                     var itemTMC = new ItemTMC();
-                    var roots = new HashSet<NomenclatureObject>();
 
                     var connections = action.GetChangeConnection();
-                    var addedConnections = connections.Find(c => c.IsAdded);
-                    var deletedConnections = connections.Find(c => c.IsDeleted);
-
-                    var rootAdded = addedConnections.ParentObject as NomenclatureObject;
-                    if (rootAdded != null)
+                    NomenclatureObject root;
+                    if (connections.All(con => con.ParentObject.Equals(connections.First().ParentObject)))
                     {
-                        roots.Add(rootAdded);
+                        root = connections.First().ParentObject as NomenclatureObject;
                     }
-                    var rootDeleted = deletedConnections.ParentObject as NomenclatureObject;
-                    if (rootDeleted != null)
+                    else
                     {
-                        roots.Add(rootDeleted);
+                        throw new System.Exception("родители у подключений отличаются");
                     }
-
-                    var root = roots.First();
 
                     itemTMC.product = Nomenclature.CreateInstance(root.
                         GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
-                    var addedNomenclature = addedConnections.ChildObject as NomenclatureObject;
-                    if (addedNomenclature != null)
+
+                    if (action.TypeGuid.Equals(TypeActionsChange.SWAP) || action.TypeGuid.Equals(TypeActionsChange.ADD) ||
+                        action.TypeGuid.Equals(TypeActionsChange.CHANGE))
                     {
-                        itemTMC.newNomenclature = Nomenclature.CreateInstance(addedNomenclature.
-                            GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        var addedConnections = connections.Find(c => !c.SystemFields.DeletedInDesignContext);
+                        var addedNomenclature = addedConnections.ChildObject as NomenclatureObject;
+                        if (addedNomenclature != null)
+                        {
+                            itemTMC.newNomenclature = Nomenclature.CreateInstance(addedNomenclature.
+                                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        }
                     }
-                    var deletedNomenclature = deletedConnections.ChildObject as NomenclatureObject;
-                    if (deletedNomenclature != null)
+
+                    if (action.TypeGuid.Equals(TypeActionsChange.DELETED) || action.TypeGuid.Equals(TypeActionsChange.SWAP))
                     {
-                        itemTMC.excluded = Nomenclature.CreateInstance(deletedNomenclature.
-                            GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        var deletedConnections = connections.Find(c => c.SystemFields.DeletedInDesignContext);
+                        var deletedNomenclature = deletedConnections.ChildObject as NomenclatureObject;
+                        if (deletedNomenclature != null)
+                        {
+                            itemTMC.excluded = Nomenclature.CreateInstance(deletedNomenclature.
+                                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        }
                     }
                     listTMC.Add(itemTMC);
+                }
+                var usingAreas = change.UsingAreas;
+                foreach (var area in usingAreas)
+                {
+                    var matchConnections = area.GetMatchConnections();
+                    foreach (var matchConnection in matchConnections)
+                    {
+                        NomenclatureObject root;
+                        var itemTMC = new ItemTMC();
+                        var addedConnection = matchConnection.AddedConnection;
+                        var deletedConnection = matchConnection.DeletedConnection;
+
+                        if (addedConnection == null)
+                        {
+                            var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
+                            if (addedNomenclature != null)
+                            {
+                                itemTMC.newNomenclature = Nomenclature.CreateInstance(addedNomenclature.
+                                    GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                            }
+                        }
+
+                        if (deletedConnection == null)
+                        {
+                            var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
+                            if (deletedNomenclature != null)
+                            {
+                                itemTMC.excluded = Nomenclature.CreateInstance(deletedNomenclature.
+                                    GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                            }
+                        }
+
+                        HashSet<NomenclatureObject> roots = new HashSet<NomenclatureObject>();
+                        if (addedConnection == null)
+                        {
+                            roots.Add(addedConnection.ParentObject as NomenclatureObject);
+                        }
+                        if (deletedConnection == null)
+                        {
+                            roots.Add(deletedConnection.ParentObject as NomenclatureObject);
+                        }
+
+                        if (roots.Count > 1)
+                        {
+                            throw new System.Exception("Более одного родительского объекта");
+                        }
+                        itemTMC.product = Nomenclature.CreateInstance(roots.First().
+                            GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+
+                        listTMC.Add(itemTMC);
+
+                    }
                 }
             }
             return listTMC;

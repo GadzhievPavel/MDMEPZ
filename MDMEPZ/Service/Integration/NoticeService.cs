@@ -73,8 +73,10 @@ namespace MDMEPZ.Service.Integration
 
             notificationITRPDTO.ListTMC = new List<ItemTMC>();
 
-
             var changes = notificationEPZ.Changes;
+            notificationITRPDTO.ListTMC = tmcServiceList.GetListTMC(changes);
+
+
             ///Заполнение списка ТМС
             //if (changes.Any()){
             //    foreach (var change in changes)

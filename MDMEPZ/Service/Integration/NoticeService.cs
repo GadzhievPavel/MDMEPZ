@@ -56,19 +56,22 @@ namespace MDMEPZ.Service.Integration
             notificationITRPDTO.IsComplect = notificationEPZ.IsComplect;
             notificationITRPDTO.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notificationEPZ.ZadelOn));
             notificationITRPDTO.NumberNotice = notificationEPZ.Denotation;
-            
+
             var sourceNotices = notificationEPZ.SourceNotices;
-            if (sourceNotices.Any())
+            if (sourceNotices != null)
             {
-                notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotices.First()?.Denotation;
-                notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotices.First()?.NumberNotificationITRP;
+                if (sourceNotices.Any())
+                {
+                    notificationITRPDTO.NumberBaseNotice = notificationEPZ.SourceNotices.First()?.Denotation;
+                    notificationITRPDTO.NumberITRPBaseNotice = notificationEPZ.SourceNotices.First()?.NumberNotificationITRP;
+                }
             }
 
             notificationITRPDTO.Comment = notificationEPZ.Comment;
             notificationEPZ.UpdateInContext(GetConfigurationSettings(modificationDesignContextObject));
 
             notificationITRPDTO.ListTMC = new List<ItemTMC>();
-            
+
 
             var changes = notificationEPZ.Changes;
             ///Заполнение списка ТМС
@@ -88,7 +91,7 @@ namespace MDMEPZ.Service.Integration
             //        }
             //    }
             //}
-            
+
 
             return notificationITRPDTO;
         }
@@ -97,19 +100,22 @@ namespace MDMEPZ.Service.Integration
         {
             var listInputs = new List<ListInputs>();
             var actions = change.Actions;
-            foreach ( var action in actions)
+            foreach (var action in actions)
             {
                 var input = new ListInputs();
                 if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
                 {
 
-                }else if (action.TypeGuid.Equals(TypeActionsChange.ADD))
+                }
+                else if (action.TypeGuid.Equals(TypeActionsChange.ADD))
                 {
 
-                }else if(action.TypeGuid.Equals(TypeActionsChange.CHANGE))
+                }
+                else if (action.TypeGuid.Equals(TypeActionsChange.CHANGE))
                 {
-                    action.GetChangeConnection(); 
-                }else if(action.TypeGuid.Equals(TypeActionsChange.DELETED))
+                    action.GetChangeConnection();
+                }
+                else if (action.TypeGuid.Equals(TypeActionsChange.DELETED))
                 {
 
                 }

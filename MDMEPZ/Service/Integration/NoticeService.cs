@@ -54,7 +54,8 @@ namespace MDMEPZ.Service.Integration
             notificationITRPDTO.NumberNotificationITRP = notificationEPZ.NumberNotificationITRP;
             notificationITRPDTO.DateActionSince = notificationEPZ.DateActionSince;
             notificationITRPDTO.IsComplect = notificationEPZ.IsComplect;
-            notificationITRPDTO.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notificationEPZ.ZadelOn));
+            notificationITRPDTO.ZadelOn = Nomenclature.CreateInstance(notificationEPZ.ZadelOn?.
+                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
             notificationITRPDTO.NumberNotice = notificationEPZ.Denotation;
 
             var sourceNotices = notificationEPZ.SourceNotices;

@@ -60,16 +60,19 @@ namespace MDMEPZ.Service.Integration
 
                     var root = roots.First();
 
-                    itemTMC.product = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(root));
+                    itemTMC.product = Nomenclature.CreateInstance(root.
+                        GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
                     var addedNomenclature = addedConnections.ChildObject as NomenclatureObject;
                     if (addedNomenclature != null)
                     {
-                        itemTMC.newNomenclature = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(addedNomenclature));
+                        itemTMC.newNomenclature = Nomenclature.CreateInstance(addedNomenclature.
+                            GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
                     }
                     var deletedNomenclature = deletedConnections.ChildObject as NomenclatureObject;
                     if (deletedNomenclature != null)
                     {
-                        itemTMC.excluded = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(deletedNomenclature));
+                        itemTMC.excluded = Nomenclature.CreateInstance(deletedNomenclature.
+                            GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
                     }
                     listTMC.Add(itemTMC);
                 }

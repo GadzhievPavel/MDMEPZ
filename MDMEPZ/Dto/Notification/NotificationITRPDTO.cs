@@ -64,7 +64,8 @@ namespace MDMEPZ.Dto.Notification
             noticeDto.DateActionSince = notification.DateActionSince;
             noticeDto.IsComplect = notification.IsComplect;
             var mdmReference = new NomenclatureMDMReference(serverConnection);
-            noticeDto.ZadelOn = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(notification.ZadelOn));
+            noticeDto.ZadelOn = Nomenclature.CreateInstance(notification.ZadelOn?.
+                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
             noticeDto.NumberNotice = notification.Denotation;
             noticeDto.NumberBaseNotice = notification.SourceNotices.First()?.Denotation;
             noticeDto.NumberITRPBaseNotice = notification.SourceNotices.First()?.NumberNotificationITRP;

@@ -52,8 +52,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TFlex.DOCs.Model">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Model.dll</HintPath>
+    <Reference Include="TFlex.DOCs.Model, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2.63)\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.DOCs.Resources">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>

@@ -41,12 +41,12 @@ namespace MDMEPZ.Dto.Notification
         /// </summary>
         public NomenclatureWithRoute nomenclatureNew { get; set; }
 
-        public static ListInputs CreateInstance(Change change, MatchConnection matchConnection, ServerConnection connection)
+        public static ListInputs CreateInstance(Change change, MatchConnection matchConnection)
         {
             var input = new ListInputs();
-            var mdmReference = new NomenclatureMDMReference(connection);
-            var nomSrc = mdmReference.FindByPdmObject(matchConnection.SourceConnection.ChildObject as NomenclatureObject);
-            input.nomenclatureSrc = Nomenclature.CreateInstance(nomSrc);
+            var nomPDM = matchConnection.SourceConnection.ChildObject as NomenclatureObject;
+            var nomMdm = nomPDM.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject;
+            input.nomenclatureSrc = Nomenclature.CreateInstance(nomMdm);
             input.usingZadel = change.UsingZadel;
             input.countBefore = (matchConnection.SourceConnection as NomenclatureHierarchyLink).Amount;
 
@@ -70,8 +70,10 @@ namespace MDMEPZ.Dto.Notification
             var sourceNomenclature = sourceConnection.ChildObject as NomenclatureObject;
             var newNomenclature = newConnection.ChildObject as NomenclatureObject;
 
-            input.nomenclatureSrc = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(sourceNomenclature));
-            input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, mdmReference.FindByPdmObject(newNomenclature));
+            input.nomenclatureSrc = Nomenclature.CreateInstance(sourceNomenclature.
+                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+            input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, newNomenclature.
+                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
 
             input.countBefore = sourceConnection.Amount;
             input.countZamen = newConnection.Amount;
@@ -91,7 +93,8 @@ namespace MDMEPZ.Dto.Notification
 
             var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
 
-            input.nomenclatureSrc = Nomenclature.CreateInstance(mdmReference.FindByPdmObject(deletedNomenclature));
+            input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.
+                GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
             input.countZamen = deletedConnection.Amount;
             input.countBefore = 0;
             input.countAfter = 0;

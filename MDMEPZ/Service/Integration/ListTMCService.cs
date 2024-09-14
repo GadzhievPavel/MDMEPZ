@@ -112,11 +112,11 @@ namespace MDMEPZ.Service.Integration
                         }
 
                         HashSet<NomenclatureObject> roots = new HashSet<NomenclatureObject>();
-                        if (addedConnection == null)
+                        if (addedConnection != null)
                         {
                             roots.Add(addedConnection.ParentObject as NomenclatureObject);
                         }
-                        if (deletedConnection == null)
+                        if (deletedConnection != null)
                         {
                             roots.Add(deletedConnection.ParentObject as NomenclatureObject);
                         }

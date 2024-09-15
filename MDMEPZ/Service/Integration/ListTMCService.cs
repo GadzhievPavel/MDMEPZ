@@ -185,6 +185,32 @@ namespace MDMEPZ.Service.Integration
                         throw new System.Exception("родители у подключений отличаются");
                     }
 
+                    if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
+                    {
+                        var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
+                        var deletedConnection = connections.Where(c => c.SystemFields.DeletedInDesignContext).First();
+
+                        var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
+                        var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
+
+                        input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.GetObject(
+                                NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, addedNomenclature.GetObject(
+                            NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+
+                        input.countBefore = deletedConnection.Amount;
+                        input.countZamen = addedConnection.Amount;
+                        input.countAfter = 0;
+                    }
+                    else if (action.TypeGuid.Equals(TypeActionsChange.ADD))
+                    {
+                        var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
+                        var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
+
+                        input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, addedNomenclature.GetObject(
+                            NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        ////дописать метод
+                    }
                     if (action.TypeGuid.Equals(TypeActionsChange.SWAP) || action.TypeGuid.Equals(TypeActionsChange.ADD))
                     {
                         var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
@@ -196,12 +222,26 @@ namespace MDMEPZ.Service.Integration
                             input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection,
                                 addedNomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature)
                                 as NomenclatureMDMReferenceObject);
-                            //input.
+
+                            if (action.TypeGuid.Equals(TypeActionsChange.ADD))
+                            {
+                                input.countAfter = addedConnection.Amount;
+                            }
+                            else if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
+                            {
+                                input.countZamen = addedConnection.Amount;
+                            }
                         }
 
                         if (deletedConnection != null)
                         {
-
+                            var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
+                            input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.GetObject(
+                                NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                            if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
+                            {
+                                input.countBefore = deletedConnection.Amount;
+                            }
                         }
                     }
                     if (action.TypeGuid.Equals(TypeActionsChange.SWAP) || action.TypeGuid.Equals(TypeActionsChange.DELETED))

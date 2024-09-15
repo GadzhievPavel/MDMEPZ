@@ -75,6 +75,7 @@ namespace MDMEPZ.Service.Integration
 
             var changes = notificationEPZ.Changes;
             notificationITRPDTO.ListTMC = tmcServiceList.GetListTMC(changes);
+            //notificationITRPDTO.ListInputsNomenclatures = 
 
 
             ///Заполнение списка ТМС

@@ -185,6 +185,7 @@ namespace MDMEPZ.Service.Integration
                         throw new System.Exception("родители у подключений отличаются");
                     }
 
+                    input.usingZadel = action.UsingZadel;
                     if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
                     {
                         var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
@@ -218,14 +219,23 @@ namespace MDMEPZ.Service.Integration
 
                         input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.GetObject(
                             NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
-                        //to do
+
+                        input.countAfter = 0;
+                        input.countBefore = deletedConnection.Amount;
                     }
 
                     if (action.TypeGuid.Equals(TypeActionsChange.CHANGE))
                     {
 
+                        var changeConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
+                        var changeNomenclature = changeConnection.ChildObject as NomenclatureObject;
+                        input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, changeNomenclature.GetObject(
+                            NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        input.nomenclatureSrc = Nomenclature.CreateInstance(changeNomenclature.GetObject(
+                            NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                        input.countAfter = changeConnection.Amount;
                     }
-
+                    listInputs.Add(input);
                 }
             }
             return listInputs;

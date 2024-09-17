@@ -5,13 +5,16 @@ using NotificationsEPZ.Changes.ListObjects;
 using NotificationsEPZ.Changes.ListObjects.Actions;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TFlex.DOCs.Model;
+using TFlex.DOCs.Model.References.Catalogs;
 using TFlex.DOCs.Model.References.Nomenclature;
 using TFlex.DOCs.Model.References.Nomenclature.ModificationNotices;
 using TFlex.DOCs.References.NomenclatureERP;
+using TFlex.DOCs.References.StructureTypes;
 
 namespace MDMEPZ.Service.Integration
 {
@@ -20,15 +23,19 @@ namespace MDMEPZ.Service.Integration
         private ServerConnection connection;
         private NomenclatureMDMReference mdmReference;
         private List<ItemTMC> listTMC;
+        private StructureTypesReference structureTypesReference;
+        private StructureTypesReferenceObject productionTechnologicalStructure;
 
         public ListTMCService(ServerConnection connection)
         {
             this.connection = connection;
             mdmReference = new NomenclatureMDMReference(connection);
+            structureTypesReference = connection.ReferenceCatalog.Find(StructureTypesReference.ReferenceId).CreateReference() as StructureTypesReference;
+            productionTechnologicalStructure = structureTypesReference.Find("Производственно-технологическая") as StructureTypesReferenceObject;
             listTMC = new List<ItemTMC>();
         }
         /// <summary>
-        /// Веруть список тцм
+        /// Веруть список тмц
         /// </summary>
         /// <param name="changes">список изменений</param>
         /// <returns></returns>
@@ -176,6 +183,7 @@ namespace MDMEPZ.Service.Integration
                     var input = new ListInputs();
                     var connections = action.GetChangeConnection();
                     NomenclatureObject root;
+
                     if (connections.All(con => con.ParentObject.Equals(connections.First().ParentObject)))
                     {
                         root = connections.First().ParentObject as NomenclatureObject;
@@ -184,6 +192,9 @@ namespace MDMEPZ.Service.Integration
                     {
                         throw new System.Exception("родители у подключений отличаются");
                     }
+                    ///to do
+                    ///connections.All(c => c.StructureTypes.Where(type =>type.Equals(productionTechnologicalStructure)).FirstOrDefault().Equals())
+                    ///var inProductionTechnologicalStructure = 
 
                     input.usingZadel = action.UsingZadel;
                     if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
@@ -236,6 +247,37 @@ namespace MDMEPZ.Service.Integration
                         input.countAfter = changeConnection.Amount;
                     }
                     listInputs.Add(input);
+                }
+                var areasUsing = change.UsingAreas;
+                foreach (var area in areasUsing)
+                {
+                    var matchConnections = area.GetMatchConnections();
+                    foreach (var connection in matchConnections)
+                    {
+                        var addedConnection = connection.AddedConnection as NomenclatureHierarchyLink;
+                        var deletedConnection = connection.DeletedConnection as NomenclatureHierarchyLink;
+
+                        var input = new ListInputs();
+
+                        if (addedConnection != null)
+                        {
+                            var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
+                            input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(this.connection,
+                                addedNomenclature.GetObject(NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                            input.countAfter = addedConnection.Amount;
+                        }
+
+                        if (deletedConnection != null)
+                        {
+                            var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
+                            input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.GetObject(
+                                NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
+                            input.countBefore = deletedConnection.Amount;
+                        }
+
+                        input.usingZadel = change.UsingZadel;
+                        listInputs.Add(input);
+                    }
                 }
             }
             return listInputs;

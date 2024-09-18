@@ -192,15 +192,21 @@ namespace MDMEPZ.Service.Integration
                     {
                         throw new System.Exception("родители у подключений отличаются");
                     }
-                    ///to do
-                    ///connections.All(c => c.StructureTypes.Where(type =>type.Equals(productionTechnologicalStructure)).FirstOrDefault().Equals())
-                    ///var inProductionTechnologicalStructure = 
-
+                    ////to do isNomenclatureInTechnologicalStructure
+                    if (!isNomenclatureInTechnologicalStructure(connections))
+                    {
+                        continue;
+                    }
                     input.usingZadel = action.UsingZadel;
                     if (action.TypeGuid.Equals(TypeActionsChange.SWAP))
                     {
                         var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
                         var deletedConnection = connections.Where(c => c.SystemFields.DeletedInDesignContext).First();
+
+                        if(!isNomenclatureInTechnologicalStructure(new List<NomenclatureHierarchyLink> { addedConnection,deletedConnection}))
+                        {
+                            continue;
+                        }
 
                         var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
                         var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
@@ -219,6 +225,11 @@ namespace MDMEPZ.Service.Integration
                         var addedConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
                         var addedNomenclature = addedConnection.ChildObject as NomenclatureObject;
 
+                        if (!isNomenclatureInTechnologicalStructure(new List<NomenclatureHierarchyLink> { addedConnection }))
+                        {
+                            continue;
+                        }
+
                         input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, addedNomenclature.GetObject(
                             NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
                         input.countAfter = addedConnection.Amount;
@@ -226,6 +237,12 @@ namespace MDMEPZ.Service.Integration
                     else if (action.TypeGuid.Equals(TypeActionsChange.DELETED))
                     {
                         var deletedConnection = connections.Where(c => c.SystemFields.DeletedInDesignContext).First();
+
+                        if (!isNomenclatureInTechnologicalStructure(new List<NomenclatureHierarchyLink> { deletedConnection }))
+                        {
+                            continue;
+                        }
+
                         var deletedNomenclature = deletedConnection.ChildObject as NomenclatureObject;
 
                         input.nomenclatureSrc = Nomenclature.CreateInstance(deletedNomenclature.GetObject(
@@ -239,6 +256,12 @@ namespace MDMEPZ.Service.Integration
                     {
 
                         var changeConnection = connections.Where(c => !c.SystemFields.DeletedInDesignContext).First();
+
+                        if (!isNomenclatureInTechnologicalStructure(new List<NomenclatureHierarchyLink> { changeConnection }))
+                        {
+                            continue;
+                        }
+
                         var changeNomenclature = changeConnection.ChildObject as NomenclatureObject;
                         input.nomenclatureNew = NomenclatureWithRoute.CreateInstance(connection, changeNomenclature.GetObject(
                             NomenclatureMDMReferenceObject.RelationKeys.Nomenclature) as NomenclatureMDMReferenceObject);
@@ -257,6 +280,10 @@ namespace MDMEPZ.Service.Integration
                         var addedConnection = connection.AddedConnection as NomenclatureHierarchyLink;
                         var deletedConnection = connection.DeletedConnection as NomenclatureHierarchyLink;
 
+                        if (!isNomenclatureInTechnologicalStructure(new List<NomenclatureHierarchyLink> { deletedConnection, addedConnection }))
+                        {
+                            continue;
+                        }
                         var input = new ListInputs();
 
                         if (addedConnection != null)
@@ -281,6 +308,24 @@ namespace MDMEPZ.Service.Integration
                 }
             }
             return listInputs;
+        }
+
+        private bool isNomenclatureInTechnologicalStructure(List<NomenclatureHierarchyLink> connections)
+        {
+            foreach (var connection in connections)
+            {
+                if (connection is null)
+                {
+                    continue;
+                }
+                var nomenclature = connection.ChildObject as NomenclatureObject;
+                var type = connection.StructureTypes.Where(t => t.Equals(productionTechnologicalStructure)).FirstOrDefault();
+                if (type == null)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

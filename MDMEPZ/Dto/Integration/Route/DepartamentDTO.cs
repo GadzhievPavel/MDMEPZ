@@ -25,17 +25,20 @@ namespace MDMEPZ.Dto.Integration.Route
             departament.UID = division.UID;
             departament.TFlexUID = division.GroupAndUsers.Guid.ToString();
 
-            departament.Parent = new DepartamentDTO();
+
 
             DevisionReference devisionReference = new DevisionReference(connection);
             ///получение родительского подразделения
             var parentObjectPDM = division.GroupAndUsers.Parent;
             var devisionParent = devisionReference.FindByLinkedObject(parentObjectPDM) as DevisionReferenceObject;
 
-            departament.Parent.UID = devisionParent.UID;
-            departament.Parent.Name = devisionParent.Name;
-            departament.Parent.TFlexUID = devisionParent.GroupAndUsers.Guid.ToString();
-
+            if (devisionParent != null)
+            {
+                departament.Parent = new DepartamentDTO();
+                departament.Parent.UID = devisionParent.UID;
+                departament.Parent.Name = devisionParent.Name;
+                departament.Parent.TFlexUID = devisionParent.GroupAndUsers.Guid.ToString();
+            }
             return departament;
         }
     }

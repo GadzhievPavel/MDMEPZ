@@ -8,6 +8,6 @@ namespace MDMEPZ.Dto.ITRP
 {
    public class NomenclatureItrpMainMass
     {
-        public NomenclatureItrpMain[] nomenclatures;
+        public NomenclatureItrpMain[] nomenclatures { get; set; }
     }
 }

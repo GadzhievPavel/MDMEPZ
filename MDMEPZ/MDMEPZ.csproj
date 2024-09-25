@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="DeveloperUtilsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DeveloperUtilsLibrary\DeveloperUtilsLibrary\bin\Debug\DeveloperUtilsLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\DeveloperUtilsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="LibraryMDM">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\LibraryMDM.dll</HintPath>
@@ -43,7 +43,7 @@
     </Reference>
     <Reference Include="NotificationsEPZ, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\NotificationsEPZ\NotificationsEPZ\bin\Debug\NotificationsEPZ.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\NotificationsEPZ.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="TFlex.DOCs.Model, Version=17.3.33.26, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (4.2.63)\Program\TFlex.DOCs.Model.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Model.dll</HintPath>
     </Reference>
     <Reference Include="TFlex.DOCs.Resources">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\TFlex.DOCs.Resources.dll</HintPath>

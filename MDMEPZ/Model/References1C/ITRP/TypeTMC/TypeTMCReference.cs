@@ -10,6 +10,7 @@ namespace TFlex.DOCs.References.TypeTMC
     using MDMEPZ.Dto.ITRP;
     using MDMEPZ.Util;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class TypeTMCReference : SpecialReference<TypeTMCReferenceObject>
 	{
@@ -20,6 +21,10 @@ namespace TFlex.DOCs.References.TypeTMC
 
 		public ReferenceObject CreateReferenceObject(TypeTmcForNomenclature typeTmc)
 		{
+			if (!Validator.isValidGUID(typeTmc.UID))
+			{
+				throw new ExceptionIntegration($"Невозможно создать объект Вид ТМЦ {typeTmc.name} из-за неверного GUID");
+			} 
 			var o = CreateReferenceObject() as TypeTMCReferenceObject;
 			o.StartUpdate();
 			o.Name.Value = typeTmc.name;

@@ -14,6 +14,7 @@ namespace TFlex.DOCs.References.CategoryProduct
     using System.Linq;
     using MDMEPZ.Model;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class CategoryProductReference : SpecialReference<CategoryProductReferenceObject>, IFindService
 	{
@@ -33,7 +34,15 @@ namespace TFlex.DOCs.References.CategoryProduct
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).FirstOrDefault();
+            try
+            {
+                return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            }
+            catch
+            {
+                throw new ExceptionFinder($"Товарная категория не найден {guid}");
+            }
+            
         }
 
         public ReferenceObject FindByGuid1C(Nomenclature product)

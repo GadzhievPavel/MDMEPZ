@@ -152,6 +152,7 @@
     <Compile Include="Dto\Operation\TypeJobs.cs" />
     <Compile Include="Dto\Operation\TypeOperation.cs" />
     <Compile Include="Dto\Operation\TypeTMC.cs" />
+    <Compile Include="Exception\ExceptionFinder.cs" />
     <Compile Include="Exception\ExceptionIntegration.cs" />
     <Compile Include="Exception\ExceptionMDM.cs" />
     <Compile Include="Exception\ExceptionValid.cs" />

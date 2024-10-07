@@ -12,6 +12,7 @@ namespace TFlex.DOCs.References.UnitOfMeasurement
     using System.Linq;
     using TFlex.DOCs.Model.References.Units;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class UnitOfMeasurementReference : SpecialReference<UnitOfMeasurementReferenceObject>, IFindService
 	{
@@ -34,7 +35,14 @@ namespace TFlex.DOCs.References.UnitOfMeasurement
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
+			try
+			{
+                return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+			}
+			catch
+			{
+				throw new ExceptionFinder($"Единица измерения не найдена {guid}");
+			}
         }
 
         public ReferenceObject FindByGuid1C(UnitOfMeasurementFull unit)

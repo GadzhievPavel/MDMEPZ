@@ -1,9 +1,9 @@
 namespace TFlex.DOCs.References.TypeNomenclatureERP
 {
-	using System;
-	using TFlex.DOCs.Model.References;
-	using TFlex.DOCs.Model.Structure;
-	using TFlex.DOCs.Model.Classes;
+    using System;
+    using TFlex.DOCs.Model.References;
+    using TFlex.DOCs.Model.Structure;
+    using TFlex.DOCs.Model.Classes;
     using TFlex.DOCs.Model;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
@@ -11,6 +11,7 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class TypeNomenclatureERPReference : SpecialReference<TypeNomenclatureERPReferenceObject>, IFindService
     {
@@ -29,7 +30,14 @@ namespace TFlex.DOCs.References.TypeNomenclatureERP
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
+            try
+            {
+                return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            }
+            catch
+            {
+                throw new ExceptionFinder($"тип номенклатуры не найден с guid {guid}");
+            }
         }
 
         public ReferenceObject FindByGuid1C(Nomenclature product)

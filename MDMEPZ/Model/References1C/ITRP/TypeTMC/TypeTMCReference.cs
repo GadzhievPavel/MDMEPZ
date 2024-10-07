@@ -35,7 +35,15 @@ namespace TFlex.DOCs.References.TypeTMC
 
 		public TypeTMCReferenceObject FindByGuid1C(Guid guid)
 		{
-			return this.Find(Filter.Parse($"[UID 1C] = '{guid}'", ParameterGroup)).FirstOrDefault() as TypeTMCReferenceObject;
+			try
+			{
+                return this.Find(Filter.Parse($"[UID 1C] = '{guid}'", ParameterGroup)).First() as TypeTMCReferenceObject;
+			}
+			catch
+			{
+				throw new ExceptionFinder($"тип ТМЦ не найден {guid}");
+			}
+			
 		}
 	}
 }

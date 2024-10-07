@@ -1,10 +1,19 @@
-namespace TFlex.DOCs.References.NomenclatureMDM{	using System;	using TFlex.DOCs.Model.References;	using TFlex.DOCs.Model.Structure;	using TFlex.DOCs.Model.References.Links;	using TFlex.DOCs.Model.Classes;	using TFlex.DOCs.Model.Parameters;
+namespace TFlex.DOCs.References.NomenclatureMDM
+{
+	using System;
+	using TFlex.DOCs.Model.References;
+	using TFlex.DOCs.Model.Structure;
+	using TFlex.DOCs.Model.References.Links;
+	using TFlex.DOCs.Model.Classes;
+	using TFlex.DOCs.Model.Parameters;
     using TFlex.DOCs.References.NomenclatureERP;
     using MDMEPZ.Dto.ITRP;
     using TFlex.DOCs.References.TypeTMC;
     using System.Linq;
 
-    public partial class NomenclatureITRPReferenceObject : NomenclatureMDMReferenceObject	{		public void Update(NomenclatureItrpMain nomenclatureItrp)
+    public partial class NomenclatureITRPReferenceObject : NomenclatureMDMReferenceObject
+	{
+		public void Update(NomenclatureItrpMain nomenclatureItrp)
 		{
 			this.Name.Value = nomenclatureItrp.Наименование;
 			this.NameForInput.Value = nomenclatureItrp.НаименованиеДляВвода;
@@ -84,4 +93,6 @@ namespace TFlex.DOCs.References.NomenclatureMDM{	using System;	using TFlex.DO
                     }
                 }
             }
-        }	}}
+        }
+	}
+}

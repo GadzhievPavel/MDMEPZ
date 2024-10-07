@@ -1,34 +1,43 @@
 namespace TFlex.DOCs.References.GroupFinanceNomenclature
 {
-	using System;
-	using TFlex.DOCs.Model.References;
-	using TFlex.DOCs.Model.Structure;
-	using TFlex.DOCs.Model.Classes;
-	using TFlex.DOCs.Model;
+    using System;
+    using TFlex.DOCs.Model.References;
+    using TFlex.DOCs.Model.Structure;
+    using TFlex.DOCs.Model.Classes;
+    using TFlex.DOCs.Model;
     using MDMEPZ.Dto;
     using MDMEPZ.Util;
     using MDMEPZ.Model;
     using TFlex.DOCs.Model.Search;
     using System.Linq;
+    using MDMEPZ.Exception;
 
     public partial class GroupFinanceNomenclatureReference : SpecialReference<GroupFinanceNomenclatureReferenceObject>, IFindService
-	{
-		
-		public partial class Factory
-		{
-		}
+    {
 
-		public ReferenceObject CreateReferenceObject(GroupFinanceNomenclature groupFinanceNomenclature)
-		{
-			var group = CreateReferenceObject() as GroupFinanceNomenclatureReferenceObject;
-			group.Name.Value = groupFinanceNomenclature.name;
-			group.GUID1C.Value = new Guid(groupFinanceNomenclature.guid1C);
-			return group;
-		}
+        public partial class Factory
+        {
+        }
+
+        public ReferenceObject CreateReferenceObject(GroupFinanceNomenclature groupFinanceNomenclature)
+        {
+            var group = CreateReferenceObject() as GroupFinanceNomenclatureReferenceObject;
+            group.Name.Value = groupFinanceNomenclature.name;
+            group.GUID1C.Value = new Guid(groupFinanceNomenclature.guid1C);
+            return group;
+        }
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-			return Find(Filter.Parse($"[GUID1C] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
+            try
+            {
+                return Find(Filter.Parse($"[GUID1C] = '{guid}'", this.ParameterGroup)).First();
+            }
+            catch
+            {
+                throw new ExceptionFinder($"Группа финансового учета с guid {guid} не найдена");
+            }
+
         }
 
         public ReferenceObject FindByGuid1C(Nomenclature nomenclature)

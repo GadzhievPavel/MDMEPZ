@@ -13,6 +13,7 @@ namespace TFlex.DOCs.References.GroupList
     using System.Linq;
     using MDMEPZ.Model;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class GroupListReference : SpecialReference<GroupListReferenceObject>, IFindService
     {
@@ -32,7 +33,15 @@ namespace TFlex.DOCs.References.GroupList
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'",this.ParameterGroup)).FirstOrDefault();
+            try
+            {
+                return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            }
+            catch
+            {
+                throw new ExceptionFinder($"Группа списка c guid {guid} не найдена");
+            }
+            
         }
 
         public ReferenceObject FindByGuid1C(Nomenclature product)

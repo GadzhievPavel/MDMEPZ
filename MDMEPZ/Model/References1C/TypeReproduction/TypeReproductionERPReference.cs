@@ -11,6 +11,7 @@ namespace TFlex.DOCs.References.TypeReproductionERP
     using TFlex.DOCs.Model.Search;
     using System.Linq;
     using DeveloperUtilsLibrary;
+    using MDMEPZ.Exception;
 
     public partial class TypeReproductionERPReference : SpecialReference<TypeReproductionERPReferenceObject>, IFindService
     {
@@ -29,7 +30,14 @@ namespace TFlex.DOCs.References.TypeReproductionERP
 
         public ReferenceObject FindByGuid1C(Guid guid)
         {
-            return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).FirstOrDefault();
+            try
+            {
+                return Find(Filter.Parse($"[GUID(1C)] = '{guid}'", this.ParameterGroup)).First();
+            }
+            catch
+            {
+                throw new ExceptionFinder($"тип воспроизводствва не найден {guid}"); 
+            }
         }
 
         public ReferenceObject FindByGuid1C(Nomenclature product)

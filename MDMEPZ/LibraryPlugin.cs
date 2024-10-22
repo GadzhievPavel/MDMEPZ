@@ -33,6 +33,7 @@ using TFlex.DOCs.References.NomenclatureERP;
 using TFlex.DOCs.References.Operation;
 using TFlex.DOCs.References.Performers;
 using TFlex.DOCs.References.Profession;
+using TFlex.DOCs.References.Region;
 using TFlex.DOCs.References.ReplacementERP;
 using TFlex.DOCs.References.Route;
 using TFlex.DOCs.References.SpecificationERP;
@@ -112,6 +113,7 @@ namespace MDMEPZ
             ReferenceCatalog.RegisterSpecialReference(ProfessionReference.ReferenceId, new ProfessionReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(PerformersReference.ReferenceId, new PerformersReference.Factory());
             ReferenceCatalog.RegisterSpecialReference(RankMDMReference.ReferenceId, new RankMDMReference.Factory());
+            ReferenceCatalog.RegisterSpecialReference(RegionReference.ReferenceId, new RegionReference.Factory());
         }
     }
 }

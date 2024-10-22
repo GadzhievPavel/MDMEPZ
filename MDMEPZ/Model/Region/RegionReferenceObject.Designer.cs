@@ -72,7 +72,18 @@ namespace TFlex.DOCs.References.Region
 				return ((StringParameter)(this[FieldKeys.Vladelets]));
 			}
 		}
-		
+
+		/// <summary>
+		/// Возвращает параметр "UID"
+		/// </summary>
+		public StringParameter UID
+		{
+			get
+			{
+				return ((StringParameter)(this[FieldKeys.UID]));
+			}
+		}
+
 		/// <summary>
 		/// Возвращает или задаёт связанный объект справочника "Подразделение" по связи "Связь на владельца участка MDM"
 		/// </summary>
@@ -123,6 +134,10 @@ namespace TFlex.DOCs.References.Region
 			/// Представляет уникальный идентификатор (GUID) параметра "Владелец"
 			/// </summary>
 		   public static readonly Guid Vladelets = new Guid("ca1bbe9d-06f5-47eb-ab40-571f509ff803");
+			/// <summary>
+			/// Представляет уникальный идентификатор (GUID) параметра "Владелец"
+			/// </summary>
+			public static readonly Guid UID = new Guid("0a6e36ed-0cd5-4f95-8fbe-c8fe70a988d2");
 
 		}
 		

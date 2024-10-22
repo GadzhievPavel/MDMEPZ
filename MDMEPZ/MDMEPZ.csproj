@@ -78,6 +78,7 @@
     <Compile Include="Dto\AnotherDto\Region\OwnerRegion.cs" />
     <Compile Include="Dto\AnotherDto\Region\ReferenceRegion.cs" />
     <Compile Include="Dto\AnotherDto\Region\Region.cs" />
+    <Compile Include="Dto\AnotherDto\Region\RegionMass.cs" />
     <Compile Include="Dto\ApplicationMaterials\ApplicationMaterials.cs" />
     <Compile Include="Dto\Integration\BomDto.cs" />
     <Compile Include="Dto\Connection\ConnectionNomenclatures.cs" />

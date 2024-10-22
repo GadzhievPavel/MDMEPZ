@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="DeveloperUtilsLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DeveloperUtilsLibrary\DeveloperUtilsLibrary\bin\Debug\DeveloperUtilsLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\DeveloperUtilsLibrary.dll</HintPath>
     </Reference>
     <Reference Include="LibraryMDM">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\T-FLEX DOCs 17 (MDM)\Program\LibraryMDM.dll</HintPath>
@@ -763,6 +763,22 @@
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.cs" />
     <Compile Include="Model\References1C\UnitOfMeasurement\UnitOfMeasurementTypes.designer.cs">
       <DependentUpon>UnitOfMeasurementTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region\RegionReference.cs" />
+    <Compile Include="Model\Region\RegionReference.designer.cs">
+      <DependentUpon>RegionReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region\RegionReferenceObject.cs" />
+    <Compile Include="Model\Region\RegionReferenceObject.Designer.cs">
+      <DependentUpon>RegionReferenceObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region\RegionType.cs" />
+    <Compile Include="Model\Region\RegionType.designer.cs">
+      <DependentUpon>RegionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Region\RegionTypes.cs" />
+    <Compile Include="Model\Region\RegionTypes.designer.cs">
+      <DependentUpon>RegionTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Route\RoutePointType.cs" />
     <Compile Include="Model\Route\RouteReference.cs" />

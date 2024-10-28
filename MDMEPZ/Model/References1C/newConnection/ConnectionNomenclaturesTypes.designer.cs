@@ -37,23 +37,34 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures
 				return Find(Keys.ConnectionNomenclaturesReferenceObject);
 			}
 		}
-		
+
+		/// <summary>
+		/// Возвращает описание типа объектов "Подключение номенклатурITRP"
+		/// </summary>
+		public ConnectionNomenclaturesType ConnectionNomenclaturesReferenceObjectITRP
+		{
+			get
+			{
+				return Find(Keys.ConnectionNomenclaturesReferenceObjectITRP);
+			}
+		}
+
 		protected override ConnectionNomenclaturesType CreateClassObject(Guid classGuid)
 		{
 			return new ConnectionNomenclaturesType(this);
 		}
-		
+
 		/// <summary>
 		/// Уникальные идентификаторы (GUID) типов объектов справочника "Подключение номенклатур"
 		/// </summary>
 		public class Keys
 		{
-			
+
 			/// <summary>
 			/// Представляет уникальный идентификатор (GUID) типа "Подключение номенклатур"
 			/// </summary>
-		   public static readonly Guid ConnectionNomenclaturesReferenceObject = new Guid("973161ad-f7d7-44cb-a74c-7093f8bd1faa");
-
+			public static readonly Guid ConnectionNomenclaturesReferenceObject = new Guid("973161ad-f7d7-44cb-a74c-7093f8bd1faa");
+			public static readonly Guid ConnectionNomenclaturesReferenceObjectITRP = new Guid("4469902e-a450-49c8-b17a-fd849a7565ff");
 		}
 	}
 }

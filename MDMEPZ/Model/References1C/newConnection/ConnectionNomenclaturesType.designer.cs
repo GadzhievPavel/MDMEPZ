@@ -47,5 +47,16 @@ namespace TFlex.DOCs.References.ConnectionNomenclatures
 				return IsInherit(ConnectionNomenclaturesTypes.Keys.ConnectionNomenclaturesReferenceObject);
 			}
 		}
+
+		/// <summary>
+		/// Возвращает true, если текущий экземпляр описывает тип "Подключение номенклатур ITRP" или порождён от него
+		/// </summary>
+		public bool ConnectionNomenclaturesReferenceObjectITRP
+		{
+			get
+			{
+				return IsInherit(ConnectionNomenclaturesTypes.Keys.ConnectionNomenclaturesReferenceObjectITRP);
+			}
+		}
 	}
 }
